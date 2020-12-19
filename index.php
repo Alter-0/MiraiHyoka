@@ -216,17 +216,29 @@
          </div>
          <script>
 
-            var wi =  $('.row').width();
-            console.log(wi);
-             if (wi<755){
-                    if (wi<633){
-                        $('.maybe').css('height','800px');
-                    }else {
-                        $('.maybe').css('height','900px');
-                    }
-                 var title_comment =  $('#title-comment').children();
-                 title_comment.css('font-size','18px');
-             }
+           $(window).resize(function () {
+               var wi =  $('.row').width();
+               // console.log(wi);
+               if (wi<970){
+                   if (wi<755){
+                       if (wi<633){
+                           if (wi<500){
+                               $('.maybe').css('height','750px');
+                           }else {
+                               $('.maybe').css('height','800px');
+                           }
+
+                       }else {
+                           $('.maybe').css('height','900px');
+                       }
+                       var title_comment =  $('#title-comment').children();
+                       title_comment.css('font-size','18px');
+                   }
+               }else {
+                   $('.maybe').css('height','520px');
+               }
+
+           });
              var show1 =  $('#show1');
              var show2 =  $('#show2');
              var show3 =  $('#show3');
