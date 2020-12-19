@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/jquery.js"></script>
     <script src="css/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
 </head>
 <body>
 
@@ -128,35 +129,162 @@
     <div class="maybe">
       <div class="comment">
           <ul>
-              <li>最新评论
+              <li id="new-comment">
+                  最新评论
               </li>
-              <li>经典长评</li>
-              <li>热门短评</li>
-              <li>可能想看</li>
+              <li id="class-comment">经典长评</li>
+              <li id="short-comment">热门短评</li>
+              <li id="maybe-comment">可能想看</li>
           </ul>
       </div>
      <div class="maybe-main">
-   <div class="row">
-       <div class="pic col-lg-6 col-md-6 col-sm-12 col-xs-12">
-           <img src="image/user_background.jpg" alt="hello">
-       </div>
-       <div class="show-comment col-lg-6 col-md-6 col-sm-12 col-xs-12">
-           <div class="comment-list">
-               <ul>
-                   <li>hello world</li>
-                   <li>hello world</li>
-                   <li>hello world</li>
-                   <li>hello world</li>
-                   <li>hello world</li>
-                   <li>hello world</li>
-                   <li>hello world</li>
-                   <li>hello world</li>
-               </ul>
+         <div class="row show-all-comment"  id="show1">
+           <div class="pic col-lg-6 col-md-6 col-sm-12 col-xs-12">
+               <img src="image/user_background.jpg" alt="hello">
            </div>
-       </div>
-   </div>
+           <div class="show-comment col-lg-6 col-md-6 col-sm-12 col-xs-12">
+               <div class="comment-list">
+                   <ul>
+                       <li> <span>#</span> 第一个</li>
+                       <li> <span>#</span> hello world</li>
+                       <li> <span>#</span> hello world</li>
+                       <li> <span>#</span> hello world</li>
+                       <li> <span>#</span> hello world</li>
+                       <li> <span>#</span> hello world</li>
+                       <li> <span>#</span> hello world</li>
+                       <li> <span>#</span> hello world</li>
+                   </ul>
+               </div>
+           </div>
+        </div>
+         <div class="row show-all-comment" id="show2">
+             <div class="pic col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                 <img src="image/user_background.jpg" alt="hello">
+             </div>
+             <div class="show-comment col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                 <div class="comment-list">
+                     <ul>
+                         <li> <span>#</span> 这个是第二个</li>
+                         <li> <span>#</span> hello world</li>
+                         <li> <span>#</span> hello world</li>
+                         <li> <span>#</span> hello world</li>
+                         <li> <span>#</span> hello world</li>
+                         <li> <span>#</span> hello world</li>
+                         <li> <span>#</span> hello world</li>
+                         <li> <span>#</span> hello world</li>
+                     </ul>
+                 </div>
+             </div>
+         </div>
+         <div class="row show-all-comment" id="show3">
+             <div class="pic col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                 <img src="image/user_background.jpg" alt="hello">
+             </div>
+             <div class="show-comment col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                 <div class="comment-list">
+                     <ul>
+                         <li> <span>#</span> 第三个</li>
+                         <li> <span>#</span> hello world</li>
+                         <li> <span>#</span> hello world</li>
+                         <li> <span>#</span> hello world</li>
+                         <li> <span>#</span> hello world</li>
+                         <li> <span>#</span> hello world</li>
+                         <li> <span>#</span> hello world</li>
+                         <li> <span>#</span> hello world</li>
+                     </ul>
+                 </div>
+             </div>
+         </div>
+         <div class="row show-all-comment" id="show4">
+             <div class="pic col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                 <img src="image/user_background.jpg" alt="hello">
+             </div>
+             <div class="show-comment col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                 <div class="comment-list">
+                     <ul>
+                         <li> <span>#</span> 这个是4</li>
+                         <li> <span>#</span> hello world</li>
+                         <li> <span>#</span> hello world</li>
+                         <li> <span>#</span> hello world</li>
+                         <li> <span>#</span> hello world</li>
+                         <li> <span>#</span> hello world</li>
+                         <li> <span>#</span> hello world</li>
+                         <li> <span>#</span> hello world</li>
+                     </ul>
+                 </div>
+             </div>
+         </div>
+         <script>
 
+             var show1 =  $('#show1');
+             var show2 =  $('#show2');
+             var show3 =  $('#show3');
+             var show4 =  $('#show4');
+             $('#new-comment').hover(function () {
+                 show2.css('display','none');
+                 show3.css('display','none');
+                 show4.css('display','none');
+                 show1.css('top','300px');
+                 show1.animate({top:'0',display:'block'},600);
+                 show1.css('display','block');
+             },function () {
+
+             });
+             $(document).scroll(function () {
+                 var scrolltopTemp=document.documentElement.scrollTop||document.body.scrollTop
+                 if (scrolltopTemp>900){
+                     show2.css('display','none');
+                     show3.css('display','none');
+                     show4.css('display','none');
+                     show1.css('top','300px');
+                     show1.animate({top:'0',display:'block'},600);
+                     show1.css('display','block');
+                 }
+
+             })
+             /**
+              *      <li id="new-comment">
+              最新评论
+              </li>
+              <li id="class-comment">经典长评</li>
+              <li id="short-comment">热门短评</li>
+              <li id="maybe-comment">可能想看</li>
+              */
+             $('#class-comment').hover(function () {
+                 show4.css('display','none');
+                 show3.css('display','none');
+                 show1.css('display','none');
+                 show2.css('top','300px');
+                 show2.animate({top:'0',display:'block'},600);
+                 show2.css('display','block');
+             },function () {
+
+             });
+             $('#short-comment').hover(function () {
+                 show4.css('display','none');
+                 show2.css('display','none');
+                 show1.css('display','none');
+                 show3.css('top','300px');
+                 show3.animate({top:'0',display:'block'},600);
+                 show3.css('display','block');
+             },function () {
+
+             });
+             $('#maybe-comment').hover(function () {
+                 show2.css('display','none');
+                 show3.css('display','none');
+                 show1.css('display','none');
+                 show4.css('top','300px');
+                 show4.animate({top:'0',display:'block'},600);
+                 show4.css('display','block');
+             },function () {
+
+             });
+         </script>
      </div>
+
+
+
     </div>
 <!--    展示可能看的视频-->
     <div class="maybe">
