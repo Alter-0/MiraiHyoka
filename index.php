@@ -128,7 +128,7 @@
 <!--    展示评论-->
     <div class="maybe">
       <div class="comment">
-          <ul>
+          <ul id="title-comment">
               <li id="new-comment">
                   最新评论
               </li>
@@ -138,25 +138,25 @@
           </ul>
       </div>
      <div class="maybe-main">
-         <div class="row show-all-comment"  id="show1">
-           <div class="pic col-lg-6 col-md-6 col-sm-12 col-xs-12">
-               <img src="image/user_background.jpg" alt="hello">
-           </div>
-           <div class="show-comment col-lg-6 col-md-6 col-sm-12 col-xs-12">
-               <div class="comment-list">
-                   <ul>
-                       <li> <span>#</span> 第一个</li>
-                       <li> <span>#</span> hello world</li>
-                       <li> <span>#</span> hello world</li>
-                       <li> <span>#</span> hello world</li>
-                       <li> <span>#</span> hello world</li>
-                       <li> <span>#</span> hello world</li>
-                       <li> <span>#</span> hello world</li>
-                       <li> <span>#</span> hello world</li>
-                   </ul>
-               </div>
-           </div>
-        </div>
+             <div class="row show-all-comment"  id="show1">
+                 <div class="pic col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                     <img src="image/user_background.jpg" alt="hello">
+                 </div>
+                 <div class="show-comment col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                     <div class="comment-list">
+                         <ul>
+                             <li> <span>#</span> 第一个</li>
+                             <li> <span>#</span> hello world</li>
+                             <li> <span>#</span> hello world</li>
+                             <li> <span>#</span> hello world</li>
+                             <li> <span>#</span> hello world</li>
+                             <li> <span>#</span> hello world</li>
+                             <li> <span>#</span> hello world</li>
+                             <li> <span>#</span> hello world</li>
+                         </ul>
+                     </div>
+                 </div>
+             </div>
          <div class="row show-all-comment" id="show2">
              <div class="pic col-lg-6 col-md-6 col-sm-12 col-xs-12">
                  <img src="image/user_background.jpg" alt="hello">
@@ -216,31 +216,45 @@
          </div>
          <script>
 
+            var wi =  $('.row').width();
+            console.log(wi);
+             if (wi<755){
+                    if (wi<633){
+                        $('.maybe').css('height','800px');
+                    }else {
+                        $('.maybe').css('height','900px');
+                    }
+                 var title_comment =  $('#title-comment').children();
+                 title_comment.css('font-size','18px');
+             }
              var show1 =  $('#show1');
              var show2 =  $('#show2');
              var show3 =  $('#show3');
              var show4 =  $('#show4');
              $('#new-comment').hover(function () {
+                 show1.css('top','300px');
                  show2.css('display','none');
                  show3.css('display','none');
                  show4.css('display','none');
-                 show1.css('top','300px');
                  show1.animate({top:'0',display:'block'},600);
                  show1.css('display','block');
              },function () {
 
              });
-             $(document).scroll(function () {
-                 var scrolltopTemp=document.documentElement.scrollTop||document.body.scrollTop
-                 if (scrolltopTemp>900){
-                     show2.css('display','none');
-                     show3.css('display','none');
-                     show4.css('display','none');
-                     show1.css('top','300px');
-                     show1.animate({top:'0',display:'block'},600);
-                     show1.css('display','block');
-                 }
-
+             var r=1;
+             $(function () {
+                 $(document).scroll(function () {
+                     var scrolltopTemp=document.documentElement.scrollTop||document.body.scrollTop
+                     if (scrolltopTemp>900&&r>0){
+                         show2.css('display','none');
+                         show3.css('display','none');
+                         show4.css('display','none');
+                         show1.css('top','300px');
+                         show1.animate({top:'0',display:'block'},600);
+                         show1.css('display','block');
+                         r=1;
+                     }
+                 })
              })
              /**
               *      <li id="new-comment">
@@ -287,9 +301,9 @@
 
     </div>
 <!--    展示可能看的视频-->
-    <div class="maybe">
-        <div class="maybe-main"><h1>可能喜欢</h1></div>
-    </div>
+<div class="show-video">
+
+</div>
 </div>
 <footer>
     <div class="container">
