@@ -6,7 +6,13 @@
     list-style: none;
     /*user-select: none;*/
 }
-
+a:hover{
+    list-style: none;
+    text-decoration: none;
+}
+a{
+    list-style: none;
+}
 body {
     /*background: url("../image/background.jpg") no-repeat center center fixed;*/
     /*background-size: cover;*/

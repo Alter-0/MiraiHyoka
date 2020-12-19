@@ -1,0 +1,190 @@
+.container{
+    padding-right:15px;
+    padding-left:15px;
+    margin-right:auto;
+    margin-left:auto
+}
+@media (min-width:768px){
+    .container{width:750px}
+    .comment >ul >li{
+        font-size: 14px;
+        width: 100px!important;
+    }
+    .title h2{
+        font-size: 30px!important;
+    }
+
+}
+@media (min-width:992px){
+    .container{
+        width:970px
+    }
+    .comment >ul >li{
+        font-size: 14px;
+        width: 100px!important;
+
+    }
+}
+@media (min-width:1200px){
+    .comment >ul >li{
+        font-size: 14px;
+        width: 100px!important;
+
+    }
+    .container{
+        width:1220px!important;
+    }
+}
+/*头*/
+header{
+    width: 100%;
+    height: 50px;
+    background-color: #b1e2ef;
+}
+
+/*轮播图*/
+.showli{
+    width: 100%;
+    height: 560px;
+    background-color: #ecdae2;
+}
+
+.showli  .item{
+    height: 100%;
+}
+
+.item img{
+    object-fit:cover;
+    min-width: 100%;
+    height: 100%!important;
+}
+/* 榜单部分*/
+.ranking{
+    margin: 10px 0;
+}
+.rank-content{
+    border: #e8e8e8 1px solid ;
+    text-align: center;
+    padding: 20px 20px ;
+    border-radius: 20px;
+    /*box-shadow: #efeded 2px 1px 1px 4px;*/
+    box-shadow: inset 0 1px 1px hsla(0, 0%, 100%, 0.3), inset 0 -1px 0 hsla(0, 0%, 100%, 0.1), 0 2px 4px hsla(0, 0%, 0%, 0.2);
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 100%;
+}
+.title h2{
+     text-align: center;
+    font-size: 42px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.title p{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    text-align: center;
+}
+.rank-content>h2{
+    margin: 0 auto 10px!important;
+    text-align: center!important;
+    height: 30px;
+    line-height: 30px;
+    font-size: 25px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.rank-content>ul{
+    width: 100%;
+
+}
+
+
+.rank-content>ul>li{
+    font-size: 18px;
+    color: #73c9e5;
+    text-align: left;
+    height: 40px;
+    line-height: 40px;
+}
+.rank-content>ul>li>a{
+    font-size: 18px;
+    color: #73c9e5;
+}
+.rank-content>ul>li:hover{
+    font-size: 18px;
+    color: #f09199;
+}
+.rank-content>ul>li:hover>a{
+    font-size: 18px;
+    color: #f09199;
+}
+a:hover{
+    text-decoration: none;
+}
+.rank-content>ul>li>span{
+    float: right;
+    display: inline-block;
+}
+/*展示部分*/
+.show-comment {
+    height: 100%;
+    /*background-color: #f09199;*/
+}
+
+.show-comment ul{
+
+}
+/*评论列表*/
+.comment-list >ul>li{
+    list-style: none;
+    height: 40px;
+    background-color: pink;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.maybe{
+    width: 100%;
+    height: 520px;
+    padding: 20px 0;
+    margin: 30px auto;
+}
+.comment{
+    height: 73px;
+    /*background-color: #3e8f3e;*/
+    border-bottom: 1px silver solid;
+}
+.comment >ul {
+  text-align: right;
+  padding-left: 20px;
+}
+.comment >ul >li{
+    font-size: 20px;
+    display: inline-block;
+    width: 8%;
+    line-height: 73px;
+}
+.comment >ul >li:hover{
+    font-size: 22px;
+    color: #5bc0de;
+}
+.maybe-main{
+    /*background-color: #f09199;*/
+    width: 100%;
+    /*border-radius: 10px;*/
+}
+.pic img{
+    width: 100%;
+}
+
+
+
+/*页脚*/
+footer{
+    padding: 20px 0;
+    width: 100%;
+    height: 160px;
+    background-color: #3c3c3c;
+}
+
+.foot p {
+    color: #FFFFFF;
+}

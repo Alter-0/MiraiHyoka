@@ -9,10 +9,9 @@
     <link rel="stylesheet" href="css/default.css">
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/header.css">
-    <script src="js/jquery.js">
-    </script>
-    <script src="css/bootstrap/js/bootstrap.min.js">
-    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.js"></script>
+    <script src="css/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -45,7 +44,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Controls -->
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -68,15 +66,101 @@
            </div>
        </div>
    <div class="row rank">
-       <div class="ranking col-lg-4 col-md-4 col-sm-12 col-xs-12"><div class="rankcontent"></div></div>
-       <div class="ranking col-lg-4 col-md-4 col-sm-12 col-xs-12"><div class="rankcontent"></div></div>
-       <div class="ranking col-lg-4 col-md-4 col-sm-12 col-xs-12"><div class="rankcontent"></div></div>
+       <div class="ranking col-lg-4 col-md-4 col-sm-12 col-xs-12">
+           <div class="rank-content">
+               <h2>国产自拍</h2>
+               <ul>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+               </ul>
+           </div>
+       </div>
+       <div class="ranking col-lg-4 col-md-4 col-sm-12 col-xs-12">
+           <div class="rank-content">
+               <h2>日韩电影</h2>
+               <ul>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+               </ul>
+           </div>
+       </div>
+       <div class="ranking col-lg-4 col-md-4 col-sm-12 col-xs-12">
+           <div class="rank-content">
+               <h2>欧美精品</h2>
+               <ul>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+               </ul>
+           </div>
+       </div>
    </div>
+<!--    展示评论-->
     <div class="maybe">
-     <div class="maybe-main"></div>
+      <div class="comment">
+          <ul>
+              <li>最新评论
+              </li>
+              <li>经典长评</li>
+              <li>热门短评</li>
+              <li>可能想看</li>
+          </ul>
+      </div>
+     <div class="maybe-main">
+   <div class="row">
+       <div class="pic col-lg-6 col-md-6 col-sm-12 col-xs-12">
+           <img src="image/user_background.jpg" alt="hello">
+       </div>
+       <div class="show-comment col-lg-6 col-md-6 col-sm-12 col-xs-12">
+           <div class="comment-list">
+               <ul>
+                   <li>hello world</li>
+                   <li>hello world</li>
+                   <li>hello world</li>
+                   <li>hello world</li>
+                   <li>hello world</li>
+                   <li>hello world</li>
+                   <li>hello world</li>
+                   <li>hello world</li>
+               </ul>
+           </div>
+       </div>
+   </div>
+
+     </div>
     </div>
+<!--    展示可能看的视频-->
     <div class="maybe">
-        <div class="maybe-main"></div>
+        <div class="maybe-main"><h1>可能喜欢</h1></div>
     </div>
 </div>
 <footer>
