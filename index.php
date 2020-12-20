@@ -15,8 +15,68 @@
     <script src="js/index.js"></script>
 </head>
 <body>
+<header>
+    <div style="padding: 0" class="container">
+        <div class="dis">
+            <div class="logo"><img src="image/logo.png" alt=""></div>
+        </div>
+        <div class="dis">
+            <div class="navli">
+                <ul class="hidden-lg hidden-md">
+                    <li ><a href="#">
+                            <span id="span6" class="ul-span">菜单</span></a></li>
+                </ul>
+                <ul class="hidden-sm hidden-xs">
+                    <li><a href="#"><span id="span1" class="ul-span">动画</span></a></li>
+                    <li><a href="#"><span class="ul-span">书籍</span></a></li>
+                    <li><a href="#"><span class="ul-span">音乐</span></a></li>
+                    <li><a href="#"><span class="ul-span">游戏</span></a></li>
+                    <li><a href="#"><span id="span5" class="ul-span">三次元</span></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#">hello</a></li>
+                    <li><a href="#">hello</a></li>
+                    <li><a href="#">hello</a></li>
+                    <li><a href="#">hello</a></li>
+                    <li><a href="#">hello</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="dis hidden-xs hidden-sm">
+            <div class="inner">
+                <input type="text">
+            </div>
+        </div>
+        <div id="user-login" class="dis">
+            <div class="login">
+                <a href="user/login.html">
+                    <span id="login" class="reg" style="padding: 0 5px 0 15px">登录</span>
+                </a>
+                <a href="user/user.php">
+                    <span id="reg" class="reg" style="padding:0 15px 0 5px">注册</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="menu" id="menu">
 
-<?php  include "header.php";?>
+    </div>
+</header>
+<script>
+    var i = 0;
+    var $menu = $('#menu');
+    $('#span6').click(function () {
+        if (i==0){
+            $menu.slideDown(300);
+            i++;
+            $(this).html('关闭');
+            // $(this).append("关闭");
+        }else {
+            $menu.slideUp(300);
+            i--;
+            $(this).html('菜单');
+        }
+    });
+</script>
     <div id="carousel-example-generic" class="showli carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -215,7 +275,28 @@
              </div>
          </div>
          <script>
+            $(document).ready(function () {
+                var wi =  $('.row').width();
+                // console.log(wi);
+                if (wi<970){
+                    if (wi<755){
+                        if (wi<633){
+                            if (wi<500){
+                                $('.maybe').css('height','750px');
+                            }else {
+                                $('.maybe').css('height','800px');
+                            }
 
+                        }else {
+                            $('.maybe').css('height','900px');
+                        }
+                        var title_comment =  $('#title-comment').children();
+                        title_comment.css('font-size','18px');
+                    }
+                }else {
+                    $('.maybe').css('height','520px');
+                }
+            })
            $(window).resize(function () {
                var wi =  $('.row').width();
                // console.log(wi);
@@ -261,8 +342,8 @@
                          show2.css('display','none');
                          show3.css('display','none');
                          show4.css('display','none');
-                         show1.css('top','300px');
-                         show1.animate({top:'0',display:'block'},600);
+                         show1.css({top:'300px',opacity:'0'});
+                         show1.animate({top:'0',display:'block',opacity:'1'},600);
                          show1.css('display','block');
                          r=1;
                      }
@@ -276,12 +357,14 @@
               <li id="short-comment">热门短评</li>
               <li id="maybe-comment">可能想看</li>
               */
+
              $('#class-comment').hover(function () {
                  show4.css('display','none');
                  show3.css('display','none');
                  show1.css('display','none');
                  show2.css('top','300px');
-                 show2.animate({top:'0',display:'block'},600);
+                 show2.css('opacity','0');
+                 show2.animate({top:'0',display:'block',opacity:'1'},600);
                  show2.css('display','block');
              },function () {
 
@@ -291,7 +374,7 @@
                  show2.css('display','none');
                  show1.css('display','none');
                  show3.css('top','300px');
-                 show3.animate({top:'0',display:'block'},600);
+                 show3.animate({top:'0',display:'block',opacity:'1'},600);
                  show3.css('display','block');
              },function () {
 
@@ -301,7 +384,7 @@
                  show3.css('display','none');
                  show1.css('display','none');
                  show4.css('top','300px');
-                 show4.animate({top:'0',display:'block'},600);
+                 show4.animate({top:'0',display:'block',opacity:'1'},600);
                  show4.css('display','block');
              },function () {
 
@@ -310,12 +393,82 @@
      </div>
 
 
-
     </div>
 <!--    展示可能看的视频-->
-<div class="show-video">
+    <div class="show-video">
+        <h2># 猜你想看</h2>
+         <div class="row">
+             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                 <div class="maybe-video">
+                     <div class="img">
+                       <img src="image/huiye.jpeg" alt="">
+                     </div>
+                     <div class="word">
+                         <h3 class="video-h3">辉夜大小姐想让我告白，天才的恋爱头脑战</h3>
+                         <p>
+                             因为喜欢着她的你的背影，实在太过耀眼；
+                             因为喜欢着他的你的侧脸，美得无法形容。
+                         </p>
+                     </div>
+                 </div> 
+             </div>
+             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                 <div class="maybe-video">
+                     <div class="img right-img" >
+                         <img src="image/huiye.jpeg" alt="">
+                     </div>
+                     <div class="word" style="left: 0">
+                         <h3 class="video-h3">辉夜大小姐想让我告白，天才的恋爱头脑战</h3>
+                         <p>
+                             因为喜欢着她的你的背影，实在太过耀眼；
+                             因为喜欢着他的你的侧脸，美得无法形容。
+                         </p>
+                     </div>
+                 </div>
+             </div>
+             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                 <div class="maybe-video">
+                     <div class="img">
+                         <img src="image/huiye.jpeg" alt="">
+                     </div>
+                     <div class="word">
+                         <h3 class="video-h3">辉夜大小姐想让我告白，天才的恋爱头脑战</h3>
+                         <p>
+                             因为喜欢着她的你的背影，实在太过耀眼；
+                             因为喜欢着他的你的侧脸，美得无法形容。
+                         </p>
+                     </div>
+                 </div>
+             </div>
+             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                 <div class="maybe-video">
+                     <div class="img right-img">
+                         <img src="image/huiye.jpeg" alt="">
+                     </div>
+                     <div class="word" style="left: 0">
+                         <h3 class="video-h3">辉夜大小姐想让我告白，天才的恋爱头脑战</h3>
+                         <p>
+                             因为喜欢着她的你的背影，实在太过耀眼；
 
-</div>
+                         </p>
+                         <p>
+                             因为喜欢着他的你的侧脸，美得无法形容。
+                         </p>
+                     </div>
+                 </div>
+             </div>
+             <script>
+                 $(window).resize(function () {
+                     var wi =  $('.row').width();
+                     if (wi<972){
+                         $('.video-h3').css('font-size','17px');
+                     }else {
+                         $('.video-h3').css('font-size','21px');
+                     }
+                 });
+             </script>
+         </div>
+    </div>
 </div>
 <footer>
     <div class="container">

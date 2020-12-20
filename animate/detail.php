@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <script src="../js/jquery.js"></script>
-
     <!-- 引用部分@blueberry -->
     <script src="../js/main.js"></script>
     <!-- 引用部分@blueberry -->
      <link href="font/style.css" rel="stylesheet"/>
     <meta charset="UTF-8" name="referrer" content="never">
-
     <title><?php
         echo "番名"
         ?>_番剧点评_MiraiHyoka</title>
@@ -72,13 +70,12 @@
             vertical-align: center;
             width: 80%;
             height: 390px;
-            margin: 0px auto;
+            margin: 0 auto;
             display: table;
             position: absolute;
             top: 50px;
             left: 50%;
             transform: translate(-50%, 0%);
-
         }
 
         .fjimg {
@@ -159,15 +156,13 @@
         }
 
         .count .plays {
-            max-width: 76px;
+
+            padding-right: 20px;            max-width: 76px;
             width: 76px;
             text-indent: 0;
             border-right: 1px solid #ffffff;
             display: block;
             float: left;
-            padding-right: 20px;
-
-
         }
 
         .count .plays span {
@@ -587,8 +582,6 @@
     </style>
     <!--下面是圆形分数显示条的css-->
     <style>
-
-
         .bg {
             width: 200px;
             height: 200px;
@@ -729,11 +722,14 @@
             }
         }
     </script>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
 </head>
 <body>
+<?php include "../header.php"?>
+<div style="height: 50px"></div>
 <div class="all">
     <div class="main">
-        <iframe src="../header.php" class="header" scrolling="no"></iframe>
         <div class="top">
             <div class="nei">
                 <!--  fgimg放番剧展示图 -->
