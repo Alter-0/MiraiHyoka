@@ -310,11 +310,16 @@
      </div>
 
 
-
     </div>
 <!--    展示可能看的视频-->
 <div class="show-video">
-
+         <div class="row">
+             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                 <div class="maybe-video">
+                     <img src="" alt="">
+                 </div> 
+             </div>
+         </div>
 </div>
 </div>
 <footer>
