@@ -1,0 +1,205 @@
+@charset "utf-8";
+
+* {margin: 0;padding: 0;border: 0;list-style: none;}
+a{
+    text-decoration: none;
+    color: #000;
+}
+a:visited{
+    color: #000;
+}
+
+/*top*/
+.top{
+    width: 100%;
+    height: 50px;
+    position: relative;
+}
+.top iframe{
+    width: 100%;
+    height:50px;
+    position: relative;
+    z-index: 1000;
+    background: #E70003
+}
+
+/*.img1{*/
+/*    width: 100%;*/
+/*    height: 200px;*/
+/*    background: #3E10F2;*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*}*/
+/*.img1 img{*/
+/*    width: 100%;*/
+/*    height: auto;*/
+/*    min-width: 100%;*/
+/*    min-height: 100%*/
+/*}*/
+
+/*search*/
+.search{
+    width: 80%;
+    height:auto;
+    margin: 100px auto;
+    position: relative;
+    border: 1px solid #b8b6b6;
+    border-radius: 15px ;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 20px 5px #b8b6b6;
+    outline: none;
+}
+    /*没有搜索内容*/
+.img_no{
+    display: inline-block;
+    /*height:754px;*/
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*transform: translate(-50%,-50%);*/
+    filter: blur(20px) brightness(50%);
+    z-index: -100;
+}
+.search .no{
+    height: 400px;
+    width: 100%;
+    border: 1px solid #b8b6b6;
+    border-radius: 15px ;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 20px 5px #b8b6b6;
+    background: url("img/bg1.png")  center no-repeat;
+    background-size:cover;
+    /*opacity: 0.8;*/
+}
+.search_box_n{
+    width: 40%;
+    height: 40px;
+    padding-left: 40px;
+    line-height: 40px;
+    border: 1px solid #b8b6b6;
+    border-radius: 15px;
+    /*box-sizing: border-box;*/
+    /*box-shadow: 5px 5px 20px 5px #b8b6b6;*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    font-size: 16px;
+    outline: none;
+    background: rgba(255,255,255,0.8);
+}
+.btn_n{
+    position: absolute;
+    width: 15%;
+    height: 30px;
+    top: 70%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    text-align: center;
+    line-height: 30px;
+    border: 1px solid #b8b6b6;
+    border-radius: 15px;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 20px 5px #b8b6b6;
+    font-weight: bold;
+    color: black;
+    outline: none;
+}
+.btn_n:hover{
+    background: #a19e9e;
+}
+    /*有搜索内容*/
+.search .yes{
+    width: 100%;
+    height: 80px;
+    margin-top: 20px;
+    /*border: 1px solid #b8b6b6;*/
+    /*border-radius: 15px;*/
+    /*box-sizing: border-box;*/
+    /*box-shadow: 5px 5px 20px 5px #b8b6b6;*/
+}
+.search .search_box_top{
+    width: 50%;
+    height: 40px;
+    margin: 20px auto;
+}
+.search .search_box_y{
+    width: 80%;
+    height: 40px;
+    float: left;
+    padding-left: 35px;
+    line-height: 40px;
+    border: 1px solid #b8b6b6;
+    border-radius: 15px 0 0 15px;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 20px 5px #b8b6b6;
+    background: url("img/search.png")10px 7px no-repeat;
+    outline: none;
+}
+.search .btn_y{
+    width: 20%;
+    height: 40px;
+    float: left;
+    margin-left: 0;
+    border: 1px solid #b8b6b6;
+    border-radius: 0 15px 15px 0;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 20px 5px #b8b6b6;
+    outline: none;
+}
+.search .search_content{
+    width: 80%;
+    height: 1000px;
+    margin: 30px auto 30px auto;
+}
+.search .search_content li{
+    width: 100%;
+    height: 200px;
+    border: 1px solid #eee7e7;
+    overflow: hidden;
+}
+.search .search_content li .s_c_left{
+    width: 20%;
+    height: 200px;
+    float: left;
+}
+.search .search_content li .s_c_left img{
+    width: 100%;
+    height: 100%;
+    max-width: 150px;
+    max-height: 200px;
+    margin-left: 0;
+    object-fit: cover;
+}
+.search .search_content li .s_c_right{
+    width: 80%;
+    height: 200px;
+    float: left;
+    /*text-overflow: ellipsis;*/
+}
+.search .search_content li .s_c_right div:nth-child(1){
+    width: 100%;
+    height: 80px;
+    margin-top: 20px;
+    font-size: 30px;
+    /*保证字体不会被隐藏*/
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;    /* 指定行数*/
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.search .search_content li .s_c_right div:nth-child(2),.search .search_content li .s_c_right div:nth-child(3){
+    margin-top: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/*search end*/
+
+
+
+/*.bottom{*/
+/*    height: 165px;*/
+/*    width: 100%;*/
+/*}*/
