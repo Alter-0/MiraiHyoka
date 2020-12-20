@@ -27,17 +27,86 @@
                             <span id="span6" class="ul-span">菜单</span></a></li>
                 </ul>
                 <ul class="hidden-sm hidden-xs">
-                    <li><a href="#"><span id="span1" class="ul-span">动画</span></a></li>
-                    <li><a href="#"><span class="ul-span">书籍</span></a></li>
-                    <li><a href="#"><span class="ul-span">音乐</span></a></li>
-                    <li><a href="#"><span class="ul-span">游戏</span></a></li>
-                    <li><a href="#"><span id="span5" class="ul-span">三次元</span></a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"><span id="span7" class="ul-span2">人物</span></a></li>
-                    <li><a href="#"><span class="ul-span2">小组</span></a></li>
-                    <li><a href="#"><span class="ul-span2">展开</span></a></li>
-                    <li><a href="#"><span class="ul-span2">探索</span></a></li>
-                    <li><a href="#"><span id="span-img" class="ul-span2"><img src="image/new_banner1.png" alt="照片"></span></a></li>
+                    <li class="out-li"><a href="#"><span id="span1" class="ul-span">动画</span></a>
+                        <ul>
+                            <li><a href="#">hello</a></li>
+                            <li><a href="#">hello</a></li>
+                            <li><a href="#">hello</a></li>
+                            <li><a href="#">hello</a></li>
+                        </ul>
+                    </li>
+                    <li class="out-li">
+                        <a href="#">
+                            <span class="ul-span">书籍</span>
+                        </a>
+                           <ul>
+                               <li><a href="#">hello world</a></li>
+                               <li><a href="#">hello world</a></li>
+                               <li><a href="#">hello world</a></li>
+                               <li><a href="#">hello world</a></li>
+                           </ul>
+                    </li>
+                    <li class="out-li">
+                        <a href="#">
+                            <span class="ul-span">音乐</span>
+                        </a>
+                        <ul>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                        </ul>
+                    </li>
+                    <li class="out-li"><a href="#"><span class="ul-span">游戏</span></a>
+                        <ul>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                        </ul>
+                    </li>
+                    <li class="out-li"><a href="#"><span id="span5" class="ul-span">三次元</span></a>
+                        <ul>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                        </ul>
+                    </li>
+                    <li class="out-li"><a href="#"></a></li>
+                    <li class="out-li"><a href="#"><span id="span7" class="ul-span2">人物</span></a>
+                        <ul>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                        </ul>
+                    </li>
+                    <li class="out-li"><a href="#"><span class="ul-span2">小组</span></a>
+                        <ul>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                        </ul>
+                    </li>
+                    <li class="out-li"><a href="#"><span class="ul-span2">展开</span></a>
+                        <ul>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                        </ul>
+                    </li>
+                    <li class="out-li"><a href="#"><span class="ul-span2">探索</span></a>
+                        <ul>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                        </ul>
+                    </li>
+                    <li ><a href="#"><span id="span-img" class="ul-span2"><img src="image/new_banner1.png" alt="照片"></span></a></li>
                 </ul>
             </div>
         </div>
@@ -55,7 +124,7 @@
                             <option value="person">人物</option>
                         </select>
                         <input id="search_text" name="search_text" class="textfield sec" type="text">
-                        <input type="submit" name="submit" value="搜索" class="sec" id="search_btn">
+                        <input type="submit" name="submit"  class="sec" id="search_btn" value="">
                     </div>
                 </form>
             </div>
@@ -72,23 +141,23 @@
     <div class="menu" id="menu">
 
     </div>
+    <script>
+        var i = 0;
+        var $menu = $('#menu');
+        $('#span6').click(function () {
+            if (i==0){
+                $menu.slideDown(300);
+                i++;
+                $(this).html('关闭');
+            }else {
+                $menu.slideUp(300);
+                i--;
+                $(this).html('菜单');
+            }
+        });
+    </script>
 </header>
-<script>
-    var i = 0;
-    var $menu = $('#menu');
-    $('#span6').click(function () {
-        if (i==0){
-            $menu.slideDown(300);
-            i++;
-            $(this).html('关闭');
-            // $(this).append("关闭");
-        }else {
-            $menu.slideUp(300);
-            i--;
-            $(this).html('菜单');
-        }
-    });
-</script>
+
     <div id="carousel-example-generic" class="showli carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
