@@ -28,6 +28,7 @@ a:link{ text-decoration: none;}
 #user-login{
     float: right;
 }
+
 .logo{
     height: 50px;
     /*background-color: #3c3c3c;*/
@@ -51,7 +52,6 @@ a:link{ text-decoration: none;}
     height: 50px;
 }
 .ul-span{
-
     text-align: center;
     vertical-align: center;
     font-weight: bold;
@@ -65,14 +65,88 @@ a:link{ text-decoration: none;}
     padding: 5px 0;
     display: block;
 }
+.out-li{
+
+        position: relative;
+}
+.out-li>ul{
+    padding-top: 10px;
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    margin-left: 10px;
+    z-index: 888;
+    width: 118px;
+    padding-bottom: 15px;
+    background-color: #ffffff;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: inset 0 1px 1px hsla(0, 0%, 100%, 0.3), inset 0 -1px 0 hsla(0, 0%, 100%, 0.1), 0 2px 4px hsla(0, 0%, 0%, 0.2);
+    -webkit-box-shadow: inset 0 1px 1px hsla(0, 0%, 100%, 0.3), inset 0 -1px 0 hsla(0, 0%, 100%, 0.1), 0 2px 4px hsla(0, 0%, 0%, 0.2);
+    box-shadow: inset 0 1px 1px hsla(0, 0%, 100%, 0.3), inset 0 -1px 0 hsla(0, 0%, 100%, 0.1), 0 2px 4px hsla(0, 0%, 0%, 0.2);
+}
+a:hover{
+    text-decoration: none!important;
+}
+a:link{
+    text-decoration: none!important;
+}
+.out-li>ul>li{
+    text-align: center;
+
+}
+.out-li>ul>a{
+    font-size: 12px;
+   color: #0187c5;
+    /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+    font-family: 宋体, serif;
+
+}
+.out-li>ul>li:hover{
+    color: #FFFFFF;
+    background-color: #0187c5;
+}
+.out-li>ul>li:hover>a{
+    color: #FFFFFF;
+    background-color: #0187c5;
+}
+.out-li:hover>ul{
+ display: block;
+}
+.ul-span>ul>li{
+    width: 100%;
+    background-color: #b2dba1;
+}
 .ul-span:hover{
     background-color: #faa1a1;
     color: #ffffff;
-}
-.search{
-    width: 202px;
 
 }
+.ul-span2{
+    display: inline-block;
+    color: #777777;
+    line-height: 50px;
+    height: 50px;
+    padding: 0 5px;
+}
+.ul-span2:hover{
+ border-top: 1px solid #5bc0de;
+}
+#span-img{
+    height: 50px;
+    width: 80px;
+}
+#span-img img{
+    height: 50px;
+    width: 80px;
+}
+#span7{
+margin-left: 20px;
+}
+
+
 #span6{
     border-radius: 30px;
     padding: 8px 10px;
@@ -87,12 +161,87 @@ a:link{ text-decoration: none;}
     border-bottom-right-radius: 30px;
     padding-right: 10px;
 }
-.inner{
-    height: 100%;
+
+/*搜索框*/
+.search{
+    float: left;
+    /*background-color: #f09199;*/
+    width: 202px;
+    height: 50px;
 }
-
-
+.inner{
+    padding-right: 40px;
+    position: relative;
+    border-radius: 100px;
+    margin-top: 10px;
+    height: 30px;
+    width: 100%;
+    /*background-color: #b2dba1;*/
+}
+#siteSearchSelect{
+    border: silver 1px solid;
+    border-right: #FFFFFF;
+    border-radius: 100px 0 0 100px ;
+    padding: 0 10px;
+    text-align: center;
+    outline: #FFFFFF;
+    height: 100%;
+    width: 50px;
+    color: #777777;
+    font-size: 12px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#search_text{
+    padding-left: 5px;
+    font-size: 12px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #777777;
+    position: absolute;
+    top: 0;
+    height: 30px;
+    width: 120px;
+    left: 50px;
+    outline: #FFFFFF;
+    border: silver 1px solid;
+    border-right: #FFFFFF!important;
+}
+#search_btn{
+    outline: #FFFFFF;
+    width: 30px;
+    background: url("../image/search.png") no-repeat center center;
+    position: absolute;
+    top: 0;
+    left: 170px;
+    height: 30px;
+    line-height: 30px;
+    border-left: #FFFFFF!important;
+    border: silver 1px solid;
+    border-radius: 0  100px  100px 0;
+    font-size: 12px;
+    background-color: #FFFFFF;
+}
+select {
+    /*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+    border: solid 1px #000;
+    /*很关键：将默认的select选择框样式清除*/
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    /*在选择框的最右侧中间显示小箭头图片*/
+    background: url("http://ourjs.github.io/static/2015/arrow.png") no-repeat scroll rightright center transparent;
+    /*为下拉小箭头留出一点位置，避免被文字覆盖*/
+    padding-right: 14px;
+}
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+select::-ms-expand {
+    display: none;
+}
+/*登录框*/
 .login{
+    float: right;
+    display: inline-block;
     margin-top: 10px;
     color: #fff;
     height: 30px;
@@ -119,6 +268,7 @@ a:link{ text-decoration: none;}
 
 
 .menu{
+    z-index: 999;
     top: 50px;
     left: 0;
     position: absolute;

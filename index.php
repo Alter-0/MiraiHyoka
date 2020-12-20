@@ -27,26 +27,107 @@
                             <span id="span6" class="ul-span">菜单</span></a></li>
                 </ul>
                 <ul class="hidden-sm hidden-xs">
-                    <li><a href="#"><span id="span1" class="ul-span">动画</span></a></li>
-                    <li><a href="#"><span class="ul-span">书籍</span></a></li>
-                    <li><a href="#"><span class="ul-span">音乐</span></a></li>
-                    <li><a href="#"><span class="ul-span">游戏</span></a></li>
-                    <li><a href="#"><span id="span5" class="ul-span">三次元</span></a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#">hello</a></li>
-                    <li><a href="#">hello</a></li>
-                    <li><a href="#">hello</a></li>
-                    <li><a href="#">hello</a></li>
-                    <li><a href="#">hello</a></li>
+                    <li class="out-li"><a href="#"><span id="span1" class="ul-span">动画</span></a>
+                        <ul>
+                            <li><a href="#">hello</a></li>
+                            <li><a href="#">hello</a></li>
+                            <li><a href="#">hello</a></li>
+                            <li><a href="#">hello</a></li>
+                        </ul>
+                    </li>
+                    <li class="out-li">
+                        <a href="#">
+                            <span class="ul-span">书籍</span>
+                        </a>
+                           <ul>
+                               <li><a href="#">hello world</a></li>
+                               <li><a href="#">hello world</a></li>
+                               <li><a href="#">hello world</a></li>
+                               <li><a href="#">hello world</a></li>
+                           </ul>
+                    </li>
+                    <li class="out-li">
+                        <a href="#">
+                            <span class="ul-span">音乐</span>
+                        </a>
+                        <ul>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                        </ul>
+                    </li>
+                    <li class="out-li"><a href="#"><span class="ul-span">游戏</span></a>
+                        <ul>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                        </ul>
+                    </li>
+                    <li class="out-li"><a href="#"><span id="span5" class="ul-span">三次元</span></a>
+                        <ul>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                        </ul>
+                    </li>
+                    <li class="out-li"><a href="#"></a></li>
+                    <li class="out-li"><a href="#"><span id="span7" class="ul-span2">人物</span></a>
+                        <ul>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                        </ul>
+                    </li>
+                    <li class="out-li"><a href="#"><span class="ul-span2">小组</span></a>
+                        <ul>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                        </ul>
+                    </li>
+                    <li class="out-li"><a href="#"><span class="ul-span2">展开</span></a>
+                        <ul>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                        </ul>
+                    </li>
+                    <li class="out-li"><a href="#"><span class="ul-span2">探索</span></a>
+                        <ul>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                            <li><a href="#">hello world</a></li>
+                        </ul>
+                    </li>
+                    <li ><a href="#"><span id="span-img" class="ul-span2"><img src="#image/new_banner1.png" alt="照片"></span></a></li>
                 </ul>
             </div>
         </div>
-        <div class="dis hidden-xs hidden-sm">
-            <div class="inner">
-                <input type="text">
-            </div>
-        </div>
         <div id="user-login" class="dis">
+            <div class="search hidden-sm hidden-xs">
+                <form action="#" method="post">
+                    <div class="inner">
+                        <select name="cat" id="siteSearchSelect">
+                            <option value="all">全部</option>
+                            <option value="2">动画</option>
+                            <option value="1" selected="selected">书籍</option>
+                            <option value="4">游戏</option>
+                            <option value="3">音乐</option>
+                            <option value="6">三次元</option>
+                            <option value="person">人物</option>
+                        </select>
+                        <input id="search_text" name="search_text" class="textfield sec" type="text">
+                        <input type="submit" name="submit"  class="sec" id="search_btn" value="">
+                    </div>
+                </form>
+            </div>
             <div class="login">
                 <a href="user/login.html">
                     <span id="login" class="reg" style="padding: 0 5px 0 15px">登录</span>
@@ -69,7 +150,6 @@
             $menu.slideDown(300);
             i++;
             $(this).html('关闭');
-            // $(this).append("关闭");
         }else {
             $menu.slideUp(300);
             i--;
@@ -198,25 +278,25 @@
           </ul>
       </div>
      <div class="maybe-main">
-             <div class="row show-all-comment"  id="show1">
-                 <div class="pic col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                     <img src="image/user_background.jpg" alt="hello">
-                 </div>
-                 <div class="show-comment col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                     <div class="comment-list">
-                         <ul>
-                             <li> <span>#</span> 第一个</li>
-                             <li> <span>#</span> hello world</li>
-                             <li> <span>#</span> hello world</li>
-                             <li> <span>#</span> hello world</li>
-                             <li> <span>#</span> hello world</li>
-                             <li> <span>#</span> hello world</li>
-                             <li> <span>#</span> hello world</li>
-                             <li> <span>#</span> hello world</li>
-                         </ul>
-                     </div>
+         <div class="row show-all-comment" id="show1">
+             <div class="pic col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                 <img src="image/user_background.jpg" alt="hello">
+             </div>
+             <div class="show-comment col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                 <div class="comment-list">
+                     <ul>
+                         <li> <span>#</span> 这个是第1个</li>
+                         <li> <span>#</span> hello world</li>
+                         <li> <span>#</span> hello world</li>
+                         <li> <span>#</span> hello world</li>
+                         <li> <span>#</span> hello world</li>
+                         <li> <span>#</span> hello world</li>
+                         <li> <span>#</span> hello world</li>
+                         <li> <span>#</span> hello world</li>
+                     </ul>
                  </div>
              </div>
+         </div>
          <div class="row show-all-comment" id="show2">
              <div class="pic col-lg-6 col-md-6 col-sm-12 col-xs-12">
                  <img src="image/user_background.jpg" alt="hello">
@@ -325,11 +405,11 @@
              var show3 =  $('#show3');
              var show4 =  $('#show4');
              $('#new-comment').hover(function () {
-                 show1.css('top','300px');
                  show2.css('display','none');
                  show3.css('display','none');
                  show4.css('display','none');
-                 show1.animate({top:'0',display:'block'},600);
+                 show1.css({top:'300px',opacity:'0'});
+                 show1.animate({top:'0',display:'block',opacity:'1'},600);
                  show1.css('display','block');
              },function () {
 
@@ -342,8 +422,7 @@
                          show2.css('display','none');
                          show3.css('display','none');
                          show4.css('display','none');
-                         show1.css({top:'300px',opacity:'0'});
-                         show1.animate({top:'0',display:'block',opacity:'1'},600);
+                         show1.css('top','300px');
                          show1.css('display','block');
                          r=1;
                      }
