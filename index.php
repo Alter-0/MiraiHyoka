@@ -106,12 +106,12 @@
                             <li><a href="#">hello world</a></li>
                         </ul>
                     </li>
-                    <li ><a href="#"><span id="span-img" class="ul-span2"><img src="image/new_banner1.png" alt="照片"></span></a></li>
+                    <li ><a href="#"><span id="span-img" class="ul-span2"><img src="#image/new_banner1.png" alt="照片"></span></a></li>
                 </ul>
             </div>
         </div>
         <div id="user-login" class="dis">
-            <div class="search">
+            <div class="search hidden-sm hidden-xs">
                 <form action="#" method="post">
                     <div class="inner">
                         <select name="cat" id="siteSearchSelect">
@@ -141,23 +141,22 @@
     <div class="menu" id="menu">
 
     </div>
-    <script>
-        var i = 0;
-        var $menu = $('#menu');
-        $('#span6').click(function () {
-            if (i==0){
-                $menu.slideDown(300);
-                i++;
-                $(this).html('关闭');
-            }else {
-                $menu.slideUp(300);
-                i--;
-                $(this).html('菜单');
-            }
-        });
-    </script>
 </header>
-
+<script>
+    var i = 0;
+    var $menu = $('#menu');
+    $('#span6').click(function () {
+        if (i==0){
+            $menu.slideDown(300);
+            i++;
+            $(this).html('关闭');
+        }else {
+            $menu.slideUp(300);
+            i--;
+            $(this).html('菜单');
+        }
+    });
+</script>
     <div id="carousel-example-generic" class="showli carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">

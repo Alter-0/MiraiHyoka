@@ -268,11 +268,12 @@ select::-ms-expand {
 
 
 .menu{
+    z-index: 999;
     top: 50px;
     left: 0;
     position: absolute;
     display: none;
-    /*background-color: #f09199;*/
+    background-color: #f09199;
     width: 100%;
     height: 200px;
 }
