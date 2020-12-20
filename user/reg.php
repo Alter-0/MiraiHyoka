@@ -4,33 +4,35 @@
     <meta charset="UTF-8">
     <title>注册</title>
 </head>
-<?php session_start();?>
+<?php session_start(); ?>
 <style>
-    *{
+    * {
         margin: 0;
         padding: 0;
         border: 0;
         list-style: none;
     }
-    body{
+
+    body {
         display: flex;
         flex-direction: column;
-        background-attachment:fixed;
+        background-attachment: fixed;
         background-image: url(../image/background.jpg);
         background-size: cover;
     }
-    .content{
-        width:100%;
+
+    .content {
+        width: 100%;
         height: auto;
         margin-bottom: 100px;
     }
 
-    .left{
+    .left {
         width: 30%;
         height: 500px;
         float: left;
         display: inline-block;
-        background: url("../image/user_background.jpg") ;
+        background: url("../image/user_background.jpg");
         background-size: cover;
         box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
         border-radius: 15px;
@@ -38,7 +40,8 @@
         margin-top: 20px;
         margin-bottom: 20px;
     }
-    .right{
+
+    .right {
         width: 40%;
         height: 500px;
         display: inline-block;
@@ -47,10 +50,12 @@
         position: relative;
 
     }
-    form{
+
+    form {
         margin-left: 30px;
     }
-    p{
+
+    p {
         font-size: 40px;
         color: #6cc4ff;
         font-family: 微软雅黑;
@@ -58,7 +63,8 @@
         margin-left: 40px;
         margin-top: 0;
     }
-    #username{
+
+    #username {
         border: 1px solid #d9d9d9;
         box-sizing: border-box;
         border-radius: 4px;
@@ -70,7 +76,8 @@
         margin-bottom: 24px;
         display: block;
     }
-    #password{
+
+    #password {
         border: 1px solid #d9d9d9;
         box-sizing: border-box;
         border-radius: 4px;
@@ -82,7 +89,8 @@
         display: block;
         padding-left: 30px;
     }
-    #repassword{
+
+    #repassword {
         border: 1px solid #d9d9d9;
         box-sizing: border-box;
         border-radius: 4px;
@@ -94,7 +102,8 @@
         display: block;
         padding-left: 30px;
     }
-    #email{
+
+    #email {
         border: 1px solid #d9d9d9;
         box-sizing: border-box;
         border-radius: 4px;
@@ -106,7 +115,8 @@
         display: block;
         padding-left: 30px;
     }
-    #checknum{
+
+    #checknum {
         border: 1px solid #d9d9d9;
         box-sizing: border-box;
         border-radius: 4px;
@@ -118,7 +128,8 @@
         display: block;
         padding-left: 30px;
     }
-    #submit{
+
+    #submit {
         border: 1px solid #d9d9d9;
         box-sizing: border-box;
         border-radius: 4px;
@@ -131,14 +142,15 @@
         margin-top: 20px;
     }
 
-    .top{
+    .top {
         width: 100%;
         height: 200px;
         position: relative;
     }
-    .top iframe{
+
+    .top iframe {
         width: 100%;
-        height:50px;
+        height: 50px;
         position: relative;
         z-index: 1000;
     }
@@ -152,12 +164,12 @@
     <div class="left"></div>
     <div class="right">
         <p>welcome</p>
-        <form name="reg" method="post" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-            <input type="text" id="username"  name="username" value="" placeholder="用户名">
-            <input type="password" id="password"  name="password" value="" placeholder="密码">
-            <input type="password" id="repassword"  name="repassword" value="" placeholder="确认密码">
-            <input type="email"  id="email" name="email" placeholder="邮箱">
-            <input type="text" id="checknum"  name="checknum" value="" placeholder="请输入验证码">
+        <form name="reg" method="post" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <input type="text" id="username" name="username" value="" placeholder="用户名">
+            <input type="password" id="password" name="password" value="" placeholder="密码">
+            <input type="password" id="repassword" name="repassword" value="" placeholder="确认密码">
+            <input type="email" id="email" name="email" placeholder="邮箱">
+            <input type="text" id="checknum" name="checknum" value="" placeholder="请输入验证码">
             <div class="check">
                 <img src="validcode.php" style="width:100px;height:25px;" id="code"/>
                 <a href="javascript:changeCode()">看不清，换一张</a>
@@ -177,52 +189,55 @@
 </script>
 
 <?php
-$nameErr="";
-$passErr="";
-$emailErr="";
-$passErr2="";
-if($_SERVER["REQUEST_METHOD"]=="POST") {
+include "../conn.php";
+$nameErr = "";
+$passErr = "";
+$emailErr = "";
+$passErr2 = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
     $repassword = $_POST["repassword"];
     $email = $_POST["email"];
     $checknum = $_POST["checknum"];
-    if (!empty($_POST["checknum"] && $_POST["checknum"] == $_SESSION["validcode"])) {
+    if (!empty($_POST["checknum"] && ($_POST["checknum"] == $_SESSION["validcode"]))) {
+
         if (empty($username)) {
             $nameErr = "用户名为空";
-        }
-        if (empty($userpass)) {
-            $passErr = "密码为空";
-        }
-        if (empty($repassword)) {
+            echo $nameErr;
+        } elseif (empty($password)) {
+             $passErr="密码为空";
+            echo $passErr;
+        } elseif (empty($repassword)) {
             $passErr2 = "密码为空";
-        }
-        if (empty($email)) {
+            echo $passErr2;
+        } elseif (empty($email)) {
             $emailErr = "邮箱为空";
-        }
-        if ($nameErr == '' and $passErr == '' and $passErr2 == '' and $emailErr = '') {
-            include "../conn.php";
-            $sql ="select * from user where account='$username'";
-            $result = mysqli_query($conn, $sql) or die("查询失败，请检查SQL语法");
+            echo $emailErr;
+        } else {
+            $sql = "select * from user where account='$username'";
+            $result = mysqli_query($conn, $sql) or die("查询失败，请检查SQL语法" . $sql);
             if (mysqli_num_rows($result) > 0) {
                 echo "<script language='javascript' type='text/javascript'>";
                 echo "alert('用户已经注册，请设置其他用户名');";
                 echo "</script>";
-            }
-            elseif ($password!==$repassword){
+            } elseif ($password != $repassword) {
                 echo "<script language='javascript' type='text/javascript'>";
                 echo "alert('两次密码不一致');";
                 echo "</script>";
 
-            }  else {
+            } else {
                 $pass_hash = password_hash($password, PASSWORD_DEFAULT);
                 $sql = "insert into user(account,password,email) values('$username','$pass_hash','$email')";
-                $result = mysqli_query($conn, $sql) or die("插入失败，请检查SQL语法");
-                header("location:login.php");
+                $result = mysqli_query($conn, $sql) or die("查询失败，请检查SQL语法" . $sql);
+                echo "<script language='javascript' type='text/javascript'>";
+                echo "alert('注册成功');";
+                echo "location.href='login.php';";
+                echo "</script>";
+
             }
         }
-    }
-    else{
+    } else {
         echo "<script language='javascript' type='text/javascript'>";
         echo "alert('验证码不对，请重新输入');";
         echo "</script>";

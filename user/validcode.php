@@ -5,7 +5,6 @@ header("Content-Type:image/png");
 //开启session
 session_start();
 
-//随机4个数字
 $code = "";
 $arr = array();
 for($i=0;$i<4;$i++){

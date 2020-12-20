@@ -150,7 +150,7 @@
 
 <body>
 <div class="top">
-
+    <iframe src="../header.php" class="header" scrolling="no"></iframe>
 </div>
 <div class="content">
     <div class="left">
@@ -193,19 +193,26 @@
 <?php
 
 if($_SERVER["REQUEST_METHOD"]=="POST") {
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-    $checknum = $_POST["checknum"];
-
-    if ($checknum == $_SESSION["validcode"]) {
+    if (!empty($_POST["checknum"])&&($_POST["checknum"] == $_SESSION["validcode"])) {
         include "../conn.php";
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+        $checknum=$_POST["checknum"];
+        $email=$_POST["email"];
         $sql = "Select * from user where account='$username'";
         $result = mysqli_query($conn, $sql) or die("查询失败，请检查SQL语法");
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
             if (password_verify($password, $row['password'])) {
                 $_SESSION["account"] = $username;
-                header("location:user.php");
+                echo "<script language='javascript' type='text/javascript'>";
+
+                echo "alert('登陆成功');";
+
+                echo "location.href='user.php';";
+
+                echo "</script>";
+
             } else {
                 echo "<script language='javascript' type='text/javascript'>";
 
@@ -228,7 +235,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
     else{
         echo "<script language='javascript' type='text/javascript'>";
 
-        echo "alert('验证码不正确');";
+        echo "alert('重新输入');";
 
         echo "</script>";
     }
