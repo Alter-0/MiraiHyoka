@@ -89,7 +89,7 @@
                             <li><a href="#">hello world</a></li>
                         </ul>
                     </li>
-                    <li ><a href="#"><span id="span-img" class="ul-span2"><img src="../image/new_banner1.png" alt="照片"></span></a></li>
+                    <li ><a href="#"><span id="span-img" class="ul-span2"><img src="#" alt="照片"></span></a></li>
                 </ul>
             </div>
         </div>
