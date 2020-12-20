@@ -774,35 +774,143 @@
            top:100px;
        }
     </style>
-    <?php
-    $score=6.8;
-    ?>
+
     <script>
         $(function(){
-            //获取百分比值
-            //var num = parseFloat($('.text').html());
-            var num = parseFloat(<?php echo $score; ?>);
-            num=num*10;
+            <?php
+            $score=6.8;
+            $score1=6.4;
+            $score2=7.5;
+            ?>
+            //通过计时器来显示过渡的百分比进度，计时器不能直接放入循环中
+            var temp= 0;
+            var timer= setInterval(function(){
 
-            //通过计时器来显示过渡的百分比进度
-            var temp = 0;
-            var timer = setInterval(function(){
-                calculate(temp);
+                    calculate(1,temp,1);
+                    //清除计时器结束该方法调用
+                    if(temp== <?php echo $score*10; ?>){
+                        clearInterval(timer);
+                    }
+                    temp++;
+                },30);
+            var temp2= 0;
+            var timer2= setInterval(function(){
+                calculate(0,temp2,0);
                 //清除计时器结束该方法调用
-                if(temp == num){
-                    clearInterval(timer);
+                if(temp2==<?php echo $score2*10; ?>){
+                    clearInterval(timer2);
                 }
-                temp++;
-            },30)
+                temp2++;
+            },30);
+            var temp3= 0;
+            var timer3= setInterval(function(){
+                calculate(2,temp3,2);
+                //清除计时器结束该方法调用
+                if(temp3==<?php echo $score2*10; ?>){
+                    clearInterval(timer3);
+                }
+                temp3++;
+            },30);
+            var temp4= 0;
+            var timer4= setInterval(function(){
+                calculate(3,temp4,3);
+                //清除计时器结束该方法调用
+                if(temp4==<?php echo $score1*10; ?>){
+                    clearInterval(timer4);
+                }
+                temp4++;
+            },30);
+            var temp5= 0;
+            var timer5= setInterval(function(){
+                calculate(4,temp5,4);
+                //清除计时器结束该方法调用
+                if(temp5==<?php echo $score2*10; ?>){
+                    clearInterval(timer5);
+                }
+                temp5++;
+            },30);
+            var temp6= 0;
+            var timer6= setInterval(function(){
+                calculate(5,temp6,5);
+                //清除计时器结束该方法调用
+                if(temp6==<?php echo $score2*10; ?>){
+                    clearInterval(timer6);
+                }
+                temp6++;
+            },30);
+            var temp7= 0;
+            var timer7= setInterval(function(){
+                calculate(6,temp7,6);
+                //清除计时器结束该方法调用
+                if(temp7==<?php echo $score2*10; ?>){
+                    clearInterval(timer7);
+                }
+                temp7++;
+            },30);
+            var temp8= 0;
+            var timer8= setInterval(function(){
+                calculate(7,temp8,7);
+                //清除计时器结束该方法调用
+                if(temp8==<?php echo $score2*10; ?>){
+                    clearInterval(timer8);
+                }
+                temp8++;
+            },30);
+
+
 
             //改变页面显示百分比
-            function calculate(value){
+            function calculate(index,value,i){
                 //改变页面显示的值
-                $('.text').html(value/10);
+                $('.text').eq(i).html(value/10);
+                        if(index==0)
+                        {
+                            $('.bg .circle-left').remove();
+                            $('.bg .mask-right').remove();
+                        }
+                      else if(index==1)
+                        {
+                            $('.bg_2 .circle-left').remove();
+                            $('.bg_2 .mask-right').remove();
+                        }
+                     else if(index==2)
+                         { //清除上次调用该方法残留的效果
 
-                //清除上次调用该方法残留的效果
-                $('.circle-left').remove();
-                $('.mask-right').remove();
+                         $('.bg_3 .circle-left').remove();
+                         $('.bg_3 .mask-right').remove();
+                         }
+                     else if(index==3)
+                        { //清除上次调用该方法残留的效果
+
+                            $('.bg_4 .circle-left').remove();
+                            $('.bg_4 .mask-right').remove();
+                        }
+                      else if(index==4)
+                        { //清除上次调用该方法残留的效果
+
+                            $('.bg_5 .circle-left').remove();
+                            $('.bg_5 .mask-right').remove();
+                        }
+                        else if(index==5)
+                        { //清除上次调用该方法残留的效果
+
+                            $('.bg_6 .circle-left').remove();
+                            $('.bg_6 .mask-right').remove();
+                        }
+                        else if(index==6)
+                        { //清除上次调用该方法残留的效果
+
+                            $('.bg_7 .circle-left').remove();
+                            $('.bg_7 .mask-right').remove();
+                        }
+                        else if(index==7)
+                        { //清除上次调用该方法残留的效果
+
+                            $('.bg_8 .circle-left').remove();
+                            $('.bg_8 .mask-right').remove();
+                        }
+
+
 
                 //当百分比小于等于50
                 if(value <= 50){
@@ -811,7 +919,7 @@
                     html += '<div class="mask-right" style="transform:rotate('+ (value * 3.6) +'deg)"></div>';
 
                     //元素里添加子元素
-                    $('.circle-right').append(html);
+                    $('.circle-right').eq(i).append(html);
                 }else{
                     value -= 50;
                     var html = '';
@@ -821,7 +929,7 @@
                     html += '</div>';
 
                     //元素后添加元素
-                    $('.circle-right').after(html);
+                    $('.circle-right').eq(i).after(html);
                 }
             }
         })
@@ -872,19 +980,29 @@
                 var scrollHeight = $(document).height();
                 var windowHeight = $(this).height();
                 if ((scrollHeight - (scrollTop + windowHeight)) < 10)
-                    {   var name="aaaaaa";
-                        var time="2020/12/18";
-                        var review="我觉得这部剧不错";
-                        $(".short_review_middle ul").append(" <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
-                        +" <img alt='头像' src='//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp' lazy='loaded'>"
-                        +"  </div> </div> <div class='short_review_name'>" +name
-                        +" </div> <div class='short_review_star'> <span class='review_star'>"
-                        +" <i class='icon-star-full'> <i></i> </i> <i class='icon-star-full'> <i></i> </i> <i class='icon-star-full'>"
-                        +"<i></i> </i> <i class='icon-star-full'> <i></i> </i> <i class='icon-star-empty'> <i></i> </i> </span>"
-                        +"</div> <div class='short_review_time'>" +time
-                        +"</div> </div> <div class='li_second_review'> <div class='second_review'>"+review
-                        + "</div> </div> <div class='li_third_icon'> <div> <i class='icon-praise' style='font-size: 14px;margin-right: 6px;'></i>46 </div>"
- +"<div> <i class='icon-criticism' style='font-size: 14px;margin-right: 6px;'></i>1 </div> </div> </li>");
+                    {   $.post("short_review_load.php",
+                        {objective:"reviewload"},
+                        function(data){
+                            data = eval('('+data+')');
+                            for(i=0;i<4;i++)
+                            {
+                                var name = data.name[i];
+                                var time = data.time[i];
+                                var review =data.review[i];
+                                $(".short_review_middle ul").append(" <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
+                                    + " <img alt='头像' src='//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp' lazy='loaded'>"
+                                    + "  </div> </div> <div class='short_review_name'>" + name
+                                    + " </div> <div class='short_review_star'> <span class='review_star'>"
+                                    + " <i class='icon-star-full'> <i></i> </i> <i class='icon-star-full'> <i></i> </i> <i class='icon-star-full'>"
+                                    + "<i></i> </i> <i class='icon-star-full'> <i></i> </i> <i class='icon-star-empty'> <i></i> </i> </span>"
+                                    + "</div> <div class='short_review_time'>" + time
+                                    + "</div> </div> <div class='li_second_review'> <div class='second_review'>" + review
+                                    + "</div> </div> <div class='li_third_icon'> <div> <i class='icon-praise' style='font-size: 14px;margin-right: 6px;'></i>46 </div>"
+                                    + "<div> <i class='icon-criticism' style='font-size: 14px;margin-right: 6px;'></i>1 </div> </div> </li>");
+                            }
+                        });
+
+
                     }
                }
             });
@@ -1033,42 +1151,42 @@
                     <div class="details_card_right">
                         <div class="card_right_div">
                             <span class="card_right_title">用户评分</span>
-                            <div class="card_right_bg">
+                            <div class="card_right_bg bg_3">
                                 <div class="circle-right"></div>
                                 <div class="text">6.5</div>
                             </div>
                         </div>
                         <div class="card_right_div">
                             <span class="card_right_title">用户评分</span>
-                            <div class="card_right_bg">
+                            <div class="card_right_bg bg_4">
                                 <div class="circle-right"></div>
                                 <div class="text">6.5</div>
                             </div>
                         </div>
                         <div class="card_right_div">
                             <span class="card_right_title">用户评分</span>
-                            <div class="card_right_bg">
+                            <div class="card_right_bg bg_5">
                                 <div class="circle-right"></div>
                                 <div class="text">6.5</div>
                             </div>
                         </div>
                         <div class="card_right_div">
                             <span class="card_right_title">用户评分</span>
-                            <div class="card_right_bg">
+                            <div class="card_right_bg bg_6">
                                 <div class="circle-right"></div>
                                 <div class="text">6.5</div>
                             </div>
                         </div>
                         <div class="card_right_div">
                             <span class="card_right_title">用户评分</span>
-                            <div class="card_right_bg">
+                            <div class="card_right_bg bg_7">
                                 <div class="circle-right"></div>
                                 <div class="text">6.5</div>
                             </div>
                         </div>
                         <div class="card_right_div">
                             <span class="card_right_title">用户评分</span>
-                            <div class="card_right_bg">
+                            <div class="card_right_bg bg_8">
                                 <div class="circle-right"></div>
                                 <div class="text">6.5</div>
                             </div>
