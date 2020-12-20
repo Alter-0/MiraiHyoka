@@ -422,9 +422,9 @@
                          show2.css('display','none');
                          show3.css('display','none');
                          show4.css('display','none');
-                         show1.css('top','300px');
+                         show1.css({top:'300px',opacity:'0'});
+                         show1.animate({top:'0',display:'block',opacity:'1'},600);
                          show1.css('display','block');
-                         r=1;
                      }
                  })
              })
