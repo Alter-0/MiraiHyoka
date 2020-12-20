@@ -1,0 +1,129 @@
+/*头*/
+@media (min-width:1200px){
+    .comment >ul >li{
+        font-size: 14px;
+        width: 100px!important;
+
+    }
+    .container{
+        width:1220px!important;
+    }
+}
+header{
+    position: relative;
+    width: 100%;
+    height: 52px;
+    /*background-color: #b1e2ef;*/
+/*    include hlelo */
+    z-index: 99;
+}
+a:checked{
+    text-decoration: none;
+}
+a:link{ text-decoration: none;}
+.dis{
+    height: 50px;
+    float: left;
+}
+#user-login{
+    float: right;
+}
+.logo{
+    height: 50px;
+    /*background-color: #3c3c3c;*/
+}
+
+.logo img{
+    height: 100%;
+    width: auto;
+}
+
+.navli{
+    height: 52px;
+    /*width: 510px;*/
+    margin-right: 40px;
+}
+.navli>ul{
+    height: 50px;
+}
+.navli>ul>li{
+    float: left;
+    height: 50px;
+}
+.ul-span{
+
+    text-align: center;
+    vertical-align: center;
+    font-weight: bold;
+    /*line-height: 25px;*/
+    width: 100%;
+    /*text-shadow: 1px 1px #eee;*/
+    margin: 10px;
+    color: #777;
+    background-color: #f5f5f5;
+    /*height: 25px;*/
+    padding: 5px 0;
+    display: block;
+}
+.ul-span:hover{
+    background-color: #faa1a1;
+    color: #ffffff;
+}
+.search{
+    width: 202px;
+
+}
+#span6{
+    border-radius: 30px;
+    padding: 8px 10px;
+}
+#span1{
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    padding-left: 10px;
+}
+#span5{
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    padding-right: 10px;
+}
+.inner{
+    height: 100%;
+}
+
+
+.login{
+    margin-top: 10px;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    background-color: #f09199;
+    border-radius: 100px;
+}
+
+.reg{
+   color: #FFFFFF;
+   float: left;
+}
+#login:hover{
+    border-radius: 100px 0 0 100px;
+}
+#reg:hover{
+    border-radius: 0 100px 100px 0;
+}
+.reg:hover{
+    color: #ffffff;
+    background-color: #5bc0de;
+
+}
+
+
+.menu{
+    top: 50px;
+    left: 0;
+    position: absolute;
+    display: none;
+    background-color: #f09199;
+    width: 100%;
+    height: 200px;
+}
