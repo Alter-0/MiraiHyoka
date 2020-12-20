@@ -5,7 +5,7 @@
     <!-- 引用部分@blueberry -->
     <script src="../js/main.js"></script>
     <!-- 引用部分@blueberry -->
-
+     <link href="font/style.css" rel="stylesheet"/>
     <meta charset="UTF-8" name="referrer" content="never">
     <title><?php
         echo "番名"
@@ -157,7 +157,8 @@
 
         .count .plays {
 
-            padding-right: 20px;            max-width: 76px;
+            padding-right: 18px;
+            max-width: 76px;
             width: 76px;
             text-indent: 0;
             border-right: 1px solid #ffffff;
@@ -415,8 +416,6 @@
             margin-left: 20px;
         }
         .short_review{
-           margin-left: 10%;
-           margin-right: 10%;
            width: 100%;
            height: auto;
 
@@ -431,7 +430,265 @@
             box-sizing: border-box;
             border-radius: 15px;
             box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+            margin-left: 10%;
+            margin-right: 10%;
         }
+        .short_review_drop{
+            position: relative;
+            display: inline-block;
+            width: 68px;
+            height: 24px;
+            line-height: 24px;
+            margin-left: 13px;
+            font-size: 14px;
+            text-align: center;
+        }
+        .short_review_drop i{
+            display: block;
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border: 1px solid #99a2aa;
+            border-top: none;
+            border-left: none;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+            top: 8px;
+            right: 10px;
+            font-style: italic;
+        }
+        .short_review_drop ul{
+            display: none;
+            position: absolute;
+            top: 22px;
+            left: 14px;
+            padding: 5px 5px;
+            background: #fff;
+            border: 1px solid #e5e9ef;
+            -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,.14);
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,.14);
+            border-radius: 4px;
+            z-index: 10;
+        }
+        .short_review_drop div:hover+ul{
+            display: block;
+
+        }
+        .short_review_write {
+            float: right;
+            width: 70px;
+            height: 30px;
+            box-sizing: border-box;
+            border: 1px solid #00a1d6;
+            border-radius: 4px;
+            color: #00a1d6;
+            line-height: 28px;
+            font-size: 12px;
+            text-align: center;
+            cursor: pointer;
+            -webkit-transition: all .2s linear;
+            -o-transition: .2s all linear;
+            transition: all .2s linear;
+            margin-top: -3px;
+        }
+        .short_review_middle>ul li{
+            border-bottom: 1px solid #f4f5f7;
+            padding: 20px 0 45px;
+        }
+        .li_first_div{
+            height: 30px;
+            margin-bottom: 20px;
+        }
+        .short_review_face{
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            margin-right: 13px;
+            border-radius: 50%;
+            overflow: hidden;
+            vertical-align: top;
+            display: inline-block;
+        }
+        .short_review_img{
+            vertical-align: top;
+            display: inline-block;
+            background: url(img/close.png) 50% no-repeat;
+            background-size: 50px;
+            width: 100%;
+            height: 100%;
+        }
+        .short_review_name{
+            cursor: pointer;
+            line-height: 30px;
+            font-size: 12px;
+            color: #6d757a;
+            margin-right: 20px;
+            -webkit-transition: all .2s linear;
+            -o-transition: .2s all linear;
+            transition: all .2s linear;
+            vertical-align: top;
+            display: inline-block;
+        }
+        .short_review_star{
+            line-height: 30px;
+            vertical-align: top;
+            display: inline-block;
+        }
+        .review_star{
+            width: 75px;
+        }
+        .review-stars>i {
+            display: inline-block;
+            font-size: 12px;
+            line-height: 21px;
+        }
+        .icon-star-full {
+            color: #ffa726;
+        }
+        .icon-star-empty {
+            color: #ffa726;
+        }
+        .short_review_time{
+            float: right;
+            font-size: 12px;
+            color: #99a2aa;
+            line-height: 30px;
+            vertical-align: top;
+            display: inline-block;
+        }
+        .second_review{
+            font-size: 14px;
+            line-height: 24px;
+            margin-top: 8px;
+            max-height: 48px;
+            display: block;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            word-break: break-word;
+            color: #212121;
+        }
+        .li_third_icon{
+            margin-top: 16px;
+            float: left;
+        }
+        .li_third_icon div:nth-child(1){
+            cursor: pointer;
+            float: left;
+            line-height: 16px;
+            font-size: 12px;
+            color: #99a2aa;
+            display: inline;
+            margin-right: 30px;
+        }
+        .li_third_icon div:nth-child(2){
+            cursor: pointer;
+            float: left;
+            line-height: 16px;
+            font-size: 12px;
+            color: #99a2aa;
+            display: inline;
+        }
+        .write_review{
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.2);
+            z-index: 10000;
+        }
+        .write_review_bg{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 594px;
+            height: 404px;
+            background: #fff;
+            border-radius: 4px;
+            margin-left: -297px;
+            margin-top: -202px;
+            cursor: default;
+            -webkit-animation: dialog-pulse .6s;
+            animation: dialog-pulse .6s;
+        }
+        .write_review_close{
+            position: absolute;
+            top: 20px;
+            right: 22px;
+            width: 14px;
+            height: 14px;
+            display: inline-block;
+            background: url(img/close.png);
+            background-size: cover;
+            cursor: pointer;
+        }
+        .write_review_header{
+            padding: 30px 30px 20px;
+        }
+        .write_review_info{
+            padding-left: 120px;
+        }
+        .write_review_star{
+
+        }
+        .write_review_star i{
+            width: 20px;
+            height: 20px;
+            padding-right: 6px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        .write_review_middle{
+            position: relative;
+            width: 534px;
+            height: 130px;
+            border: 1px solid #ccd0d7;
+            border-radius: 4px;
+            margin: 25px auto;
+        }
+        .write_review_middle textarea{
+            width: 510px;
+            height: 72px;
+            line-height: 24px;
+            display: block;
+            margin: 12px auto 0;
+            font-size: 14px;
+            color: #222;
+            border: none;
+            outline: none;
+            resize: none;
+            overflow: hidden;
+        }
+        .write_review_middle span{
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            font-size: 12px;
+            color: #99a2aa;
+            line-height: 14px;
+        }
+        .write_review_button{
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+            margin-left: -60px;
+            text-align: center;
+            display: block;
+            background: #f4f5f7;
+            border: none;
+            border-radius: 4px;
+            outline: none;
+            font-size: 14px;
+            color: #0cc7ef;
+        }
+
         .long_review{
             display: none;
         }
@@ -517,30 +774,143 @@
            top:100px;
        }
     </style>
+
     <script>
         $(function(){
-            //获取百分比值
-            var num = parseFloat($('.text').html());
-            num=num*10;
+            <?php
+            $score=6.8;
+            $score1=6.4;
+            $score2=7.5;
+            ?>
+            //通过计时器来显示过渡的百分比进度，计时器不能直接放入循环中
+            var temp= 0;
+            var timer= setInterval(function(){
 
-            //通过计时器来显示过渡的百分比进度
-            var temp = 0;
-            var timer = setInterval(function(){
-                calculate(temp);
+                    calculate(1,temp,1);
+                    //清除计时器结束该方法调用
+                    if(temp== <?php echo $score*10; ?>){
+                        clearInterval(timer);
+                    }
+                    temp++;
+                },30);
+            var temp2= 0;
+            var timer2= setInterval(function(){
+                calculate(0,temp2,0);
                 //清除计时器结束该方法调用
-                if(temp == num){
-                    clearInterval(timer);
+                if(temp2==<?php echo $score2*10; ?>){
+                    clearInterval(timer2);
                 }
-                temp++;
-            },30)
-            //改变页面显示百分比
-            function calculate(value){
-                //改变页面显示的值
-                $('.text').html(value/10);
+                temp2++;
+            },30);
+            var temp3= 0;
+            var timer3= setInterval(function(){
+                calculate(2,temp3,2);
+                //清除计时器结束该方法调用
+                if(temp3==<?php echo $score2*10; ?>){
+                    clearInterval(timer3);
+                }
+                temp3++;
+            },30);
+            var temp4= 0;
+            var timer4= setInterval(function(){
+                calculate(3,temp4,3);
+                //清除计时器结束该方法调用
+                if(temp4==<?php echo $score1*10; ?>){
+                    clearInterval(timer4);
+                }
+                temp4++;
+            },30);
+            var temp5= 0;
+            var timer5= setInterval(function(){
+                calculate(4,temp5,4);
+                //清除计时器结束该方法调用
+                if(temp5==<?php echo $score2*10; ?>){
+                    clearInterval(timer5);
+                }
+                temp5++;
+            },30);
+            var temp6= 0;
+            var timer6= setInterval(function(){
+                calculate(5,temp6,5);
+                //清除计时器结束该方法调用
+                if(temp6==<?php echo $score2*10; ?>){
+                    clearInterval(timer6);
+                }
+                temp6++;
+            },30);
+            var temp7= 0;
+            var timer7= setInterval(function(){
+                calculate(6,temp7,6);
+                //清除计时器结束该方法调用
+                if(temp7==<?php echo $score2*10; ?>){
+                    clearInterval(timer7);
+                }
+                temp7++;
+            },30);
+            var temp8= 0;
+            var timer8= setInterval(function(){
+                calculate(7,temp8,7);
+                //清除计时器结束该方法调用
+                if(temp8==<?php echo $score2*10; ?>){
+                    clearInterval(timer8);
+                }
+                temp8++;
+            },30);
 
-                //清除上次调用该方法残留的效果
-                $('.circle-left').remove();
-                $('.mask-right').remove();
+
+
+            //改变页面显示百分比
+            function calculate(index,value,i){
+                //改变页面显示的值
+                $('.text').eq(i).html(value/10);
+                        if(index==0)
+                        {
+                            $('.bg .circle-left').remove();
+                            $('.bg .mask-right').remove();
+                        }
+                      else if(index==1)
+                        {
+                            $('.bg_2 .circle-left').remove();
+                            $('.bg_2 .mask-right').remove();
+                        }
+                     else if(index==2)
+                         { //清除上次调用该方法残留的效果
+
+                         $('.bg_3 .circle-left').remove();
+                         $('.bg_3 .mask-right').remove();
+                         }
+                     else if(index==3)
+                        { //清除上次调用该方法残留的效果
+
+                            $('.bg_4 .circle-left').remove();
+                            $('.bg_4 .mask-right').remove();
+                        }
+                      else if(index==4)
+                        { //清除上次调用该方法残留的效果
+
+                            $('.bg_5 .circle-left').remove();
+                            $('.bg_5 .mask-right').remove();
+                        }
+                        else if(index==5)
+                        { //清除上次调用该方法残留的效果
+
+                            $('.bg_6 .circle-left').remove();
+                            $('.bg_6 .mask-right').remove();
+                        }
+                        else if(index==6)
+                        { //清除上次调用该方法残留的效果
+
+                            $('.bg_7 .circle-left').remove();
+                            $('.bg_7 .mask-right').remove();
+                        }
+                        else if(index==7)
+                        { //清除上次调用该方法残留的效果
+
+                            $('.bg_8 .circle-left').remove();
+                            $('.bg_8 .mask-right').remove();
+                        }
+
+
 
                 //当百分比小于等于50
                 if(value <= 50){
@@ -549,7 +919,7 @@
                     html += '<div class="mask-right" style="transform:rotate('+ (value * 3.6) +'deg)"></div>';
 
                     //元素里添加子元素
-                    $('.circle-right').append(html);
+                    $('.circle-right').eq(i).append(html);
                 }else{
                     value -= 50;
                     var html = '';
@@ -559,7 +929,7 @@
                     html += '</div>';
 
                     //元素后添加元素
-                    $('.circle-right').after(html);
+                    $('.circle-right').eq(i).after(html);
                 }
             }
         })
@@ -578,6 +948,67 @@
                 }
             }
         }
+
+    </script>
+    <script>
+        $(document).ready(function(){
+                 var indexnum="";
+            $(".short_review_write").click(function(){
+                $(".write_review").css("display","block");
+            });
+            $(".write_review_close").click(function(){
+                $(".write_review").css("display","none");
+            });
+            $('.write_review_star i').hover(function(){
+                var index=$(this).attr("index");
+                indexnum=index;
+                for(i=0;i<index;i++)
+                {
+                    $('.write_review_star i').eq(i).attr("class","icon-star-full");
+                }
+                for(i=index;i<5;i++)
+                {
+                    $('.write_review_star i').eq(i).attr("class","icon-star-empty");
+                }
+
+            });
+
+            $(window).scroll(function() {
+                if ($("short_review").css("display") !="none")
+                {
+                var scrollTop = $(this).scrollTop();
+                var scrollHeight = $(document).height();
+                var windowHeight = $(this).height();
+                if ((scrollHeight - (scrollTop + windowHeight)) < 10)
+                    {   $.post("short_review_load.php",
+                        {objective:"reviewload"},
+                        function(data){
+                            data = eval('('+data+')');
+                            for(i=0;i<4;i++)
+                            {
+                                var name = data.name[i];
+                                var time = data.time[i];
+                                var review =data.review[i];
+                                $(".short_review_middle ul").append(" <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
+                                    + " <img alt='头像' src='//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp' lazy='loaded'>"
+                                    + "  </div> </div> <div class='short_review_name'>" + name
+                                    + " </div> <div class='short_review_star'> <span class='review_star'>"
+                                    + " <i class='icon-star-full'> <i></i> </i> <i class='icon-star-full'> <i></i> </i> <i class='icon-star-full'>"
+                                    + "<i></i> </i> <i class='icon-star-full'> <i></i> </i> <i class='icon-star-empty'> <i></i> </i> </span>"
+                                    + "</div> <div class='short_review_time'>" + time
+                                    + "</div> </div> <div class='li_second_review'> <div class='second_review'>" + review
+                                    + "</div> </div> <div class='li_third_icon'> <div> <i class='icon-praise' style='font-size: 14px;margin-right: 6px;'></i>46 </div>"
+                                    + "<div> <i class='icon-criticism' style='font-size: 14px;margin-right: 6px;'></i>1 </div> </div> </li>");
+                            }
+                        });
+
+
+                    }
+               }
+            });
+
+
+        });
     </script>
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
@@ -720,42 +1151,42 @@
                     <div class="details_card_right">
                         <div class="card_right_div">
                             <span class="card_right_title">用户评分</span>
-                            <div class="card_right_bg">
+                            <div class="card_right_bg bg_3">
                                 <div class="circle-right"></div>
                                 <div class="text">6.5</div>
                             </div>
                         </div>
                         <div class="card_right_div">
                             <span class="card_right_title">用户评分</span>
-                            <div class="card_right_bg">
+                            <div class="card_right_bg bg_4">
                                 <div class="circle-right"></div>
                                 <div class="text">6.5</div>
                             </div>
                         </div>
                         <div class="card_right_div">
                             <span class="card_right_title">用户评分</span>
-                            <div class="card_right_bg">
+                            <div class="card_right_bg bg_5">
                                 <div class="circle-right"></div>
                                 <div class="text">6.5</div>
                             </div>
                         </div>
                         <div class="card_right_div">
                             <span class="card_right_title">用户评分</span>
-                            <div class="card_right_bg">
+                            <div class="card_right_bg bg_6">
                                 <div class="circle-right"></div>
                                 <div class="text">6.5</div>
                             </div>
                         </div>
                         <div class="card_right_div">
                             <span class="card_right_title">用户评分</span>
-                            <div class="card_right_bg">
+                            <div class="card_right_bg bg_7">
                                 <div class="circle-right"></div>
                                 <div class="text">6.5</div>
                             </div>
                         </div>
                         <div class="card_right_div">
                             <span class="card_right_title">用户评分</span>
-                            <div class="card_right_bg">
+                            <div class="card_right_bg bg_8">
                                 <div class="circle-right"></div>
                                 <div class="text">6.5</div>
                             </div>
@@ -791,14 +1222,301 @@
                 <!--短评-->
                 <div class="short_review">
                     <div class="short_review_middle">
-                        <div class="card_left_title">短评</div>
-                        <div class="short_review">
+                        <!--短评的头部-->
+                        <div class="card_left_title" style="display: inline-block">短评</div>
+                        <div class="short_review_drop"><div>默认<i></i></div> <ul><li>默认</li><li>最新</li></ul></div>
+                        <div class="short_review_write">去写短评</div>
+                        <!--短评具体内容-->
+                        <ul>
+                            <li>
+                                <!--短评具体内容-头像那一行-->
+                                <div class="li_first_div">
+                                    <div class="short_review_face">
+                                        <div class="short_review_img">
+                                            <img alt="Yrqiiii" src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp" lazy="loaded">
+                                        </div>
+                                    </div>
+                                    <div class="short_review_name">
+                                        bfbdntf
+                                    </div>
+                                    <div class="short_review_star">
+                                        <span class="review_star">
+                                            <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-empty">
+                                                <i></i>
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <div class="short_review_time">22小时前</div>
+                                </div>
+                                <!--短评具体内容-评论内一行-->
+                                <div class="li_second_review">
+                                    <div class="second_review">
+                                        剧情紧凑不拖沓 打击感强 人物性格也很鲜明 纯恶与善的对决
+                                    </div>
 
+                                </div>
+                                <!--点赞-->
+                                <div class="li_third_icon">
+                                    <div>
+                                        <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i>46
+                                    </div>
+                                    <div>
+                                        <i class="icon-criticism" style="font-size: 14px;margin-right: 6px;"></i>1
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <!--短评具体内容-头像那一行-->
+                                <div class="li_first_div">
+                                    <div class="short_review_face">
+                                        <div class="short_review_img">
+                                            <img alt="Yrqiiii" src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp" lazy="loaded">
+                                        </div>
+                                    </div>
+                                    <div class="short_review_name">
+                                        bfbdntf
+                                    </div>
+                                    <div class="short_review_star">
+                                        <span class="review_star">
+                                            <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-empty">
+                                                <i></i>
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <div class="short_review_time">22小时前</div>
+                                </div>
+                                <!--短评具体内容-评论内一行-->
+                                <div class="li_second_review">
+                                    <div class="second_review">
+                                        剧情紧凑不拖沓 打击感强 人物性格也很鲜明 纯恶与善的对决
+                                    </div>
+
+                                </div>
+                                <!--点赞-->
+                                <div class="li_third_icon">
+                                    <div>
+                                        <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i>46
+                                    </div>
+                                    <div>
+                                        <i class="icon-criticism" style="font-size: 14px;margin-right: 6px;"></i>1
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <!--短评具体内容-头像那一行-->
+                                <div class="li_first_div">
+                                    <div class="short_review_face">
+                                        <div class="short_review_img">
+                                            <img alt="Yrqiiii" src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp" lazy="loaded">
+                                        </div>
+                                    </div>
+                                    <div class="short_review_name">
+                                        bfbdntf
+                                    </div>
+                                    <div class="short_review_star">
+                                        <span class="review_star">
+                                            <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-empty">
+                                                <i></i>
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <div class="short_review_time">22小时前</div>
+                                </div>
+                                <!--短评具体内容-评论内一行-->
+                                <div class="li_second_review">
+                                    <div class="second_review">
+                                        剧情紧凑不拖沓 打击感强 人物性格也很鲜明 纯恶与善的对决
+                                    </div>
+
+                                </div>
+                                <!--点赞-->
+                                <div class="li_third_icon">
+                                    <div>
+                                        <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i>46
+                                    </div>
+                                    <div>
+                                        <i class="icon-criticism" style="font-size: 14px;margin-right: 6px;"></i>1
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <!--短评具体内容-头像那一行-->
+                                <div class="li_first_div">
+                                    <div class="short_review_face">
+                                        <div class="short_review_img">
+                                            <img alt="Yrqiiii" src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp" lazy="loaded">
+                                        </div>
+                                    </div>
+                                    <div class="short_review_name">
+                                        bfbdntf
+                                    </div>
+                                    <div class="short_review_star">
+                                        <span class="review_star">
+                                            <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-empty">
+                                                <i></i>
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <div class="short_review_time">22小时前</div>
+                                </div>
+                                <!--短评具体内容-评论内一行-->
+                                <div class="li_second_review">
+                                    <div class="second_review">
+                                        剧情紧凑不拖沓 打击感强 人物性格也很鲜明 纯恶与善的对决
+                                    </div>
+
+                                </div>
+                                <!--点赞-->
+                                <div class="li_third_icon">
+                                    <div>
+                                        <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i>46
+                                    </div>
+                                    <div>
+                                        <i class="icon-criticism" style="font-size: 14px;margin-right: 6px;"></i>1
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <!--短评具体内容-头像那一行-->
+                                <div class="li_first_div">
+                                    <div class="short_review_face">
+                                        <div class="short_review_img">
+                                            <img alt="Yrqiiii" src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp" lazy="loaded">
+                                        </div>
+                                    </div>
+                                    <div class="short_review_name">
+                                        bfbdntf
+                                    </div>
+                                    <div class="short_review_star">
+                                        <span class="review_star">
+                                            <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-empty">
+                                                <i></i>
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <div class="short_review_time">22小时前</div>
+                                </div>
+                                <!--短评具体内容-评论内一行-->
+                                <div class="li_second_review">
+                                    <div class="second_review">
+                                        剧情紧凑不拖沓 打击感强 人物性格也很鲜明 纯恶与善的对决
+                                    </div>
+
+                                </div>
+                                <!--点赞-->
+                                <div class="li_third_icon">
+                                    <div>
+                                        <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i>46
+                                    </div>
+                                    <div>
+                                        <i class="icon-criticism" style="font-size: 14px;margin-right: 6px;"></i>1
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                <!--写短评的弹窗-->
+                    <div class="write_review">
+                        <div class="write_review_bg">
+                            <div class="write_review_close"></div>
+                            <div class="write_review_header">
+                                <div style="width: 100%;">
+                                    <img  src="//i0.hdslb.com/bfs/bangumi/image/0cc63d7bd7f82722137b6d5b27f13866c865e671.png@100w_133h.png" alt=""  style="float: left;">
+                                    <div class="write_review_info">
+                                     <h4><strong>阿松</strong></h4>
+                                     <p style="font-size: 14px;margin-top: 20px;margin-bottom: 25px;">请发表你对这部作品的评价</p>
+                                     <span class="write_review_star">
+                                            <i class="icon-star-empty" index="1">
+
+                                            </i>
+                                             <i class="icon-star-empty" index="2">
+
+                                            </i>
+                                             <i class="icon-star-empty" index="3">
+
+                                            </i>
+                                             <i class="icon-star-empty" index="4">
+
+                                            </i>
+                                             <i class="icon-star-empty" index="5">
+
+                                            </i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="write_review_middle">
+                            <textarea></textarea>
+                            <span>0/100</span>
+                            <button class="write_review_button">发表短评</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
     </div>
+
+
 </div>
 
 
