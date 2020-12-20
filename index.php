@@ -406,11 +406,10 @@
              var show3 =  $('#show3');
              var show4 =  $('#show4');
              $('#new-comment').hover(function () {
-                 show4.css('display','none');
-                 show3.css('display','none');
                  show2.css('display','none');
-                 show1.css('top','300px');
-                 show1.css('opacity','0');
+                 show3.css('display','none');
+                 show4.css('display','none');
+                 show1.css({top:'300px',opacity:'0'});
                  show1.animate({top:'0',display:'block',opacity:'1'},600);
                  show1.css('display','block');
              },function () {
@@ -424,8 +423,7 @@
                          show2.css('display','none');
                          show3.css('display','none');
                          show4.css('display','none');
-                         show1.css({top:'300px',opacity:'0'});
-                         show1.animate({top:'0',display:'block',opacity:'1'},600);
+                         show1.css('top','300px');
                          show1.css('display','block');
                          r=1;
                      }
