@@ -533,7 +533,6 @@
                 }
                 temp++;
             },30)
-
             //改变页面显示百分比
             function calculate(value){
                 //改变页面显示的值
@@ -800,8 +799,6 @@
                 </div>
             </div>
     </div>
-
-
 </div>
 
 
