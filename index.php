@@ -114,7 +114,7 @@
                             <li><a href="#">hello world</a></li>
                         </ul>
                     </li>
-                    <li class="hidden-md"><a href="#"><span id="span-img" class="ul-span2"><img src="#image/new_banner1.png" alt="照片"></span></a></li>
+                    <li class="hidden-md"><a href="#"><span id="span-img" class="ul-span2"><img src="image/logo_doujin.png" alt="照片"></span></a></li>
                 </ul>
             </div>
         </div>
