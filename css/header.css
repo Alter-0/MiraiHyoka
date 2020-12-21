@@ -268,17 +268,16 @@ select::-ms-expand {
 /*头像框*/
 
 #headerpic{
-    margin-left: 20px;
-    margin-right: 10px;
-    height: 50px;
+    margin: 5px 20px 20px 5px;
+    height: 40px;
     display: inline-block;
-    width: 50px;
-    border: #f09199 2px solid;
+    width: 40px;
+    /*border: #f09199 2px solid;*/
     border-radius: 50px;
 }
 #headerpic img{
 
-    border-radius: 50px;
+    border-radius: 40px;
     width: 100%;
     height: 100%;
 }

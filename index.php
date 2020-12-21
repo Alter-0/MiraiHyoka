@@ -136,18 +136,18 @@
                     </div>
                 </form>
             </div>
-<!--             <?php
-//             session_start();
-if (empty( $_SESSION["account"])){
-    echo " <input id=\"isLogin\" type=\"hidden\" value=\"0\" name=\"isLogin\">";
-}else{
-    echo " <input id=\"isLogin\" type=\"hidden\" value=\"1\" name=\"isLogin\">";
-}
-?>      -->
 
-            <input type="hidden" value="0" name="isLogin">
+            <?php
+            //             session_start();
+            if (empty( $_SESSION["account"])){
+                echo " <input id=\"isLogin\" type=\"hidden\" value=\"0\" name=\"isLogin\">";
+            }else{
+                echo " <input id=\"isLogin\" type=\"hidden\" value=\"1\" name=\"isLogin\">";
+            }
+            ?>
+
              <div  style="display: none" id="headerpic">
-                 <img src="image/favicon.ico" alt="">
+                 <img src="image/headerpic.jpg" alt="">
              </div>
             <div id="login-btn" class="login" style="display: block">
                 <a  href="user/login.php">
