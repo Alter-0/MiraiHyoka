@@ -6,16 +6,21 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Guide</title>
+    <script src="../js/main.js"></script>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
+
+<!--    本页面的css样式-->
     <link rel="stylesheet" href="guide.css" type="text/css">
 </head>
 <body>
 <!--top begin-->
-<div class="top">
-    <iframe  scrolling="no" src=""></iframe>
+<!--<div class="top">-->
+<!--    <iframe src="../header.php" scrolling="no"></iframe>-->
 <!--    <div class="img1"><img src="" alt=""></div>-->
-</div>
+<!--</div>-->
 <!--top end-->
-
+<?php include "../header.php"?>
 <!--content begin-->
 <div class="content" id="content">
     <div class="left">
@@ -33,36 +38,37 @@
                 </li>
             </ul>
         </div>
+        <?php
+            $is_finished=array("全部","完结","连载");
+            $time=array("全部",2020,2019,2018,2016,2015,2014,"之前");
+            $tags=array();
+            $area=array("全部","日本","中国","欧美","其他");
+
+            //                这部分具体命名要根据数据库来定
+            if(empty($_GET['is_finished'])){
+                $get_is_finished=0;
+            }else{
+                $get_is_finished=$_GET['is_finished'];
+            }
+            if(empty($_GET['time'])){
+                $get_time=0;
+            }else{
+                $get_time=$_GET['time'];
+            }
+            if(empty($_GET['tags'])){
+                $get_tags=0;
+            }else{
+                $get_tags=$_GET['tags'];
+            }
+            if(empty($_GET['area'])){
+                $get_area=0;
+            }else{
+                $get_area=$_GET['area'];
+            }
+        ?>
         <div class="l-content">
             <ul>
              <?php
-                $is_finished=array("全部","完结","连载");
-                $time=array("全部",2020,2019,2018,2016,2015,2014,"之前");
-                $tags=array();
-                $area=array("全部","日本","中国","欧美","其他");
-
-//                这部分具体命名要根据数据库来定
-                if(empty($_GET['is_finished'])){
-                    $get_is_finished=0;
-                }else{
-                    $get_is_finished=$_GET['is_finished'];
-                }
-                if(empty($_GET['time'])){
-                    $get_time=0;
-                }else{
-                    $get_time=$_GET['time'];
-                }
-                if(empty($_GET['tags'])){
-                    $get_tags=0;
-                }else{
-                    $get_tags=$_GET['tags'];
-                }
-                if(empty($_GET['area'])){
-                    $get_area=0;
-                }else{
-                    $get_area=$_GET['area'];
-                }
-
 //                生成左边的封面和名字
                 for($i=1;$i<=16;$i++){
                     echo  "<li>";
@@ -70,7 +76,6 @@
 				    echo  "<p><a href='' target='_blank'>名字</a></p>";
 			    	echo  "</li>";
                  }
-
               ?>
             </ul>
         </div>
@@ -106,7 +111,7 @@
                         echo "<li><a href='?pagenum=6&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>6</a></li>";
                         echo "    ...    ";
                         echo "<li><a href='?pagenum=".$pageall."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>".$pageall."</a></li>";
-                    }else if($pagenum>4&&$pagenum<($pageall-4)){
+                    }else if($pagenum>4&&$pagenum<($pageall-3)){
                         echo "<li><a href='?pagenum=1&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>1</a></li>";
                         echo "    ...    ";
                         echo "<li><a href='?pagenum=".($pagenum-2)."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>".($pagenum-2)."</a></li>";
@@ -116,7 +121,7 @@
                         echo "<li><a href='?pagenum=".($pagenum+2)."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>".($pagenum+2)."</a></li>";
                         echo "    ...    ";
                         echo "<li><a href='?pagenum=".$pageall."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>".$pageall."</a></li>";
-                    }else if($pagenum>=($pageall-4)){
+                    }else if($pagenum>=($pageall-3)){
                         echo "<li><a href='?pagenum=1&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>1</a></li>";
                         echo "    ...    ";
                         echo "<li><a href='?pagenum=".($pageall-4)."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>".($pageall-4)."</a></li>";
@@ -186,31 +191,32 @@
 <!--cotent end-->
 </body>
 <script type="text/javascript">
-
-        var pagenum="<?php echo  $pagenum?>";
-        var pageall="<?php echo   $pageall ?>";
+    window.addEventListener('load', function() {
+        var pagenum="<?php echo  $pagenum ?>";
+        var pageall="<?php echo  $pageall ?>";
         pagenum=parseInt(pagenum);
         pageall=parseInt(pageall);
         if(pagenum<=4){
           var li= document.querySelector(".content .left .page li:nth-child(<?php echo ($pagenum+1); ?>)");
-        }else if(pagenum>4&&pagenum<(pageall-4)){
-          var li= document.querySelector(".content .left .page li:nth-child(6)");
-        }else if(pagenum>=((pageall-4))){
+        }else if(pagenum>4&&pagenum<(pageall-3)){
+          var li= document.querySelector(".content .left .page li:nth-child(5)");
+        }else if(pagenum>=((pageall-3))){
           var li= document.querySelector(".content .left .page li:nth-last-child(<?php echo ($pageall-$pagenum+2); ?>)");
         }
-        //var li= document.querySelector(".content .left .page li:nth-child(<?php //echo ($pagenum+1); ?>//)");
         li.onclick=function(){
             return false;}
+        li.setAttribute("class","l_page_on");
 
         if(pagenum==1){
             var li1= document.querySelector(".content .left .page li:nth-child(1)");
+            li1.onclick=function(){
+                return false;}
+
         }else if(pagenum==pageall){
             var li1= document.querySelector(".content .left .page li:last-child");
+            li1.onclick=function(){
+                return false;}
         }
-        li1.onclick=function(){
-            return false;}
-
-        window.addEventListener('load', function() {
         var r_li1=document.querySelector(".filter-block:nth-child(1) li:nth-child(<?php echo ($get_is_finished+1) ?>)");
         var r_li2=document.querySelector(".filter-block:nth-child(2) li:nth-child(<?php echo ($get_time+1) ?>)");
         var r_li3=document.querySelector(".filter-block:nth-child(3) li:nth-child(<?php echo ($get_tags+1) ?>)");
@@ -220,5 +226,42 @@
         r_li3.setAttribute("class","r_li_on");
         r_li4.setAttribute("class","r_li_on");
         })
+</script>
+<!--筛选条件-->
+<script>
+    <?php
+        if(empty($_GET['choosen'])){
+            $choosen=2;
+        }else{
+            $choosen=$_GET['choosen'];
+        }
+    ?>
+    var choosen = <?php echo $choosen ?>;
+    choosen=parseInt(choosen);
+
+    $(document).ready(function (){
+        if (choosen<=2){
+            $(".sort_item:first i:eq(<?php echo ($choosen-1) ?>)").css("border-color","#00a1d6 rgba(0,0,0,0)");
+        }else{
+            $(".sort_item:last i:eq(<?php echo ($choosen-3) ?>)").css("border-color","#00a1d6 rgba(0,0,0,0)");
+        }
+        // 点击第一个筛选条件
+        $(".sort_item:first").click(function(){
+            if(choosen==2){
+                window.location.href="?choosen=1&is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>";
+            }else{
+                window.location.href="?choosen=2&is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>";
+            }
+        })
+        // // 点击第二个筛选条件
+        $(".sort_item:last").click(function(){
+            if(choosen==4){
+                window.location.href="?choosen=3&is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>"
+            }else{
+                window.location.href="?choosen=4&is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>"
+            }
+        })
+    })
+
 </script>
 </html>

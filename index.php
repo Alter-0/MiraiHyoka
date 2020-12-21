@@ -5,6 +5,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>MiraiHyoka</title>
     <link rel="stylesheet" href="css/default.css">
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
@@ -13,8 +15,13 @@
     <script src="js/jquery.js"></script>
     <script src="css/bootstrap/js/bootstrap.min.js"></script>
     <script src="js/index.js"></script>
+    <style>
+        #showspider{
+            height: 560px;
+        }
+    </style>
 </head>
-<body>
+<body id="page-top" style="zoom: 1">
 <header>
     <div style="padding: 0" class="container">
         <div class="dis">
@@ -65,7 +72,8 @@
                             <li><a href="#">hello world</a></li>
                         </ul>
                     </li>
-                    <li class="out-li"><a href="#"><span id="span5" class="ul-span">三次元</span></a>
+                    <li class="out-li"
+                    <a href="#"><span id="span5" class="ul-span">三次元</span></a>
                         <ul>
                             <li><a href="#">hello world</a></li>
                             <li><a href="#">hello world</a></li>
@@ -106,7 +114,7 @@
                             <li><a href="#">hello world</a></li>
                         </ul>
                     </li>
-                    <li ><a href="#"><span id="span-img" class="ul-span2"><img src="#image/new_banner1.png" alt="照片"></span></a></li>
+                    <li class="hidden-md"><a href="#"><span id="span-img" class="ul-span2"><img src="image/logo_doujin.png" alt="照片"></span></a></li>
                 </ul>
             </div>
         </div>
@@ -128,14 +136,38 @@
                     </div>
                 </form>
             </div>
-            <div class="login">
-                <a href="user/login.html">
-                    <span id="login" class="reg" style="padding: 0 5px 0 15px">登录</span>
+             <div style="display: none">     <?php
+                 //           session_start();
+                 if (empty( $_SESSION["account"])){
+                     echo " <input id=\"isLogin\" type=\"hidden\" value=\"1\" name=\"isLogin\">";
+                 }else{
+                     echo " <input id=\"isLogin\" type=\"hidden\" value=\"0\" name=\"isLogin\">";
+                 }
+                 ?></div>
+             <div  style="display: none" id="headerpic">
+                 <img src="image/headerpic.jpg" alt="">
+             </div>
+            <div id="login-btn" class="login" style="display: block">
+                <a  href="user/login.php">
+                    <span id="login" class="reg11" style="padding: 0 5px 0 15px">登录</span>
                 </a>
-                <a href="user/user.php">
-                    <span id="reg" class="reg" style="padding:0 15px 0 5px">注册</span>
+                <a href="user/reg.php">
+                    <span id="reg11" class="reg11" style="padding:0 15px 0 5px">注册</span>
                 </a>
             </div>
+            <script>
+                $(function () {
+                    var login_btn = $('#login-btn');
+                    var hearpic = $('#headerpic');
+                    if ($('#isLogin').val()==1){
+                        login_btn.css('display','none');
+                        hearpic.css('display','inline-block');
+                    }else {
+                        login_btn.css('display','block');
+                        hearpic.css('display','none');
+                    }
+                })
+            </script>
         </div>
     </div>
     <div class="menu" id="menu">
@@ -157,44 +189,22 @@
         }
     });
 </script>
-    <div id="carousel-example-generic" class="showli carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-        </ol>
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner showli"  role="listbox">
-            <div class="item active">
-                <img src="image/background.jpg" alt="...">
-                <div class="carousel-caption">
-                    ...
-                </div>
-            </div>
-            <div class="item">
-                <img src="image/new_banner.png" alt="...">
-                <div class="carousel-caption">
-                    ...
-                </div>
-            </div>
-            <div class="item">
-                <img src="image/user_background.jpg" alt="...">
-                <div class="carousel-caption">
-                    ...
-                </div>
-            </div>
-        </div>
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
+<div id=showspider style="width: 100%;">
+    <iframe id="spider" src="index-test.php" scrolling="no" frameborder="0" width="100%" height="100%">
+    </iframe>
+</div>
+<script>
+    $(window).resize(function () {
+        var bodyw = $('body').width();
+        console.log(bodyw);
+        if (bodyw>640){
+            console.log("zheiklasnhilkac")
+            $('#showspider').css('height','580px');
+        }else {
+            $('#showspider').css('height','280px');
+        }
+    });
+</script>
 <div class="container">
        <div class="title">
            <h2>
@@ -357,6 +367,7 @@
          <script>
             $(document).ready(function () {
                 var wi =  $('.row').width();
+                // var bodywi = $(document).body.width;
                 // console.log(wi);
                 if (wi<970){
                     if (wi<755){
@@ -379,7 +390,7 @@
             })
            $(window).resize(function () {
                var wi =  $('.row').width();
-               // console.log(wi);
+
                if (wi<970){
                    if (wi<755){
                        if (wi<633){
@@ -405,10 +416,11 @@
              var show3 =  $('#show3');
              var show4 =  $('#show4');
              $('#new-comment').hover(function () {
-                 show2.css('display','none');
-                 show3.css('display','none');
                  show4.css('display','none');
-                 show1.css({top:'300px',opacity:'0'});
+                 show3.css('display','none');
+                 show2.css('display','none');
+                 show1.css('top','300px');
+                 show1.css('opacity','0');
                  show1.animate({top:'0',display:'block',opacity:'1'},600);
                  show1.css('display','block');
              },function () {
@@ -417,6 +429,7 @@
              var r=1;
              $(function () {
                  $(document).scroll(function () {
+
                      var scrolltopTemp=document.documentElement.scrollTop||document.body.scrollTop
                      if (scrolltopTemp>900&&r>0){
                          show2.css('display','none');
@@ -425,6 +438,7 @@
                          show1.css({top:'300px',opacity:'0'});
                          show1.animate({top:'0',display:'block',opacity:'1'},600);
                          show1.css('display','block');
+                         r = 0;
                      }
                  })
              })

@@ -11,242 +11,12 @@
     <title><?php
         echo "番名"
         ?>_番剧点评_MiraiHyoka</title>
-
     <?php
     $score=6.8;
     $score1=6.4;
     $score2=7.5;
     ?>
-    <script>
-        $(function(){
-            //通过计时器来显示过渡的百分比进度，计时器不能直接放入循环中
-            var temp= 0;
-            var timer= setInterval(function(){
 
-                    calculate(1,temp,1);
-                    //清除计时器结束该方法调用
-                    if(temp== <?php echo $score*10; ?>){
-                        clearInterval(timer);
-                    }
-                    temp++;
-                },30);
-            var temp2= 0;
-            var timer2= setInterval(function(){
-                calculate(0,temp2,0);
-                //清除计时器结束该方法调用
-                if(temp2==<?php echo $score2*10; ?>){
-                    clearInterval(timer2);
-                }
-                temp2++;
-            },30);
-            var temp3= 0;
-            var timer3= setInterval(function(){
-                calculate(2,temp3,2);
-                //清除计时器结束该方法调用
-                if(temp3==<?php echo $score2*10; ?>){
-                    clearInterval(timer3);
-                }
-                temp3++;
-            },30);
-            var temp4= 0;
-            var timer4= setInterval(function(){
-                calculate(3,temp4,3);
-                //清除计时器结束该方法调用
-                if(temp4==<?php echo $score1*10; ?>){
-                    clearInterval(timer4);
-                }
-                temp4++;
-            },30);
-            var temp5= 0;
-            var timer5= setInterval(function(){
-                calculate(4,temp5,4);
-                //清除计时器结束该方法调用
-                if(temp5==<?php echo $score2*10; ?>){
-                    clearInterval(timer5);
-                }
-                temp5++;
-            },30);
-            var temp6= 0;
-            var timer6= setInterval(function(){
-                calculate(5,temp6,5);
-                //清除计时器结束该方法调用
-                if(temp6==<?php echo $score2*10; ?>){
-                    clearInterval(timer6);
-                }
-                temp6++;
-            },30);
-            var temp7= 0;
-            var timer7= setInterval(function(){
-                calculate(6,temp7,6);
-                //清除计时器结束该方法调用
-                if(temp7==<?php echo $score2*10; ?>){
-                    clearInterval(timer7);
-                }
-                temp7++;
-            },30);
-            var temp8= 0;
-            var timer8= setInterval(function(){
-                calculate(7,temp8,7);
-                //清除计时器结束该方法调用
-                if(temp8==<?php echo $score2*10; ?>){
-                    clearInterval(timer8);
-                }
-                temp8++;
-            },30);
-
-
-
-            //改变页面显示百分比
-            function calculate(index,value,i){
-                //改变页面显示的值
-                $('.text').eq(i).html(value/10);
-                        if(index==0)
-                        {
-                            $('.bg .circle-left').remove();
-                            $('.bg .mask-right').remove();
-                        }
-                      else if(index==1)
-                        {
-                            $('.bg_2 .circle-left').remove();
-                            $('.bg_2 .mask-right').remove();
-                        }
-                     else if(index==2)
-                         { //清除上次调用该方法残留的效果
-
-                         $('.bg_3 .circle-left').remove();
-                         $('.bg_3 .mask-right').remove();
-                         }
-                     else if(index==3)
-                        { //清除上次调用该方法残留的效果
-
-                            $('.bg_4 .circle-left').remove();
-                            $('.bg_4 .mask-right').remove();
-                        }
-                      else if(index==4)
-                        { //清除上次调用该方法残留的效果
-
-                            $('.bg_5 .circle-left').remove();
-                            $('.bg_5 .mask-right').remove();
-                        }
-                        else if(index==5)
-                        { //清除上次调用该方法残留的效果
-
-                            $('.bg_6 .circle-left').remove();
-                            $('.bg_6 .mask-right').remove();
-                        }
-                        else if(index==6)
-                        { //清除上次调用该方法残留的效果
-
-                            $('.bg_7 .circle-left').remove();
-                            $('.bg_7 .mask-right').remove();
-                        }
-                        else if(index==7)
-                        { //清除上次调用该方法残留的效果
-
-                            $('.bg_8 .circle-left').remove();
-                            $('.bg_8 .mask-right').remove();
-                        }
-
-
-
-                //当百分比小于等于50
-                if(value <= 50){
-                    var html = '';
-
-                    html += '<div class="mask-right" style="transform:rotate('+ (value * 3.6) +'deg)"></div>';
-
-                    //元素里添加子元素
-                    $('.circle-right').eq(i).append(html);
-                }else{
-                    value -= 50;
-                    var html = '';
-
-                    html += '<div class="circle-left">';
-                    html += '<div class="mask-left" style="transform:rotate('+ (value * 3.6) +'deg)"></div>';
-                    html += '</div>';
-
-                    //元素后添加元素
-                    $('.circle-right').eq(i).after(html);
-                }
-            }
-        });
-
-        function changeTab(tab) {
-            var tabs = document.getElementsByClassName('tab_nav')[0].getElementsByTagName("li");
-            var contents = document.querySelectorAll(".tab_de>div");
-            for (var i = 0, len = tabs.length; i < len; i++) {
-                if (tabs[i] === tab) {
-                    tabs[i].className = 'on';
-                    contents[i].style.display = 'block';
-
-                } else {
-                    tabs[i].className = '';
-                    contents[i].style.display = 'none';
-                }
-            }
-        }
-
-    </script>
-    <script>
-        $(document).ready(function(){
-                 var indexnum="";
-            $(".short_review_write").click(function(){
-                $(".write_review").css("display","block");
-            });
-            $(".write_review_close").click(function(){
-                $(".write_review").css("display","none");
-            });
-            $('.write_review_star i').hover(function(){
-                var index=$(this).attr("index");
-                indexnum=index;
-                for(i=0;i<index;i++)
-                {
-                    $('.write_review_star i').eq(i).attr("class","icon-star-full");
-                }
-                for(i=index;i<5;i++)
-                {
-                    $('.write_review_star i').eq(i).attr("class","icon-star-empty");
-                }
-
-            });
-
-            $(window).scroll(function() {
-                if ($("short_review").css("display") !="none")
-                {
-                var scrollTop = $(this).scrollTop();
-                var scrollHeight = $(document).height();
-                var windowHeight = $(this).height();
-                if ((scrollHeight - (scrollTop + windowHeight)) < 10)
-                    {   $.post("short_review_load.php",
-                        {objective:"reviewload"},
-                        function(data){
-                            data = eval('('+data+')');
-                            for(i=0;i<4;i++)
-                            {
-                                var name = data.name[i];
-                                var time = data.time[i];
-                                var review =data.review[i];
-                                $(".short_review_middle ul").append(" <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
-                                    + " <img alt='a' src='//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp' lazy='loaded'>"
-                                    + "  </div> </div> <div class='short_review_name'>" + name
-                                    + " </div> <div class='short_review_star'> <span class='review_star'>"
-                                    + " <i class='icon-star-full'> <i></i> </i> <i class='icon-star-full'> <i></i> </i> <i class='icon-star-full'>"
-                                    + "<i></i> </i> <i class='icon-star-full'> <i></i> </i> <i class='icon-star-empty'> <i></i> </i> </span>"
-                                    + "</div> <div class='short_review_time'>" + time
-                                    + "</div> </div> <div class='li_second_review'> <div class='second_review'>" + review
-                                    + "</div> </div> <div class='li_third_icon'> <div> <i class='icon-praise' style='font-size: 14px;margin-right: 6px;'></i>46 </div>"
-                                    + "<div> <i class='icon-criticism' style='font-size: 14px;margin-right: 6px;'></i>1 </div> </div> </li>");
-                            }
-                        });
-
-
-                    }
-               }
-            });
-
-
-        });
-    </script>
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
 </head>
@@ -295,8 +65,8 @@
                 </div>
                 <!-- 圆形展示分数条上面的文字-->
                 <div class="cirle_info">
-                <span style="color:#ffffff;font-size:22px;line-height:20px;margin-right: 110px">综合用户评分</span>
-                <span style="color:#ffffff;font-size:22px;line-height:20px;">综合媒体评分</span>
+                <span style="color:#ffffff;font-size:22px;line-height:20px;margin-right: 110px">综合媒体评分</span>
+                <span style="color:#ffffff;font-size:22px;line-height:20px;">综合用户评分</span>
                 </div>
                 <!-- 圆形展示分数条-->
                 <div class="bg">
@@ -464,7 +234,7 @@
                         <div class="short_review_drop"><div>默认<i></i></div> <ul><li>默认</li><li>最新</li></ul></div>
                         <div class="short_review_write">去写短评</div>
                         <!--短评具体内容-->
-                        <ul>
+                        <ul class="short_review_write_ul">
                             <li>
                                 <!--短评具体内容-头像那一行-->
                                 <div class="li_first_div">
@@ -507,10 +277,10 @@
                                 <!--点赞-->
                                 <div class="li_third_icon">
                                     <div>
-                                        <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i>46
+                                        <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i><span>5</span>
                                     </div>
                                     <div>
-                                        <i class="icon-criticism" style="font-size: 14px;margin-right: 6px;"></i>1
+                                        <i class="icon-criticism" style="font-size: 14px;margin-right: 6px;"></i><span>1</span>
                                     </div>
                                 </div>
                             </li>
@@ -556,10 +326,10 @@
                                 <!--点赞-->
                                 <div class="li_third_icon">
                                     <div>
-                                        <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i>46
+                                        <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i><span>5</span>
                                     </div>
                                     <div>
-                                        <i class="icon-criticism" style="font-size: 14px;margin-right: 6px;"></i>1
+                                        <i class="icon-criticism" style="font-size: 14px;margin-right: 6px;"></i><span>1</span>
                                     </div>
                                 </div>
                             </li>
@@ -605,10 +375,10 @@
                                 <!--点赞-->
                                 <div class="li_third_icon">
                                     <div>
-                                        <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i>46
+                                        <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i><span>5</span>
                                     </div>
                                     <div>
-                                        <i class="icon-criticism" style="font-size: 14px;margin-right: 6px;"></i>1
+                                        <i class="icon-criticism" style="font-size: 14px;margin-right: 6px;"></i><span>1</span>
                                     </div>
                                 </div>
                             </li>
@@ -654,10 +424,10 @@
                                 <!--点赞-->
                                 <div class="li_third_icon">
                                     <div>
-                                        <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i>46
+                                        <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i><span>5</span>
                                     </div>
                                     <div>
-                                        <i class="icon-criticism" style="font-size: 14px;margin-right: 6px;"></i>1
+                                        <i class="icon-criticism" style="font-size: 14px;margin-right: 6px;"></i><span>1</span>
                                     </div>
                                 </div>
                             </li>
@@ -703,10 +473,10 @@
                                 <!--点赞-->
                                 <div class="li_third_icon">
                                     <div>
-                                        <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i>46
+                                        <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i><span>5</span>
                                     </div>
                                     <div>
-                                        <i class="icon-criticism" style="font-size: 14px;margin-right: 6px;"></i>1
+                                        <i class="icon-criticism" style="font-size: 14px;margin-right: 6px;"></i><span>1</span>
                                     </div>
                                 </div>
                             </li>
@@ -758,4 +528,297 @@
 
 
 </body>
+<!--这里是js-->
+<script>
+//    第一个函数-分数圆形条
+    $(function(){
+        //通过计时器来显示过渡的百分比进度，计时器不能直接放入循环中
+        var temp= 0;
+        var timer= setInterval(function(){
+
+            calculate(1,temp,1);
+            //清除计时器结束该方法调用
+            if(temp== <?php echo $score*10; ?>){
+                clearInterval(timer);
+            }
+            temp++;
+        },30);
+        var temp2= 0;
+        var timer2= setInterval(function(){
+            calculate(0,temp2,0);
+            //清除计时器结束该方法调用
+            if(temp2==<?php echo $score2*10; ?>){
+                clearInterval(timer2);
+            }
+            temp2++;
+        },30);
+        var temp3= 0;
+        var timer3= setInterval(function(){
+            calculate(2,temp3,2);
+            //清除计时器结束该方法调用
+            if(temp3==<?php echo $score2*10; ?>){
+                clearInterval(timer3);
+            }
+            temp3++;
+        },30);
+        var temp4= 0;
+        var timer4= setInterval(function(){
+            calculate(3,temp4,3);
+            //清除计时器结束该方法调用
+            if(temp4==<?php echo $score1*10; ?>){
+                clearInterval(timer4);
+            }
+            temp4++;
+        },30);
+        var temp5= 0;
+        var timer5= setInterval(function(){
+            calculate(4,temp5,4);
+            //清除计时器结束该方法调用
+            if(temp5==<?php echo $score2*10; ?>){
+                clearInterval(timer5);
+            }
+            temp5++;
+        },30);
+        var temp6= 0;
+        var timer6= setInterval(function(){
+            calculate(5,temp6,5);
+            //清除计时器结束该方法调用
+            if(temp6==<?php echo $score2*10; ?>){
+                clearInterval(timer6);
+            }
+            temp6++;
+        },30);
+        var temp7= 0;
+        var timer7= setInterval(function(){
+            calculate(6,temp7,6);
+            //清除计时器结束该方法调用
+            if(temp7==<?php echo $score2*10; ?>){
+                clearInterval(timer7);
+            }
+            temp7++;
+        },30);
+        var temp8= 0;
+        var timer8= setInterval(function(){
+            calculate(7,temp8,7);
+            //清除计时器结束该方法调用
+            if(temp8==<?php echo $score2*10; ?>){
+                clearInterval(timer8);
+            }
+            temp8++;
+        },30);
+
+
+
+        //改变页面显示百分比
+        function calculate(index,value,i){
+            //改变页面显示的值
+            $('.text').eq(i).html(value/10);
+            if(index==0)
+            {
+                $('.bg .circle-left').remove();
+                $('.bg .mask-right').remove();
+            }
+            else if(index==1)
+            {
+                $('.bg_2 .circle-left').remove();
+                $('.bg_2 .mask-right').remove();
+            }
+            else if(index==2)
+            { //清除上次调用该方法残留的效果
+
+                $('.bg_3 .circle-left').remove();
+                $('.bg_3 .mask-right').remove();
+            }
+            else if(index==3)
+            { //清除上次调用该方法残留的效果
+
+                $('.bg_4 .circle-left').remove();
+                $('.bg_4 .mask-right').remove();
+            }
+            else if(index==4)
+            { //清除上次调用该方法残留的效果
+
+                $('.bg_5 .circle-left').remove();
+                $('.bg_5 .mask-right').remove();
+            }
+            else if(index==5)
+            { //清除上次调用该方法残留的效果
+
+                $('.bg_6 .circle-left').remove();
+                $('.bg_6 .mask-right').remove();
+            }
+            else if(index==6)
+            { //清除上次调用该方法残留的效果
+
+                $('.bg_7 .circle-left').remove();
+                $('.bg_7 .mask-right').remove();
+            }
+            else if(index==7)
+            { //清除上次调用该方法残留的效果
+
+                $('.bg_8 .circle-left').remove();
+                $('.bg_8 .mask-right').remove();
+            }
+
+
+
+            //当百分比小于等于50
+            if(value <= 50){
+                var html = '';
+
+                html += '<div class="mask-right" style="transform:rotate('+ (value * 3.6) +'deg)"></div>';
+
+                //元素里添加子元素
+                $('.circle-right').eq(i).append(html);
+            }else{
+                value -= 50;
+                var html = '';
+
+                html += '<div class="circle-left">';
+                html += '<div class="mask-left" style="transform:rotate('+ (value * 3.6) +'deg)"></div>';
+                html += '</div>';
+
+                //元素后添加元素
+                $('.circle-right').eq(i).after(html);
+            }
+        }
+    });
+    //切换页面的函数
+    function changeTab(tab) {
+        var tabs = document.getElementsByClassName('tab_nav')[0].getElementsByTagName("li");
+        var contents = document.querySelectorAll(".tab_de>div");
+        for (var i = 0, len = tabs.length; i < len; i++) {
+            if (tabs[i] === tab) {
+                tabs[i].className = 'on';
+                contents[i].style.display = 'block';
+
+            } else {
+                tabs[i].className = '';
+                contents[i].style.display = 'none';
+            }
+        }
+    }
+
+</script>
+<script>
+
+    $(document).ready(function(){
+        var indexnum="";
+        //弹窗的加载
+        $(".short_review_write").click(function(){
+            $(".write_review").css("display","block");
+        });
+        //弹窗的关闭
+        $(".write_review_close").click(function(){
+            $(".write_review").css("display","none");
+        });
+        //评分的星星互动及按钮的检查
+        $('.write_review_star i').hover(function(){
+            var index=$(this).attr("index");
+            indexnum=index;
+            for(i=0;i<index;i++)
+            {
+                $('.write_review_star i').eq(i).attr("class","icon-star-full");
+            }
+            for(i=index;i<5;i++)
+            {
+                $('.write_review_star i').eq(i).attr("class","icon-star-empty");
+            }
+            if($('.write_review_button').css("cursor")=="not-allowed")
+            {
+                $('.write_review_button').css("cursor","pointer");
+                $('.write_review_button').css("background","#0cc7ef");
+                $('.write_review_button').css("color","#ffffff");
+
+            }
+        });
+        //弹窗字数的更新及超字数提示
+        $('.write_review_middle textarea').keyup(function(){
+            var textlength = $(this).val().length;
+            $('.write_review_middle span').text(textlength+"/100");
+            if(textlength>=100)
+            {
+                $('.write_review_middle span').text("评论不超过100字");
+                $('.write_review_middle span').css("color","red");
+
+            }
+
+        });
+        //点赞按钮的互动
+        $('.icon-praise').click(function(e){
+            if($(e.target).parent().parent().find("div:nth-child(2)").find("i").attr("class")=="icon-criticism_full")
+            {return;}
+            if($(e.target).attr("class")=="icon-praise")
+            {
+                $(e.target).attr("class","icon-praise_full");
+                $(e.target).siblings().css("color","#1189ef");
+                var n=parseInt($(e.target).siblings().html());
+                $(e.target).siblings().html((n+1));
+            }
+            else
+            {
+                $(e.target).attr("class","icon-praise");
+                $(e.target).siblings().css("color","#99a2aa");
+                var n=parseInt($(e.target).siblings().html());
+                $(e.target).siblings().html((n-1));
+            }
+        });
+        //点踩按钮的互动
+        $('.icon-criticism').click(function(e){
+            if($(e.target).parent().parent().find("div:nth-child(1)").find("i").attr("class")=="icon-praise_full")
+            {return;}
+            if($(e.target).attr("class")=="icon-criticism")
+            {
+                $(e.target).attr("class","icon-criticism_full");
+                $(e.target).siblings().css("color","#1189ef");
+                var n=parseInt($(e.target).siblings().html());
+                $(e.target).siblings().html((n+1));
+            }
+            else
+            {
+
+                $(e.target).attr("class","icon-criticism");
+                $(e.target).siblings().css("color","#99a2aa");
+                var n=parseInt($(e.target).siblings().html());
+                $(e.target).siblings().html((n-1));
+            }
+        });
+        //对滚轮的监听，是否申请新的评论
+        $(window).scroll(function() {
+            if ($(".short_review").css("display") !="none")
+            {
+                var scrollTop = $(this).scrollTop();
+                var scrollHeight = $(document).height();
+                var windowHeight = $(this).height();
+                if ((scrollHeight - (scrollTop + windowHeight)) < 10)
+                {   $.post("short_review_load.php",
+                    {objective:"reviewload"},
+                    function(data){
+                        data = eval('('+data+')');
+                        for(i=0;i<4;i++)
+                        {
+                            var name = data.name[i];
+                            var time = data.time[i];
+                            var review =data.review[i];
+                            $(".short_review_middle .short_review_write_ul").append(" <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
+                                + " <img alt='a' src='//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp' lazy='loaded'>"
+                                + "  </div> </div> <div class='short_review_name'>" + name
+                                + " </div> <div class='short_review_star'> <span class='review_star'>"
+                                + " <i class='icon-star-full'> <i></i> </i> <i class='icon-star-full'> <i></i> </i> <i class='icon-star-full'>"
+                                + "<i></i> </i> <i class='icon-star-full'> <i></i> </i> <i class='icon-star-empty'> <i></i> </i> </span>"
+                                + "</div> <div class='short_review_time'>" + time
+                                + "</div> </div> <div class='li_second_review'> <div class='second_review'>" + review
+                                + "</div> </div> <div class='li_third_icon'> <div> <i class='icon-praise' style='font-size: 14px;margin-right: 6px;'></i><span>5</span></div>"
+                                + "<div> <i class='icon-criticism' style='font-size: 14px;margin-right: 6px;'></i><span>1</span></div> </div> </li>");
+                        }
+                    });
+
+
+                }
+            }
+        });
+
+
+    });
+</script>
 </html>

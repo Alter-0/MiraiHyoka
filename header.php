@@ -48,13 +48,14 @@
                             <li><a href="#">hello world</a></li>
                         </ul>
                     </li>
-                    <li class="out-li"><a href="#"><span id="span5" class="ul-span">三次元</span></a>
-                        <ul>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                        </ul>
+                    <li class="out-li"
+                    <a href="#"><span id="span5" class="ul-span">三次元</span></a>
+                    <ul>
+                        <li><a href="#">hello world</a></li>
+                        <li><a href="#">hello world</a></li>
+                        <li><a href="#">hello world</a></li>
+                        <li><a href="#">hello world</a></li>
+                    </ul>
                     </li>
                     <li class="out-li"><a href="#"></a></li>
                     <li class="out-li"><a href="#"><span id="span7" class="ul-span2">人物</span></a>
@@ -89,12 +90,12 @@
                             <li><a href="#">hello world</a></li>
                         </ul>
                     </li>
-                    <li ><a href="#"><span id="span-img" class="ul-span2"><img src="#" alt="照片"></span></a></li>
+                    <li class="hidden-md"><a href="#"><span id="span-img" class="ul-span2"><img src="../image/logo_doujin.png" alt="照片"></span></a></li>
                 </ul>
             </div>
         </div>
         <div id="user-login" class="dis">
-            <div class="search">
+            <div class="search hidden-sm hidden-xs">
                 <form action="#" method="post">
                     <div class="inner">
                         <select name="cat" id="siteSearchSelect">
@@ -111,32 +112,56 @@
                     </div>
                 </form>
             </div>
-            <div class="login">
-                <a href="user/login.html">
-                    <span id="login" class="reg" style="padding: 0 5px 0 15px">登录</span>
+            <?php
+            //           session_start();
+            if (empty( $_SESSION["account"])){
+                echo " <input id=\"isLogin\" type=\"hidden\" value=\"0\" name=\"isLogin\">";
+            }else{
+                echo " <input id=\"isLogin\" type=\"hidden\" value=\"1\" name=\"isLogin\">";
+            }
+            ?>
+            <div  style="display: none" id="headerpic">
+                <img src="../image/headerpic.jpg" alt="">
+            </div>
+            <div id="login-btn" class="login" style="display: block">
+                <a  href="../user/login.php">
+                    <span id="login" class="reg11" style="padding: 0 5px 0 15px">登录</span>
                 </a>
-                <a href="user/user.php">
-                    <span id="reg" class="reg" style="padding:0 15px 0 5px">注册</span>
+                <a href="../user/reg.php">
+                    <span id="reg11" class="reg11" style="padding:0 15px 0 5px">注册</span>
                 </a>
             </div>
+            <script>
+                $(function () {
+                    var login_btn = $('#login-btn');
+                    var hearpic = $('#headerpic');
+                    if ($('#isLogin').val()==1){
+                        login_btn.css('display','none');
+                        hearpic.css('display','inline-block');
+                    }else {
+                        login_btn.css('display','block');
+                        hearpic.css('display','none');
+                    }
+                })
+            </script>
         </div>
     </div>
     <div class="menu" id="menu">
 
     </div>
-    <script>
-        var i = 0;
-        var $menu = $('#menu');
-        $('#span6').click(function () {
-            if (i==0){
-                $menu.slideDown(300);
-                i++;
-                $(this).html('关闭');
-            }else {
-                $menu.slideUp(300);
-                i--;
-                $(this).html('菜单');
-            }
-        });
-    </script>
 </header>
+<script>
+    var i = 0;
+    var $menu = $('#menu');
+    $('#span6').click(function () {
+        if (i==0){
+            $menu.slideDown(300);
+            i++;
+            $(this).html('关闭');
+        }else {
+            $menu.slideUp(300);
+            i--;
+            $(this).html('菜单');
+        }
+    });
+</script>
