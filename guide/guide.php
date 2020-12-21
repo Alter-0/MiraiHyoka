@@ -6,17 +6,21 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Guide</title>
-    <link rel="stylesheet" href="guide.css" type="text/css">
     <script src="../js/main.js"></script>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
+
+<!--    本页面的css样式-->
+    <link rel="stylesheet" href="guide.css" type="text/css">
 </head>
 <body>
 <!--top begin-->
-<div class="top">
-    <iframe src="../header.php" scrolling="no"></iframe>
+<!--<div class="top">-->
+<!--    <iframe src="../header.php" scrolling="no"></iframe>-->
 <!--    <div class="img1"><img src="" alt=""></div>-->
-</div>
+<!--</div>-->
 <!--top end-->
-
+<?php include "../header.php"?>
 <!--content begin-->
 <div class="content" id="content">
     <div class="left">
