@@ -357,7 +357,7 @@
 .details_card_right{
     padding: 25px;
     height: 100%;
-    width: 50%;
+    width: 51.4%;
     margin-left: 10%;
     text-align: left;
     float: left;
@@ -689,13 +689,36 @@
 }
 
 .long_review{
+    margin-top: 20px;
     display: none;
+    -webkit-animation-name: fadeIn; /*动画名称*/
+    -webkit-animation-duration: .5s; /*动画持续时间*/
+    -webkit-animation-iteration-count: 1; /*动画次数*/
+    -webkit-animation-delay: 0s; /*延迟时间*/
 }
 .diversity{
+    margin-top: 20px;
     display: none;
+    -webkit-animation-name: fadeIn; /*动画名称*/
+    -webkit-animation-duration: .5s; /*动画持续时间*/
+    -webkit-animation-iteration-count: 1; /*动画次数*/
+    -webkit-animation-delay: 0s; /*延迟时间*/
 }
 .short_review{
+    margin-top: 20px;
     display: none;
+    -webkit-animation-name: fadeIn; /*动画名称*/
+    -webkit-animation-duration: .5s; /*动画持续时间*/
+    -webkit-animation-iteration-count: 1; /*动画次数*/
+    -webkit-animation-delay: 0s; /*延迟时间*/
+
+}
+.hyoka{
+    margin-top: 20px;
+    -webkit-animation-name: fadeIn; /*动画名称*/
+    -webkit-animation-duration: .5s; /*动画持续时间*/
+    -webkit-animation-iteration-count: 1; /*动画次数*/
+    -webkit-animation-delay: 0s; /*延迟时间*/
 }
 
 
@@ -768,6 +791,7 @@
     left: 700px;
     top: 70px;
 }
+
 .circle_line{
     position: absolute;
     width: 2px;
@@ -775,4 +799,23 @@
     background: #70c2db;
     left: 920px;
     top:100px;
+}
+
+/*动画效果*/
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0; /*初始状态 透明度为0*/
+    }
+    20%{
+        opacity: .2;
+    }
+    50% {
+        opacity: .5; /*中间状态 透明度为0.5*/
+    }
+    70%{
+        opacity: .7;
+    }
+    100% {
+        opacity: 1; /*结尾状态 透明度为1*/
+    }
 }
