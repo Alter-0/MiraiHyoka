@@ -1,7 +1,7 @@
 <header>
     <div style="padding: 0" class="container">
         <div class="dis">
-            <div class="logo"><img src="image/logo.png" alt=""></div>
+            <div class="logo"><img src="../image/logo.png" alt=""></div>
         </div>
         <div class="dis">
             <div class="navli">
@@ -48,13 +48,14 @@
                             <li><a href="#">hello world</a></li>
                         </ul>
                     </li>
-                    <li class="out-li"><a href="#"><span id="span5" class="ul-span">三次元</span></a>
-                        <ul>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                        </ul>
+                    <li class="out-li"
+                    <a href="#"><span id="span5" class="ul-span">三次元</span></a>
+                    <ul>
+                        <li><a href="#">hello world</a></li>
+                        <li><a href="#">hello world</a></li>
+                        <li><a href="#">hello world</a></li>
+                        <li><a href="#">hello world</a></li>
+                    </ul>
                     </li>
                     <li class="out-li"><a href="#"></a></li>
                     <li class="out-li"><a href="#"><span id="span7" class="ul-span2">人物</span></a>
@@ -111,17 +112,56 @@
                     </div>
                 </form>
             </div>
-            <div class="login">
-                <a href="../user/login.php">
+            <?php
+            //           session_start();
+            if (empty( $_SESSION["account"])){
+                echo " <input id=\"isLogin\" type=\"hidden\" value=\"0\" name=\"isLogin\">";
+            }else{
+                echo " <input id=\"isLogin\" type=\"hidden\" value=\"1\" name=\"isLogin\">";
+            }
+            ?>
+            <div  style="display: none" id="headerpic">
+                <img src="../image/headerpic.jpg" alt="">
+            </div>
+            <div id="login-btn" class="login" style="display: block">
+                <a  href="../user/login.php">
                     <span id="login" class="reg11" style="padding: 0 5px 0 15px">登录</span>
                 </a>
                 <a href="../user/reg.php">
                     <span id="reg11" class="reg11" style="padding:0 15px 0 5px">注册</span>
                 </a>
             </div>
+            <script>
+                $(function () {
+                    var login_btn = $('#login-btn');
+                    var hearpic = $('#headerpic');
+                    if ($('#isLogin').val()==1){
+                        login_btn.css('display','none');
+                        hearpic.css('display','inline-block');
+                    }else {
+                        login_btn.css('display','block');
+                        hearpic.css('display','none');
+                    }
+                })
+            </script>
         </div>
     </div>
     <div class="menu" id="menu">
 
     </div>
 </header>
+<script>
+    var i = 0;
+    var $menu = $('#menu');
+    $('#span6').click(function () {
+        if (i==0){
+            $menu.slideDown(300);
+            i++;
+            $(this).html('关闭');
+        }else {
+            $menu.slideUp(300);
+            i--;
+            $(this).html('菜单');
+        }
+    });
+</script>

@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>登录</title>
+    <!--    header必须引入的三个样式文件,使用php引入-->
+    <link rel="stylesheet" href="../css/default.css">
+    <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <script src="../js/jquery.js"></script>
 </head>
 <?php session_start();?>
 <body>
+<?php include "../header.php" ?>
 <style>
     *{
         margin: 0;
@@ -132,8 +138,9 @@
         position: relative;
         z-index: 1000;
     }
-
-
+    .search{
+        margin-right: 40px!important;
+    }
 </style>
 
 <body>
@@ -160,7 +167,6 @@
     </div>
 </div>
 
-<script src="../js/jquery.js"></script>
 <script>
     $(document).ready(function(){
         $("#reg").click(function (){
@@ -168,7 +174,7 @@
         })
     })
 </script>
-<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+
 <script type="text/javascript">
 
     function changeCode() {
