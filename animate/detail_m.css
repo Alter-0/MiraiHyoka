@@ -346,9 +346,9 @@
     padding: 25px;
     height: 100%;
     width: 27%;
-    margin-left: 10%;
+    margin-right: 10%;
     text-align: left;
-    float: left;
+    float: right;
     background: rgba(255, 255, 255, 0.8);
     box-sizing: border-box;
     border-radius: 15px;
@@ -358,9 +358,9 @@
     padding: 25px;
     height: 100%;
     width: 50%;
-    margin-right: 10%;
+    margin-left: 10%;
     text-align: left;
-    float: right;
+    float: left;
     background: rgba(255, 255, 255, 0.8);
     box-sizing: border-box;
     border-radius: 15px;
@@ -430,6 +430,7 @@
     margin-left: 13px;
     font-size: 14px;
     text-align: center;
+
 }
 .short_review_drop i{
     display: block;
@@ -461,7 +462,12 @@
 }
 .short_review_drop div:hover+ul{
     display: block;
-
+}
+.short_review_drop ul:hover{
+    display: block;
+}
+.short_review_drop ul li:hover{
+    background: #a0a5a5;
 }
 .short_review_write {
     float: right;
@@ -570,6 +576,11 @@
     color: #99a2aa;
     display: inline;
     margin-right: 30px;
+}
+
+.li_third_icon div:hover i:nth-child(1),.li_third_icon div:hover span:nth-child(2){
+    color: #1189ef;
+    cursor: pointer;
 }
 .li_third_icon div:nth-child(2){
     cursor: pointer;
