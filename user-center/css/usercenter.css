@@ -1,0 +1,376 @@
+.all .top .banner {
+    margin: 30px 10% 0 10%;
+    background: url(../../image/new_banner1.png) center center;
+    background-size: cover;
+    width: auto;
+    height: 300px;
+    border-radius: 15px 15px 0 0;
+    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+}
+
+.all .top .banner .banner_filter {
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+}
+
+.all .banner .info {
+    height: 100px;
+    width: auto;
+    margin: 0 0 0 20px;
+    padding-bottom: 20px;
+}
+
+.all .banner .info .avatar {
+    display: inline-block;
+}
+
+.all .banner .info .avatar a img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50px;
+    box-sizing: border-box;
+    border: 4px solid white;
+}
+
+.all .banner .info .user {
+    margin-left: 20px;
+    display: inline-block;
+    color: white;
+}
+
+.all .banner .info .user .user_name {
+    font-size: 24px;
+}
+
+.all .tab_nav {
+    height: 60px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 0 0 15px 15px;
+    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+    top: -40px;
+    width: 80%;
+    margin: 0 10% 11px 10%;
+}
+
+.all .tab_nav ul {
+    font-size: 16px;
+    margin-left: 40px;
+    top: -3px;
+}
+
+.all .tab_nav ul li.on, .all .tab_nav ul li:hover {
+    color: #00a1d6;
+    border-bottom-color: #00a1d6;
+}
+
+.all .tab_nav ul li {
+    cursor: pointer;
+    float: left;
+    padding: 0 6px 0 6px;
+    color: #222;
+    transition: all 0.1s linear;
+    border-bottom: 3px solid rgba(0, 0, 0, 0);
+    height: 60px;
+    line-height: 60px;
+}
+
+.all .tab_nav ul li + li {
+    margin-left: 28px;
+}
+
+.all .tab_de .time_line, .all .tab_de .favorite, .all .tab_de .message, .all .tab_de .setting {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    /*grid-template-rows: 3fr 1fr;*/
+    gap: 30px;
+    width: auto;
+    height: auto;
+    min-height: 600px;
+    margin: 30px 10% 30px 10%;
+}
+
+.all .tab_de .favorite, .all .tab_de .message, .all .tab_de .setting {
+    display: none;
+}
+
+.all .tab_de .left, .all .tab_de .right_in {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+}
+
+.all .tab_de .right_in {
+    height: auto;
+    min-height: 200px;
+    /*padding: 20px;*/
+}
+
+.all .tab_de .time_line .left {
+    display: grid;
+    gap: 20px;
+    grid-template-rows: 40px auto;
+}
+
+.all .tab_de .time_line .left .timeline_tab_nav {
+    margin: 0;
+    background: rgba(255, 255, 255, 0.8);
+    height: 40px;
+    width: auto;
+    box-shadow: none;
+    border-radius: 5px;
+}
+
+.all .tab_de .time_line .left .timeline_tab_nav ul {
+    font-size: 14px;
+    margin-left: 20px;
+    top: -3px;
+}
+
+.all .tab_de .time_line .left .timeline_tab_nav ul li {
+    cursor: pointer;
+    float: left;
+    padding: 0 6px 0 6px;
+    color: #222;
+    transition: all 0.1s linear;
+    border-bottom: 3px solid rgba(0, 0, 0, 0);
+    height: 40px;
+    line-height: 40px;
+}
+
+.all .tab_de .time_line .left .timeline_tab_nav ul li.on, .all .tab_de .time_line .left .timeline_tab_nav ul li:hover {
+    color: #00a1d6;
+    border-bottom-color: #00a1d6;
+}
+
+.all .tab_de .time_line .left .timeline_tab_nav ul li + li {
+    margin-left: 20px;
+}
+
+.all .tab_de .time_line .left .timeline_tab_de .timeline_all, .all .tab_de .time_line .left .timeline_tab_de .timeline_rating, .all .tab_de .time_line .left .timeline_tab_de .timeline_favorite {
+    display: grid;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+}
+
+.all .tab_de .time_line .left .timeline_tab_de .timeline_rating, .all .tab_de .time_line .left .timeline_tab_de .timeline_favorite {
+    display: none;
+}
+
+.all .tab_de .time_line .left .timeline_tab_de .timeline_time {
+    min-height: 30px;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.all .tab_de .time_line .left .timeline_tab_de .timeline_content {
+    min-height: 60px;
+    padding: 10px 0 10px 0;
+    margin: 0 20px 0 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+#main {
+    font-size: 16px;
+    margin: 10px 0 10px 0;
+}
+
+#other {
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0;
+}
+
+h3 {
+    margin: 0;
+}
+
+.all .tab_de .favorite .left {
+    display: grid;
+    gap: 20px;
+}
+
+.all .tab_de .favorite .left .favorite_middle {
+    display: grid;
+    gap: 20px;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.all .tab_de .favorite .left .favorite_middle .animate .animate_img a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-sizing: border-box;
+    /*border: 4px solid white;*/
+    transition: all 0.5s;
+}
+
+.all .tab_de .favorite .left .favorite_middle .animate .animate_img a img:hover {
+    filter: brightness(80%);
+    transition: all 0.5s;
+}
+
+.all .tab_de .favorite .left .favorite_middle .animate .animate_text {
+    text-align: center;
+    padding: 10px 0 10px 0;
+}
+
+.all .tab_de .favorite .left .favorite_middle .animate .animate_text a {
+    font-size: 16px;
+    transition: all 0.5s;
+}
+
+.all .tab_de .favorite .left .favorite_middle .animate .animate_text a:hover {
+    transition: all 0.5s;
+}
+
+.all .tab_de .message .left {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 20px;
+}
+
+
+.all .tab_de .message .left .message_tab_nav {
+    margin: 0;
+    /*background: rgba(255, 255, 255, 0.8);*/
+    height: auto;
+    width: auto;
+    box-shadow: none;
+    /*border-radius: 5px;*/
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.all .tab_de .message .left .message_tab_nav ul {
+    font-size: 16px;
+    /*margin-left: 10%;*/
+    top: -3px;
+    text-align: center;
+}
+
+.all .tab_de .message .left .message_tab_nav ul li {
+    cursor: pointer;
+    /*float: left;*/
+    padding: 0 6px 0 6px;
+    color: #222;
+    transition: all 0.1s linear;
+    border-right: 3px solid rgba(0, 0, 0, 0);
+    height: 60px;
+    line-height: 60px;
+}
+
+.all .tab_de .message .left .message_tab_nav ul li.on, .all .tab_de .message .left .message_tab_nav ul li:hover {
+    color: #00a1d6;
+    border-color: #00a1d6;
+}
+
+.all .tab_de .message .left .message_tab_nav ul li + li {
+    margin-top: 20px;
+}
+
+.all .tab_de .message .left .message_tab_de .message_system, .all .tab_de .message .left .message_tab_de .message_my {
+    display: grid;
+    gap: 10px;
+}
+
+.all .tab_de .message .left .message_tab_de .message_system {
+    display: none;
+}
+
+.all .tab_de .message .left .message_tab_de .message_time {
+    min-height: 30px;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.all .tab_de .message .left .message_tab_de .message_content {
+    min-height: 60px;
+    padding: 10px 0 10px 0;
+    margin: 0 20px 0 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.all .tab_de .setting .left .form{
+    display: grid;
+    gap: 20px;
+}
+
+.upload_img{
+    padding: 8px;
+    height: 116px;
+    width: 116px;
+    border: 1px dashed rgba(0,0,0,0.3);
+    border-radius: 5px;
+    transition: all 0.1s linear;
+}
+
+.upload_img:hover{
+    border-color: #00a1d6;
+    transition: all 0.1s linear;
+}
+
+.upload_background{
+    padding: 8px;
+    height: 116px;
+    width: 400px;
+    border: 1px dashed rgba(0,0,0,0.3);
+    border-radius: 5px;
+    transition: all 0.1s linear;
+    text-align: center;
+}
+
+.upload_background:hover{
+    border-color: #00a1d6;
+    transition: all 0.1s linear;
+}
+
+img{
+    text-align: center;
+}
+
+.all .tab_de .setting .form .settings{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 3fr;
+}
+
+.all .tab_de .setting .form .settings .settings_left{
+    text-align: right;
+}
+
+label{
+    font-weight: normal;
+}
+
+input{
+    height: auto;
+    width: auto;
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 5px;
+    transition: all 0.1s linear;
+}
+
+input:hover,input:focus{
+    outline: none;
+    border-color: #00a1d6;
+    transition: all 0.1s linear;
+}
+
+textarea{
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 5px;
+    transition: all 0.1s linear;
+}
+
+textarea:hover,textarea:focus{
+    outline: none;
+    border-color: #00a1d6;
+    transition: all 0.1s linear;
+}
+
+button{
+    width: 60px;
+    height: 30px;
+}
