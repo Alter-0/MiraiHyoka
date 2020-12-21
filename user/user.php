@@ -167,7 +167,7 @@
 
      .detail .like{
          width: 900px;
-         height: 500px;
+         height: 600px;
          display: block;
          margin-left: 16%;
          background-color: #5b6c7d;
@@ -216,7 +216,7 @@
         height: 50px;
         display: block;
         padding-left: 20px;
-        margin-top:10%;
+        margin-top:15%;
         position: relative;
     }
     .detail .like .no .p{
@@ -225,7 +225,6 @@
         font-size: 10px;
         display: block;
     }
-
 
 
     .bottom{
@@ -256,7 +255,7 @@
 
     <div class="tabwarp">
         <ul class="navtab">
-            <li class="chose"><a href="">时光机</a></li>
+            <li class="chose" onclick="get">时光机</li>
             <li class="chose">收藏</li>
             <li class="chose">目录</li>
             <li class="chose">时间胶囊</li>
@@ -317,18 +316,38 @@
                 <div class="photo"></div>
                 <p class="pn">名称</p>
             </a>
+            <a class="list">
+                <div class="photo"></div>
+                <p class="pn">名称</p>
+            </a>
         </div>
         <div class="no">
             <p class="p">没看过</p>
-
+            <a class="list">
+                <div class="photo"></div>
+                <p class="pn">名称</p>
+            </a>
+            <a class="list">
+                <div class="photo"></div>
+                <p class="pn">名称</p>
+            </a>
         </div>
     </div>
 </div>
 
 <div class="bottom">
     <iframe src="../footer.html" scrolling="no" class="footer"></iframe>
-
 </div>
+<script src="../js/jquery.js"></script>
+<script>
+    $(document).read(function ()){
+        $(".record").click(function ()
+        {
+            $(".record").css("display","black");
+            $(".like").css("display","none");
+        })
+    }
+</script>
 
 
 </body>

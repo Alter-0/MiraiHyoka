@@ -27,7 +27,7 @@
     }
 
     .left{
-        width: 30%;
+        width: 40%;
         height: 500px;
         float: left;
         display: inline-block;
@@ -43,9 +43,9 @@
         width: 40%;
         height: 500px;
         display: inline-block;
-        margin-left: 5%;
         margin-top: 20px;
         position: relative;
+        margin-right: 10%;
 
     }
     form{
@@ -104,7 +104,7 @@
         line-height: 2;
         background-color: #1890ff;
         height: 40px;
-        width: 200px;
+        width: 40%;
         display: block;
         margin-top: 20px;
     }
@@ -116,7 +116,7 @@
         line-height: 2;
         background-color: #1890ff;
         height: 40px;
-        width: 200px;
+        width: 40%;
         display: block;
         margin-top: 20px;
     }
@@ -223,7 +223,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
     else{
         echo "<script language='javascript' type='text/javascript'>";
 
-        echo "alert('重新输入');";
+        echo "alert('输入有误，重新输入');";
 
         echo "</script>";
     }
