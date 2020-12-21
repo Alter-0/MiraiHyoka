@@ -235,6 +235,75 @@
                         <div class="short_review_write">去写短评</div>
                         <!--短评具体内容-->
                         <ul class="short_review_write_ul">
+                            <?php
+                            $name="cccccc";
+                            $time="2020/12/21";
+                            $review="那天发发图肥牛饭";
+                                 for($i=0;$i<5;$i++)
+                                 {
+                                   echo " <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
+                                       ." <img alt='a' src='//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp' lazy='loaded'>"
+                                       ."  </div> </div> <div class='short_review_name'>".$name
+                                       ." </div> <div class='short_review_star'> <span class='review_star'>"
+                                       ." <i class='icon-star-full'> <i></i> </i> <i class='icon-star-full'> <i></i> </i> <i class='icon-star-full'>"
+                                       ."<i></i> </i> <i class='icon-star-full'> <i></i> </i> <i class='icon-star-empty'> <i></i> </i> </span>"
+                                       ."</div> <div class='short_review_time'>".$time
+                                       ."</div> </div> <div class='li_second_review'> <div class='second_review'>".$review
+                                       ."</div> </div> <div class='li_third_icon'> <div> <i class='icon-praise' style='font-size: 14px;margin-right: 6px;'></i><span></span></div>"
+                                       ."<div> <i class='icon-criticism' style='font-size: 14px;margin-right: 6px;'></i><span></span></div> </div> </li>";
+                                 }
+                            ?>
+
+                            <li>
+                                <!--短评具体内容-头像那一行-->
+                                <div class="li_first_div">
+                                    <div class="short_review_face">
+                                        <div class="short_review_img">
+                                            <img alt="Yrqiiii" src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp" lazy="loaded">
+                                        </div>
+                                    </div>
+                                    <div class="short_review_name">
+                                        bfbdntf
+                                    </div>
+                                    <div class="short_review_star">
+                                        <span class="review_star">
+                                            <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-empty">
+                                                <i></i>
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <div class="short_review_time">22小时前</div>
+                                </div>
+                                <!--短评具体内容-评论内一行-->
+                                <div class="li_second_review">
+                                    <div class="second_review">
+                                        剧情紧凑不拖沓 打击感强 人物性格也很鲜明 纯恶与善的对决
+                                    </div>
+
+                                </div>
+                                <!--点赞-->
+                                <div class="li_third_icon">
+                                    <div>
+                                        <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i><span>5</span>
+                                    </div>
+                                    <div>
+                                        <i class="icon-criticism" style="font-size: 14px;margin-right: 6px;"></i><span>1</span>
+                                    </div>
+                                </div>
+                            </li>
+
                             <li>
                                 <!--短评具体内容-头像那一行-->
                                 <div class="li_first_div">
@@ -368,105 +437,7 @@
                                 <!--短评具体内容-评论内一行-->
                                 <div class="li_second_review">
                                     <div class="second_review">
-                                        剧情紧凑不拖沓 打击感强 人物性格也很鲜明 纯恶与善的对决
-                                    </div>
-
-                                </div>
-                                <!--点赞-->
-                                <div class="li_third_icon">
-                                    <div>
-                                        <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i><span>5</span>
-                                    </div>
-                                    <div>
-                                        <i class="icon-criticism" style="font-size: 14px;margin-right: 6px;"></i><span>1</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <!--短评具体内容-头像那一行-->
-                                <div class="li_first_div">
-                                    <div class="short_review_face">
-                                        <div class="short_review_img">
-                                            <img alt="Yrqiiii" src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp" lazy="loaded">
-                                        </div>
-                                    </div>
-                                    <div class="short_review_name">
-                                        bfbdntf
-                                    </div>
-                                    <div class="short_review_star">
-                                        <span class="review_star">
-                                            <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-empty">
-                                                <i></i>
-                                            </i>
-                                        </span>
-                                    </div>
-                                    <div class="short_review_time">22小时前</div>
-                                </div>
-                                <!--短评具体内容-评论内一行-->
-                                <div class="li_second_review">
-                                    <div class="second_review">
-                                        剧情紧凑不拖沓 打击感强 人物性格也很鲜明 纯恶与善的对决
-                                    </div>
-
-                                </div>
-                                <!--点赞-->
-                                <div class="li_third_icon">
-                                    <div>
-                                        <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i><span>5</span>
-                                    </div>
-                                    <div>
-                                        <i class="icon-criticism" style="font-size: 14px;margin-right: 6px;"></i><span>1</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <!--短评具体内容-头像那一行-->
-                                <div class="li_first_div">
-                                    <div class="short_review_face">
-                                        <div class="short_review_img">
-                                            <img alt="Yrqiiii" src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp" lazy="loaded">
-                                        </div>
-                                    </div>
-                                    <div class="short_review_name">
-                                        bfbdntf
-                                    </div>
-                                    <div class="short_review_star">
-                                        <span class="review_star">
-                                            <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-empty">
-                                                <i></i>
-                                            </i>
-                                        </span>
-                                    </div>
-                                    <div class="short_review_time">22小时前</div>
-                                </div>
-                                <!--短评具体内容-评论内一行-->
-                                <div class="li_second_review">
-                                    <div class="second_review">
-                                        剧情紧凑不拖沓 打击感强 人物性格也很鲜明 纯恶与善的对决
+                                        剧情紧凑不拖沓 打击感强 人物性格也很鲜明 纯恶与善的对决剧情紧凑不拖沓 打击感强 人物性格也很鲜明 纯恶与善的对决剧情紧凑不拖沓 打击感强 人物性格也很鲜明 纯恶与善的对决
                                     </div>
 
                                 </div>
@@ -519,6 +490,7 @@
                             </div>
                         </div>
                     </div>
+                    <p class="insert_success">评论成功</p>
                 </div>
             </div>
     </div>
@@ -703,10 +675,25 @@
 <script>
 
     $(document).ready(function(){
-        var indexnum="";
+        var indexnum="";//第几颗星星
+        var temp_success=0;//评论成功消失的标识
+        var shortreview=0;//是否发表过短评
         //弹窗的加载
         $(".short_review_write").click(function(){
             $(".write_review").css("display","block");
+            $.post("short_review_load.php",
+                {objective:"reviewcheck",userid:"11111"},
+                function (data){
+                    data = eval('('+data+')');
+                    if(data.makesure==1)
+                    {
+                    //发表评论
+                    }
+                    else
+                    {
+                    //修改评论
+                    }
+                });
         });
         //弹窗的关闭
         $(".write_review_close").click(function(){
@@ -736,11 +723,15 @@
         $('.write_review_middle textarea').keyup(function(){
             var textlength = $(this).val().length;
             $('.write_review_middle span').text(textlength+"/100");
-            if(textlength>=100)
+
+            if(textlength>100)
             {
                 $('.write_review_middle span').text("评论不超过100字");
                 $('.write_review_middle span').css("color","red");
 
+            }
+            else if($('.write_review_middle span').css("color")=="rgb(255, 0, 0)"){
+                $('.write_review_middle span').css("color","#99a2aa");
             }
 
         });
@@ -753,6 +744,7 @@
                 $(e.target).attr("class","icon-praise_full");
                 $(e.target).siblings().css("color","#1189ef");
                 var n=parseInt($(e.target).siblings().html());
+                if($(e.target).siblings().html()==""){n=0;}
                 $(e.target).siblings().html((n+1));
             }
             else
@@ -760,7 +752,9 @@
                 $(e.target).attr("class","icon-praise");
                 $(e.target).siblings().css("color","#99a2aa");
                 var n=parseInt($(e.target).siblings().html());
-                $(e.target).siblings().html((n-1));
+                if(n==1) {$(e.target).siblings().html("");}
+                else{ $(e.target).siblings().html((n-1));}
+
             }
         });
         //点踩按钮的互动
@@ -772,6 +766,7 @@
                 $(e.target).attr("class","icon-criticism_full");
                 $(e.target).siblings().css("color","#1189ef");
                 var n=parseInt($(e.target).siblings().html());
+                if($(e.target).siblings().html()==""){n=0;}
                 $(e.target).siblings().html((n+1));
             }
             else
@@ -780,7 +775,8 @@
                 $(e.target).attr("class","icon-criticism");
                 $(e.target).siblings().css("color","#99a2aa");
                 var n=parseInt($(e.target).siblings().html());
-                $(e.target).siblings().html((n-1));
+                if(n==1) {$(e.target).siblings().html("");}
+                else{$(e.target).siblings().html((n-1));}
             }
         });
         //对滚轮的监听，是否申请新的评论
@@ -817,6 +813,52 @@
                 }
             }
         });
+        //短评的提交
+        $('.write_review_button').click(function(){
+            var text = $('.write_review_middle textarea').val();
+            var textlength = text.length;
+            if(textlength>100||$('.write_review_star i:nth-child(1)').attr("class")=="icon-star-empty")
+              {
+                  return;
+              }
+            var index=0;
+            for(i=0;i<5;i++)
+            {
+                if($('.write_review_star i').eq(i).attr("class")=="icon-star-full")
+                {
+                    index=index+2;
+                }
+                else
+                {
+                  break;
+                }
+            }
+            $.post("short_review_load.php",
+                {objective:"reviewinsert",score:index,shortreview:text},
+                function(data){
+                    var name ="vcscsdvdv";
+                    var time = "刚刚";
+                    var review =text;
+                    data = eval('('+data+')');
+                    if(data.makesure==1)
+                    {
+                       $(".write_review").css("display","none");
+                       $('.insert_success').css({"display":"block","z-index":1000,"top":"50%"});
+                        setTimeout(function(){  $('.insert_success').css("display","none"); }, 500);
+                        $(".short_review_middle .short_review_write_ul").prepend(" <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
+                            + " <img alt='a' src='//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp' lazy='loaded'>"
+                            + "  </div> </div> <div class='short_review_name'>" + name
+                            + " </div> <div class='short_review_star'> <span class='review_star'>"
+                            + " <i class='icon-star-full'> <i></i> </i> <i class='icon-star-full'> <i></i> </i> <i class='icon-star-full'>"
+                            + "<i></i> </i> <i class='icon-star-full'> <i></i> </i> <i class='icon-star-empty'> <i></i> </i> </span>"
+                            + "</div> <div class='short_review_time'>" + time
+                            + "</div> </div> <div class='li_second_review'> <div class='second_review'>" + review
+                            + "</div> </div> <div class='li_third_icon'> <div> <i class='icon-praise' style='font-size: 14px;margin-right: 6px;'></i><span></span></div>"
+                            + "<div> <i class='icon-criticism' style='font-size: 14px;margin-right: 6px;'></i><span></span></div> </div> </li>");
+
+                    }
+                });
+            });
 
 
     });

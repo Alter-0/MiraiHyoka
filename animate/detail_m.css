@@ -481,10 +481,12 @@
     font-size: 12px;
     text-align: center;
     cursor: pointer;
-    -webkit-transition: all .2s linear;
-    -o-transition: .2s all linear;
-    transition: all .2s linear;
     margin-top: -3px;
+}
+.short_review_write:hover{
+    filter:brightness(110%);
+    border: 1px solid #03c0ff;
+    color: #03c0ff;
 }
 .short_review_middle>ul li{
     border-bottom: 1px solid #f4f5f7;
@@ -690,6 +692,7 @@
     /*color: #0cc7ef;*/
 }
 
+
 .long_review{
     margin-top: 20px;
     display: none;
@@ -722,7 +725,19 @@
     -webkit-animation-iteration-count: 1; /*动画次数*/
     -webkit-animation-delay: 0s; /*延迟时间*/
 }
-
+.insert_success{
+    display: none;
+    position: fixed;
+    left: 50%;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #fff;
+    background: rgba(0,0,0,0.8);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
 
 
 
