@@ -26,7 +26,7 @@ body{
     height:50px;
     position: relative;
     z-index: 1000;
-    background: #E70003
+
 }
 
 /*.img1{*/
@@ -109,10 +109,20 @@ body{
     border-top: 5px solid #ddd;
     cursor: pointer;
 }
-
+.content .left .l-title .sort_item a{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+/*.content .left .l-title .sort_item .up_active,.content .left .l-title .sort_item .down_active{*/
+/*    border-color:#00a1d6 rgba(0,0,0,0);*/
+/*}*/
 .content .left .l-content{
     width: 95%;
     height: 960px;
+    position: absolute;
+    top:50px;
+    left: 0;
 }
 .content .left .l-content li{
     width: 25%;
@@ -159,6 +169,11 @@ body{
     width: 90%;
     margin: 20px auto;
     height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .content .left .page li{
     height: 35px;
@@ -169,10 +184,25 @@ body{
     line-height: 35px;
     text-align: center;
     margin-right: 3px;
+    transition: all 0.3s ease;
+    border-radius: 10px;
 }
 .content .left .page li:nth-child(1),.content .left .page li:last-child{
     width: 75px;
     text-align: center;
+}
+.content .left .page li:hover{
+    background: #00a6ff;
+    transition: all 0.3s ease;
+}
+.content .left .page .l_page_on{
+    background: #00a6ff;
+}
+.content .left .page .l_page_on a{
+    color: white;
+}
+.content .left .page li:hover a{
+    color: white;
 }
 .content .left .page li a{
     width: 100%;

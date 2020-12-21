@@ -11,7 +11,6 @@
     <title><?php
         echo "番名"
         ?>_番剧点评_MiraiHyoka</title>
-
     <?php
     $score=6.8;
     $score1=6.4;
