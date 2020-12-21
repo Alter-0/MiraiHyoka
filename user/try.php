@@ -9,13 +9,13 @@
 </head>
 <style type="text/css">
     .avatar{
-        $avatar-height: 80px;
+        avatar-height: 80px;
         padding: 20px 10px;
         background-color: #2196f3;
         overflow: hidden;
     img {
-        width: $avatar-height;
-        height: $avatar-height;
+        width: avatar-height;
+        height: avatar-height;
         border-radius: 50%;
         float: left;
     }
