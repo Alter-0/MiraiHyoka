@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <title>个人信息</title>
 </head>
 <style type="text/css">
@@ -14,7 +13,7 @@
     }
     .top{
         width: 100%;
-        height: 150px;
+        height: 100px;
         position: relative;
     }
     .top iframe{
@@ -22,6 +21,9 @@
         height:50px;
         position: relative;
         z-index: 1000;
+    }
+    .header{
+        width: 100%;
     }
     .main{
         width: 100%;
@@ -34,14 +36,14 @@
         clear: both;
         visibility: hidden;
     }
-    .content{
+    .main .content{
         margin: 0px;
         background: #FBFBFB;
         border-top: 1px solid #FEFEFE;
         border-bottom: 1px solid #EEE;
         background: #fbfbfb;
     }
-    .content:after{
+    .main .content:after{
         content: ".";
         display: block;
         height: 0;
@@ -50,29 +52,29 @@
 
     }
 
-    .name{
+    .main .content .name{
         width: 200px;
         height: 50px;
-        margin-left: 16%;
         background-color: #FFF;
         padding: 10px 0 15px 0;
-        display: inline;
+        display:inline-block;
     }
-    .name p{
+    .main .content .name p{
         height: 25px;
         line-height: 25px;
         font-size: 18px;
         margin: 0 auto;
         width: 800px;
     }
-    .avatar{
+    .main .content .avatar{
         width: 80px;
-        margin-left: 200px;
-        display: inline;
-        margin-left: 15%;
+        margin-left: 220px;
+        display: inline-block;
+
     }
-    .avatar img{
+    .main .content .avatar img{
         width: 60px;
+        height: 60px;
         margin: 0 auto;
     }
     .tabwarp{
@@ -106,15 +108,12 @@
         position: relative;
     }
     .detail .record{
-        width: 800px;
+        width: 900px;
         height: 500px;
-        display: block;
+        display:none;
         margin-left: 16%;
-        border-left-style: solid;
-        border-right-style: groove;
-        border-bottom-style: solid;
-        border-top-style: solid;
         background-color: #5b6c7d;
+        position: relative;
 
     }
     .detail .record .myrecord{
@@ -122,25 +121,112 @@
         height: 15px;
         display: block;
         margin-left: 20px;
-        border-left-style: solid;
-        border-right-style: groove;
-        border-bottom-style: solid;
-        border-top-style: solid;
     }
+    .detail .record .myrecord span{
+        border-bottom: 1px solid #F4A6D7;
+    }
+
     .detail .record .things{
         width: 780px;
-        height: 80px;
+        height: 100px;
         display: block;
         margin-left: 20px;
         margin-top: 20px;
-        border-left-style: solid;
-        border-right-style:solid;
-        border-bottom-style: solid;
-        border-top-style: solid;
         background-color: #faf15d;
         display: block;
+        line-height: 180%;
+        border-bottom: 1px solid #EEE;
 
     }
+    .detail .record .things .cover{
+        padding-top: 5px;
+        display: inline-block;
+    }
+    .detail .record .things .introduce{
+        display: inline-block;
+        margin-left: 10px;
+        height: 60px;
+        position: absolute;
+        margin-top: 0px;
+    }
+
+
+    .detail .record .cover a:visited{
+        text-decoration: none;
+        color: #444;
+    }
+    .detail .record .cover .cornect{
+        height: 80px;
+        width: 100%;
+
+    }
+    .detail .record .cover .cornect span img{
+        height: 80px;
+        width: 80px;
+    }
+
+     .detail .like{
+         width: 900px;
+         height: 500px;
+         display: block;
+         margin-left: 16%;
+         background-color: #5b6c7d;
+         position: relative;
+         padding-bottom: 10px;
+     }
+     .detail .like .yes{
+         width: 800px;
+         height: 50px;
+         display: block;
+         padding-left: 20px;
+         padding-top: 20px;
+     }
+    .detail .like .yes .p{
+        margin-top: 12px;
+        border-bottom: 1px solid #F4A6D7;
+        font-size: 10px;
+        display: block;
+    }
+
+
+    .detail .like .list{
+        height: 120px;
+        width: 120px;
+        display:inline-block;
+        background-color: #faf15d;
+        padding-top: 10px;
+    }
+    .detail .like .list .photo{
+        background-image: url("image/timg.jpg");
+        height: 80px;
+        width: 80px;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+    .detail .like .list .pn{
+        display: block;
+        margin-top: 3px;
+        font-size: 10px;
+        margin-left: 20px;
+        white-space: nowrap;
+        width: 80px;
+    }
+    .detail .like .no{
+        width: 800px;
+        height: 50px;
+        display: block;
+        padding-left: 20px;
+        margin-top:10%;
+        position: relative;
+    }
+    .detail .like .no .p{
+        margin-top: 12px;
+        border-bottom: 1px solid #F4A6D7;
+        font-size: 10px;
+        display: block;
+    }
+
+
 
     .bottom{
         width: 100%;
@@ -150,15 +236,15 @@
         width: 100%;
     }
 
+
 </style>
 <body>
 
 <div class="top">
-    <iframe src="../header.php" class="header" scrolling="no"></iframe>
+   <iframe src="../header.php" scrolling="no" class="header"></iframe>
 </div>
 
 <div class="main">
-
     <div class="content">
     <div class="avatar">
         <img src="image/timg.jpg">
@@ -185,12 +271,57 @@
             <span>我的日志</span>
         </div>
         <div class="things">
-            133
+            <div class="cover">
+                <a class="cornect">
+                    <span class="img">
+                        <img src="image/timg.jpg">
+                    </span>
+                </a>
+            </div>
+            <div class="introduce">
+                <h2>标题</h2>
+                <h5>时间</h5>
+                <h4>纪录内容</h4>
+            </div>
+
         </div>
         <div class="things">
-            456
+            <div class="cover">
+                <a class="cornect">
+                    <span class="img">
+                        <img src="image/timg.jpg">
+                    </span>
+                </a>
+            </div>
+            <div class="introduce">
+                <h2>标题</h2>
+                <h5>时间</h5>
+                <h4>纪录内容</h4>
+            </div>
         </div>
 
+    </div>
+    <div class="like">
+        <div class="yes">
+            <p class="p">看过</p>
+
+            <a class="list">
+                <div class="photo"></div>
+                <p class="pn">名称</p>
+            </a>
+            <a class="list">
+                <div class="photo"></div>
+                <p class="pn">名称</p>
+            </a>
+            <a class="list">
+                <div class="photo"></div>
+                <p class="pn">名称</p>
+            </a>
+        </div>
+        <div class="no">
+            <p class="p">没看过</p>
+
+        </div>
     </div>
 </div>
 

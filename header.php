@@ -1,7 +1,7 @@
 <header>
     <div style="padding: 0" class="container">
         <div class="dis">
-            <div class="logo"><img src="../image/logo.png" alt=""></div>
+            <div class="logo"><img src="image/logo.png" alt=""></div>
         </div>
         <div class="dis">
             <div class="navli">
@@ -89,12 +89,12 @@
                             <li><a href="#">hello world</a></li>
                         </ul>
                     </li>
-                    <li ><a href="#"><span id="span-img" class="ul-span2"><img src="#" alt="照片"></span></a></li>
+                    <li class="hidden-md"><a href="#"><span id="span-img" class="ul-span2"><img src="#image/new_banner1.png" alt="照片"></span></a></li>
                 </ul>
             </div>
         </div>
         <div id="user-login" class="dis">
-            <div class="search">
+            <div class="search hidden-sm hidden-xs">
                 <form action="#" method="post">
                     <div class="inner">
                         <select name="cat" id="siteSearchSelect">
@@ -112,11 +112,11 @@
                 </form>
             </div>
             <div class="login">
-                <a href="user/login.html">
-                    <span id="login" class="reg" style="padding: 0 5px 0 15px">登录</span>
+                <a href="../user/login.php">
+                    <span id="login" class="reg11" style="padding: 0 5px 0 15px">登录</span>
                 </a>
-                <a href="user/user.php">
-                    <span id="reg" class="reg" style="padding:0 15px 0 5px">注册</span>
+                <a href="../user/reg.php">
+                    <span id="reg11" class="reg11" style="padding:0 15px 0 5px">注册</span>
                 </a>
             </div>
         </div>
@@ -124,19 +124,4 @@
     <div class="menu" id="menu">
 
     </div>
-    <script>
-        var i = 0;
-        var $menu = $('#menu');
-        $('#span6').click(function () {
-            if (i==0){
-                $menu.slideDown(300);
-                i++;
-                $(this).html('关闭');
-            }else {
-                $menu.slideUp(300);
-                i--;
-                $(this).html('菜单');
-            }
-        });
-    </script>
 </header>

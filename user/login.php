@@ -83,18 +83,6 @@
         display: block;
         padding-left: 30px;
     }
-    #email{
-        border: 1px solid #d9d9d9;
-        box-sizing: border-box;
-        border-radius: 4px;
-        transition: all .3s;
-        line-height: 2;
-        width: 40%;
-        height: 40px;
-        margin-bottom: 24px;
-        display: block;
-        padding-left: 30px;
-    }
     #checknum{
         border: 1px solid #d9d9d9;
         box-sizing: border-box;
