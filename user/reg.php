@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>注册</title>
+    <!--    header必须引入的三个样式文件,使用php引入-->
+    <link rel="stylesheet" href="../css/default.css">
+    <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <script src="../js/jquery.js"></script>
 </head>
 <?php session_start(); ?>
 <style>
@@ -154,12 +159,13 @@
         position: relative;
         z-index: 1000;
     }
+    .search {
+        margin-right: 40px!important;
+    }
 </style>
 
 <body>
-<div class="top">
-    <iframe src="../header.php" class="header" scrolling="no"></iframe>
-</div>
+<?php  include "../header.php"?>
 <div class="content">
     <div class="left"></div>
     <div class="right">

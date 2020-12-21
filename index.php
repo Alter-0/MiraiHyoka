@@ -114,7 +114,7 @@
                             <li><a href="#">hello world</a></li>
                         </ul>
                     </li>
-                    <li class="hidden-md"><a href="#"><span id="span-img" class="ul-span2"><img src="#image/new_banner1.png" alt="照片"></span></a></li>
+                    <li class="hidden-md"><a href="#"><span id="span-img" class="ul-span2"><img src="image/logo_doujin.png" alt="照片"></span></a></li>
                 </ul>
             </div>
         </div>
@@ -136,16 +136,14 @@
                     </div>
                 </form>
             </div>
-
-            <?php
-            //             session_start();
-            if (empty( $_SESSION["account"])){
-                echo " <input id=\"isLogin\" type=\"hidden\" value=\"0\" name=\"isLogin\">";
-            }else{
-                echo " <input id=\"isLogin\" type=\"hidden\" value=\"1\" name=\"isLogin\">";
-            }
-            ?>
-
+             <div style="display: none">     <?php
+                 //           session_start();
+                 if (empty( $_SESSION["account"])){
+                     echo " <input id=\"isLogin\" type=\"hidden\" value=\"1\" name=\"isLogin\">";
+                 }else{
+                     echo " <input id=\"isLogin\" type=\"hidden\" value=\"0\" name=\"isLogin\">";
+                 }
+                 ?></div>
              <div  style="display: none" id="headerpic">
                  <img src="image/headerpic.jpg" alt="">
              </div>
