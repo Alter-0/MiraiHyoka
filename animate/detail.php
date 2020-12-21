@@ -774,14 +774,13 @@
            top:100px;
        }
     </style>
-
+    <?php
+    $score=6.8;
+    $score1=6.4;
+    $score2=7.5;
+    ?>
     <script>
         $(function(){
-            <?php
-            $score=6.8;
-            $score1=6.4;
-            $score2=7.5;
-            ?>
             //通过计时器来显示过渡的百分比进度，计时器不能直接放入循环中
             var temp= 0;
             var timer= setInterval(function(){
@@ -932,7 +931,7 @@
                     $('.circle-right').eq(i).after(html);
                 }
             }
-        })
+        });
 
         function changeTab(tab) {
             var tabs = document.getElementsByClassName('tab_nav')[0].getElementsByTagName("li");
@@ -990,7 +989,7 @@
                                 var time = data.time[i];
                                 var review =data.review[i];
                                 $(".short_review_middle ul").append(" <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
-                                    + " <img alt='头像' src='//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp' lazy='loaded'>"
+                                    + " <img alt='a' src='//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp' lazy='loaded'>"
                                     + "  </div> </div> <div class='short_review_name'>" + name
                                     + " </div> <div class='short_review_star'> <span class='review_star'>"
                                     + " <i class='icon-star-full'> <i></i> </i> <i class='icon-star-full'> <i></i> </i> <i class='icon-star-full'>"
