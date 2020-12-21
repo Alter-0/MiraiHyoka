@@ -7,10 +7,18 @@ a{
 a:visited{
     color: #000;
 }
+
+body{
+    background-image: url(../image/background.jpg);
+    background-size: cover;
+    background-attachment:fixed;
+    display: flex;
+    flex-direction: column;
+}
 /*top*/
 .top{
     width: 100%;
-    height: 200px;
+    height: 50px;
     position: relative;
 }
 .top iframe{
@@ -21,19 +29,19 @@ a:visited{
     background: #E70003
 }
 
-.img1{
-    width: 100%;
-    height: 200px;
-    background: #3E10F2;
-    position: absolute;
-    top: 0;
-}
-.img1 img{
-    width: 100%;
-    height: auto;
-    min-width: 100%;
-    min-height: 100%
-}
+/*.img1{*/
+/*    width: 100%;*/
+/*    height: 200px;*/
+/*    background: #3E10F2;*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*}*/
+/*.img1 img{*/
+/*    width: 100%;*/
+/*    height: auto;*/
+/*    min-width: 100%;*/
+/*    min-height: 100%*/
+/*}*/
 
 
 /*content*/
@@ -51,17 +59,57 @@ a:visited{
     max-height: 1300px;
     border: 1px solid #fff;
     border-radius: 15px;
-    background: rgba(0,0,0,.2);
+    background: rgba(255,255,255,.8);
     display: inline-block;
     vertical-align:top;
     overflow: hidden;
+    position: relative;
 }
 .content .left .l-title{
     width: 95%;
     height: 30px;
     font-size: 24px;
     margin: 10px auto;
+    position: relative;
 }
+.content .left .l-title .sort_item{
+    width: 20%;
+    height: 30px;
+    float: left;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+}
+.content .left .l-title .sort_item span{
+    width: 60%;
+    height: 100%;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.content .left .l-title .sort_item .up,.content .left .l-title .sort_item .down{
+    display: block;
+    position: absolute;
+    left: 60%;
+    margin: 5px 2px;
+    width: 0;
+    height: 0;
+}
+.content .left .l-title .sort_item .up{
+    top: 3px;
+    border: 5px dashed rgba(0,0,0,0);
+    border-top: none;
+    border-bottom: 5px solid #ddd;
+    cursor: pointer;
+}
+.content .left .l-title .sort_item .down{
+    bottom: 0px;
+    border:5px dashed rgba(0,0,0,0);
+    border-bottom: none;
+    border-top: 5px solid #ddd;
+    cursor: pointer;
+}
+
 .content .left .l-content{
     width: 95%;
     height: 960px;
@@ -72,14 +120,33 @@ a:visited{
     float: left;
     overflow: hidden;
 }
-.content .left .l-content li div{
+.content .left .l-content li .fengmian{
     height:200px;
     width: 150px;
     margin: 0px auto 10px auto;
+    position: relative;
 }
+.content .left .l-content li .fengmian a{
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+.content .left .l-content li .fengmian div{
+     width: 27px;
+     position: absolute;
+     bottom:0;
+     right: 0px;
+     font-weight: bold;
+     border: 1px solid #fff;
+     border-radius: 15px 0 0 0;
+     background: rgba(255,255,255,.8);
+    text-align: right;
+ }
 .content .left .l-content li img{
-    width: 150px;
+    width: 100%;
+    max-width: 150px;
     height: 200px;
+    border-radius: 15px 15px 0 15px;
 }
 .content .left .l-content li p{
     width: 100%;
@@ -120,7 +187,7 @@ a:visited{
     display: inline-block;
     border: 1px solid #fff;
     border-radius: 15px;
-    background: rgba(0,0,0,.2);
+    background: rgba(255,255,255,.8);
     vertical-align:top;
     position: absolute;
     right: 0;
@@ -160,4 +227,22 @@ a:visited{
     float: left;
     width: 50px;
     height: 30px;
+    transition: all 0.3s ease;
+}
+
+.content .right .filter-block ul li:hover a{
+    color: #00a6ff;
+    transition: all 0.3s ease;
+}
+.content .right .filter-block ul .r_li_on a{
+    color: #00a6ff;
+}
+
+/*content end*/
+img:hover{
+    filter: brightness(80%);
+    transition: all 0.3s ease;
+}
+img{
+    transition: all 0.3s ease;
 }
