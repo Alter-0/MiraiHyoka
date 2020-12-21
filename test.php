@@ -25,6 +25,19 @@
         }
 
     </style>
+    <script>
+        $(function () {
+            var i = 100;
+            setInterval(function () {
+                console.log(i);
+                i++;
+                if (i==250){
+                    i=0;
+                }
+            },50)//设置定时器，每1000ms执行一次test函数
+
+        })
+    </script>
 </head>
 <body>
 <h1>测试网页</h1>
@@ -44,6 +57,17 @@
      },function () {
       //   $('.show').animate({left:'500px'},1000);
      })
+
+
+        var  i =100;
+
+        while (i<100){
+            setTimeout(function () {
+                i++;
+            },10);
+            console.log(i);
+        }
 </script>
+
 </body>
 </html>

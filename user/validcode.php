@@ -8,7 +8,6 @@ session_start();
 $code = "";
 $arr = array();
 for($i=0;$i<4;$i++){
-
     $arr[$i] = rand(0,9);
     $code .= (string)$arr[$i];
 }

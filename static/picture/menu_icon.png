@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:mixi="http://mixi-platform.com/ns#" lang="ja" xml:lang="ja" dir="ltr">
+<head>
+<meta name="google-site-verification" content="SOywZSSwGgxD-HKp57253mwRiqFQKFh52FCCsbWGBnY" />
+<meta http-equiv="Content-Language" content="ja" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>お探しのページは見つかりませんでした。【あにこれβ】</title>
+<meta name="author" content="anikore" lang="ja" xml:lang="ja" />
+<meta name="copyright" content="copyright (c) Anikore Allrights Reserved." />
+<meta name="google" content="nositelinkssearchbox">
+<meta http-equiv="X-UA-compatible" content="IE=10" />
+<meta name="msvalidate.01" content="A8E40848D1CE4A10613BA4BD8F027CB3" />
+<meta property="og:image" content="https://www.anikore.jp/img/common/facebook_logo.jpg" />
+<link rel="apple-touch-icon-precomposed" href="https://www.anikore.jp/img/common/fav.gif" />
+<link rel="start" href="https://www.anikore.jp/" />
+<link rel="shortcut icon" href="https://www.anikore.jp/fav.ico" />
+<link rel="stylesheet" type="text/css" href="/css/common.css?1608446712" />
+<script type="text/javascript">
+if (navigator.userAgent.indexOf("Mac") != -1){
+	document.write('<link rel="stylesheet" type="text/css" href="/css/mhack.css?1608446712" />');
+}
+</script>
+<script type="text/javascript" src="/js/jquery_default.min.js?1608446712"></script>
+<script type="text/javascript" src="/js/jquery.lazyload.min.js?1608446712"></script>
+<script type="text/javascript" src="/js/js.cookie.js?1608446712"></script>
+<script type="text/javascript" src="/js/anikore.core.js?1608446712"></script>
+<script type="text/javascript" src="/js/custom.js?1608446712"></script>
+<link rel="stylesheet" type="text/css" href="/css/page.css?1608446712" />
+<meta name="description" content="あにこれは、おもしろいアニメがみたい！アニメ選びで失敗したくない！そんな仲間達のためのランキング＆口コミサイトです。あにこれでアニメをさがして教えて語り合おう！" />
+<meta name="keywords" content="アニメ,ランキング,口コミ,あにこれ" />
+<script src="//cdn.optimizely.com/js/5638090428.js"></script>
+</head>
+<body>
+  
+<!-- ヘッダーH1部分 -->
+<a name="top" id="top"></a>
+<div class="l-headerTopLine cf">
+  <div class="cb">
+    <h1 class="left">アニメのことなら！ランキングと口コミでさがすアニメ-あにこれ</h1>
+      
+        <div class="gmenu_wrap right">
+  <ul class="gmenu">
+      <li><span class="gmenu__unit--nolink">ゲスト さん</span></li>
+    <li><a href="https://www.anikore.jp/users/login/">ログイン</a></li>
+    <li><a href="https://www.anikore.jp/users/add/?source=global_header">あにこれβに新規登録！</a></li>
+    </ul>
+  </div>
+      
+  </div>
+</div>
+<!-- //ヘッダーH1部分 -->
+
+<!-- ヘッダー部分 -->
+<div id="hdr">
+  <div class="cb">
+    <div id="tp">
+      <div id="icon">
+        
+          <a href="/tag_ranking/"><!--
+  --><img src="data:image/gif;base64,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" width="76" height="64" alt="" /><!--
+--></a>
+        
+      </div>
+      <div id="logo">
+        <a href="https://www.anikore.jp/">
+          <img src="data:image/gif;base64,R0lGODlhmwBBAPcAAIByAEA5AL+rAH9/f7+qIL+/v1dJGebPIu/WAIt6HEBAQBAOAHFhGsy2IDAkFj0wF1pSUCAdABAQEMjFxEo9GM+5ADArAKWSHpGLiu/v73BkADEmJGBgYPHx8NnDIWBWAJ+PALKeH35tG9/IAD81Mp+fn6+dAJiGHVBHAM/Pz4+AADAwMOPi4t/f356amExDQWRVGa+vr6yopyAgILq3ttbU03ZvbYR9fFBQUHBwcI+Pj2hgXv/BRP/UQf/EQf/jYv/JPv+3Vf+5Uf+/Rv/eUP+zXv/AOWBHEP+xWYBpAJ9pMf+dZv/pgc+sAP/pbJ99Cv+ZW//mc//KLP+iZP/mcf/tgv/bSv+xYf+pYv+tYiATCRAHA5+HACAaAFA5Ev++OP/iX//SP//vn/+lYxAKBZ+CAM9ZIv+7Tf+1Wv+1TP+oUv/kRWBDGP/eT/+4Up+DAIBRJoArC//IPv/aSf/EP7+AOv/OPf/GQBAEAEA4ABAGAoBTJ//XRP/aSI89Fs+WK//RP/+8Sv+0Vf/gWP/MPf+NXP+pXb+ZC//iVYBWJ++jTDAhDv/wpf+3VP/PNiAbAEAoEv/LPf+9Sf+/RxAKBP+1Wf+HWEAQAkAOACAcAM9/Pe/QKP/PPf/GP1BDAM9CE//CQ79hKP/HP//wiP+6Td+qH//pf4BwAEAwCf/rZ7+SGP/sjv/THP/wg/+7TP/ncM9wMZ+LAP+VX/+8S/+zVv+5T++eTP/hWd+hMf+9Sv/jZP+6Tv+ySP+uVv+2Ve/ZIP9bKf/YRP/hQvPbIyMYFQAAAP/////kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjAgNjEuMTM0Nzc3LCAyMDEwLzAyLzEyLTE3OjMyOjAwICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDcwMjdFNEVDNEJDMTFFNUFBNENGNDE4QjIxRTIxNDYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDcwMjdFNEZDNEJDMTFFNUFBNENGNDE4QjIxRTIxNDYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0NzAyN0U0Q0M0QkMxMUU1QUE0Q0Y0MThCMjFFMjE0NiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0NzAyN0U0REM0QkMxMUU1QUE0Q0Y0MThCMjFFMjE0NiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgH//v38+/r5+Pf29fTz8vHw7+7t7Ovq6ejn5uXk4+Lh4N/e3dzb2tnY19bV1NPS0dDPzs3My8rJyMfGxcTDwsHAv769vLu6ubi3trW0s7KxsK+urayrqqmop6alpKOioaCfnp2cm5qZmJeWlZSTkpGQj46NjIuKiYiHhoWEg4KBgH9+fXx7enl4d3Z1dHNycXBvbm1sa2ppaGdmZWRjYmFgX15dXFtaWVhXVlVUU1JRUE9OTUxLSklIR0ZFRENCQUA/Pj08Ozo5ODc2NTQzMjEwLy4tLCsqKSgnJiUkIyIhIB8e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" width="155" height="65" alt="あにこれ" />
+        </a>
+      </div>
+      <div id="hdrRight">
+        <!-- 検索ボタン -->
+        <div class="srch">
+        <form id="animeSearchHeaderForm" method="post" action="javascript:void(0);" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST" /></div><select name="data[mode]" class="AnimeMode" id="mode">
+<option value="searchAnimeByKeyword">アニメを作品名から探す</option>
+<option value="searchAnimeByTag">アニメを成分タグから探す</option>
+<option value="searchUserByName">ユーザー名から探す</option>
+</select><input name="data[words]" type="text" maxlength="255" value="" id="header" class="fm-text" autocomplete="off" /><div class="submit"><input type="image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAgCAMAAACy7Q9eAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAMBQTFRFJycmm5qZtra28fHx0tLRRENCVFNSxMPDOzo64uLizs3N3dzci4uKd3Rxo6Oi9vb2XVxaenh0FxcXb21qg4OCTk1L6urpZ2Vi+vr6rq2t/f39c3Ftf35+Y2FeUlFPWllXkZGQiYiISklHa2lmd3VyqainUE5NhoaFOTg3X11bVlVTQkFANzc2RkVEcG9uPj49MTAvISAf2NfXMC8uNDQ0fnt3iIWBLS0tg4F8hoN/MjExgX56Ly8v////AAAA////HMw7uQAAAEB0Uk5T////////////////////////////////////////////////////////////////////////////////////AMJ7sUQAAAOUSURBVHjarJbrdqo6FEYjARFFqFTqrVykBQFBhOLO2RwWvv9b7UWAXhz9yRzDkc+VMA0mUcj9rjhGMwqGo9zv5P7ajMjrnSyaZq3AKCjrplkQuznJ7p9RcOVTYxOj2f0djV1jkKZR/xsNtWlQ+P+IcOHtO39835+sfpTeFeW9bVfu4kfPSoaHkbcbF66+OBZ8uaj2/q24Adhgc5OxZ35rk1hwKLx0QbwNY7lwOXBwt/sOkA+f1aUD4CwPgg5UpaALq8OSPuwXuhyGc+Fh4K++388vUuRiu3vui8++BqCt5wBixjKc5cvKSUjeIsORtyRxLv1oLnzu2RT7/ZGEUnY9K/vtsq+e+BzEtaKoE23iilR5sw5zDgWlC641OLjwreew3/pVEFmWcw62W3/Di5vgKABMnFIYbo9NI/HxjESDgws3HdZku50GVhudmbwtnK4chz6AK3lZPBXBj6dSGsVzsPPcEOFkkNc0NwDs3rHhQqvD0XQ9e+qyOdFfgi5GMS4BdV6HhaBuZGs09YUdiKFXwPwciqLXOywujDrsia57T10ONH3hddFRW40/AUXG70wWYR5Pk48Z7i+anXGpnGnw8RH0jogLnY7gXdeXfTYLXUi7aLc/RTLs4Gjgqho2zL3YNNMatxCVgVomFTwz7q9zuDDuCM4v+tzmcbpGd9rFI9ogk32QXQXkyQ7ktsM+M4LLRKWrTUGw4wEutDuCmUp1+alNJ51SyeNVcylkAIRcPld0J5mLh0XWgt5hc6HZIzGB6lRwfXFLKS1iXvRCRgDKjF1O7cZRTrdEkjS5RZNB8VX15OLRHBxc6PWkIVEp1be6ThfYFlNelc4VQJJmjIntzV/ILD2z3CAqMY5wymv3I38WpLR3cGE6cC7z1FcoFS6G1s7R7solzjCV3iiIOR4bwZSkLMFd5F5dUCsVTzjB49UruPD8SYaH1EAIyVvjKeNVnOHVww2iSFjGxsos3DRyWLrglmwCUDxlg4ELs2/Mymtdl2F4RaNwnfEaA2D4i6MRklT5isIxPAJ9M+pyDeuyyk0FjrPhei6c/ULC8iBnIc91FDEm1QYrZ2Gd5zapiG3kdVKSKSnxow2bJMN1XJj8RskIK7tYEVLhi78tr4TUZY0VzDVG7Ga86eDC8neqr1T9ePfVVz2OLFFoNKwaDYZ/o3aT16OR4x89PooYhI0C3i0+ioz+sHS/F9OxHuemxf3+T4ABAByys+sDl5LrAAAAAElFTkSuQmCC" alt="検索" width="80" height="32" value="Submit" /></div></form>        </div>
+        <div id="topInfo">
+          <div class="anm ln"><a href="https://www.anikore.jp/50on/">アニメ数(50音)</a> <span class="img_number_o_1"><span class="hidden">1</span></span><span class="img_number_o_3"><span class="hidden">3</span></span><span class="img_number_o_c"><span class="hidden">,</span></span><span class="img_number_o_1"><span class="hidden">1</span></span><span class="img_number_o_2"><span class="hidden">2</span></span><span class="img_number_o_2"><span class="hidden">2</span></span> 作</div>
+          <div class="anm ln"><a href="https://www.anikore.jp/tags/taglist/">成分タグ数</a> <span class="img_number_o_9"><span class="hidden">9</span></span><span class="img_number_o_0"><span class="hidden">0</span></span><span class="img_number_o_c"><span class="hidden">,</span></span><span class="img_number_o_0"><span class="hidden">0</span></span><span class="img_number_o_2"><span class="hidden">2</span></span><span class="img_number_o_3"><span class="hidden">3</span></span> 個</div>
+          <div class="tag"><a href="https://www.anikore.jp/reviews/recent_review/">昨日のアニメ棚登録数</a> <span class="img_number_o_1"><span class="hidden">1</span></span><span class="img_number_o_c"><span class="hidden">,</span></span><span class="img_number_o_3"><span class="hidden">3</span></span><span class="img_number_o_5"><span class="hidden">5</span></span><span class="img_number_o_8"><span class="hidden">8</span></span> 件</div>
+        </div><!-- //#topInfo -->
+      </div><!-- //#hdrRight -->
+    </div><!-- //#tp -->
+  </div><!-- /.cb -->
+</div>
+<!-- //ヘッダー部分 -->
+
+<!-- グローバルナビ部分 -->
+<ul id="gnav">
+  <li class="gnav_top"><a href="https://www.anikore.jp/"><span class="hidden">トップページ</span></a></li>
+  <li class="gnav_pop"><a href="https://www.anikore.jp/pop_ranking/"><span class="hidden">人気アニメランキング</span></a></li>
+  <li class="gnav_tag"><a href="https://www.anikore.jp/tag_ranking/"><span class="hidden">成分別にアニメをランキング</span></a></li>
+  <li class="gnav_chr"><a href="https://www.anikore.jp/chronicle/"><span class="hidden">放送時期別にアニメをランキング</span></a></li>
+  <li class="gnav_bst"><a href="https://www.anikore.jp/best10_ranking/"><span class="hidden">みんながつくるランキング</span></a></li>
+  <li class="gnav_mov"><a href="https://www.anikore.jp/broadcast/"><span class="hidden">動画配信サービス比較ランキング</span></a></li>
+</ul>
+<!-- //グローバルナビ部分 -->
+
+
+  <!-- 非会員用会員登録 -->
+<div id="hdrInfo">
+<div id="hdrInfoIn">
+<a href="/users/add/?source=header_regist">名作アニメを観たいなら、「さがす」より「登録」した方が圧倒的に速い！⇛あにこれβ会員登録（無料）</a>
+</div>
+</div><!-- //#hdrInfo -->
+<!-- //非会員用会員登録 -->
+
+
+<!-- ぱんくずリスト -->
+<div class="pan cb">
+ <ul>
+  <li>
+  </li>
+ </ul>
+</div>
+<!-- //ぱんくずリスト -->
+
+
+<!-- コンテナ部分 -->
+<div id="page" class="cb cf">
+<div class="left">
+<h2 style="font-size:3em;font-weight:bold;color:#464646;" class="mB20">ページが見つかりません。</h2>
+<p class="fs-10to14" style="line-height:1.8;">
+お探しのページは、すでに削除されてるかもしれません。<br />
+もしくは存在すらしないかもしれません。<br />
+アドレスが間違っていないか、ご確認ください。<br />
+<a href="https://www.anikore.jp/">トップページ</a>へ戻ってみてね。
+</p>
+</div>
+<div class="right">
+<img src="https://www.anikore.jp/img/error/404.gif" alt="" />
+</div>
+
+</div>
+<!-- //コンテナ部分 -->
+
+
+<!-- ぱんくずリスト -->
+<div class="pan cb">
+ <ul>
+  <li>
+  </li>
+ </ul>
+</div>
+<!-- //ぱんくずリスト -->
+  <!-- フッター部分 -->
+<div id="ftr">
+  <div class="cb" style="background-image:url(/img/ftr/12.gif);">
+    <!-- ページトップへ -->
+    <div class="totop"><a href="#top"><!--
+      --><img src="data:image/gif;base64,R0lGODlhywAlAKIHAEBAQCAgIJ+fn3BwcMDAwP///wAAAP///yH5BAEAAAcALAAAAADLACUAAAP/eEcQ9jDKSau9OOvNu/8gFACEcgxhqq5s677YsMB0bd/4x+R87/8pAHBILBqPyKRyyWw6n9CodEqtWieDQgF17Xo3We32Sy5HwuKxeX1Fp9XOwEDoAczPgqzDMxjsaQAFO0xub3Abdn0DBIwCfxAAAowEfhgBggV0HARag1mfEZGTlRKBhx+KqX2UAgIRI48/hYanGJy0XA8Bt2+5upJ5gbu+GryZBnKPu7ilWsQdprQFwJBizzmz0tcV2YPI0s4RxotasRrkBXtydJfgvqbbIoy6d9/gW3vR4T6Fbv0vtwgI0AIg2p5ZBc1haCUkwJ+BxwJCLCjmT7Q8sQIRaIci/wykgiALciJQTQvEWjUKURSz0lqLdiTDCAmDol26MBvF3UsXzZuBWw06GZA5dJ8BfZ1yyRxIkqktQQ+idXSZ440QfVffaLCj8AFRiFHDQXRlYGyEnZkCnMxlKibBslrCwkEqhuxPQYFccbJLgeaDgBDQ8K2Rhg5WuXEtibHg8S7Jo84M6qJ6VJVlEa3U3Zpa4C9UyHOdybllN2/JeJKL5gxcF0eW1aDfRuUUD4JZbuXgPZgYhi+arhuWlSvKc9/E05BITRDeVWooc2hqAyoMgvSfEZXaVlS7eKgjCYBByKEOmpfDk6GMXiChPiq6zxn8/jj84SStx+Psa6LgHJExyoF3WaNfeiiFwstgAbbGgR1D0OeBcNLoMhIKaUhHnIWsveETMhMaUGEzBULAyzVpbBiFgx/YIckkGFVAwnfn7JdBTzBi8KI5HNkoUFeLCCDjFCiykcMIQoYQZJFIOnFkkkwmIRxsTUYp5ZRUVmnllVhmqeWWXHbp5ZdghinmmGTykAAAOw==" width="203" height="37" alt="このページのトップへ" /><!--
+    --></a></div>
+    <!-- //ページトップへ -->
+    <!-- フッター・あにこれとは？ -->
+    <div class="exp">
+      <h3>■あにこれとは？</h3>
+      <p>おもしろいアニメが見たい！<br />アニメ選びで失敗したくない！<br />そんな仲間達のためのランキング&amp;口コミサイトです。</p>
+      <!-- 検索ボタン -->
+      <div class="srch">
+       <form id="animeSearchFooterForm" method="post" action="javascript:void(0);" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST" /></div><select name="data[mode]" class="AnimeMode" id="mode">
+<option value="searchAnimeByKeyword">アニメを作品名から探す</option>
+<option value="searchAnimeByTag">アニメを成分タグから探す</option>
+<option value="searchUserByName">ユーザー名から探す</option>
+</select><input name="data[words]" type="text" maxlength="255" value="" id="footer" autocomplete="off" /><div class="submit"><input type="image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAgCAMAAACy7Q9eAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAMBQTFRFJycmm5qZtra28fHx0tLRRENCVFNSxMPDOzo64uLizs3N3dzci4uKd3Rxo6Oi9vb2XVxaenh0FxcXb21qg4OCTk1L6urpZ2Vi+vr6rq2t/f39c3Ftf35+Y2FeUlFPWllXkZGQiYiISklHa2lmd3VyqainUE5NhoaFOTg3X11bVlVTQkFANzc2RkVEcG9uPj49MTAvISAf2NfXMC8uNDQ0fnt3iIWBLS0tg4F8hoN/MjExgX56Ly8v////AAAA////HMw7uQAAAEB0Uk5T////////////////////////////////////////////////////////////////////////////////////AMJ7sUQAAAOUSURBVHjarJbrdqo6FEYjARFFqFTqrVykBQFBhOLO2RwWvv9b7UWAXhz9yRzDkc+VMA0mUcj9rjhGMwqGo9zv5P7ajMjrnSyaZq3AKCjrplkQuznJ7p9RcOVTYxOj2f0djV1jkKZR/xsNtWlQ+P+IcOHtO39835+sfpTeFeW9bVfu4kfPSoaHkbcbF66+OBZ8uaj2/q24Adhgc5OxZ35rk1hwKLx0QbwNY7lwOXBwt/sOkA+f1aUD4CwPgg5UpaALq8OSPuwXuhyGc+Fh4K++388vUuRiu3vui8++BqCt5wBixjKc5cvKSUjeIsORtyRxLv1oLnzu2RT7/ZGEUnY9K/vtsq+e+BzEtaKoE23iilR5sw5zDgWlC641OLjwreew3/pVEFmWcw62W3/Di5vgKABMnFIYbo9NI/HxjESDgws3HdZku50GVhudmbwtnK4chz6AK3lZPBXBj6dSGsVzsPPcEOFkkNc0NwDs3rHhQqvD0XQ9e+qyOdFfgi5GMS4BdV6HhaBuZGs09YUdiKFXwPwciqLXOywujDrsia57T10ONH3hddFRW40/AUXG70wWYR5Pk48Z7i+anXGpnGnw8RH0jogLnY7gXdeXfTYLXUi7aLc/RTLs4Gjgqho2zL3YNNMatxCVgVomFTwz7q9zuDDuCM4v+tzmcbpGd9rFI9ogk32QXQXkyQ7ktsM+M4LLRKWrTUGw4wEutDuCmUp1+alNJ51SyeNVcylkAIRcPld0J5mLh0XWgt5hc6HZIzGB6lRwfXFLKS1iXvRCRgDKjF1O7cZRTrdEkjS5RZNB8VX15OLRHBxc6PWkIVEp1be6ThfYFlNelc4VQJJmjIntzV/ILD2z3CAqMY5wymv3I38WpLR3cGE6cC7z1FcoFS6G1s7R7solzjCV3iiIOR4bwZSkLMFd5F5dUCsVTzjB49UruPD8SYaH1EAIyVvjKeNVnOHVww2iSFjGxsos3DRyWLrglmwCUDxlg4ELs2/Mymtdl2F4RaNwnfEaA2D4i6MRklT5isIxPAJ9M+pyDeuyyk0FjrPhei6c/ULC8iBnIc91FDEm1QYrZ2Gd5zapiG3kdVKSKSnxow2bJMN1XJj8RskIK7tYEVLhi78tr4TUZY0VzDVG7Ga86eDC8neqr1T9ePfVVz2OLFFoNKwaDYZ/o3aT16OR4x89PooYhI0C3i0+ioz+sHS/F9OxHuemxf3+T4ABAByys+sDl5LrAAAAAElFTkSuQmCC" alt="検索" width="80" height="32" value="Submit" /></div></form>      </div>
+      <!-- // 検索ボタン -->
+      <!-- フッター・おすすめタグ -->
+      <ul class="tags">
+        <li><a href="https://www.anikore.jp/tag/ツンデレ/">ツンデレ</a></li>
+        <li><a href="https://www.anikore.jp/tag/神アニメ/">神アニメ</a></li>
+        <li><a href="https://www.anikore.jp/tag/恋愛/">恋愛</a></li>
+        <li><a href="https://www.anikore.jp/tag/学園/">学園</a></li>
+        <li><a href="https://www.anikore.jp/tag/泣ける/">泣ける</a></li>
+      </ul>
+      <!-- //フッター・おすすめタグ -->
+    </div>
+    <!-- //フッター・あにこれとは？ -->
+    <!-- フッターサイトマップ -->
+    <!-- フッター・ランキング（アニメ作品） -->
+    <div class="fsm rank-a">
+      <h4>■あにこれβ</h4>
+      <ul>
+        <li><a href="https://www.anikore.jp/">アニコレ</a></li>
+        <li><a href="https://www.anikore.jp/pop_ranking/">人気アニメランキング</a></li>
+        <li><a href="https://www.anikore.jp/tag_ranking/">人気のアニコレ成分タグランキング</a></li>
+        <li class="f2"><a href="https://www.anikore.jp/tag/ツンデレ/">・ツンデレアニメ</a></li>
+        <li class="f2"><a href="https://www.anikore.jp/tag/ラブコメ/">・ラブコメアニメ</a></li>
+        <li class="f2"><a href="https://www.anikore.jp/tag/学園/">・学園アニメ</a></li>
+        <li class="f2"><a href="https://www.anikore.jp/tag/恋愛/">・恋愛アニメ</a></li>
+        <li class="f2"><a href="https://www.anikore.jp/tag/腐女子向け/">・腐女子向けアニメ</a></li>
+        <li class="f2"><a href="https://www.anikore.jp/tag/ほのぼの/">・ほのぼのアニメ</a></li>
+        <li class="f2"><a href="https://www.anikore.jp/tag/SF/">・SFアニメ</a></li>
+        <li class="f2"><a href="https://www.anikore.jp/tag/逆ハーレム/">・逆ハーレムアニメ</a></li>
+      </ul>
+    </div>
+    <!-- //フッター・ランキング（アニメ作品） -->
+    <!-- フッター・サイト情報 -->
+    <div class="fsm sinf">
+      <h4>■サイト情報</h4>
+      <ul>
+        <li><a href="https://www.anikore.jp/project/" rel="nofollow">あにこれプロジェクトとは？</a></li>
+        <li><a href="https://www.anikore.jp/terms_of_use/" rel="nofollow">利用規約</a></li>
+        <li><a href="https://www.anikore.jp/guideline/" rel="nofollow">ガイドライン</a></li>
+        <li><a href="https://www.anikore.jp/privacy_policy/" rel="nofollow">プライバシーポリシー</a></li>
+        <li><a href="https://www.anikore.jp/contacts/" rel="nofollow">お問い合わせ</a></li>
+        <li><a href="https://www.anikore.jp/businesses/" rel="nofollow">ビジネス／広告／コラボに関して</a></li>
+        <li><a href="https://www.anikore.jp/company/" rel="nofollow">運営会社</a></li>
+      </ul>
+    </div>
+    <!-- //フッター・サイト情報 -->
+    <!-- フッター・放送時期別アニメランキング -->
+    <div class="fsm rank-h">
+      <ul>
+        <li><a href="https://www.anikore.jp/chronicle/">放送時期別アニメランキング</a></li>
+                <li><a href="https://www.anikore.jp/chronicle/2020/"> - 2020年アニメランキング</a></li>
+        <li class="f2"><a href="https://www.anikore.jp/chronicle/2020/winter/">・2020年冬アニメ</a></li>
+        <li class="f2"><a href="https://www.anikore.jp/chronicle/2020/spring/">・2020年春アニメ</a></li>
+        <li class="f2"><a href="https://www.anikore.jp/chronicle/2020/summer/">・2020年夏アニメ</a></li>
+        <li class="f2"><a href="https://www.anikore.jp/chronicle/2020/autumn/">・2020年秋アニメ</a></li>
+                <li><a href="https://www.anikore.jp/chronicle/2019/"> - 2019年アニメランキング</a></li>
+        <li class="f2"><a href="https://www.anikore.jp/chronicle/2019/winter/">・2019年冬アニメ</a></li>
+        <li class="f2"><a href="https://www.anikore.jp/chronicle/2019/spring/">・2019年春アニメ</a></li>
+        <li class="f2"><a href="https://www.anikore.jp/chronicle/2019/summer/">・2019年夏アニメ</a></li>
+        <li class="f2"><a href="https://www.anikore.jp/chronicle/2019/autumn/">・2019年秋アニメ</a></li>
+                <li><a href="https://www.anikore.jp/chronicle/2018/"> - 2018年アニメランキング</a></li>
+                <li><a href="https://www.anikore.jp/chronicle/2017/"> - 2017年アニメランキング</a></li>
+      </ul>
+    </div>
+    <!-- //フッター・放送時期別アニメランキング -->
+    <!-- フッター・メインコンテンツ -->
+    <div class="fsm mct">
+      <h4>■メインコンテンツ</h4>
+      <ul>
+        <li><a href="https://www.anikore.jp/walk/" rel="nofollow">図解でバッチリ！1分でわかるあにこれβ</a></li>
+        <li><a href="https://www.anikore.jp/help_ask/">よくある質問</a></li>
+        <li><a href="https://www.anikore.jp/boards/">あにこれアニメ掲示板</a></li>
+      </ul>
+    </div>
+    <!-- //フッター・メインコンテンツ -->
+    <!-- フッター・感想別アニメランキング -->
+    <div class="fsm rank-t">
+      <ul>
+        <li><a href="https://www.anikore.jp/best10_ranking/">みんなのアニメBEST10</a></li>
+        <li><a href="https://www.anikore.jp/50on/">50音順でアニメを探す</a></li>
+        <li><a href="https://www.anikore.jp/rev_ranking/">アニメレビュー投稿数ランキング</a></li>
+        <li><a href="https://www.anikore.jp/thank_ranking/">サンキュー獲得数ランキング</a></li>
+        <li><a href="https://www.anikore.jp/youtube/">アニメ1話無料視聴動画</a></li>
+      </ul>
+    </div>
+    <!-- //フッター・感想別アニメランキング -->
+    <!-- //フッターサイトマップ -->
+  </div>
+</div>
+<!-- //フッター部分 -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16032070-1', 'auto');
+  ga('require', 'linkid', 'linkid.js');
+  ga('set', 'dimension1', 'desktop');
+  ga('set', 'dimension2', 'no_sb_linked_anime');
+  ga('set', 'dimension3', 'not_login');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
