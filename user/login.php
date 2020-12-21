@@ -139,6 +139,7 @@
             margin-right: 40px!important;
         }
     </style>
+    <link rel="stylesheet" href="code.css">
 </head>
 <?php session_start();?>
 
@@ -159,8 +160,26 @@
             </div>
             <input type="submit" id="submit" name="submit" value="登录">
             <button type="button" id="reg" >注册</button>
-        </form>
+            <button type="button" id="btn" >验证</button>
 
+        </form>
+        <div id="valid-code" style="display: none" class="container-code">
+            <div id="captcha" style="position: relative"></div>
+        </div>
+        <script src="code.js"></script>
+        <script>
+            var i=0;
+            $('#btn').click(function () {
+                if (i==0){
+                    $('#valid-code').css('display','block');
+                    i++;
+                }else {
+                    $('#valid-code').css('display','none');
+                    i--;
+                }
+
+            })
+        </script>
     </div>
 </div>
 
@@ -173,9 +192,7 @@
 </script>
 
 <script type="text/javascript">
-
     function changeCode() {
-
         document.getElementById("code").src = "validcode.php?id=" + Math.random();
     }
 </script>
