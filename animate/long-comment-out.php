@@ -34,7 +34,7 @@
                        <img src="img/misaka.png" alt="">
                    </div>
                    <div class="litle-cover">
-                        <img src="" alt="">
+                        <img src="img/misakaka.webp" alt="">
                         <div class="litle-cover-info">
                             <h6>某科学的超电磁炮T</h6>
                             <p><span style="margin-right: 5px">番剧</span> |<span style="margin-left: 5px">日本</span>  </p>
