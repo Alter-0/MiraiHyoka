@@ -692,7 +692,6 @@
                 tabs[i].className = 'on';
                 contents[i].style.display = 'block';
 
-
             } else {
                 tabs[i].className = '';
                 contents[i].style.display = 'none';
@@ -702,15 +701,18 @@
 
 </script>
 <script>
-//    加载短评，点赞，弹窗等
+
     $(document).ready(function(){
         var indexnum="";
+        //弹窗的加载
         $(".short_review_write").click(function(){
             $(".write_review").css("display","block");
         });
+        //弹窗的关闭
         $(".write_review_close").click(function(){
             $(".write_review").css("display","none");
         });
+        //评分的星星互动及按钮的检查
         $('.write_review_star i').hover(function(){
             var index=$(this).attr("index");
             indexnum=index;
@@ -722,9 +724,27 @@
             {
                 $('.write_review_star i').eq(i).attr("class","icon-star-empty");
             }
+            if($('.write_review_button').css("cursor")=="not-allowed")
+            {
+                $('.write_review_button').css("cursor","pointer");
+                $('.write_review_button').css("background","#0cc7ef");
+                $('.write_review_button').css("color","#ffffff");
+
+            }
+        });
+        //弹窗字数的更新及超字数提示
+        $('.write_review_middle textarea').keyup(function(){
+            var textlength = $(this).val().length;
+            $('.write_review_middle span').text(textlength+"/100");
+            if(textlength>=100)
+            {
+                $('.write_review_middle span').text("评论不超过100字");
+                $('.write_review_middle span').css("color","red");
+
+            }
 
         });
-
+        //点赞按钮的互动
         $('.icon-praise').click(function(e){
             if($(e.target).parent().parent().find("div:nth-child(2)").find("i").attr("class")=="icon-criticism_full")
             {return;}
@@ -743,6 +763,7 @@
                 $(e.target).siblings().html((n-1));
             }
         });
+        //点踩按钮的互动
         $('.icon-criticism').click(function(e){
             if($(e.target).parent().parent().find("div:nth-child(1)").find("i").attr("class")=="icon-praise_full")
             {return;}
@@ -762,7 +783,7 @@
                 $(e.target).siblings().html((n-1));
             }
         });
-
+        //对滚轮的监听，是否申请新的评论
         $(window).scroll(function() {
             if ($(".short_review").css("display") !="none")
             {
