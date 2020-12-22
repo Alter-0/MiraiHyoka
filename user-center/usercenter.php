@@ -34,7 +34,7 @@
 /**
  * 登录后取消登录注册按钮，显示用户头像以及相关操作
  */
-session_start();
+
 include "../header.php"?>
 <!--<div style="height: 50px"></div>-->
 <div class="all">
@@ -329,6 +329,7 @@ include "../header.php"?>
 
 </div>
 
+<?php include "../footer.php"?>
 </body>
 
 <script>

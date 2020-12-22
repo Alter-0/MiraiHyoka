@@ -332,10 +332,6 @@
         </div>
     </div>
 </div>
-
-<div class="bottom">
-    <iframe src="../footer.html" scrolling="no" class="footer"></iframe>
-</div>
 <script src="../js/jquery.js"></script>
 <script>
     $(document).read(function ()){

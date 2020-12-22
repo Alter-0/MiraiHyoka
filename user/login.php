@@ -130,8 +130,6 @@
     </style>
     <link rel="stylesheet" href="code.css">
 </head>
-<?php session_start();?>
-
 <body>
 <?php include "../header.php"?>
 <div class="content">

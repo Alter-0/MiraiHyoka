@@ -704,45 +704,76 @@
             <!--长评-->
             <div class="long_review">
                 <div class="short_review_middle">
-                    <!--短评的头部-->
                     <div class="card_left_title" style="display: inline-block">短评</div>
                     <div class="short_review_drop">
                         <div>默认<i></i></div>
                         <ul>
-                            <li>默认</li>
-                            <li>最新</li>
+                            <li>
+                                <!--短评具体内容-头像那一行-->
+                                <div class="li_first_div">
+                                    <div class="short_review_face">
+                                        <div class="short_review_img">
+                                            <img alt="Yrqiiii"
+                                                 src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
+                                                 lazy="loaded">
+                                        </div>
+                                    </div>
+                                    <div class="short_review_name">
+                                        bfbdntf
+                                    </div>
+                                    <div class="short_review_star">
+                                        <span class="review_star">
+                                            <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-empty">
+                                                <i></i>
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <div class="short_review_time">22小时前</div>
+                                </div>
+                                <!--短评具体内容-评论内一行-->
+                                <div class="li_second_review">
+                                    <div class="second_review">
+                                        剧情紧凑不拖沓 打击感强 人物性格也很鲜明 纯恶与善的对决
+                                    </div>
+
+                                </div>
+                                <!--点赞-->
+                                <div class="li_third_icon">
+                                    <div>
+                                        <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i><span>5</span>
+                                    </div>
+                                    <div>
+                                        <i class="icon-criticism"
+                                           style="font-size: 14px;margin-right: 6px;"></i><span>1</span>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                     <div class="short_review_write">去写短评</div>
-                    <!--短评具体内容-->
                     <ul class="short_review_write_ul">
-                        <?php
-                        $pic_url="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp";
-                        $name = "cccccc";
-                        $time = "2020/12/21";
-                        $review = "那天发发图肥牛饭";
-                        $short_score =array(6,4,8,10,4,8);
-                        for ($i = 0; $i < 5; $i++) {
-                            echo " <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
-                                . " <img alt='a' src='//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp' lazy='loaded'>"
-                                . "  </div> </div> <div class='short_review_name'>" . $name
-                                . " </div> <div class='short_review_star'> <span class='review_star'>";
-                            for ($j = 0; $j < 5; $j++) {
-
-                                if ($short_score[$i] > 0) {
-                                    echo " <i class='icon-star-full'> <i></i> </i>";
-                                    $short_score[$i] = $short_score[$i] - 2;
-                                } else {
-                                    echo "<i class='icon-star-empty'> <i></i> </i>";
-                                }
-
-                            }
-                            echo "</span></div> <div class='short_review_time'>" . $time
-                                . "</div> </div> <div class='li_second_review'> <div class='second_review'>" . $review
-                                . "</div> </div> <div class='li_third_icon'> <div> <i class='icon-praise' style='font-size: 14px;margin-right: 6px;'></i><span></span></div>"
-                                . "<div> <i class='icon-criticism' style='font-size: 14px;margin-right: 6px;'></i><span></span></div> </div> </li>";
-                        }
-                        ?>
+                        <li><a href="long-comment-out.php">hello</a></li>
+                        <li><a href="long-comment-out.php">hello</a></li>
+                        <li><a href="long-comment-out.php">hello</a></li>
+                        <li><a href="long-comment-out.php">hello</a></li>
+                        <li><a href="long-comment-out.php">hello</a></li>
+                        <li><a href="long-comment-out.php">hello</a></li>
+                        <li><a href="long-comment-out.php">hello</a></li>
+                        <li><a href="long-comment-out.php">hello</a></li>
+                        <li><a href="long-comment-out.php">hello</a></li>
+                        <li><a href="long-comment-out.php">hello</a></li>
                     </ul>
                 </div>
             </div>

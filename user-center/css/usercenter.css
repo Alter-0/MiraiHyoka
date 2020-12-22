@@ -12,6 +12,21 @@
     background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
 }
 
+/* 添加修改定顶栏透明以及页脚透明*/
+.ul-span{
+    background: rgba(255, 255, 255, 0.6)!important;
+}
+.ul-span:hover{
+    color: #f09199 !important;
+}
+footer{
+    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255,255,255,.1);
+}
+#siteSearchSelect,#search_text,#search_btn{
+    background: rgba(255, 255, 255, 0.6)!important;
+}
+/**/
 .all .banner .info {
     height: 100px;
     width: auto;

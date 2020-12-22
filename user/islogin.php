@@ -6,9 +6,10 @@
 </head>
 
 <body>
-<?PHP session_start();
+<?php session_start();
 if(empty($_SESSION["account"]))
     header("location:login.php");
+
 ?>
 
 </body>

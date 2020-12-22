@@ -154,7 +154,7 @@
                 <li><a href=\"user-center/usercenter.php\">我的评分</a></li>
                      <li><a href=\"user-center/usercenter.php\">我的收藏</a></li>
                      <li id=\"headerpic-last-li\">
-                         <a href=\"#\">
+                         <a href=\"user/exitlogin.php\">
                     退出登录
                          </a>
                      </li>

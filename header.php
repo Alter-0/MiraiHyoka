@@ -1,10 +1,12 @@
 <header>
-    <?php
-    $isLogin = 0;
-    if(isset( $_SESSION['account'])){
-        $isLogin =1;
-    }
-    ?>
+
+<!--  <?php
+session_start();
+$isLogin = 0;
+if(isset( $_SESSION['account'])){
+    $isLogin =1;
+}
+?>   -->
     <div style="padding: 0" class="container">
         <div class="dis">
             <div class="logo"><a href="../index.php"><img src="../image/logo.png" alt=""></a></div>
@@ -123,11 +125,11 @@
                 echo " <div   id=\"headerpic\">
                  <img src=\"../image/headerpic.jpg\" alt=\"oih\">
                  <ul>
-                     <li><a href=\"user-center/usercenter.php\">个人中心</a></li>
-                <li><a href=\"user-center/usercenter.php\">我的评分</a></li>
-                     <li><a href=\"user-center/usercenter.php\">我的收藏</a></li>
+                     <li><a href=\"../user-center/usercenter.php\">个人中心</a></li>
+                <li><a href=\"../user-center/usercenter.php\">我的评分</a></li>
+                     <li><a href=\"../user-center/usercenter.php\">我的收藏</a></li>
                      <li id=\"headerpic-last-li\">
-                         <a href=\"#\">
+                         <a href=\"../user/exitlogin.php\">
                     退出登录
                          </a>
                      </li>
@@ -135,7 +137,7 @@
              </div>";
             }else{
                 echo " <div id=\"login-btn\" class=\"login\">
-                <a  href=\"../user/login.php\">
+                <a  href=\"../user/立刻登录.php\">
                     <span id=\"login\" class=\"reg11\" style=\"padding: 0 5px 0 15px\">登录</span>
                 </a>
                 <a href=\"../user/reg.php\">
