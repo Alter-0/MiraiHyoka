@@ -569,8 +569,9 @@
 
 
 </div>
-
-
+<?php
+include "../footer.php";
+?>
 </body>
 <!--这里是js-->
 <script>
@@ -924,4 +925,5 @@
     })
 
 </script>
+
 </html>

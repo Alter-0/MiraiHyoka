@@ -264,14 +264,3 @@ a:hover{
 
     font-size: 12px;
 }
-/*页脚*/
-footer{
-    padding: 20px 0;
-    width: 100%;
-    height: 160px;
-    background-color: #3c3c3c;
-}
-
-.foot p {
-    color: #FFFFFF;
-}

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <title>登录</title>
@@ -142,7 +142,6 @@
     <link rel="stylesheet" href="code.css">
 </head>
 <?php session_start();?>
-
 <body>
 <?php include "../header.php"?>
 <div class="content">
@@ -150,7 +149,8 @@
     </div>
     <div class="right">
         <p>welcome</p>
-        <form name="reg" method="post" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<!--        <form id="login11" name="reg" method="post" action="--><?php //htmlspecialchars($_SERVER["PHP_SELF"]);?><!--">-->
+        <form id="login11" name="reg" method="post" action="test-login.php">
             <input type="text" id="username"  name="username" value="" placeholder="用户名">
             <input type="password" id="password"  name="password" value="" placeholder="密码">
             <input type="text" id="checknum"  name="checknum" value="" placeholder="请输入验证码">
@@ -158,7 +158,7 @@
                 <img src="validcode.php" style="width:100px;height:25px;" id="code"/>
                 <a href="javascript:changeCode()">看不清，换一张</a>
             </div>
-            <input type="submit" id="submit" name="submit" value="登录">
+            <input type="button" id="submit" name="submit" value="登录">
             <button type="button" id="reg" >注册</button>
             <button type="button" id="btn" >验证</button>
 
@@ -166,17 +166,23 @@
         <div id="valid-code" style="display: none" class="container-code">
             <div id="captcha" style="position: relative"></div>
         </div>
-        <script src="code.js"></script>
+        <script src="code.js">
+
+        </script>
         <script>
-            var i=0;
-            $('#btn').click(function () {
+            $('#submit').click(function () {
+                var i=0;
                 if (i==0){
                     $('#valid-code').css('display','block');
                     i++;
                 }else {
                     $('#valid-code').css('display','none');
+                    // $('.sliderContainer').css('display','block');
                     i--;
                 }
+            })
+
+            $('#btn').click(function () {
 
             })
         </script>
