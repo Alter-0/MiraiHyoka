@@ -5,8 +5,9 @@
     margin-top: -100px;
     margin-left: -155px;
     width: 310px;
-    /*margin: 100px auto;*/
     background-color: #f09199;
+    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
 }
 #msg {
     width: 100%;
@@ -30,6 +31,7 @@
     background: #f7f9fa;
     color: #45494c;
     border: 1px solid #e4e7eb;
+
 }
 .sliderContainer_active .slider {
     height: 38px;
@@ -104,16 +106,7 @@
     left: 13px;
     width: 14px;
     height: 10px;
-    background: url(img/tb.png) 0 -26px;
+    background: url(image/2.png) 0 -400px;
     background-size: 34px 471px;
-}
-.refreshIcon {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 34px;
-    height: 34px;
     cursor: pointer;
-    background: url(img/tb.png) 0 -437px;
-    background-size: 34px 471px;
 }
