@@ -241,13 +241,14 @@
                         <!---->
                         <!--                            </ul>-->
                         <!--                        </div>-->
+
                         <div class="episode_comment_title">
                             本话的讨论
                         </div>
                         <div class="episode_comment_content">
                             <ul>
                                 <!--                                每一项-->
-                                <li class="episode_comment_item">
+                                <li class="episode_comment_item ll">
                                     <!--                                    头像-->
                                     <div class="common_icon">
                                         <div class="common_icon_face">
@@ -259,21 +260,441 @@
                                         </div>
                                     </div>
                                     <div class="common_content">
-                                        <div class="common_username">
+                                        <div class="common_content_info">
+                                            <div class="common_username">
+                                                gaibian
+                                            </div>
 
-                                        </div>
-
-                                        <div class="common_time">
-
+                                            <div class="common_time">
+                                                12月22号 9:33
+                                            </div>
                                         </div>
 
                                         <div class="common_text">
-
+                                            这集确实不错
                                         </div>
 
                                     </div>
+                                </li>
+                                <li class="episode_comment_item rr">
+                                    <!--                                    头像-->
+                                    <div class="common_icon">
+                                        <div class="common_icon_face">
+                                            <div class="common_icon_img">
+                                                <img alt="Yrqiiii"
+                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
+                                                     lazy="loaded">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="common_content">
+                                        <div class="common_content_info">
+                                            <div class="common_username">
+                                                gaibian
+                                            </div>
 
+                                            <div class="common_time">
+                                                12月22号 9:33
+                                            </div>
+                                        </div>
 
+                                        <div class="common_text">
+                                            这集确实不错
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li class="episode_comment_item ll">
+                                    <!--                                    头像-->
+                                    <div class="common_icon">
+                                        <div class="common_icon_face">
+                                            <div class="common_icon_img">
+                                                <img alt="Yrqiiii"
+                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
+                                                     lazy="loaded">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="common_content">
+                                        <div class="common_content_info">
+                                            <div class="common_username">
+                                                gaibian
+                                            </div>
+
+                                            <div class="common_time">
+                                                12月22号 9:33
+                                            </div>
+                                        </div>
+
+                                        <div class="common_text">
+                                            这集确实不错
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li class="episode_comment_item rr">
+                                    <!--                                    头像-->
+                                    <div class="common_icon">
+                                        <div class="common_icon_face">
+                                            <div class="common_icon_img">
+                                                <img alt="Yrqiiii"
+                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
+                                                     lazy="loaded">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="common_content">
+                                        <div class="common_content_info">
+                                            <div class="common_username">
+                                                gaibian
+                                            </div>
+
+                                            <div class="common_time">
+                                                12月22号 9:33
+                                            </div>
+                                        </div>
+
+                                        <div class="common_text">
+                                            这集确实不错
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li class="episode_comment_item ll">
+                                    <!--                                    头像-->
+                                    <div class="common_icon">
+                                        <div class="common_icon_face">
+                                            <div class="common_icon_img">
+                                                <img alt="Yrqiiii"
+                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
+                                                     lazy="loaded">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="common_content">
+                                        <div class="common_content_info">
+                                            <div class="common_username">
+                                                gaibian
+                                            </div>
+
+                                            <div class="common_time">
+                                                12月22号 9:33
+                                            </div>
+                                        </div>
+
+                                        <div class="common_text">
+                                            这集确实不错
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li class="episode_comment_item rr">
+                                    <!--                                    头像-->
+                                    <div class="common_icon">
+                                        <div class="common_icon_face">
+                                            <div class="common_icon_img">
+                                                <img alt="Yrqiiii"
+                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
+                                                     lazy="loaded">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="common_content">
+                                        <div class="common_content_info">
+                                            <div class="common_username">
+                                                gaibian
+                                            </div>
+
+                                            <div class="common_time">
+                                                12月22号 9:33
+                                            </div>
+                                        </div>
+
+                                        <div class="common_text">
+                                            这集确实不错
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li class="episode_comment_item ll">
+                                    <!--                                    头像-->
+                                    <div class="common_icon">
+                                        <div class="common_icon_face">
+                                            <div class="common_icon_img">
+                                                <img alt="Yrqiiii"
+                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
+                                                     lazy="loaded">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="common_content">
+                                        <div class="common_content_info">
+                                            <div class="common_username">
+                                                gaibian
+                                            </div>
+
+                                            <div class="common_time">
+                                                12月22号 9:33
+                                            </div>
+                                        </div>
+
+                                        <div class="common_text">
+                                            这集确实不错
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li class="episode_comment_item rr">
+                                    <!--                                    头像-->
+                                    <div class="common_icon">
+                                        <div class="common_icon_face">
+                                            <div class="common_icon_img">
+                                                <img alt="Yrqiiii"
+                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
+                                                     lazy="loaded">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="common_content">
+                                        <div class="common_content_info">
+                                            <div class="common_username">
+                                                gaibian
+                                            </div>
+
+                                            <div class="common_time">
+                                                12月22号 9:33
+                                            </div>
+                                        </div>
+
+                                        <div class="common_text">
+                                            这集确实不错
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li class="episode_comment_item ll">
+                                    <!--                                    头像-->
+                                    <div class="common_icon">
+                                        <div class="common_icon_face">
+                                            <div class="common_icon_img">
+                                                <img alt="Yrqiiii"
+                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
+                                                     lazy="loaded">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="common_content">
+                                        <div class="common_content_info">
+                                            <div class="common_username">
+                                                gaibian
+                                            </div>
+
+                                            <div class="common_time">
+                                                12月22号 9:33
+                                            </div>
+                                        </div>
+
+                                        <div class="common_text">
+                                            这集确实不错
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li class="episode_comment_item rr">
+                                    <!--                                    头像-->
+                                    <div class="common_icon">
+                                        <div class="common_icon_face">
+                                            <div class="common_icon_img">
+                                                <img alt="Yrqiiii"
+                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
+                                                     lazy="loaded">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="common_content">
+                                        <div class="common_content_info">
+                                            <div class="common_username">
+                                                gaibian
+                                            </div>
+
+                                            <div class="common_time">
+                                                12月22号 9:33
+                                            </div>
+                                        </div>
+
+                                        <div class="common_text">
+                                            这集确实不错
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li class="episode_comment_item ll">
+                                    <!--                                    头像-->
+                                    <div class="common_icon">
+                                        <div class="common_icon_face">
+                                            <div class="common_icon_img">
+                                                <img alt="Yrqiiii"
+                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
+                                                     lazy="loaded">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="common_content">
+                                        <div class="common_content_info">
+                                            <div class="common_username">
+                                                gaibian
+                                            </div>
+
+                                            <div class="common_time">
+                                                12月22号 9:33
+                                            </div>
+                                        </div>
+
+                                        <div class="common_text">
+                                            这集确实不错
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li class="episode_comment_item rr">
+                                    <!--                                    头像-->
+                                    <div class="common_icon">
+                                        <div class="common_icon_face">
+                                            <div class="common_icon_img">
+                                                <img alt="Yrqiiii"
+                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
+                                                     lazy="loaded">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="common_content">
+                                        <div class="common_content_info">
+                                            <div class="common_username">
+                                                gaibian
+                                            </div>
+
+                                            <div class="common_time">
+                                                12月22号 9:33
+                                            </div>
+                                        </div>
+
+                                        <div class="common_text">
+                                            这集确实不错
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li class="episode_comment_item ll">
+                                    <!--                                    头像-->
+                                    <div class="common_icon">
+                                        <div class="common_icon_face">
+                                            <div class="common_icon_img">
+                                                <img alt="Yrqiiii"
+                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
+                                                     lazy="loaded">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="common_content">
+                                        <div class="common_content_info">
+                                            <div class="common_username">
+                                                gaibian
+                                            </div>
+
+                                            <div class="common_time">
+                                                12月22号 9:33
+                                            </div>
+                                        </div>
+
+                                        <div class="common_text">
+                                            这集确实不错
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li class="episode_comment_item rr">
+                                    <!--                                    头像-->
+                                    <div class="common_icon">
+                                        <div class="common_icon_face">
+                                            <div class="common_icon_img">
+                                                <img alt="Yrqiiii"
+                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
+                                                     lazy="loaded">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="common_content">
+                                        <div class="common_content_info">
+                                            <div class="common_username">
+                                                gaibian
+                                            </div>
+
+                                            <div class="common_time">
+                                                12月22号 9:33
+                                            </div>
+                                        </div>
+
+                                        <div class="common_text">
+                                            这集确实不错
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li class="episode_comment_item ll">
+                                    <!--                                    头像-->
+                                    <div class="common_icon">
+                                        <div class="common_icon_face">
+                                            <div class="common_icon_img">
+                                                <img alt="Yrqiiii"
+                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
+                                                     lazy="loaded">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="common_content">
+                                        <div class="common_content_info">
+                                            <div class="common_username">
+                                                gaibian
+                                            </div>
+
+                                            <div class="common_time">
+                                                12月22号 9:33
+                                            </div>
+                                        </div>
+
+                                        <div class="common_text">
+                                            这集确实不错
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li class="episode_comment_item rr">
+                                    <!--                                    头像-->
+                                    <div class="common_icon">
+                                        <div class="common_icon_face">
+                                            <div class="common_icon_img">
+                                                <img alt="Yrqiiii"
+                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
+                                                     lazy="loaded">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="common_content">
+                                        <div class="common_content_info">
+                                            <div class="common_username">
+                                                gaibian
+                                            </div>
+
+                                            <div class="common_time">
+                                                12月22号 9:33
+                                            </div>
+                                        </div>
+
+                                        <div class="common_text">
+                                            这集确实不错
+                                        </div>
+
+                                    </div>
                                 </li>
 
 
