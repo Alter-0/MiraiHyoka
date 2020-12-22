@@ -143,28 +143,27 @@
         <div  class="tab_de">
             <!--  评分页-->
             <div class="hyoka">
-                <div class="test" style="width: 100%;height: 300px;background-color:#3c763d;">测试父盒子</div>
-<!--                第一部分，评分概述-左   -->-->
-<!--                <div class="details_card_left hidden-sm hidden-xs">-->
-<!--                    <div class="card_left_title">详情</div>-->
-<!--                    <div class="card_left_text">-->
-<!--                        <p>详情一:详情内容</p><br>-->
-<!--                        <p>详情一:详情内容</p><br>-->
-<!--                        <p>详情一:详情内容</p><br>-->
-<!--                        <p>详情一:详情内容</p><br>-->
-<!--                        <p>详情一:详情内容</p><br>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <!--第一部分，评分概述-右   -->-->
-<!--                <div class="details_card_right">-->
-<!--                    <div class="card_right_div">-->
-<!--                        <span class="card_right_title">用户评分</span>-->
-<!--                        <div class="card_right_bg bg_3">-->
-<!--                            <div class="circle-right"></div>-->
-<!--                            <div class="text">6.5</div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
+                第一部分，评分概述-左   -->
+                <div class="details_card_left hidden-sm hidden-xs">
+                    <div class="card_left_title">详情</div>
+                    <div class="card_left_text">
+                        <p>详情一:详情内容</p><br>
+                        <p>详情一:详情内容</p><br>
+                        <p>详情一:详情内容</p><br>
+                        <p>详情一:详情内容</p><br>
+                        <p>详情一:详情内容</p><br>
+                    </div>
+                </div>
+              第一部分，评分概述-右
+                <div class="details_card_right">
+                    <div class="card_right_div">
+                        <span class="card_right_title">用户评分</span>
+                        <div class="card_right_bg bg_3">
+                            <div class="circle-right"></div>
+                            <div class="text">6.5</div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- 分集页-->
             <div class="diversity">
