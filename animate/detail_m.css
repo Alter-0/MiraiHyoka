@@ -299,7 +299,7 @@
 
 /*从这里开始，下面的css均为下半部分的css样式*/
 .detail_tab {
-    width: 100%;
+    padding: 0;
     position: relative;
     top: -30px;
 }
@@ -310,8 +310,8 @@
     border-radius: 15px;
     box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
     top: -40px;
-    width: 80%;
-    margin: 0 10% 11px 10%;
+    width: 100%;
+    /*margin: 0 10% 11px 10%;*/
 }
 
 .tab_nav ul {
@@ -416,22 +416,19 @@
 
 .short_review {
     width: 100%;
-    height: auto;
-
+    /*height: auto;*/
 }
 
 .short_review_middle {
     padding: 25px;
     height: 100%;
-    width: 80%;
+    width: 100%;
     text-align: left;
-    float: left;
     background: rgba(255, 255, 255, 0.8);
     box-sizing: border-box;
     border-radius: 15px;
     box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
-    margin-left: 10%;
-    margin-right: 10%;
+    margin: 0;
 }
 
 .short_review_drop {

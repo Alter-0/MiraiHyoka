@@ -16,8 +16,11 @@
     $score1 = 6.4;
     $score2 = 7.5;
     ?>
+<!--    头和脚-->
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
+<!--    长评-->
+    <link rel="stylesheet" href="css/long-comment-in.css">
 </head>
 <body>
 <?php include "../header.php" ?>
@@ -126,9 +129,9 @@
         <img id="bg" src="http://i0.hdslb.com/bfs/bangumi/image/0212baa8898d0c819c7fb84015e95b8fca621435.png">
     </div>
     <!--  选择标签及具体内容部分  -->
-    <div class="detail_tab">
+    <div class="detail_tab container" style="padding: 0">
         <!-- 选择菜单  -->
-        <div class="tab_nav">
+        <div class="tab_nav ">
             <ul class="clearfix">
                 <li onclick="changeTab(this)" class="on">番剧概述</li>
                 <li onclick="changeTab(this)">分集讨论</li>
@@ -202,7 +205,6 @@
                         <!---->
                         <!--                            </ul>-->
                         <!--                        </div>-->
-
                         <div class="episode_comment_title">
                             本话的讨论
                         </div>
@@ -243,8 +245,7 @@
                                         <div class="common_icon_face">
                                             <div class="common_icon_img">
                                                 <img alt="Yrqiiii"
-                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
-                                                     lazy="loaded">
+                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp" lazy="loaded">
                                             </div>
                                         </div>
                                     </div>
@@ -669,7 +670,8 @@
             </div>
             <!--长评-->
             <div class="long_review">
-
+                <div class="row">
+                </div>
             </div>
             <!--短评-->
             <div class="short_review">
