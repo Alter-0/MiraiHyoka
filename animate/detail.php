@@ -8,7 +8,8 @@
     <link href="font/style.css" rel="stylesheet"/>
     <link href="detail_m.css" rel="stylesheet"/>
     <meta charset="UTF-8" name="referrer" content="never">
-    <title><?php
+    <title>
+        <?php
         echo "番名"
         ?>_番剧点评_MiraiHyoka</title>
     <?php
@@ -28,7 +29,7 @@
 <div class="all">
     <div class="main">
         <div class="top">
-            <div class="nei">
+            <div class="nei container">
                 <!--  fgimg放番剧展示图 -->
                 <div class="fjimg">
                     <img id="fj"
@@ -63,7 +64,6 @@
                             <em>0</em>
                         </span>
                     </div>
-
                 </div>
                 <!-- 圆形展示分数条上面的文字-->
                 <div class="cirle_info">
@@ -143,28 +143,55 @@
         <div  class="tab_de">
             <!--  评分页-->
             <div class="hyoka">
-                <div class="test" style="width: 100%;height: 300px;background-color:#3c763d;">测试父盒子</div>
-<!--                第一部分，评分概述-左   -->-->
-<!--                <div class="details_card_left hidden-sm hidden-xs">-->
-<!--                    <div class="card_left_title">详情</div>-->
-<!--                    <div class="card_left_text">-->
-<!--                        <p>详情一:详情内容</p><br>-->
-<!--                        <p>详情一:详情内容</p><br>-->
-<!--                        <p>详情一:详情内容</p><br>-->
-<!--                        <p>详情一:详情内容</p><br>-->
-<!--                        <p>详情一:详情内容</p><br>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--              第一部分，评分概述-右   -->
-<!--                <div class="details_card_right">-->
-<!--                    <div class="card_right_div">-->
-<!--                        <span class="card_right_title">用户评分</span>-->
-<!--                        <div class="card_right_bg bg_3">-->
-<!--                            <div class="circle-right"></div>-->
-<!--                            <div class="text">6.5</div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
+            <div class="row">
+                <!-- 第一部分，评分概述-左   -->
+             <div class="col-lg-9 col-md-9 hidden-12 hidden-12">
+                 <div class="details_card_left ">
+                     <div class="card_right_div">
+                         <span class="card_right_title">用户评分</span>
+                         <div class="card_right_bg bg_3">
+                             <div class="circle-right"></div>
+                             <div class="text">6.5</div>
+                         </div>
+                     </div>
+                     <div class="card_right_div">
+                         <span class="card_right_title">用户评分</span>
+                         <div class="card_right_bg bg_3">
+                             <div class="circle-right"></div>
+                             <div class="text">6.5</div>
+                         </div>
+                     </div>
+                     <div class="card_right_div">
+                         <span class="card_right_title">用户评分</span>
+                         <div class="card_right_bg bg_3">
+                             <div class="circle-right"></div>
+                             <div class="text">6.5</div>
+                         </div>
+                     </div>
+                     <div class="card_right_div">
+                         <span class="card_right_title">用户评分</span>
+                         <div class="card_right_bg bg_3">
+                             <div class="circle-right"></div>
+                             <div class="text">6.5</div>
+                         </div>
+                     </div>
+
+                 </div>
+             </div>
+                <!--    第一部分，评分概述-右-->
+             <div class=" col-lg-3 col-md-3 hidden-sm hidden-xs">
+                    <div class="details_card_right">
+                        <div class="card_left_title">详情</div>
+                        <div class="card_left_text">
+                            <p>详情一:详情内容</p><br>
+                            <p>详情一:详情内容</p><br>
+                            <p>详情一:详情内容</p><br>
+                            <p>详情一:详情内容</p><br>
+                            <p>详情一:详情内容</p><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </div>
             <!-- 分集页-->
             <div class="diversity">

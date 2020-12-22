@@ -343,13 +343,9 @@
 /*从这里开始，下面的css为第一部分，评分页*/
 .details_card_left {
     padding: 25px;
-    /*height: 100%;*/
-    width: 38%;
-    /*margin-right: 10%;*/
+    width: 100%;
+    display: inline-block;
     text-align: left;
-    position: absolute;
-    top: 0;
-    right: 0;
     background: rgba(255, 255, 255, 0.8);
     box-sizing: border-box;
     border-radius: 15px;
@@ -357,13 +353,9 @@
 }
 
 .details_card_right {
-    padding: 25px;
-    /*height: 100%;*/
-    width: 62%;
+    padding: 25px 0;
+    width: 100%;
     text-align: left;
-    position: absolute;
-    top: 0;
-    left: 0;
     background: rgba(255, 255, 255, 0.8);
     box-sizing: border-box;
     border-radius: 15px;
@@ -380,10 +372,8 @@
 .card_left_text {
     font-family: 幼圆, serif;
     text-align: left;
-    float: left;
     padding-top: 25px;
     line-height: 20px;
-    height: 20px;
     font-size: 15px;
 }
 
@@ -396,7 +386,7 @@
 
 .card_right_div {
     position: relative;
-    width: 250px;
+    width: 50%;
     height: 300px;
     background-color: #f09199;
     text-align: center;
@@ -759,7 +749,6 @@
 
 .hyoka {
     /*height: 800px;*/
-    position: relative;
     margin-top: 20px;
     -webkit-animation-name: fadeIn; /*动画名称*/
     -webkit-animation-duration: .5s; /*动画持续时间*/
@@ -895,16 +884,13 @@
 .episode_card_right{
     height: 100%;
     display: inline-block;
-    width: 51.4%;
+    width: 66.0%;
 }
 .episode_card_right_content {
     padding: 25px;
     height: 100%;
-    margin-left: 10%;
     text-align: left;
-
     display: inline-block;
-
     background: rgba(255, 255, 255, 0.8);
     box-sizing: border-box;
     border-radius: 15px;
@@ -923,7 +909,7 @@
     border-radius: 15px;
     box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
     display: inline-block;
-    width: 28.6%;
+    width: 33.3%;
 }
 
 /*集数列表——开始*/
