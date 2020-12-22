@@ -179,7 +179,7 @@
                  </div>
              </div>
                 <!--    第一部分，评分概述-右-->
-                <div class=" col-lg-3 col-md-3 hidden-sm hidden-xs">
+             <div class=" col-lg-3 col-md-3 hidden-sm hidden-xs">
                     <div class="details_card_right">
                         <div class="card_left_title">详情</div>
                         <div class="card_left_text">

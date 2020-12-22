@@ -353,7 +353,7 @@
 }
 
 .details_card_right {
-    padding: 25px;
+    padding: 25px 0;
     width: 100%;
     text-align: left;
     background: rgba(255, 255, 255, 0.8);
