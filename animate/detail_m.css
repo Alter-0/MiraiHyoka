@@ -539,9 +539,6 @@
     font-size: 12px;
     color: #6d757a;
     margin-right: 20px;
-    -webkit-transition: all .2s linear;
-    -o-transition: .2s all linear;
-    transition: all .2s linear;
     vertical-align: top;
     display: inline-block;
 }
@@ -644,10 +641,8 @@
     margin-left: -297px;
     margin-top: -202px;
     cursor: default;
-    -webkit-animation: dialog-pulse .6s;
-    animation: dialog-pulse .6s;
-}
 
+}
 .write_review_close {
     position: absolute;
     top: 20px;

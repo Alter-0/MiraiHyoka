@@ -313,215 +313,33 @@
                     <div class="short_review_write">去写短评</div>
                     <!--短评具体内容-->
                     <ul class="short_review_write_ul">
-                        <li>
-                            <!--短评具体内容-头像那一行-->
-                            <div class="li_first_div">
-                                <div class="short_review_face">
-                                    <div class="short_review_img">
-                                        <img alt="Yrqiiii"
-                                             src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
-                                             lazy="loaded">
-                                    </div>
-                                </div>
-                                <div class="short_review_name">
-                                    bfbdntf
-                                </div>
-                                <div class="short_review_star">
-                                        <span class="review_star">
-                                            <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-empty">
-                                                <i></i>
-                                            </i>
-                                        </span>
-                                </div>
-                                <div class="short_review_time">22小时前</div>
-                            </div>
-                            <!--短评具体内容-评论内一行-->
-                            <div class="li_second_review">
-                                <div class="second_review">
-                                    剧情紧凑不拖沓 打击感强 人物性格也很鲜明 纯恶与善的对决
-                                </div>
+                        <?php
+                        $pic_url="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp";
+                        $name = "cccccc";
+                        $time = "2020/12/21";
+                        $review = "那天发发图肥牛饭";
+                        $short_score =array(6,4,8,10,4,8);
+                        for ($i = 0; $i < 5; $i++) {
+                            echo " <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
+                                . " <img alt='a' src='//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp' lazy='loaded'>"
+                                . "  </div> </div> <div class='short_review_name'>" . $name
+                                . " </div> <div class='short_review_star'> <span class='review_star'>";
+                            for ($j = 0; $j < 5; $j++) {
 
-                            </div>
-                            <!--点赞-->
-                            <div class="li_third_icon">
-                                <div>
-                                    <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i><span>5</span>
-                                </div>
-                                <div>
-                                    <i class="icon-criticism"
-                                       style="font-size: 14px;margin-right: 6px;"></i><span>1</span>
-                                </div>
-                            </div>
-                        </li>
+                                if ($short_score[$i] > 0) {
+                                    echo " <i class='icon-star-full'> <i></i> </i>";
+                                    $short_score[$i] = $short_score[$i] - 2;
+                                } else {
+                                    echo "<i class='icon-star-empty'> <i></i> </i>";
+                                }
 
-                        <li>
-                            <!--短评具体内容-头像那一行-->
-                            <div class="li_first_div">
-                                <div class="short_review_face">
-                                    <div class="short_review_img">
-                                        <img alt="Yrqiiii"
-                                             src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
-                                             lazy="loaded">
-                                    </div>
-                                </div>
-                                <div class="short_review_name">
-                                    bfbdntf
-                                </div>
-                                <div class="short_review_star">
-                                        <span class="review_star">
-                                            <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-empty">
-                                                <i></i>
-                                            </i>
-                                        </span>
-                                </div>
-                                <div class="short_review_time">22小时前</div>
-                            </div>
-                            <!--短评具体内容-评论内一行-->
-                            <div class="li_second_review">
-                                <div class="second_review">
-                                    剧情紧凑不拖沓 打击感强 人物性格也很鲜明 纯恶与善的对决
-                                </div>
-
-                            </div>
-                            <!--点赞-->
-                            <div class="li_third_icon">
-                                <div>
-                                    <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i><span>5</span>
-                                </div>
-                                <div>
-                                    <i class="icon-criticism"
-                                       style="font-size: 14px;margin-right: 6px;"></i><span>1</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <!--短评具体内容-头像那一行-->
-                            <div class="li_first_div">
-                                <div class="short_review_face">
-                                    <div class="short_review_img">
-                                        <img alt="Yrqiiii"
-                                             src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
-                                             lazy="loaded">
-                                    </div>
-                                </div>
-                                <div class="short_review_name">
-                                    bfbdntf
-                                </div>
-                                <div class="short_review_star">
-                                        <span class="review_star">
-                                            <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-empty">
-                                                <i></i>
-                                            </i>
-                                        </span>
-                                </div>
-                                <div class="short_review_time">22小时前</div>
-                            </div>
-                            <!--短评具体内容-评论内一行-->
-                            <div class="li_second_review">
-                                <div class="second_review">
-                                    剧情紧凑不拖沓 打击感强 人物性格也很鲜明 纯恶与善的对决
-                                </div>
-
-                            </div>
-                            <!--点赞-->
-                            <div class="li_third_icon">
-                                <div>
-                                    <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i><span>5</span>
-                                </div>
-                                <div>
-                                    <i class="icon-criticism"
-                                       style="font-size: 14px;margin-right: 6px;"></i><span>1</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <!--短评具体内容-头像那一行-->
-                            <div class="li_first_div">
-                                <div class="short_review_face">
-                                    <div class="short_review_img">
-                                        <img alt="Yrqiiii"
-                                             src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
-                                             lazy="loaded">
-                                    </div>
-                                </div>
-                                <div class="short_review_name">
-                                    bfbdntf
-                                </div>
-                                <div class="short_review_star">
-                                        <span class="review_star">
-                                            <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-empty">
-                                                <i></i>
-                                            </i>
-                                        </span>
-                                </div>
-                                <div class="short_review_time">22小时前</div>
-                            </div>
-                            <!--短评具体内容-评论内一行-->
-                            <div class="li_second_review">
-                                <div class="second_review">
-                                    剧情紧凑不拖沓 打击感强 人物性格也很鲜明 纯恶与善的对决剧情紧凑不拖沓 打击感强 人物性格也很鲜明 纯恶与善的对决剧情紧凑不拖沓 打击感强 人物性格也很鲜明
-                                    纯恶与善的对决
-                                </div>
-                            </div>
-                            <!--点赞-->
-                            <div class="li_third_icon">
-                                <div>
-                                    <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i><span>5</span>
-                                </div>
-                                <div>
-                                    <i class="icon-criticism"
-                                       style="font-size: 14px;margin-right: 6px;"></i><span>1</span>
-                                </div>
-                            </div>
-                        </li>
+                            }
+                            echo "</span></div> <div class='short_review_time'>" . $time
+                                . "</div> </div> <div class='li_second_review'> <div class='second_review'>" . $review
+                                . "</div> </div> <div class='li_third_icon'> <div> <i class='icon-praise' style='font-size: 14px;margin-right: 6px;'></i><span></span></div>"
+                                . "<div> <i class='icon-criticism' style='font-size: 14px;margin-right: 6px;'></i><span></span></div> </div> </li>";
+                        }
+                        ?>
                     </ul>
                 </div>
                 <!--写短评的弹窗-->
@@ -752,6 +570,7 @@ include "../footer.php";
         //弹窗的关闭
         $(".write_review_close").click(function () {
             $(".write_review").css("display", "none");
+
         });
         //评分的星星互动及按钮的检查
         $('.write_review_star i').hover(function () {
@@ -835,17 +654,18 @@ include "../footer.php";
             }
         });
         //对滚轮的监听，是否申请新的评论
+        var postnum=0;
         $(window).scroll(function () {
             if ($(".short_review").css("display") != "none") {
                 var scrollTop = $(this).scrollTop();
                 var scrollHeight = $(document).height();
                 var windowHeight = $(this).height();
-                if ((scrollHeight - (scrollTop + windowHeight)) < 10) {
+                if ((scrollHeight - (scrollTop + windowHeight)) < 10&&$(".short_review_middle .short_review_write_ul").children().length<=7) {
                     $.post("short_review_load.php",
                         {objective: "reviewload"},
                         function (data) {
                             data = eval('(' + data + ')');
-                            for (i = 0; i < 4; i++) {
+                            for (i = 0; i < 5; i++) {
                                 var name = data.name[i];
                                 var time = data.time[i];
                                 var review = data.review[i];
