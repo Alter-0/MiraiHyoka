@@ -17,10 +17,10 @@
     $score1 = 6.4;
     $score2 = 7.5;
     ?>
-<!--    头和脚-->
+    <!--    头和脚-->
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
-<!--    长评-->
+    <!--    长评-->
     <link rel="stylesheet" href="css/long-comment-in.css">
 </head>
 <body>
@@ -67,7 +67,7 @@
                 </div>
                 <!-- 圆形展示分数条上面的文字-->
                 <div class="cirle_info">
-                    <span style="color:#ffffff;font-size:22px;line-height:20px;margin-right: 110px">综合媒体评分</span>
+                    <span style="color:#ffffff;font-size:22px;line-height:20px;margin-right: 132px">综合媒体评分</span>
                     <span style="color:#ffffff;font-size:22px;line-height:20px;">综合用户评分</span>
                 </div>
                 <!-- 圆形展示分数条-->
@@ -140,64 +140,184 @@
             </ul>
         </div>
         <!-- 接下来是 -评分页-分集页-长评-短评的具体版块    -->
-        <div  class="tab_de">
+        <div class="tab_de">
             <!--  评分页-->
             <div class="hyoka">
-            <div class="row">
-                <!-- 第一部分，评分概述-左   -->
-             <div class="col-lg-9 col-md-9 hidden-12 hidden-12">
-                 <div class="details_card_left ">
-                     <div class="card_right_div">
-                         <span class="card_right_title">用户评分</span>
-                         <div class="card_right_bg bg_3">
-                             <div class="circle-right"></div>
-                             <div class="text">6.5</div>
-                         </div>
-                     </div>
-                     <div class="card_right_div">
-                         <span class="card_right_title">用户评分</span>
-                         <div class="card_right_bg bg_3">
-                             <div class="circle-right"></div>
-                             <div class="text">6.5</div>
-                         </div>
-                     </div>
-                     <div class="card_right_div">
-                         <span class="card_right_title">用户评分</span>
-                         <div class="card_right_bg bg_3">
-                             <div class="circle-right"></div>
-                             <div class="text">6.5</div>
-                         </div>
-                     </div>
-                     <div class="card_right_div">
-                         <span class="card_right_title">用户评分</span>
-                         <div class="card_right_bg bg_3">
-                             <div class="circle-right"></div>
-                             <div class="text">6.5</div>
-                         </div>
-                     </div>
+                <div class="row">
+                    <!-- 第一部分，评分概述-左   -->
+                    <div class="col-lg-9 col-md-9 hidden-12 hidden-12">
+                        <div class="details_card_left ">
+                            <div class="card_right_div">
+                                <span class="card_right_title">综合媒体评分</span>
+                                <div class="hyoka_rank">
+                                    <div class="col-lg-6 col-md-6 col-xs-6 .col-sm-6">
+                                        <span class="compre_scorenum">7.9</span>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-xs-6 .col-sm-6">
+                                        <div class="compre_score">
+                                            <i class='icon-star-full'> <i></i> </i>
+                                            <i class='icon-star-full'> <i></i> </i>
+                                            <i class='icon-star-full'> <i></i> </i>
+                                            <i class='icon-star-full'> <i></i> </i>
+                                            <i class='icon-star-full'> <i></i> </i>
+                                        </div>
+                                    </div>
 
-                 </div>
-             </div>
-                <!--    第一部分，评分概述-右-->
-             <div class=" col-lg-3 col-md-3 hidden-sm hidden-xs">
-                    <div class="details_card_right">
-                        <div class="card_left_title">详情</div>
-                        <div class="card_left_text">
-                            <p>详情一:详情内容</p><br>
-                            <p>详情一:详情内容</p><br>
-                            <p>详情一:详情内容</p><br>
-                            <p>详情一:详情内容</p><br>
-                            <p>详情一:详情内容</p><br>
+                                </div>
+
+                            </div>
+                            <div class="card_right_div" style="margin-top: 20px;">
+                                <div class="hyoka_rank">
+                                    <div class="col-lg-4 col-md-4 .col-xs-12 .col-sm-12">
+                                        <div class="rank_first">
+                                            <div class="rank_first_line">
+                                                <img src="img/555.webp" class="rank_first_img">
+                                                <span class="rank_first_name">第一个网站</span>
+                                            </div>
+                                            <div class="rank_first_line">
+                                                <span class="rank_first_score">9.9</span>
+                                            </div>
+                                            <div class="rank_first_line">
+                                                <span class="rank_first_rank">##第一名</span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 .col-xs-12 .col-sm-12">
+                                        <div class="rank_first">
+                                            <div class="rank_first_line">
+                                                <img src="img/555.webp" class="rank_first_img">
+                                                <span class="rank_first_name">第一个网站</span>
+                                            </div>
+                                            <div class="rank_first_line">
+                                                <span class="rank_first_score">9.9</span>
+                                            </div>
+                                            <div class="rank_first_line">
+                                                <span class="rank_first_rank">##第一名</span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 .col-xs-12 .col-sm-12">
+                                        <div class="rank_first">
+                                            <div class="rank_first_line">
+                                                <img src="img/555.webp" class="rank_first_img">
+                                                <span class="rank_first_name">第一个网站</span>
+                                            </div>
+                                            <div class="rank_first_line">
+                                                <span class="rank_first_score">9.9</span>
+                                            </div>
+                                            <div class="rank_first_line">
+                                                <span class="rank_first_rank">##第一名</span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card_right_div_fourth" style="margin-top: 20px;">
+
+                                <div class="hyoka_rank">
+                                    <div class="col-lg-3 col-md-3 .col-xs-12 .col-sm-12">
+                                        <div class="rank_first">
+                                            <div class="rank_first_line">
+                                                <img src="img/555.webp" class="rank_first_img">
+                                                <span class="rank_first_name">第一个网站</span>
+                                            </div>
+                                            <div class="rank_first_line">
+                                                <span class="rank_first_score">9.9</span>
+                                            </div>
+                                            <div class="rank_first_line">
+                                                <span class="rank_first_rank">##第一名</span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 .col-xs-12 .col-sm-12">
+                                        <div class="rank_first">
+                                            <div class="rank_first_line">
+                                                <img src="img/555.webp" class="rank_first_img">
+                                                <span class="rank_first_name">第一个网站</span>
+                                            </div>
+                                            <div class="rank_first_line">
+                                                <span class="rank_first_score">9.9</span>
+                                            </div>
+                                            <div class="rank_first_line">
+                                                <span class="rank_first_rank">##第一名</span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 .col-xs-12 .col-sm-12">
+                                        <div class="rank_first">
+                                            <div class="rank_first_line">
+                                                <img src="img/555.webp" class="rank_first_img">
+                                                <span class="rank_first_name">第一个网站</span>
+                                            </div>
+                                            <div class="rank_first_line">
+                                                <span class="rank_first_score">9.9</span>
+                                            </div>
+                                            <div class="rank_first_line">
+                                                <span class="rank_first_rank">##第一名</span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 .col-xs-12 .col-sm-12">
+                                        <div class="rank_first">
+                                            <div class="rank_first_line">
+                                                <img src="img/555.webp" class="rank_first_img">
+                                                <span class="rank_first_name">第一个网站</span>
+                                            </div>
+                                            <div class="rank_first_line">
+                                                <span class="rank_first_score">9.9</span>
+                                            </div>
+                                            <div class="rank_first_line">
+                                                <span class="rank_first_rank">##第一名</span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <!--    第一部分，评分概述-右-->
+                    <div class=" col-lg-3 col-md-3 hidden-sm hidden-xs">
+                        <div class="details_card_right" style="padding-left: 10px;">
+                            <div class="card_left_title">详情</div>
+                            <div class="card_left_text">
+                                <p>详情一:详情内容</p><br>
+                                <p>详情一:详情内容</p><br>
+                                <p>详情一:详情内容</p><br>
+                                <p>详情一:详情内容</p><br>
+                                <p>详情一:详情内容</p><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-lg-3 col-md-3 hidden-sm hidden-xs" style="margin-top: 20px;">
+                        <div class="details_card_right" style="padding-left: 10px;">
+                            <div class="card_left_title">详情</div>
+                            <div class="card_left_text">
+                                <p>详情一:详情内容</p><br>
+                                <p>详情一:详情内容</p><br>
+                                <p>详情一:详情内容</p><br>
+                                <p>详情一:详情内容</p><br>
+                                <p>详情一:详情内容</p><br>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
             <!-- 分集页-->
             <div class="diversity">
 
                 <div class="episode_card_right">
-                <div class="episode_card_right_content">
+                    <div class="episode_card_right_content">
                         <!--                        <div class="episode_card_right_title">-->
                         <!--                            正片-->
                         <!--                        </div>-->
@@ -271,7 +391,8 @@
                                         <div class="common_icon_face">
                                             <div class="common_icon_img">
                                                 <img alt="Yrqiiii"
-                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp" lazy="loaded">
+                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
+                                                     lazy="loaded">
                                             </div>
                                         </div>
                                     </div>
@@ -723,11 +844,11 @@
                     <!--短评具体内容-->
                     <ul class="short_review_write_ul">
                         <?php
-                        $pic_url="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp";
+                        $pic_url = "//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp";
                         $name = "cccccc";
                         $time = "2020/12/21";
                         $review = "那天发发图肥牛饭";
-                        $short_score =array(6,4,8,10,4,8);
+                        $short_score = array(6, 4, 8, 10, 4, 8);
                         for ($i = 0; $i < 5; $i++) {
                             echo " <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
                                 . " <img alt='a' src='//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp' lazy='loaded'>"
@@ -824,60 +945,60 @@ include "../footer.php";
             }
             temp2++;
         }, 30);
-        var temp3 = 0;
-        var timer3 = setInterval(function () {
-            calculate(2, temp3, 2);
-            //清除计时器结束该方法调用
-            if (temp3 ==<?php echo $score2 * 10; ?>) {
-                clearInterval(timer3);
-            }
-            temp3++;
-        }, 30);
-        var temp4 = 0;
-        var timer4 = setInterval(function () {
-            calculate(3, temp4, 3);
-            //清除计时器结束该方法调用
-            if (temp4 ==<?php echo $score1 * 10; ?>) {
-                clearInterval(timer4);
-            }
-            temp4++;
-        }, 30);
-        var temp5 = 0;
-        var timer5 = setInterval(function () {
-            calculate(4, temp5, 4);
-            //清除计时器结束该方法调用
-            if (temp5 ==<?php echo $score2 * 10; ?>) {
-                clearInterval(timer5);
-            }
-            temp5++;
-        }, 30);
-        var temp6 = 0;
-        var timer6 = setInterval(function () {
-            calculate(5, temp6, 5);
-            //清除计时器结束该方法调用
-            if (temp6 ==<?php echo $score2 * 10; ?>) {
-                clearInterval(timer6);
-            }
-            temp6++;
-        }, 30);
-        var temp7 = 0;
-        var timer7 = setInterval(function () {
-            calculate(6, temp7, 6);
-            //清除计时器结束该方法调用
-            if (temp7 ==<?php echo $score2 * 10; ?>) {
-                clearInterval(timer7);
-            }
-            temp7++;
-        }, 30);
-        var temp8 = 0;
-        var timer8 = setInterval(function () {
-            calculate(7, temp8, 7);
-            //清除计时器结束该方法调用
-            if (temp8 ==<?php echo $score2 * 10; ?>) {
-                clearInterval(timer8);
-            }
-            temp8++;
-        }, 30);
+        //var temp3 = 0;
+        //var timer3 = setInterval(function () {
+        //    calculate(2, temp3, 2);
+        //    //清除计时器结束该方法调用
+        //    if (temp3 ==<?php //echo $score2 * 10; ?>//) {
+        //        clearInterval(timer3);
+        //    }
+        //    temp3++;
+        //}, 30);
+        //var temp4 = 0;
+        //var timer4 = setInterval(function () {
+        //    calculate(3, temp4, 3);
+        //    //清除计时器结束该方法调用
+        //    if (temp4 ==<?php //echo $score1 * 10; ?>//) {
+        //        clearInterval(timer4);
+        //    }
+        //    temp4++;
+        //}, 30);
+        //var temp5 = 0;
+        //var timer5 = setInterval(function () {
+        //    calculate(4, temp5, 4);
+        //    //清除计时器结束该方法调用
+        //    if (temp5 ==<?php //echo $score2 * 10; ?>//) {
+        //        clearInterval(timer5);
+        //    }
+        //    temp5++;
+        //}, 30);
+        //var temp6 = 0;
+        //var timer6 = setInterval(function () {
+        //    calculate(5, temp6, 5);
+        //    //清除计时器结束该方法调用
+        //    if (temp6 ==<?php //echo $score2 * 10; ?>//) {
+        //        clearInterval(timer6);
+        //    }
+        //    temp6++;
+        //}, 30);
+        //var temp7 = 0;
+        //var timer7 = setInterval(function () {
+        //    calculate(6, temp7, 6);
+        //    //清除计时器结束该方法调用
+        //    if (temp7 ==<?php //echo $score2 * 10; ?>//) {
+        //        clearInterval(timer7);
+        //    }
+        //    temp7++;
+        //}, 30);
+        //var temp8 = 0;
+        //var timer8 = setInterval(function () {
+        //    calculate(7, temp8, 7);
+        //    //清除计时器结束该方法调用
+        //    if (temp8 ==<?php //echo $score2 * 10; ?>//) {
+        //        clearInterval(timer8);
+        //    }
+        //    temp8++;
+        //}, 30);
 
 
         //改变页面显示百分比
@@ -890,31 +1011,32 @@ include "../footer.php";
             } else if (index == 1) {
                 $('.bg_2 .circle-left').remove();
                 $('.bg_2 .mask-right').remove();
-            } else if (index == 2) { //清除上次调用该方法残留的效果
-
-                $('.bg_3 .circle-left').remove();
-                $('.bg_3 .mask-right').remove();
-            } else if (index == 3) { //清除上次调用该方法残留的效果
-
-                $('.bg_4 .circle-left').remove();
-                $('.bg_4 .mask-right').remove();
-            } else if (index == 4) { //清除上次调用该方法残留的效果
-
-                $('.bg_5 .circle-left').remove();
-                $('.bg_5 .mask-right').remove();
-            } else if (index == 5) { //清除上次调用该方法残留的效果
-
-                $('.bg_6 .circle-left').remove();
-                $('.bg_6 .mask-right').remove();
-            } else if (index == 6) { //清除上次调用该方法残留的效果
-
-                $('.bg_7 .circle-left').remove();
-                $('.bg_7 .mask-right').remove();
-            } else if (index == 7) { //清除上次调用该方法残留的效果
-
-                $('.bg_8 .circle-left').remove();
-                $('.bg_8 .mask-right').remove();
             }
+            // else if (index == 2) { //清除上次调用该方法残留的效果
+            //
+            //     $('.bg_3 .circle-left').remove();
+            //     $('.bg_3 .mask-right').remove();
+            // } else if (index == 3) { //清除上次调用该方法残留的效果
+            //
+            //     $('.bg_4 .circle-left').remove();
+            //     $('.bg_4 .mask-right').remove();
+            // } else if (index == 4) { //清除上次调用该方法残留的效果
+            //
+            //     $('.bg_5 .circle-left').remove();
+            //     $('.bg_5 .mask-right').remove();
+            // } else if (index == 5) { //清除上次调用该方法残留的效果
+            //
+            //     $('.bg_6 .circle-left').remove();
+            //     $('.bg_6 .mask-right').remove();
+            // } else if (index == 6) { //清除上次调用该方法残留的效果
+            //
+            //     $('.bg_7 .circle-left').remove();
+            //     $('.bg_7 .mask-right').remove();
+            // } else if (index == 7) { //清除上次调用该方法残留的效果
+            //
+            //     $('.bg_8 .circle-left').remove();
+            //     $('.bg_8 .mask-right').remove();
+            // }
 
 
             //当百分比小于等于50
@@ -924,7 +1046,7 @@ include "../footer.php";
                 html += '<div class="mask-right" style="transform:rotate(' + (value * 3.6) + 'deg)"></div>';
 
                 //元素里添加子元素
-                $('.circle-right').eq(i).append(html);
+                $('.circle-right').eq(i).after(html);
             } else {
                 value -= 50;
                 var html = '';
@@ -1063,13 +1185,12 @@ include "../footer.php";
             }
         });
         //对滚轮的监听，是否申请新的评论
-        var postnum=0;
         $(window).scroll(function () {
             if ($(".short_review").css("display") != "none") {
                 var scrollTop = $(this).scrollTop();
                 var scrollHeight = $(document).height();
                 var windowHeight = $(this).height();
-                if ((scrollHeight - (scrollTop + windowHeight)) < 10&&$(".short_review_middle .short_review_write_ul").children().length<=7) {
+                if ((scrollHeight - (scrollTop + windowHeight)) < 10) {
                     $.post("short_review_load.php",
                         {objective: "reviewload"},
                         function (data) {
