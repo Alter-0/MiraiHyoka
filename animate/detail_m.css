@@ -4,13 +4,12 @@
     height: 50px;
     position: relative;
     z-index: 1000;
-
 }
 
 .all {
-    min-height: 100%;
-    flex: 1;
-    margin-bottom: -165px;
+    /*min-height: 100%;*/
+    /*flex: 1;*/
+    /*margin-bottom: -165px;*/
 }
 
 .top {
@@ -22,7 +21,6 @@
     position: relative;
     top: -55px;
     overflow: hidden;
-
 }
 
 .top #bg {
@@ -298,10 +296,10 @@
     background-position: -660px -1938px;
 
 }
+
 /*从这里开始，下面的css均为下半部分的css样式*/
 .detail_tab {
-    width: 100%;
-    height: auto;
+    padding: 0;
     position: relative;
     top: -30px;
 }
@@ -312,8 +310,8 @@
     border-radius: 15px;
     box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
     top: -40px;
-    width: 80%;
-    margin: 0 10% 11px 10%;
+    width: 100%;
+    /*margin: 0 10% 11px 10%;*/
 }
 
 .tab_nav ul {
@@ -341,60 +339,71 @@
 .tab_nav ul li + li {
     margin-left: 28px;
 }
+
 /*从这里开始，下面的css为第一部分，评分页*/
-.details_card_left{
+.details_card_left {
     padding: 25px;
-    height: 100%;
+    /*height: 100%;*/
     width: 27%;
     margin-right: 10%;
     text-align: left;
-    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
     background: rgba(255, 255, 255, 0.8);
     box-sizing: border-box;
     border-radius: 15px;
     box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
 }
-.details_card_right{
+
+.details_card_right {
     padding: 25px;
-    height: 100%;
+    /*height: 100%;*/
     width: 51.4%;
-    margin-left: 10%;
     text-align: left;
-    float: left;
+    position: absolute;
+    top: 0;
+    left: 0;
     background: rgba(255, 255, 255, 0.8);
     box-sizing: border-box;
     border-radius: 15px;
     box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
 }
-.card_left_title{
+
+.card_left_title {
     font-family: 幼圆, serif;
     font-size: 20px;
     font-weight: 700;
 }
-.card_left_text{
+
+.card_left_text {
     font-family: 幼圆, serif;
     text-align: left;
-    float:left;
+    float: left;
     padding-top: 25px;
     line-height: 20px;
+    height: 20px;
     font-size: 15px;
 }
-.card_right_title{
+
+.card_right_title {
     font-family: 幼圆, serif;
     color: #0a0000;
-    font-size:22px;
-    line-height:20px;
+    font-size: 22px;
+    line-height: 20px;
 }
-.card_right_div{
+
+.card_right_div {
     position: relative;
     width: 250px;
     height: 300px;
+    background-color: #f09199;
     text-align: center;
     margin-left: 10%;
     display: inline-block;
 }
 
-.card_right_bg{
+.card_right_bg {
     width: 200px;
     height: 200px;
     border-radius: 100%;
@@ -403,25 +412,25 @@
     margin-top: 15px;
     margin-left: 20px;
 }
-.short_review{
-    width: 100%;
-    height: auto;
 
+.short_review {
+    width: 100%;
+    /*height: auto;*/
 }
-.short_review_middle{
+
+.short_review_middle {
     padding: 25px;
     height: 100%;
-    width: 80%;
+    width: 100%;
     text-align: left;
-    float: left;
     background: rgba(255, 255, 255, 0.8);
     box-sizing: border-box;
     border-radius: 15px;
     box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
-    margin-left: 10%;
-    margin-right: 10%;
+    margin: 0;
 }
-.short_review_drop{
+
+.short_review_drop {
     position: relative;
     display: inline-block;
     width: 68px;
@@ -432,7 +441,8 @@
     text-align: center;
 
 }
-.short_review_drop i{
+
+.short_review_drop i {
     display: block;
     position: absolute;
     width: 5px;
@@ -447,7 +457,8 @@
     right: 10px;
     font-style: italic;
 }
-.short_review_drop ul{
+
+.short_review_drop ul {
     display: none;
     position: absolute;
     top: 22px;
@@ -455,20 +466,24 @@
     padding: 5px 5px;
     background: #fff;
     border: 1px solid #e5e9ef;
-    -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,.14);
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.14);
+    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .14);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .14);
     border-radius: 4px;
     z-index: 10;
 }
-.short_review_drop div:hover+ul{
+
+.short_review_drop div:hover + ul {
     display: block;
 }
-.short_review_drop ul:hover{
+
+.short_review_drop ul:hover {
     display: block;
 }
-.short_review_drop ul li:hover{
+
+.short_review_drop ul li:hover {
     background: #a0a5a5;
 }
+
 .short_review_write {
     float: right;
     width: 70px;
@@ -481,20 +496,24 @@
     font-size: 12px;
     text-align: center;
     cursor: pointer;
-    -webkit-transition: all .2s linear;
-    -o-transition: .2s all linear;
-    transition: all .2s linear;
     margin-top: -3px;
+}
+.short_review_write:hover{
+    filter:brightness(110%);
+    border: 1px solid #03c0ff;
+    color: #03c0ff;
 }
 .short_review_middle>ul li{
     border-bottom: 1px solid #f4f5f7;
     padding: 20px 0 45px;
 }
-.li_first_div{
+
+.li_first_div {
     height: 30px;
     margin-bottom: 20px;
 }
-.short_review_face{
+
+.short_review_face {
     cursor: pointer;
     width: 30px;
     height: 30px;
@@ -504,7 +523,8 @@
     vertical-align: top;
     display: inline-block;
 }
-.short_review_img{
+
+.short_review_img {
     vertical-align: top;
     display: inline-block;
     background: url(img/close.png) 50% no-repeat;
@@ -512,38 +532,42 @@
     width: 100%;
     height: 100%;
 }
-.short_review_name{
+
+.short_review_name {
     cursor: pointer;
     line-height: 30px;
     font-size: 12px;
     color: #6d757a;
     margin-right: 20px;
-    -webkit-transition: all .2s linear;
-    -o-transition: .2s all linear;
-    transition: all .2s linear;
     vertical-align: top;
     display: inline-block;
 }
-.short_review_star{
+
+.short_review_star {
     line-height: 30px;
     vertical-align: top;
     display: inline-block;
 }
-.review_star{
+
+.review_star {
     width: 75px;
 }
-.review-stars>i {
+
+.review-stars > i {
     display: inline-block;
     font-size: 12px;
     line-height: 21px;
 }
+
 .icon-star-full {
     color: #ffa726;
 }
+
 .icon-star-empty {
     color: #ffa726;
 }
-.short_review_time{
+
+.short_review_time {
     float: right;
     font-size: 12px;
     color: #99a2aa;
@@ -551,7 +575,8 @@
     vertical-align: top;
     display: inline-block;
 }
-.second_review{
+
+.second_review {
     font-size: 14px;
     line-height: 24px;
     margin-top: 8px;
@@ -564,11 +589,13 @@
     word-break: break-word;
     color: #212121;
 }
-.li_third_icon{
+
+.li_third_icon {
     margin-top: 16px;
     float: left;
 }
-.li_third_icon div:nth-child(1){
+
+.li_third_icon div:nth-child(1) {
     cursor: pointer;
     float: left;
     line-height: 16px;
@@ -578,11 +605,12 @@
     margin-right: 30px;
 }
 
-.li_third_icon div:hover i:nth-child(1),.li_third_icon div:hover span:nth-child(2){
+.li_third_icon div:hover i:nth-child(1), .li_third_icon div:hover span:nth-child(2) {
     color: #1189ef;
     cursor: pointer;
 }
-.li_third_icon div:nth-child(2){
+
+.li_third_icon div:nth-child(2) {
     cursor: pointer;
     float: left;
     line-height: 16px;
@@ -590,17 +618,19 @@
     color: #99a2aa;
     display: inline;
 }
-.write_review{
+
+.write_review {
     display: none;
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,.2);
+    background: rgba(0, 0, 0, .2);
     z-index: 10000;
 }
-.write_review_bg{
+
+.write_review_bg {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -611,10 +641,9 @@
     margin-left: -297px;
     margin-top: -202px;
     cursor: default;
-    -webkit-animation: dialog-pulse .6s;
-    animation: dialog-pulse .6s;
+
 }
-.write_review_close{
+.write_review_close {
     position: absolute;
     top: 20px;
     right: 22px;
@@ -625,23 +654,28 @@
     background-size: cover;
     cursor: pointer;
 }
-.write_review_header{
+
+.write_review_header {
     padding: 30px 30px 20px;
 }
-.write_review_info{
+
+.write_review_info {
     padding-left: 120px;
 }
-.write_review_star{
+
+.write_review_star {
 
 }
-.write_review_star i{
+
+.write_review_star i {
     width: 20px;
     height: 20px;
     padding-right: 6px;
     cursor: pointer;
     font-size: 20px;
 }
-.write_review_middle{
+
+.write_review_middle {
     position: relative;
     width: 534px;
     height: 130px;
@@ -649,7 +683,8 @@
     border-radius: 4px;
     margin: 25px auto;
 }
-.write_review_middle textarea{
+
+.write_review_middle textarea {
     width: 510px;
     height: 72px;
     line-height: 24px;
@@ -662,7 +697,8 @@
     resize: none;
     overflow: hidden;
 }
-.write_review_middle span{
+
+.write_review_middle span {
     position: absolute;
     bottom: 16px;
     right: 16px;
@@ -690,7 +726,8 @@
     /*color: #0cc7ef;*/
 }
 
-.long_review{
+
+.long_review {
     margin-top: 20px;
     display: none;
     -webkit-animation-name: fadeIn; /*动画名称*/
@@ -698,46 +735,62 @@
     -webkit-animation-iteration-count: 1; /*动画次数*/
     -webkit-animation-delay: 0s; /*延迟时间*/
 }
-.diversity{
+
+.diversity {
+    margin-top: 20px;
+    display: none;
+    height: 100%;
+    -webkit-animation-name: fadeIn; /*动画名称*/
+    -webkit-animation-duration: .5s; /*动画持续时间*/
+    -webkit-animation-iteration-count: 1; /*动画次数*/
+    -webkit-animation-delay: 0s; /*延迟时间*/
+}
+
+.short_review {
     margin-top: 20px;
     display: none;
     -webkit-animation-name: fadeIn; /*动画名称*/
     -webkit-animation-duration: .5s; /*动画持续时间*/
     -webkit-animation-iteration-count: 1; /*动画次数*/
     -webkit-animation-delay: 0s; /*延迟时间*/
+
 }
-.short_review{
-    margin-top: 20px;
+
+.hyoka {
+    /*height: 800px;*/
+    position: relative;
+     margin-top: 20px;
+    -webkit-animation-name: fadeIn; /*动画名称*/
+    -webkit-animation-duration: .5s; /*动画持续时间*/
+    -webkit-animation-iteration-count: 1; /*动画次数*/
+    -webkit-animation-delay: 0s; /*延迟时间*/
+}
+.insert_success{
     display: none;
-    -webkit-animation-name: fadeIn; /*动画名称*/
-    -webkit-animation-duration: .5s; /*动画持续时间*/
-    -webkit-animation-iteration-count: 1; /*动画次数*/
-    -webkit-animation-delay: 0s; /*延迟时间*/
-
-}
-.hyoka{
-    margin-top: 20px;
-    -webkit-animation-name: fadeIn; /*动画名称*/
-    -webkit-animation-duration: .5s; /*动画持续时间*/
-    -webkit-animation-iteration-count: 1; /*动画次数*/
-    -webkit-animation-delay: 0s; /*延迟时间*/
+    position: fixed;
+    left: 50%;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #fff;
+    background: rgba(0,0,0,0.8);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
 }
 
+/*圆形*/
 
+.bg {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    background: #ccc;
+    position: absolute;
+    margin-top: 120px;
+    margin-left: 700px;
+}
 
-
-
-    /*圆形*/
-
-    .bg {
-        width: 200px;
-        height: 200px;
-        border-radius: 100%;
-        background: #ccc;
-        position: absolute;
-        margin-top: 120px;
-        margin-left: 700px;
-    }
 .bg_2 {
     width: 200px;
     height: 200px;
@@ -786,7 +839,8 @@
     top: 20px;
     left: 20px;
 }
-.cirle_info{
+
+.cirle_info {
     position: absolute;
     width: 450px;
     height: 20px;
@@ -794,13 +848,13 @@
     top: 70px;
 }
 
-.circle_line{
+.circle_line {
     position: absolute;
     width: 2px;
     height: 210px;
     background: #70c2db;
     left: 920px;
-    top:100px;
+    top: 100px;
 }
 
 /*动画效果*/
@@ -808,16 +862,301 @@
     0% {
         opacity: 0; /*初始状态 透明度为0*/
     }
-    20%{
+    20% {
         opacity: .2;
     }
     50% {
         opacity: .5; /*中间状态 透明度为0.5*/
     }
-    70%{
+    70% {
         opacity: .7;
     }
     100% {
         opacity: 1; /*结尾状态 透明度为1*/
     }
 }
+
+
+/*分集标题*/
+.episode_card_right_title {
+    margin-top: 10px;
+    margin-left: 10px;
+    border-bottom:1px solid #e5e9ef ;
+    padding-bottom: 10px;
+    margin-bottom: -15px;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 幼圆, serif;
+}
+
+
+/*分集讨论内容*/
+.episode_card_right{
+    height: 100%;
+    display: inline-block;
+    width: 51.4%;
+}
+.episode_card_right_content {
+    padding: 25px;
+    height: 100%;
+    margin-left: 10%;
+    text-align: left;
+
+    display: inline-block;
+
+    background: rgba(255, 255, 255, 0.8);
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+}
+
+/*分集页*/
+.episode_card_left{
+    padding: 25px;
+    height: 100%;
+    margin-left: 10%;
+    text-align: left;
+
+    background: rgba(255, 255, 255, 0.8);
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    width: 28.6%;
+}
+
+/*集数列表——开始*/
+.sl_list {
+    clear: both;
+
+}
+
+.sl_list ul {
+    padding-top: 10px;
+    margin: 20px -20px 0 0;
+    height: auto;
+
+}
+
+.misl_ep_item {
+
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px 10px 20px 10px;
+    width: 205px;
+    height: 60px;
+    cursor: pointer;
+    background-color: #f4f5f7;
+    border: 1px solid #f4f5f7;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: 3px 3px 20px 3px rgba(0, 0, 0, 0.3);
+}
+
+.misl_ep_item .misl_ep_img {
+    position: relative;
+    float: left;
+    width: 96px;
+    height: 60px;
+    margin: -1px;
+    border-radius: 4px 0 0 4px;
+    overflow: hidden;
+}
+
+/*.misl_ep_item:hover .common_lazy_img_text {*/
+/*    color: #00a1d6;*/
+/*}*/
+/*.misl_ep_item:hover .common_lazy_img_num {*/
+/*    color: #00a1d6;*/
+/*}*/
+
+.common_lazy_img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    filter: brightness(60%) blur(5px);
+}
+
+.common_lazy_img_text {
+
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate3d(-50%, 0, 0);
+    display: flex;
+    align-items: center; /*垂直居中*/
+    color: #ffffff;
+
+}
+
+@font-face {
+    font-family: 'myriad-pro-8';
+    src: url('../fonts/myriad-pro-8.otf');
+}
+
+.common_lazy_img .common_lazy_img_num {
+    margin: 4px 0 0 0;
+    font-size: 42px;
+    color: #ffffff;
+    font-family: "myriad-pro-8", serif;
+    letter-spacing: 1px;
+}
+
+
+.misl_ep_item .misl_ep_title {
+    margin-left: 100px;
+    padding-right: 9px;
+
+}
+
+.misl_ep_item .misl_ep_text {
+    margin-top: 4px;
+}
+
+.misl_ep_item .misl_ep_title .misl_ep_title_name, .misl_ep_item .misl_ep_text .misl_ep_info {
+    font-size: 12px;
+    line-height: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.misl_ep_item:hover .misl_ep_title .misl_ep_title_name, .misl_ep_item:hover .misl_ep_text .misl_ep_info {
+    color: #00a1d6;
+}
+
+.misl_ep_item .misl_ep_title .misl_ep_title_name {
+    width: 94px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #2d2d2d;
+    max-height: 16px;
+
+}
+
+.misl_ep_item .misl_ep_text .misl_ep_info {
+
+    margin-left: 103px;
+    padding-right: 9px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    margin-top: 1px;
+    color: #6d757a;
+    max-height: 32px;
+    word-break: break-word;
+}
+
+/*集数列表——结束*/
+
+/*每集下面的讨论--开始*/
+.episode_comment_title{
+    margin-top: 10px;
+    margin-left: 10px;
+    border-bottom:1px solid #e5e9ef ;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+
+}
+.common_content_title_text{
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 幼圆, serif;
+}
+.episode_comment_content{
+
+}
+
+.common_icon{
+    display: inline;
+
+
+
+}
+
+.common_icon_face {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    margin-right: 3px;
+    margin-left: 3px;
+    /*border-radius: 50%;*/
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+
+    overflow: hidden;
+    vertical-align: top;
+    display: inline-block;
+}
+.common_icon_img {
+    vertical-align: top;
+    display: inline-block;
+    background: url(img/close.png) 50% no-repeat;
+    background-size: 50px;
+    width: 100%;
+    height: 100%;
+}
+.common_icon_img img{
+    width: 50px;
+}
+.episode_comment_item{
+
+    /*margin-bottom: 10px;*/
+    margin-top: 15px;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+
+}
+.common_content{
+    box-sizing: border-box;
+    display: inline-block;
+    width: 70%;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+}
+
+.common_content_info{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    max-height: 22px;
+    margin-bottom: 5px;
+}
+
+.common_username{
+    color: #6d757a;
+    font-size: 15px;
+    display: inline-block;
+}
+.common_time{
+    margin-left: 10px;
+    color: #6d757a;
+    font-size: 13px;
+    display: inline-block;
+}
+.common_text{
+    font-size: 15px;
+    word-wrap:break-word
+}
+.rr .common_icon .common_icon_face{
+    float: right;
+}
+.rr .common_content{
+    float: right;
+    margin-right: 4px;
+
+}
+
+
+
+
+
+/*每集下面的讨论--结束*/
+

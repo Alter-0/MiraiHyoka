@@ -21,7 +21,7 @@
         }
     </style>
 </head>
-<body id="page-top" style="zoom: 1">
+<body>
 <header>
     <div style="padding: 0" class="container">
         <div class="dis">
@@ -146,6 +146,16 @@
                  ?></div>
              <div  style="display: none" id="headerpic">
                  <img src="image/headerpic.jpg" alt="">
+                 <ul>
+                     <li><a href="#">个人中心</a></li>
+                     <li><a href="#">我的评分</a></li>
+                     <li><a href="#">我的收藏</a></li>
+                     <li id="headerpic-last-li">
+                         <a href="#">
+                             退出登录
+                         </a>
+                     </li>
+                 </ul>
              </div>
             <div id="login-btn" class="login" style="display: block">
                 <a  href="user/login.php">
@@ -484,8 +494,6 @@
              });
          </script>
      </div>
-
-
     </div>
 <!--    展示可能看的视频-->
     <div class="show-video">
@@ -564,12 +572,36 @@
     </div>
 </div>
 <footer>
-    <div class="container">
-       <div class="foot">
-           <p>
-               hello world
-           </p>
-       </div>
+<div class="container" style="border-bottom: 1px solid #cbcbcb;">
+    <div class="left col-lg-8 col-md-8 col-sm-12 col-xs-12">
+        <h1>MiraiHypka</h1>
+        <p>致力于为二次元世界提供最权威最完整评分体系！</p>
+        <p>建立初衷仅作为团队学习项目，并不包含任何商业信息，请勿上当受骗</p>
+        <p >本站不提供任何视听上传服务，所有内容均来自视频站点分享，如有侵权请与我们联系删除</p>
+
+    </div>
+    <div class="right col-lg-4 col-md-4 col-sm-12 col-xs-12">
+        <h4>
+            传送门
+        </h4>
+        <ul>
+            <li><a href="#">关于</a></li>
+            <li><a href="#">订阅</a></li>
+            <li><a href="#">APP</a></li>
+            <li><a href="#">赞助</a></li>  <li><a href="#">APP</a></li>
+            <li><a href="#">赞助</a></li>
+        </ul>
+        <ul>
+            <li><a href="#">关于</a></li>
+            <li><a href="#">订阅</a></li>
+            <li><a href="#">APP</a></li>
+            <li><a href="#">赞助</a></li>   <li><a href="#">APP</a></li>
+            <li><a href="#">赞助</a></li>
+        </ul>
+    </div>
+</div>
+    <div class="footer-bottom">
+        <a href="#"><p>©Copyright 2020-2021 MIRAI | 未来 | 灵感工作室 | @备案号：冀10086-11</p></a>
     </div>
 </footer>
 </body>

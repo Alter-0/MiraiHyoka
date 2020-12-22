@@ -1,38 +1,5 @@
-@media (max-width:768px){
-
-
-}
-
-@media (min-width:768px){
-    .l-right-bar{
-        float: left;
-        background-color: #f09199;
-        height: 400px;
-        width: 100%;
-    }
-
-}
-@media (min-width:992px){
-    .l-right-bar{
-
-        width: 660px;
-    }
-}
-@media (min-width:1200px){
-    .l-right-bar{
-        width: 660px;
-    }
-}
-
-.l-left-comment{
-    float: left;
-    height: 300px;
-    width: 780px;
-    background-color: #3c3c3c;
-}
-.l-right-bar{
-    float: left;
-    background-color: #f09199;
-    height: 400px;
-    width: 100%;
+.long_review{
+    height: 800px;
+     width: 100%;
+    background-color: #0187c5;
 }
