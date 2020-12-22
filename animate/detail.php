@@ -324,7 +324,6 @@
             </div>
             <!-- 分集页-->
             <div class="diversity">
-
                 <div class="episode_card_right">
                     <div class="episode_card_right_content">
                         <!--                        <div class="episode_card_right_title">-->
@@ -783,7 +782,6 @@
                                         <div class="common_text">
                                             这集确实不错
                                         </div>
-
                                     </div>
                                 </li>
                                 <li class="episode_comment_item rr">
@@ -834,7 +832,78 @@
             </div>
             <!--长评-->
             <div class="long_review">
-                <div class="row">
+                <div class="short_review_middle">
+                    <div class="card_left_title" style="display: inline-block">短评</div>
+                    <div class="short_review_drop">
+                        <div>默认<i></i></div>
+                        <ul>
+                            <li>
+                                <!--短评具体内容-头像那一行-->
+                                <div class="li_first_div">
+                                    <div class="short_review_face">
+                                        <div class="short_review_img">
+                                            <img alt="Yrqiiii"
+                                                 src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
+                                                 lazy="loaded">
+                                        </div>
+                                    </div>
+                                    <div class="short_review_name">
+                                        bfbdntf
+                                    </div>
+                                    <div class="short_review_star">
+                                        <span class="review_star">
+                                            <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-full">
+                                                <i></i>
+                                            </i>
+                                             <i class="icon-star-empty">
+                                                <i></i>
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <div class="short_review_time">22小时前</div>
+                                </div>
+                                <!--短评具体内容-评论内一行-->
+                                <div class="li_second_review">
+                                    <div class="second_review">
+                                        剧情紧凑不拖沓 打击感强 人物性格也很鲜明 纯恶与善的对决
+                                    </div>
+
+                                </div>
+                                <!--点赞-->
+                                <div class="li_third_icon">
+                                    <div>
+                                        <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i><span>5</span>
+                                    </div>
+                                    <div>
+                                        <i class="icon-criticism"
+                                           style="font-size: 14px;margin-right: 6px;"></i><span>1</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="short_review_write">去写短评</div>
+                    <ul class="short_review_write_ul">
+                        <li><a href="long-comment-out.php">hello</a></li>
+                        <li><a href="long-comment-out.php">hello</a></li>
+                        <li><a href="long-comment-out.php">hello</a></li>
+                        <li><a href="long-comment-out.php">hello</a></li>
+                        <li><a href="long-comment-out.php">hello</a></li>
+                        <li><a href="long-comment-out.php">hello</a></li>
+                        <li><a href="long-comment-out.php">hello</a></li>
+                        <li><a href="long-comment-out.php">hello</a></li>
+                        <li><a href="long-comment-out.php">hello</a></li>
+                        <li><a href="long-comment-out.php">hello</a></li>
+                    </ul>
                 </div>
             </div>
             <!--短评-->
