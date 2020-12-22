@@ -29,7 +29,7 @@
 <div class="all">
     <div class="main">
         <div class="top">
-            <div class="nei">
+            <div class="nei container">
                 <!--  fgimg放番剧展示图 -->
                 <div class="fjimg">
                     <img id="fj"
