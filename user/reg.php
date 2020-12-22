@@ -230,6 +230,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $pass_hash = password_hash($password, PASSWORD_DEFAULT);
                 $sql = "insert into user(account,password,email) values('$username','$pass_hash','$email')";
                 $result = mysqli_query($conn, $sql) or die("查询失败，请检查SQL语法" . $sql);
+                $time=date("Y-m-d");
+                $sqltime="update user set reg_time='$time' where account='$username'";
+                $result=mysqli_query($conn,$sqltime)or die("查询失败，请检查SQL语法".$sqltime);
                 echo "<script language='javascript' type='text/javascript'>";
                 echo "alert('注册成功');";
                 echo "location.href='login.php';";
