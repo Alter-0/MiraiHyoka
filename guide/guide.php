@@ -102,10 +102,9 @@
             if($get_time!=0){
                 if($is_where==0){
                     if($get_time!=8){
-                        $index_time=$get_time-1;
-                        $sql.=" where star_date > $time[$get_time] and star_date<$time[$index_time]";
+                        $sql.=" where year(start_date) = $time[$get_time]" ;
                     }else{
-                        $sql.=" where star_date<$time[8]";
+                        $sql.=" where year(start_date)<$time[8]";
                     }
                     $is_where=1;
                 }else{
@@ -165,7 +164,7 @@
                 while ($row=mysqli_fetch_assoc($result)){
                     $cover[]=$row['cover'];
                     $name[]=$row["name"];
-                    $rating[]=$row["rating"];
+//                    $rating[]=$row["rating"];
                 }
             }
 
@@ -178,7 +177,7 @@
 //                生成左边的封面和名字
                 for($i=0;$i<16;$i++){
                     echo  "<li>";
-				    echo  "<div class='fengmian'><a href='' target='_blank'><img src='$cover[$i]' alt=''/></a><div> $rating[$i]</div></div>";
+				    echo  "<div class='fengmian'><a href='' target='_blank'><img src='$cover[$i]' alt=''/></a><div>9.4</div></div>";
 				    echo  "<p><a href='' target='_blank'>$name[$i]</a></p>";
 			    	echo  "</li>";
                  }
@@ -197,68 +196,68 @@
 //                    }
 //             ?>
             <ul>
-                <li><a href="?pagenum=<?php echo $pagenum==1?1:($pagenum-1) ?>&is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>#content">上一页</a></li>
+                <li><a href="?pagenum=<?php echo $pagenum==1?1:($pagenum-1) ?>&is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>#content">上一页</a></li>
                 <?php
                     if($pageall<=9){
                         if($pageall<=6){
                             for($j=1;$j<=$pageall;$j++){
-                            echo "<li><a href='?pagenum=$j&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>$j</a></li>";
+                            echo "<li><a href='?pagenum=$j&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>$j</a></li>";
                             }
                         }else if($pageall>6){
                             if($pagenum<=6){
                                 for($j=1;$j<=7;$j++) {
-                                    echo "<li><a href='?pagenum=$j&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>$j</a></li>";
+                                    echo "<li><a href='?pagenum=$j&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>$j</a></li>";
                                 }
                                 echo "    ...    ";
-                                echo "<li><a href='?pagenum=".$pageall."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>".$pageall."</a></li>";
+                                echo "<li><a href='?pagenum=".$pageall."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>".$pageall."</a></li>";
                             } else{
-                                 echo "<li><a href='?pagenum=1&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>1</a></li>";
+                                 echo "<li><a href='?pagenum=1&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>1</a></li>";
                                  echo "    ...    ";
                                  for($j=1;$j<=($pageall-4);$j++){
                                     $pagenum_now=($pagenum-3+$j);
-                                    echo "<li><a href='?pagenum=$pagenum_now&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>$pagenum_now</a></li>";
+                                    echo "<li><a href='?pagenum=$pagenum_now&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>$pagenum_now</a></li>";
                                     }
                             }
                         }
                     }else{
                         if($pagenum<4){
-                            echo "<li><a href='?pagenum=1&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>1</a></li>";
-                            echo "<li><a href='?pagenum=2&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>2</a></li>";
-                            echo "<li><a href='?pagenum=3&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>3</a></li>";
-                            echo "<li><a href='?pagenum=4&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>4</a></li>";
-                            echo "<li><a href='?pagenum=5&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>5</a></li>";
+                            echo "<li><a href='?pagenum=1&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>1</a></li>";
+                            echo "<li><a href='?pagenum=2&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>2</a></li>";
+                            echo "<li><a href='?pagenum=3&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>3</a></li>";
+                            echo "<li><a href='?pagenum=4&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>4</a></li>";
+                            echo "<li><a href='?pagenum=5&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>5</a></li>";
                             echo "    ...    ";
-                            echo "<li><a href='?pagenum=".$pageall."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>".$pageall."</a></li>";
+                            echo "<li><a href='?pagenum=".$pageall."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>".$pageall."</a></li>";
                          }else if($pagenum==4){
-                            echo "<li><a href='?pagenum=1&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>1</a></li>";
-                            echo "<li><a href='?pagenum=2&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>2</a></li>";
-                            echo "<li><a href='?pagenum=3&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>3</a></li>";
-                            echo "<li><a href='?pagenum=4&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>4</a></li>";
-                            echo "<li><a href='?pagenum=5&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>5</a></li>";
-                            echo "<li><a href='?pagenum=6&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>6</a></li>";
+                            echo "<li><a href='?pagenum=1&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>1</a></li>";
+                            echo "<li><a href='?pagenum=2&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>2</a></li>";
+                            echo "<li><a href='?pagenum=3&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>3</a></li>";
+                            echo "<li><a href='?pagenum=4&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>4</a></li>";
+                            echo "<li><a href='?pagenum=5&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>5</a></li>";
+                            echo "<li><a href='?pagenum=6&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>6</a></li>";
                             echo "    ...    ";
-                            echo "<li><a href='?pagenum=".$pageall."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>".$pageall."</a></li>";
+                            echo "<li><a href='?pagenum=".$pageall."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>".$pageall."</a></li>";
                         }else if($pagenum>4&&$pagenum<($pageall-3)){
-                            echo "<li><a href='?pagenum=1&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>1</a></li>";
+                            echo "<li><a href='?pagenum=1&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>1</a></li>";
                             echo "    ...    ";
-                            echo "<li><a href='?pagenum=".($pagenum-2)."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>".($pagenum-2)."</a></li>";
-                            echo "<li><a href='?pagenum=".($pagenum-1)."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>".($pagenum-1)."</a></li>";
-                            echo "<li><a href='?pagenum=".$pagenum."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>".$pagenum."</a></li>";
-                            echo "<li><a href='?pagenum=".($pagenum+1)."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>".($pagenum+1)."</a></li>";
-                            echo "<li><a href='?pagenum=".($pagenum+2)."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>".($pagenum+2)."</a></li>";
+                            echo "<li><a href='?pagenum=".($pagenum-2)."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>".($pagenum-2)."</a></li>";
+                            echo "<li><a href='?pagenum=".($pagenum-1)."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>".($pagenum-1)."</a></li>";
+                            echo "<li><a href='?pagenum=".$pagenum."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>".$pagenum."</a></li>";
+                            echo "<li><a href='?pagenum=".($pagenum+1)."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>".($pagenum+1)."</a></li>";
+                            echo "<li><a href='?pagenum=".($pagenum+2)."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>".($pagenum+2)."</a></li>";
                             echo "    ...    ";
-                            echo "<li><a href='?pagenum=".$pageall."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>".$pageall."</a></li>";
+                            echo "<li><a href='?pagenum=".$pageall."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>".$pageall."</a></li>";
                         }else if($pagenum>=($pageall-3)){
-                            echo "<li><a href='?pagenum=1&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>1</a></li>";
+                            echo "<li><a href='?pagenum=1&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>1</a></li>";
                             echo "    ...    ";
-                            echo "<li><a href='?pagenum=".($pageall-4)."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>".($pageall-4)."</a></li>";
-                            echo "<li><a href='?pagenum=".($pageall-3)."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>".($pageall-3)."</a></li>";
-                            echo "<li><a href='?pagenum=".($pageall-2)."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>".($pageall-2)."</a></li>";
-                            echo "<li><a href='?pagenum=".($pageall-1)."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>".($pageall-1)."</a></li>";
-                            echo "<li><a href='?pagenum=".$pageall."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area#content'>".$pageall."</a></li>";
+                            echo "<li><a href='?pagenum=".($pageall-4)."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>".($pageall-4)."</a></li>";
+                            echo "<li><a href='?pagenum=".($pageall-3)."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>".($pageall-3)."</a></li>";
+                            echo "<li><a href='?pagenum=".($pageall-2)."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>".($pageall-2)."</a></li>";
+                            echo "<li><a href='?pagenum=".($pageall-1)."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>".($pageall-1)."</a></li>";
+                            echo "<li><a href='?pagenum=".$pageall."&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>".$pageall."</a></li>";
                     }}
                 ?>
-                <li><a href="?pagenum=<?php echo $pagenum==$pageall?$pageall:($pagenum+1) ?>&is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>#content">下一页</a></li>
+                <li><a href="?pagenum=<?php echo $pagenum==$pageall?$pageall:($pagenum+1) ?>&is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>#content">下一页</a></li>
             </ul>
         </div>
     </div>
@@ -268,53 +267,87 @@
             <div class="filter-block">
                 <div class="filter-name">状态</div>
                 <ul>
-                    <li><a href="?is_finished=0&time=<?php echo "$get_time"?>&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>">全部</a></li>
-                    <li><a href="?is_finished=1&time=<?php echo "$get_time"?>&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>">完结</a></li>
-                    <li><a href="?is_finished=2&time=<?php echo "$get_time"?>&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>">连载</a></li>
+                    <li><a href="?is_finished=0&time=<?php echo "$get_time"?>&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">全部</a></li>
+                    <li><a href="?is_finished=1&time=<?php echo "$get_time"?>&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">完结</a></li>
+                    <li><a href="?is_finished=2&time=<?php echo "$get_time"?>&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">连载</a></li>
                 </ul>
             </div>
             <div class="filter-block">
                 <div class="filter-name">时间</div>
                 <ul>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=0&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>">全部</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=1&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>">2020</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=2&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>">2019</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=3&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>">2018</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=4&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>">2017</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=5&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>">2016</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=6&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>">2015</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=7&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>">2014</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=8&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>">之前</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=0&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">全部</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=1&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">2020</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=2&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">2019</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=3&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">2018</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=4&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">2017</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=5&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">2016</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=6&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">2015</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=7&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">2014</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=8&tags=<?php echo "$get_tags"?>&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">之前</a></li>
                 </ul>
             </div>
             <div class="filter-block">
                 <div class="filter-name">标签</div>
                 <ul>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=0&area=<?php echo "$get_area"?>">全部</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=1&area=<?php echo "$get_area"?>">标签</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=2&area=<?php echo "$get_area"?>">标签</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=3&area=<?php echo "$get_area"?>">标签</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=4&area=<?php echo "$get_area"?>">标签</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=5&area=<?php echo "$get_area"?>">标签</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=6&area=<?php echo "$get_area"?>">标签</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=7&area=<?php echo "$get_area"?>">标签</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=8&area=<?php echo "$get_area"?>">标签</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=0&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">全部</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=1&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">标签</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=2&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">标签</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=3&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">标签</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=4&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">标签</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=5&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">标签</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=6&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">标签</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=7&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">标签</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=8&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">标签</a></li>
                 </ul>
             </div>
             <div class="filter-block">
                 <div class="filter-name">地区</div>
                 <ul>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=<?php echo "$get_tags"?>&area=0">全部</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=<?php echo "$get_tags"?>&area=1">日本</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=<?php echo "$get_tags"?>&area=2">中国</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=<?php echo "$get_tags"?>&area=3">欧美</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=<?php echo "$get_tags"?>&area=4">其他</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=<?php echo "$get_tags"?>&area=0&choosen=<?php echo $choosen?>">全部</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=<?php echo "$get_tags"?>&area=1&choosen=<?php echo $choosen?>">日本</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=<?php echo "$get_tags"?>&area=2&choosen=<?php echo $choosen?>">中国</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=<?php echo "$get_tags"?>&area=3&choosen=<?php echo $choosen?>">欧美</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=<?php echo "$get_tags"?>&area=4&choosen=<?php echo $choosen?>">其他</a></li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
 <!--cotent end-->
+<!--footer-->
+<footer>
+    <div class="container" style="border-bottom: 1px solid #cbcbcb;">
+        <div class="left col-lg-8 col-md-8 col-sm-12 col-xs-12">
+            <h1>MiraiHypka</h1>
+            <p>致力于为二次元世界提供最权威最完整评分体系！</p>
+            <p>建立初衷仅作为团队学习项目，并不包含任何商业信息，请勿上当受骗</p>
+            <p >本站不提供任何视听上传服务，所有内容均来自视频站点分享，如有侵权请与我们联系删除</p>
+
+        </div>
+        <div class="right col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <h4>
+                传送门
+            </h4>
+            <ul>
+                <li><a href="#">关于</a></li>
+                <li><a href="#">订阅</a></li>
+                <li><a href="#">APP</a></li>
+                <li><a href="#">赞助</a></li>  <li><a href="#">APP</a></li>
+                <li><a href="#">赞助</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">关于</a></li>
+                <li><a href="#">订阅</a></li>
+                <li><a href="#">APP</a></li>
+                <li><a href="#">赞助</a></li>   <li><a href="#">APP</a></li>
+                <li><a href="#">赞助</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <a href="#"><p>©Copyright 2020-2021 MIRAI | 未来 | 灵感工作室 | @备案号：冀10086-11</p></a>
+    </div>
+</footer>
 </body>
 <script type="text/javascript">
     window.addEventListener('load', function() {
@@ -357,13 +390,6 @@
 </script>
 <!--筛选条件-->
 <script>
-<!--    --><?php
-//        if(empty($_GET['choosen'])){
-//            $choosen=2;
-//        }else{
-//            $choosen=$_GET['choosen'];
-//        }
-//    ?>
     var choosen = <?php echo $choosen ?>;
     choosen=parseInt(choosen);
 
