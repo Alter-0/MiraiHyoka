@@ -33,7 +33,7 @@
     }
 
     .left {
-        width: 30%;
+        width: 40%;
         height: 500px;
         float: left;
         display: inline-block;
@@ -69,7 +69,7 @@
         margin-top: 0;
     }
 
-    #username {
+    #username{
         border: 1px solid #d9d9d9;
         box-sizing: border-box;
         border-radius: 4px;
@@ -80,9 +80,10 @@
         height: 40px;
         margin-bottom: 24px;
         display: block;
+        background: url("image/head.png") 3px 3px no-repeat;
+        color: (0,0,0,.65);
     }
-
-    #password {
+    #password{
         border: 1px solid #d9d9d9;
         box-sizing: border-box;
         border-radius: 4px;
@@ -93,6 +94,7 @@
         margin-bottom: 24px;
         display: block;
         padding-left: 30px;
+        background: url("image/password.png") 3px 3px no-repeat;
     }
 
     #repassword {
@@ -106,6 +108,7 @@
         margin-bottom: 24px;
         display: block;
         padding-left: 30px;
+        background: url("image/password.png") 3px 3px no-repeat;
     }
 
     #email {
@@ -119,6 +122,7 @@
         margin-bottom: 24px;
         display: block;
         padding-left: 30px;
+        background: url("image/email.png") 3px 3px no-repeat;
     }
 
     #checknum {
@@ -132,6 +136,8 @@
         margin-bottom: 24px;
         display: block;
         padding-left: 30px;
+        background-color: transparent;
+        background: url("image/password.png") 3px 3px no-repeat;
     }
 
     #submit {
@@ -142,26 +148,11 @@
         line-height: 2;
         background-color: #1890ff;
         height: 40px;
-        width: 200px;
+        width: 40%;
         display: block;
         margin-top: 20px;
     }
 
-    .top {
-        width: 100%;
-        height: 200px;
-        position: relative;
-    }
-
-    .top iframe {
-        width: 100%;
-        height: 50px;
-        position: relative;
-        z-index: 1000;
-    }
-    .search {
-        margin-right: 40px!important;
-    }
 </style>
 
 <body>

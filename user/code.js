@@ -34,7 +34,7 @@
         tag.classList.remove(className)
     }
     function getRandomImg() {
-        return 'random-img/'+getRandomNumberByRange(1, 2)+'.jpg';
+        return 'image/'+getRandomNumberByRange(1, 6)+'.png';
     }
     function draw(ctx, operation, x, y) {
         ctx.beginPath()
@@ -216,11 +216,11 @@
         }
     }
 }(window))
-
-jigsaw.init(document.getElementById('valid-code'), function() {
-    alert("验证畅呢各个")
-    code = 1;
-},function () {
-    code = 0
+var j=0;
+jigsaw.init(document.getElementById('captcha'), function() {
+    //$(location).attr('href','reg.php');
+        j=1;
+        alert("验证成功!");
+},function (){
+     j=0;
 })
-

@@ -1,60 +1,52 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>CodePen - Slide Sign In/Sign Up form</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
-<style type="text/css">
-    .avatar{
-        avatar-height: 80px;
-        padding: 20px 10px;
-        background-color: #2196f3;
-        overflow: hidden;
-    img {
-        width: avatar-height;
-        height: avatar-height;
-        border-radius: 50%;
-        float: left;
-    }
-    .desc {
-        color: #ffffff;
-        font-size: 14px;
-        margin-top: 2px;
-
-        display: inline-block;
-        float: left;
-        width: -webkit-calc(100% - 80px);
-        width: -moz-calc(100% - 80px);
-        width: calc(100% - 80px);
-        padding-left: 10px;
-
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-    .name{
-        font-size: 18px;
-        margin-top: 6px;
-    }
-
-</style>
 <body>
 
+<div class="container right-panel-active">
 
-<div class="avatar">
-    <img src="http://gplove.top/dog1.png" alt="">
-    <p class="desc name">Moonsic Moonsic Moonsic Moonsic Moonsic</p>
-    <p class="desc age">18</p>
-    <p class="desc position">杭州</p>
+    <!-- Sign Up -->
+    <div class="container__form container--signup">
+        <form action="#" class="form" id="form1">
+            <h2 class="form__title">注册</h2>
+            <input type="text" placeholder="用户名" class="input" />
+            <input type="email" placeholder="邮箱" class="input" />
+            <input type="password" placeholder="密码" class="input" />
+            <button class="btn">注册</button>
+        </form>
+    </div>
+
+    <!-- Sign In -->
+    <div class="container__form container--signin">
+        <form action="#" class="form" id="form2">
+            <h2 class="form__title">登录</h2>
+            <input type="email" placeholder="邮箱" class="input" />
+            <input type="password" placeholder="密码" class="input" />
+            <a href="#" class="link">忘记密码?</a>
+            <button class="btn">登录</button>
+        </form>
+    </div>
+
+    <!-- Overlay -->
+    <div class="container__overlay">
+        <div class="overlay">
+            <div class="overlay__panel overlay--left">
+                <button class="btn" id="signIn">登录</button>
+            </div>
+            <div class="overlay__panel overlay--right">
+                <button class="btn" id="signUp">注册</button>
+            </div>
+        </div>
+    </div>
 </div>
 
-
-
-
-
+<script  src="js/script.js"></script>
 
 </body>
 </html>
