@@ -15,10 +15,7 @@
         border: 0;
         list-style: none;
     }
-    .top{
-        width: 100%;
-        height: 100px;
-        position: relative;
+
     }
     .top iframe{
         width: 100%;
@@ -26,9 +23,7 @@
         position: relative;
         z-index: 1000;
     }
-    .header{
-        width: 100%;
-    }
+
     .main{
         width: 100%;
         height: 150px;

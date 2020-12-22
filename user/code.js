@@ -34,7 +34,7 @@
         tag.classList.remove(className)
     }
     function getRandomImg() {
-        return '../image/00'+getRandomNumberByRange(1, 3)+'.jpg';
+        return 'image/'+getRandomNumberByRange(1, 6)+'.png';
     }
     function draw(ctx, operation, x, y) {
         ctx.beginPath()
@@ -216,6 +216,11 @@
         }
     }
 }(window))
+var j=0;
 jigsaw.init(document.getElementById('captcha'), function() {
-    $(location).attr('href','reg.php');
+    //$(location).attr('href','reg.php');
+        j=1;
+        alert("验证成功!");
+},function (){
+     j=0;
 })
