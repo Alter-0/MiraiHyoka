@@ -221,6 +221,8 @@ jigsaw.init(document.getElementById('captcha'), function() {
     //$(location).attr('href','reg.php');
         j=1;
         alert("验证成功!");
+        $('#valid-code').css('display','none');
+        $('#check').css('backgroundColor','#778899');
 },function (){
      j=0;
 })

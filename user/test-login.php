@@ -8,6 +8,8 @@
     <title>Document</title>
 </head>
 <body>
-<h1>跳转</h1>
+<?php
+
+?>
 </body>
 </html>
