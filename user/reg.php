@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <title>注册</title>
@@ -34,7 +34,6 @@
         height: auto;
         margin-bottom: 100px;
     }
-
     .left {
         width: 40%;
         height: 500px;
@@ -48,7 +47,6 @@
         margin-top: 20px;
         margin-bottom: 20px;
     }
-
     .right {
         width: 40%;
         height: 500px;

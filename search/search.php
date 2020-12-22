@@ -56,7 +56,7 @@
         <script src="../js/main.js"></script>
 
         <form method="get" action="" class="yes">
-            <a class="back" href="../index/index.php"><img src="img/logo.png" alt="" class="back_i"></a>
+            <a class="back" href="../index.php"><img src="img/logo.png" alt="" class="back_i"></a>
             <div class="search_box_top">
             <input type="text" name="content" class="search_box_y" autocomplete="off" value="<?php echo $_GET['content'];  ?>"/>
             <input type="submit" value="搜索" class="btn_y" />
@@ -74,8 +74,8 @@
             </ul>
             <ul class="page">
                 <?php
-                $num=159;
-                $pageall=ceil($num/16.0);
+                $num=56;
+                $pageall=ceil($num/5.0);
 
                 if(empty($_GET['pagenum'])){
                     $pagenum=1;
@@ -85,42 +85,64 @@
                 ?>
                 <li><a href="?pagenum=<?php echo $pagenum==1?1:($pagenum-1) ?>&content=<?php echo $_GET['content']?>">上一页</a></li>
                 <?php
-
-                if($pagenum<4){
-                    echo "<li><a href='?pagenum=1&content=".$_GET['content']."'>1</a></li>";
-                    echo "<li><a href='?pagenum=2&content=".$_GET['content']."'>2</a></li>";
-                    echo "<li><a href='?pagenum=3&content=".$_GET['content']."'>3</a></li>";
-                    echo "<li><a href='?pagenum=4&content=".$_GET['content']."'>4</a></li>";
-                    echo "<li><a href='?pagenum=5&content=".$_GET['content']."'>5</a></li>";
-                    echo "    ...    ";
-                    echo "<li><a href='?pagenum=".$pageall."&content=".$_GET['content']."'>".$pageall."</a></li>";
-                }else if($pagenum==4){
-                    echo "<li><a href='?pagenum=1&content=".$_GET['content']."'>1</a></li>";
-                    echo "<li><a href='?pagenum=2&content=".$_GET['content']."'>2</a></li>";
-                    echo "<li><a href='?pagenum=3&content=".$_GET['content']."'>3</a></li>";
-                    echo "<li><a href='?pagenum=4&content=".$_GET['content']."'>4</a></li>";
-                    echo "<li><a href='?pagenum=5&content=".$_GET['content']."'>5</a></li>";
-                    echo "<li><a href='?pagenum=6&content=".$_GET['content']."'>6</a></li>";
-                    echo "    ...    ";
-                    echo "<li><a href='?pagenum=".$pageall."&content=".$_GET['content']."'>".$pageall."</a></li>";
-                }else if($pagenum>4&&$pagenum<($pageall-3)){
-                    echo "<li><a href='?pagenum=1&content=".$_GET['content']."'>1</a></li>";
-                    echo "    ...    ";
-                    echo "<li><a href='?pagenum=".($pagenum-2)."&content=".$_GET['content']."'>".($pagenum-2)."</a></li>";
-                    echo "<li><a href='?pagenum=".($pagenum-1)."&content=".$_GET['content']."'>".($pagenum-1)."</a></li>";
-                    echo "<li><a href='?pagenum=".$pagenum."&content=".$_GET['content']."'>".$pagenum."</a></li>";
-                    echo "<li><a href='?pagenum=".($pagenum+1)."&content=".$_GET['content']."'>".($pagenum+1)."</a></li>";
-                    echo "<li><a href='?pagenum=".($pagenum+2)."&content=".$_GET['content']."'>".($pagenum+2)."</a></li>";
-                    echo "    ...    ";
-                    echo "<li><a href='?pagenum=".$pageall."&content=".$_GET['content']."'>".$pageall."</a></li>";
-                }else if($pagenum>=($pageall-3)){
-                    echo "<li><a href='?pagenum=1&content=".$_GET['content']."'>1</a></li>";
-                    echo "    ...    ";
-                    echo "<li><a href='?pagenum=".($pageall-4)."&content=".$_GET['content']."'>".($pageall-4)."</a></li>";
-                    echo "<li><a href='?pagenum=".($pageall-3)."&content=".$_GET['content']."'>".($pageall-3)."</a></li>";
-                    echo "<li><a href='?pagenum=".($pageall-2)."&content=".$_GET['content']."'>".($pageall-2)."</a></li>";
-                    echo "<li><a href='?pagenum=".($pageall-1)."&content=".$_GET['content']."'>".($pageall-1)."</a></li>";
-                    echo "<li><a href='?pagenum=".$pageall."&content=".$_GET['content']."'>".$pageall."</a></li>";
+                if($pageall<=9){
+                    if($pageall<=6){
+                        for($j=1;$j<=$pageall;$j++){
+                            echo "<li><a href='?pagenum=$j&content=".$_GET['content']."'>$j</a></li>";
+                        }
+                    }else if($pageall>6){
+                        if($pagenum<=6){
+                            for($j=1;$j<=7;$j++) {
+                                echo "<li><a href='?pagenum=$j&content=".$_GET['content']."'>$j</a></li>";
+                            }
+                            echo "    ...    ";
+                            echo "<li><a href='?pagenum=".$pageall."&content=".$_GET['content']."'>".$pageall."</a></li>";
+                        } else{
+                            echo "<li><a href='?pagenum=1&content=".$_GET['content']."'>1</a></li>";
+                            echo "    ...    ";
+                            for($j=1;$j<=($pageall-4);$j++){
+                                $pagenum_now=($pagenum-3+$j);
+                                echo "<li><a href='?pagenum=$pagenum_now&content=".$_GET['content']."'>$pagenum_now</a></li>";
+                            }
+                        }
+                    }
+                }else {
+                    if ($pagenum < 4) {
+                        echo "<li><a href='?pagenum=1&content=" . $_GET['content'] . "'>1</a></li>";
+                        echo "<li><a href='?pagenum=2&content=" . $_GET['content'] . "'>2</a></li>";
+                        echo "<li><a href='?pagenum=3&content=" . $_GET['content'] . "'>3</a></li>";
+                        echo "<li><a href='?pagenum=4&content=" . $_GET['content'] . "'>4</a></li>";
+                        echo "<li><a href='?pagenum=5&content=" . $_GET['content'] . "'>5</a></li>";
+                        echo "    ...    ";
+                        echo "<li><a href='?pagenum=" . $pageall . "&content=" . $_GET['content'] . "'>" . $pageall . "</a></li>";
+                    } else if ($pagenum == 4) {
+                        echo "<li><a href='?pagenum=1&content=" . $_GET['content'] . "'>1</a></li>";
+                        echo "<li><a href='?pagenum=2&content=" . $_GET['content'] . "'>2</a></li>";
+                        echo "<li><a href='?pagenum=3&content=" . $_GET['content'] . "'>3</a></li>";
+                        echo "<li><a href='?pagenum=4&content=" . $_GET['content'] . "'>4</a></li>";
+                        echo "<li><a href='?pagenum=5&content=" . $_GET['content'] . "'>5</a></li>";
+                        echo "<li><a href='?pagenum=6&content=" . $_GET['content'] . "'>6</a></li>";
+                        echo "    ...    ";
+                        echo "<li><a href='?pagenum=" . $pageall . "&content=" . $_GET['content'] . "'>" . $pageall . "</a></li>";
+                    } else if ($pagenum > 4 && $pagenum < ($pageall - 3)) {
+                        echo "<li><a href='?pagenum=1&content=" . $_GET['content'] . "'>1</a></li>";
+                        echo "    ...    ";
+                        echo "<li><a href='?pagenum=" . ($pagenum - 2) . "&content=" . $_GET['content'] . "'>" . ($pagenum - 2) . "</a></li>";
+                        echo "<li><a href='?pagenum=" . ($pagenum - 1) . "&content=" . $_GET['content'] . "'>" . ($pagenum - 1) . "</a></li>";
+                        echo "<li><a href='?pagenum=" . $pagenum . "&content=" . $_GET['content'] . "'>" . $pagenum . "</a></li>";
+                        echo "<li><a href='?pagenum=" . ($pagenum + 1) . "&content=" . $_GET['content'] . "'>" . ($pagenum + 1) . "</a></li>";
+                        echo "<li><a href='?pagenum=" . ($pagenum + 2) . "&content=" . $_GET['content'] . "'>" . ($pagenum + 2) . "</a></li>";
+                        echo "    ...    ";
+                        echo "<li><a href='?pagenum=" . $pageall . "&content=" . $_GET['content'] . "'>" . $pageall . "</a></li>";
+                    } else if ($pagenum >= ($pageall - 3)) {
+                        echo "<li><a href='?pagenum=1&content=" . $_GET['content'] . "'>1</a></li>";
+                        echo "    ...    ";
+                        echo "<li><a href='?pagenum=" . ($pageall - 4) . "&content=" . $_GET['content'] . "'>" . ($pageall - 4) . "</a></li>";
+                        echo "<li><a href='?pagenum=" . ($pageall - 3) . "&content=" . $_GET['content'] . "'>" . ($pageall - 3) . "</a></li>";
+                        echo "<li><a href='?pagenum=" . ($pageall - 2) . "&content=" . $_GET['content'] . "'>" . ($pageall - 2) . "</a></li>";
+                        echo "<li><a href='?pagenum=" . ($pageall - 1) . "&content=" . $_GET['content'] . "'>" . ($pageall - 1) . "</a></li>";
+                        echo "<li><a href='?pagenum=" . $pageall . "&content=" . $_GET['content'] . "'>" . $pageall . "</a></li>";
+                    }
                 }
                 ?>
                 <li><a href="?pagenum=<?php echo $pagenum==$pageall?$pageall:($pagenum+1) ?>&content=<?php echo $_GET['content']?>">下一页</a></li>
