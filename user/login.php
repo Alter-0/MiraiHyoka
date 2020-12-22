@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="../css/header.css">
     <script src="../js/jquery.js"></script>
     <style>
+        .search{
+            margin-right: 40px;
+        }
+
         *{
             margin: 0;
             padding: 0;
