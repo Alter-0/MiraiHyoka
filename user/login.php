@@ -186,7 +186,6 @@
 </script>
 
 <?php
-
 if($_SERVER["REQUEST_METHOD"]=="POST") {
         include "../conn.php";
         $username = $_POST["username"];
@@ -198,7 +197,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
             if (password_verify($password, $row['password'])) {
                 $_SESSION["account"] = $username;
                 echo "<script language='javascript' type='text/javascript'>";
-
                 echo "alert('登陆成功');";
 
                 echo "location.href='user.php';";
@@ -213,7 +211,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
                 echo "location.href='login.php';";
 
                 echo "</script>";
-
             }
         } else {
             echo "<script language='javascript' type='text/javascript'>";

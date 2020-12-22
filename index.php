@@ -23,6 +23,14 @@
 </head>
 <body>
 <header>
+    <?php
+      $isLogin = 0;
+      session_start();
+      if(isset( $_SESSION['account'])){
+          $isLogin =1;
+      }
+    ?>
+
     <div style="padding: 0" class="container">
         <div class="dis">
             <div class="logo"><img src="image/logo.png" alt=""></div>
@@ -136,48 +144,49 @@
                     </div>
                 </form>
             </div>
-             <div style="display: none">     <?php
-                 //           session_start();
-                 if (empty( $_SESSION["account"])){
-                     echo " <input id=\"isLogin\" type=\"hidden\" value=\"1\" name=\"isLogin\">";
-                 }else{
-                     echo " <input id=\"isLogin\" type=\"hidden\" value=\"0\" name=\"isLogin\">";
-                 }
-                 ?></div>
-             <div  style="display: none" id="headerpic">
-                 <img src="image/headerpic.jpg" alt="">
+            <?php
+
+            if ($isLogin==1){
+                echo " <div   id=\"headerpic\">
+                 <img src=\"image/headerpic.jpg\" alt=\"oih\">
                  <ul>
-                     <li><a href="#">个人中心</a></li>
-                     <li><a href="#">我的评分</a></li>
-                     <li><a href="#">我的收藏</a></li>
-                     <li id="headerpic-last-li">
-                         <a href="#">
-                             退出登录
+                     <li><a href=\"user-center/usercenter.php\">个人中心</a></li>
+                <li><a href=\"user-center/usercenter.php\">我的评分</a></li>
+                     <li><a href=\"user-center/usercenter.php\">我的收藏</a></li>
+                     <li id=\"headerpic-last-li\">
+                         <a href=\"#\">
+                    退出登录
                          </a>
                      </li>
                  </ul>
-             </div>
-            <div id="login-btn" class="login" style="display: block">
-                <a  href="user/login.php">
-                    <span id="login" class="reg11" style="padding: 0 5px 0 15px">登录</span>
+             </div>";
+            }else{
+                echo " <div id=\"login-btn\" class=\"login\">
+                <a  href=\"user/login.php\">
+                    <span id=\"login\" class=\"reg11\" style=\"padding: 0 5px 0 15px\">登录</span>
                 </a>
-                <a href="user/reg.php">
-                    <span id="reg11" class="reg11" style="padding:0 15px 0 5px">注册</span>
+                <a href=\"user/reg.php\">
+                    <span id=\"reg11\" class=\"reg11\" style=\"padding:0 15px 0 5px\">注册</span>
                 </a>
-            </div>
-            <script>
-                $(function () {
-                    var login_btn = $('#login-btn');
-                    var hearpic = $('#headerpic');
-                    if ($('#isLogin').val()==1){
-                        login_btn.css('display','none');
-                        hearpic.css('display','inline-block');
-                    }else {
-                        login_btn.css('display','block');
-                        hearpic.css('display','none');
-                    }
-                })
-            </script>
+            </div>";
+            }
+            ?>
+
+
+
+<!--            <script>-->
+<!--                $(function () {-->
+<!--                    var login_btn = $('#login-btn');-->
+<!--                    var hearpic = $('#headerpic');-->
+<!--                    if ($('#isLogin').val()==1){-->
+<!--                        login_btn.css('display','none');-->
+<!--                        hearpic.css('display','inline-block');-->
+<!--                    }else {-->
+<!--                        login_btn.css('display','block');-->
+<!--                        hearpic.css('display','none');-->
+<!--                    }-->
+<!--                })-->
+<!--            </script>-->
         </div>
     </div>
     <div class="menu" id="menu">
@@ -200,7 +209,7 @@
     });
 </script>
 <div id=showspider style="width: 100%;">
-    <iframe id="spider" src="index-test.php" scrolling="no" frameborder="0" width="100%" height="100%">
+    <iframe id="spider" src="index-scroll.php" scrolling="no" frameborder="0" width="100%" height="100%">
     </iframe>
 </div>
 <script>

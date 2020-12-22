@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
     <script src="../js/jquery.js"></script>
     <!-- 引用部分@blueberry -->
     <script src="../js/main.js"></script>
@@ -30,9 +29,14 @@
 
 </head>
 <body>
-<?php include "../header.php" ?>
-<!--<div style="height: 50px"></div>-->
 
+<?php
+/**
+ * 登录后取消登录注册按钮，显示用户头像以及相关操作
+ */
+session_start();
+include "../header.php"?>
+<!--<div style="height: 50px"></div>-->
 <div class="all">
     <div class="top">
         <div class="banner">
