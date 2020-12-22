@@ -6,10 +6,11 @@
 </head>
 
 <body>
-<?php
-session_start();
-unset($_SESSION['account']);
-header("location:login.php");
+<?php session_start();
+if(empty($_SESSION["account"]))
+    header("location:login.php");
+
 ?>
+
 </body>
 </html>

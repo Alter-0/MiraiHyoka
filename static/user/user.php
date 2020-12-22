@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>个人信息</title>
-    <link rel="stylesheet" href="../css/default.css">
-    <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <script src="../js/jquery.js"></script>
+    <link rel="stylesheet" href="../../css/default.css">
+    <link rel="stylesheet" href="../../css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <script src="../../js/jquery.js"></script>
 </head>
 <style type="text/css">
     *{
@@ -332,11 +332,7 @@
         </div>
     </div>
 </div>
-
-<div class="bottom">
-    <iframe src="../footer.html" scrolling="no" class="footer"></iframe>
-</div>
-<script src="../js/jquery.js"></script>
+<script src="../../js/jquery.js"></script>
 <script>
     $(document).read(function ()){
         $(".record").click(function ()

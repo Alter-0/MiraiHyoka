@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>登录</title>
     <!--    header必须引入的三个样式文件,使用php引入-->
-    <link rel="stylesheet" href="../css/default.css">
-    <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <script src="../js/jquery.js"></script>
+    <link rel="stylesheet" href="../../css/default.css">
+    <link rel="stylesheet" href="../../css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <script src="../../js/jquery.js"></script>
     <style>
         .search{
             margin-right: 40px;
@@ -23,7 +23,7 @@
             display: flex;
             flex-direction: column;
             background-attachment:fixed;
-            background-image: url(../image/background.jpg);
+            background-image: url(../../image/background.jpg);
             background-size: cover;
         }
         .content{
@@ -37,7 +37,7 @@
             height: 500px;
             float: left;
             display: inline-block;
-            background: url("../image/user_background.jpg") ;
+            background: url("../../image/user_background.jpg") ;
             background-size: cover;
             box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
             border-radius: 15px;
@@ -130,10 +130,8 @@
     </style>
     <link rel="stylesheet" href="code.css">
 </head>
-<?php session_start();?>
-
 <body>
-<?php include "../header.php"?>
+<?php include "../header.php" ?>
 <div class="content">
     <div class="left">
     </div>
@@ -186,7 +184,6 @@
 </script>
 
 <?php
-
 if($_SERVER["REQUEST_METHOD"]=="POST") {
         include "../conn.php";
         $username = $_POST["username"];
@@ -198,7 +195,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
             if (password_verify($password, $row['password'])) {
                 $_SESSION["account"] = $username;
                 echo "<script language='javascript' type='text/javascript'>";
-
                 echo "alert('登陆成功');";
 
                 echo "location.href='user.php';";
@@ -213,7 +209,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
                 echo "location.href='login.php';";
 
                 echo "</script>";
-
             }
         } else {
             echo "<script language='javascript' type='text/javascript'>";

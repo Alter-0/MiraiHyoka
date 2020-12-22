@@ -30,7 +30,7 @@
           $isLogin =1;
       }
     ?>
-
+ <header>
     <div style="padding: 0" class="container">
         <div class="dis">
             <div class="logo"><img src="image/logo.png" alt=""></div>
@@ -147,14 +147,8 @@
             <?php
 
             if ($isLogin==1){
-                echo " <div   id=\"headerpic\">
-                 <img src=\"image/headerpic.jpg\" alt=\"oih\">
-                 <ul>
-                     <li><a href=\"user-center/usercenter.php\">个人中心</a></li>
-                <li><a href=\"user-center/usercenter.php\">我的评分</a></li>
-                     <li><a href=\"user-center/usercenter.php\">我的收藏</a></li>
-                     <li id=\"headerpic-last-li\">
-                         <a href=\"user/exitlogin.php\">
+                echo ">
+                         <a href=>
                     退出登录
                          </a>
                      </li>
@@ -162,7 +156,7 @@
              </div>";
             }else{
                 echo " <div id=\"login-btn\" class=\"login\">
-                <a  href=\"user/login.php\">
+                <a  href=\"user/立刻登录.php\">
                     <span id=\"login\" class=\"reg11\" style=\"padding: 0 5px 0 15px\">登录</span>
                 </a>
                 <a href=\"user/reg.php\">
@@ -171,9 +165,6 @@
             </div>";
             }
             ?>
-
-
-
 <!--            <script>-->
 <!--                $(function () {-->
 <!--                    var login_btn = $('#login-btn');-->
