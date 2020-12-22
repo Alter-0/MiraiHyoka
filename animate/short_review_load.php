@@ -22,4 +22,19 @@ $review["review"][3]="bfcbcfb";
 
 echo json_encode($review);
 }
+else if($objective=="reviewcheck")
+{
+    $review=array(
+        "makesure"=>"1"
+    );
+    echo json_encode($review);
+}
+else if($objective=="reviewinsert")
+{
+    $review=array(
+        "makesure"=>"1"
+    );
+    echo json_encode($review);
+}
+
 ?>
