@@ -757,7 +757,7 @@
 }
 
 .hyoka {
-    height: 800px;
+    /*height: 800px;*/
     position: relative;
      margin-top: 20px;
     -webkit-animation-name: fadeIn; /*动画名称*/

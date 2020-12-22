@@ -131,7 +131,7 @@
     <!--  选择标签及具体内容部分  -->
     <div class="detail_tab container" style="padding: 0">
         <!-- 选择菜单  -->
-        <div class="tab_nav ">
+        <div class="tab_nav">
             <ul class="clearfix">
                 <li onclick="changeTab(this)" class="on">番剧概述</li>
                 <li onclick="changeTab(this)">分集讨论</li>
@@ -143,8 +143,8 @@
         <div  class="tab_de">
             <!--  评分页-->
             <div class="hyoka">
-                hello world
-<!--                <!--第一部分，评分概述-左   -->-->
+                <div class="test" style="width: 100%;height: 300px;background-color:#3c763d;">测试父盒子</div>
+<!--                第一部分，评分概述-左   -->-->
 <!--                <div class="details_card_left hidden-sm hidden-xs">-->
 <!--                    <div class="card_left_title">详情</div>-->
 <!--                    <div class="card_left_text">-->
