@@ -149,11 +149,16 @@
                         <div class="details_card_left ">
                             <div class="card_right_div">
                                 <span class="card_right_title">综合媒体评分</span>
-                                <div class="hyoka_rank">
-                                    <div class="col-lg-6 col-md-6 col-xs-6 .col-sm-6">
+                                <div class="hyoka_rank" style="position: relative">
+
                                         <span class="compre_scorenum">7.9</span>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-xs-6 .col-sm-6">
+                                        <div class="compre_score_empty">
+                                            <i class='icon-star-empty'> <i></i> </i>
+                                            <i class='icon-star-empty'> <i></i> </i>
+                                            <i class='icon-star-empty'> <i></i> </i>
+                                            <i class='icon-star-empty'> <i></i> </i>
+                                            <i class='icon-star-empty'> <i></i> </i>
+                                        </div>
                                         <div class="compre_score">
                                             <i class='icon-star-full'> <i></i> </i>
                                             <i class='icon-star-full'> <i></i> </i>
@@ -161,7 +166,11 @@
                                             <i class='icon-star-full'> <i></i> </i>
                                             <i class='icon-star-full'> <i></i> </i>
                                         </div>
-                                    </div>
+                                    <span class="compre_ping">总评</span>
+                                    <span class="compre_ping_num">第23名</span>
+
+
+
 
                                 </div>
 
@@ -178,7 +187,7 @@
                                                 <span class="rank_first_score">9.9</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">##第一名</span>
+                                                <span class="rank_first_rank">#第222名</span>
                                             </div>
 
                                         </div>
@@ -193,7 +202,7 @@
                                                 <span class="rank_first_score">9.9</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">##第一名</span>
+                                                <span class="rank_first_rank">#第222名</span>
                                             </div>
 
                                         </div>
@@ -208,7 +217,7 @@
                                                 <span class="rank_first_score">9.9</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">##第一名</span>
+                                                <span class="rank_first_rank">#第222名</span>
                                             </div>
 
                                         </div>
@@ -218,7 +227,7 @@
                             </div>
                             <div class="card_right_div_fourth" style="margin-top: 20px;">
 
-                                <div class="hyoka_rank">
+                                <div class="hyoka_rank_fourth">
                                     <div class="col-lg-3 col-md-3 .col-xs-12 .col-sm-12">
                                         <div class="rank_first">
                                             <div class="rank_first_line">
@@ -229,7 +238,7 @@
                                                 <span class="rank_first_score">9.9</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">##第一名</span>
+                                                <span class="rank_first_rank">#第222名</span>
                                             </div>
 
                                         </div>
@@ -244,7 +253,7 @@
                                                 <span class="rank_first_score">9.9</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">##第一名</span>
+                                                <span class="rank_first_rank">#第222名</span>
                                             </div>
 
                                         </div>
@@ -259,7 +268,7 @@
                                                 <span class="rank_first_score">9.9</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">##第一名</span>
+                                                <span class="rank_first_rank">#第222名</span>
                                             </div>
 
                                         </div>
@@ -274,7 +283,7 @@
                                                 <span class="rank_first_score">9.9</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">##第一名</span>
+                                                <span class="rank_first_rank">#第222名</span>
                                             </div>
 
                                         </div>
@@ -945,6 +954,9 @@ include "../footer.php";
             }
             temp2++;
         }, 30);
+        var comprenum=<?php echo 148; ?>;
+        var comprescore="rect(0px,"+comprenum+"px,50px,0px)";
+        $('.compre_score').css("clip",comprescore);
         //var temp3 = 0;
         //var timer3 = setInterval(function () {
         //    calculate(2, temp3, 2);

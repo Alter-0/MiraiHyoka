@@ -398,7 +398,7 @@
 .card_right_div_fourth {
     position: relative;
     width: 100%;
-    height: 300px;
+    height: 270px;
     /*background-color: #f09199;*/
     text-align: center;
     display: inline-block;
@@ -863,19 +863,64 @@
     height:80%;
     margin-top: 40px;
 }
+.hyoka_rank_fourth{
+    width:100%;
+    height:80%;
+}
 .compre_score{
     position: absolute;
     display: inline-block;
+    font-size: 30px;
+    left: 45%;
+    width: 210px;
+    height: 50px;
+    line-height: 50px;
 }
 .compre_scorenum{
     font-family: 幼圆, serif;
     color: #0a0000;
-    font-size: 22px;
-    line-height: 20px;
     font-weight: 800;
     position: absolute;
     display: inline-block;
+    font-size: 26px;
+    line-height: 50px;
+    left: 25%;
 }
+.compre_score_empty{
+    position: absolute;
+    display: inline-block;
+    font-size: 29.5px;
+    width: 210px;
+    height: 50px;
+    line-height: 50px;
+    left: 45%;
+}
+.compre_ping{
+    font-family: serif;
+    color: #0a0000;
+    font-size: 26px;
+    font-weight: 800;
+    position: absolute;
+    display: inline-block;
+    line-height: 50px;
+    left: 24%;
+    top: 45%;
+}
+.compre_ping_num{
+    width: 210px;
+    height: 50px;
+    font-family:serif;
+    color: #0a0000;
+    font-size: 26px;
+    font-weight: 800;
+    position: absolute;
+    display: inline-block;
+    line-height: 50px;
+    left: 45%;
+    top: 45%;
+    text-align: center;
+}
+
 .rank_first{
     width: 100%;
     overflow: hidden;
