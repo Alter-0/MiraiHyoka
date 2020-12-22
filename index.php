@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -22,14 +22,17 @@
     </style>
 </head>
 <body>
-<header>
-    <?php
-      $isLogin = 0;
-      session_start();
-      if(isset( $_SESSION['account'])){
-          $isLogin =1;
-      }
-    ?>
+
+<!--
+<?php
+$isLogin = 0;
+session_start();
+if(isset( $_SESSION['account'])){
+    $isLogin =1;
+    echo 1;
+}
+echo $_SESSION['account'];
+?>-->
  <header>
     <div style="padding: 0" class="container">
         <div class="dis">
@@ -147,8 +150,14 @@
             <?php
 
             if ($isLogin==1){
-                echo ">
-                         <a href=>
+                 echo " <div   id=\"headerpic\">
+                 <img src=\"image/headerpic.jpg\" alt=\"oih\">
+                 <ul>
+                     <li><a href=\"user-center/usercenter.php\">个人中心</a></li>
+                 <li><a href=\"user-center/usercenter.php\">我的评分</a></li>
+                     <li><a href=\"user-center/usercenter.php\">我的收藏</a></li>
+                     <li id=\"headerpic-last-li\">
+                         <a href=\"user/exitlogin.php\">
                     退出登录
                          </a>
                      </li>

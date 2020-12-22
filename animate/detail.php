@@ -773,7 +773,6 @@
                                         <div class="common_text">
                                             这集确实不错
                                         </div>
-
                                     </div>
                                 </li>
                                 <li class="episode_comment_item rr">
