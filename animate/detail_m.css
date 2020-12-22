@@ -347,7 +347,7 @@
     width: 27%;
     margin-right: 10%;
     text-align: left;
-   position: absolute;
+    position: absolute;
     top: 0;
     right: 0;
     background: rgba(255, 255, 255, 0.8);
@@ -739,6 +739,7 @@
 .diversity {
     margin-top: 20px;
     display: none;
+    height: 100%;
     -webkit-animation-name: fadeIn; /*动画名称*/
     -webkit-animation-duration: .5s; /*动画持续时间*/
     -webkit-animation-iteration-count: 1; /*动画次数*/
@@ -890,17 +891,38 @@
 
 
 /*分集讨论内容*/
+.episode_card_right{
+    height: 100%;
+    display: inline-block;
+    width: 51.4%;
+}
 .episode_card_right_content {
     padding: 25px;
     height: 100%;
-    width: 51.4%;
     margin-left: 10%;
     text-align: left;
-    float: left;
+
+    display: inline-block;
+
     background: rgba(255, 255, 255, 0.8);
     box-sizing: border-box;
     border-radius: 15px;
     box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+}
+
+/*分集页*/
+.episode_card_left{
+    padding: 25px;
+    height: 100%;
+    margin-left: 10%;
+    text-align: left;
+
+    background: rgba(255, 255, 255, 0.8);
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    width: 28.6%;
 }
 
 /*集数列表——开始*/
@@ -1037,6 +1059,9 @@
     border-bottom:1px solid #e5e9ef ;
     padding-bottom: 15px;
     margin-bottom: 15px;
+
+}
+.common_content_title_text{
     font-size: 20px;
     font-weight: 700;
     font-family: 幼圆, serif;

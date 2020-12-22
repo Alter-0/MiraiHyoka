@@ -168,14 +168,7 @@
             </div>
             <!-- 分集页-->
             <div class="diversity">
-                <div class="details_card_left">
-                    <!--                    <div class="card_left_title">详情</div>-->
-                    <!--                    <div class="card_left_text">-->
-                    <!--                        <p>详情一:详情内容</p><br>-->
-                    <!--                        <p>详情一:详情内容</p><br>-->
-                    <!--                        <p>详情一:详情内容</p><br>-->
-                    <!--                    </div>-->
-                </div>
+
                 <div class="episode_card_right">
                 <div class="episode_card_right_content">
                         <!--                        <div class="episode_card_right_title">-->
@@ -206,7 +199,13 @@
                         <!--                            </ul>-->
                         <!--                        </div>-->
                         <div class="episode_comment_title">
-                            本话的讨论
+                            <div class="common_content_title_text">
+                                本话的讨论
+                            </div>
+                            <div class="common_content_re">
+
+                            </div>
+
                         </div>
                         <div class="episode_comment_content">
                             <ul>
@@ -666,6 +665,14 @@
 
                     </div>
 
+                </div>
+                <div class="episode_card_left">
+                    <div class="card_left_title">详情</div>
+                    <div class="card_left_text">
+                        <p>详情一:详情内容</p><br>
+                        <p>详情一:详情内容</p><br>
+                        <p>详情一:详情内容</p><br>
+                    </div>
                 </div>
             </div>
             <!--长评-->
