@@ -156,7 +156,7 @@ function favorite()
     $user_id = $_SESSION['user_id'];
     $sql = "select * from favorites where user_id='$user_id' order by time desc ";
     $result = mysqli_query($conn, $sql) or die("数据查询失败" . $sql);
-    echo '<div class="timeline_cell">';
+//    echo '<div class="timeline_cell">';
     while ($row = mysqli_fetch_assoc($result)) {
         $animate_id = $row['animate_id'];
         $sql_animate = "select * from animate where animate_id='$animate_id'";
@@ -179,7 +179,7 @@ function favorite()
                         </div>
               </div>";
     }
-    echo "</div>";
+//    echo "</div>";
 }
 
 function message($choice)
@@ -279,17 +279,17 @@ include "../header.php"?>
             <div class="left">
                 <div class="timeline_tab_nav">
                     <ul>
-                        <li onclick="changeTab_timeline(this)" class="on">全部</li>
-                        <li onclick="changeTab_timeline(this)">评分</li>
+<!--                        <li onclick="changeTab_timeline(this)" class="on">全部</li>-->
+                        <li onclick="changeTab_timeline(this)" class="on">评分</li>
                         <li onclick="changeTab_timeline(this)">收藏</li>
                     </ul>
                 </div>
                 <div class="timeline_tab_de">
-                    <div class="timeline_all">
-                        <?php
-                        timeline(1);
-                        ?>
-                    </div>
+<!--                    <div class="timeline_all">-->
+<!--                        --><?php
+//                        timeline(1);
+//                        ?>
+<!--                    </div>-->
 
                     <div class="timeline_rating">
                         <?php
@@ -502,7 +502,7 @@ include "../header.php"?>
                             </div>
                             <div class="settings_right">
                                 <label>
-                                    <input type="text" value="我的姓名" name="name">
+                                    <input type="text" value="<?php echo $username;?>" name="name">
                                 </label>
                             </div>
                         </div>

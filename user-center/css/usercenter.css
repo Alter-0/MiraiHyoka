@@ -121,6 +121,10 @@ footer{
     /*padding: 20px;*/
 }
 
+.all .tab_de .right{
+    padding: 0;
+}
+
 .all .tab_de .time_line .left {
     display: grid;
     gap: 20px;
@@ -169,7 +173,7 @@ footer{
     border-radius: 5px;
 }
 
-.all .tab_de .time_line .left .timeline_tab_de .timeline_rating, .all .tab_de .time_line .left .timeline_tab_de .timeline_favorite {
+.all .tab_de .time_line .left .timeline_tab_de .timeline_favorite {
     display: none;
 }
 
