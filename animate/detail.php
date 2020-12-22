@@ -141,27 +141,27 @@
             <!--  评分页-->
             <div class="hyoka">
                 hello world
-<!--                <!--第一部分，评分概述-左   -->-->
-<!--                <div class="details_card_left hidden-sm hidden-xs">-->
-<!--                    <div class="card_left_title">详情</div>-->
-<!--                    <div class="card_left_text">-->
-<!--                        <p>详情一:详情内容</p><br>-->
-<!--                        <p>详情一:详情内容</p><br>-->
-<!--                        <p>详情一:详情内容</p><br>-->
-<!--                        <p>详情一:详情内容</p><br>-->
-<!--                        <p>详情一:详情内容</p><br>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <!--第一部分，评分概述-右   -->-->
-<!--                <div class="details_card_right">-->
-<!--                    <div class="card_right_div">-->
-<!--                        <span class="card_right_title">用户评分</span>-->
-<!--                        <div class="card_right_bg bg_3">-->
-<!--                            <div class="circle-right"></div>-->
-<!--                            <div class="text">6.5</div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <!--第一部分，评分概述-左   -->
+                <div class="details_card_left hidden-sm hidden-xs">
+                    <div class="card_left_title">详情</div>
+                    <div class="card_left_text">
+                        <p>详情一:详情内容</p><br>
+                        <p>详情一:详情内容</p><br>
+                        <p>详情一:详情内容</p><br>
+                        <p>详情一:详情内容</p><br>
+                        <p>详情一:详情内容</p><br>
+                    </div>
+                </div>
+                <!--第一部分，评分概述-右   -->
+                <div class="details_card_right">
+                    <div class="card_right_div">
+                        <span class="card_right_title">用户评分</span>
+                        <div class="card_right_bg bg_3">
+                            <div class="circle-right"></div>
+                            <div class="text">6.5</div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- 分集页-->
             <div class="diversity">
@@ -1030,6 +1030,7 @@ include "../footer.php";
         var postnum=0;
         $(window).scroll(function () {
             if ($(".short_review").css("display") != "none") {
+
                 var scrollTop = $(this).scrollTop();
                 var scrollHeight = $(document).height();
                 var windowHeight = $(this).height();
@@ -1058,6 +1059,10 @@ include "../footer.php";
 
                 }
             }
+        });
+        //短评页修改tab_de的height
+        $(window).scroll(function () {
+
         });
         //短评的提交
         $('.write_review_button').click(function () {
