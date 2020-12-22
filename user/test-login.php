@@ -9,7 +9,8 @@
 </head>
 <body>
 <?php
-echo date('Y'-'m'-'d');
+$time=date("Y-m-d");
+echo $a;
 
 ?>
 </body>
