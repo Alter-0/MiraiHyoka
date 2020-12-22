@@ -11,6 +11,9 @@
 </head>
 <?php session_start(); ?>
 <style>
+    .search{
+        margin-right: 40px;
+    }
     * {
         margin: 0;
         padding: 0;
