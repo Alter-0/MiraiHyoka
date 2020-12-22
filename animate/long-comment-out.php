@@ -45,13 +45,13 @@
                        <h1>某科学的超电磁炮</h1>
                        <div class="l-info">
                            <span>
-                               访问量
+                               访问量 100
                            </span>
                            <span>
-                               点赞
+                               点赞 99
                            </span>
                            <span>
-评论
+                            评论18
                            </span>
                        </div>
                        <div id="comment-content">
@@ -109,5 +109,6 @@
         </script>
     </div>
 </div>
+<?php  include "../footer.php";?>
 </body>
 </html>

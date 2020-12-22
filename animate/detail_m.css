@@ -7,9 +7,9 @@
 }
 
 .all {
-    min-height: 100%;
-    flex: 1;
-    margin-bottom: -165px;
+    /*min-height: 100%;*/
+    /*flex: 1;*/
+    /*margin-bottom: -165px;*/
 }
 
 .top {
@@ -21,7 +21,6 @@
     position: relative;
     top: -55px;
     overflow: hidden;
-
 }
 
 .top #bg {
@@ -301,7 +300,6 @@
 /*从这里开始，下面的css均为下半部分的css样式*/
 .detail_tab {
     width: 100%;
-    height: auto;
     position: relative;
     top: -30px;
 }
@@ -345,11 +343,13 @@
 /*从这里开始，下面的css为第一部分，评分页*/
 .details_card_left {
     padding: 25px;
-    height: 100%;
+    /*height: 100%;*/
     width: 27%;
     margin-right: 10%;
     text-align: left;
-    float: right;
+   position: absolute;
+    top: 0;
+    right: 0;
     background: rgba(255, 255, 255, 0.8);
     box-sizing: border-box;
     border-radius: 15px;
@@ -358,11 +358,13 @@
 
 .details_card_right {
     padding: 25px;
-    height: 100%;
+    /*height: 100%;*/
     width: 51.4%;
     margin-left: 10%;
     text-align: left;
-    float: left;
+    position: absolute;
+    top: 0;
+    left: 0;
     background: rgba(255, 255, 255, 0.8);
     box-sizing: border-box;
     border-radius: 15px;
@@ -381,6 +383,7 @@
     float: left;
     padding-top: 25px;
     line-height: 20px;
+    height: 20px;
     font-size: 15px;
 }
 
@@ -395,6 +398,7 @@
     position: relative;
     width: 250px;
     height: 300px;
+    background-color: #f09199;
     text-align: center;
     margin-left: 10%;
     display: inline-block;
@@ -756,7 +760,9 @@
 }
 
 .hyoka {
-    margin-top: 20px;
+    height: 800px;
+    position: relative;
+     margin-top: 20px;
     -webkit-animation-name: fadeIn; /*动画名称*/
     -webkit-animation-duration: .5s; /*动画持续时间*/
     -webkit-animation-iteration-count: 1; /*动画次数*/

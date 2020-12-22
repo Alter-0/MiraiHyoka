@@ -11,13 +11,11 @@
     <title><?php
         echo "番名"
         ?>_番剧点评_MiraiHyoka</title>
-
     <?php
     $score = 6.8;
     $score1 = 6.4;
     $score2 = 7.5;
     ?>
-
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
 </head>
@@ -119,8 +117,6 @@
                             echo '收藏';
                         }
                     }
-
-
                     ?>
 
                 </div>
@@ -141,65 +137,31 @@
             </ul>
         </div>
         <!-- 接下来是 -评分页-分集页-长评-短评的具体版块    -->
-        <div class="tab_de">
+        <div  class="tab_de">
             <!--  评分页-->
             <div class="hyoka">
-                <!--第一部分，评分概述-左   -->
-                <div class="details_card_left">
-                    <div class="card_left_title">详情</div>
-                    <div class="card_left_text">
-                        <p>详情一:详情内容</p><br>
-                        <p>详情一:详情内容</p><br>
-                        <p>详情一:详情内容</p><br>
-                        <p>详情一:详情内容</p><br>
-                        <p>详情一:详情内容</p><br>
-                    </div>
-                </div>
-                <!--第一部分，评分概述-右   -->
-                <div class="details_card_right">
-                    <div class="card_right_div">
-                        <span class="card_right_title">用户评分</span>
-                        <div class="card_right_bg bg_3">
-                            <div class="circle-right"></div>
-                            <div class="text">6.5</div>
-                        </div>
-                    </div>
-                    <div class="card_right_div">
-                        <span class="card_right_title">用户评分</span>
-                        <div class="card_right_bg bg_4">
-                            <div class="circle-right"></div>
-                            <div class="text">6.5</div>
-                        </div>
-                    </div>
-                    <div class="card_right_div">
-                        <span class="card_right_title">用户评分</span>
-                        <div class="card_right_bg bg_5">
-                            <div class="circle-right"></div>
-                            <div class="text">6.5</div>
-                        </div>
-                    </div>
-                    <div class="card_right_div">
-                        <span class="card_right_title">用户评分</span>
-                        <div class="card_right_bg bg_6">
-                            <div class="circle-right"></div>
-                            <div class="text">6.5</div>
-                        </div>
-                    </div>
-                    <div class="card_right_div">
-                        <span class="card_right_title">用户评分</span>
-                        <div class="card_right_bg bg_7">
-                            <div class="circle-right"></div>
-                            <div class="text">6.5</div>
-                        </div>
-                    </div>
-                    <div class="card_right_div">
-                        <span class="card_right_title">用户评分</span>
-                        <div class="card_right_bg bg_8">
-                            <div class="circle-right"></div>
-                            <div class="text">6.5</div>
-                        </div>
-                    </div>
-                </div>
+                hello world
+<!--                <!--第一部分，评分概述-左   -->-->
+<!--                <div class="details_card_left hidden-sm hidden-xs">-->
+<!--                    <div class="card_left_title">详情</div>-->
+<!--                    <div class="card_left_text">-->
+<!--                        <p>详情一:详情内容</p><br>-->
+<!--                        <p>详情一:详情内容</p><br>-->
+<!--                        <p>详情一:详情内容</p><br>-->
+<!--                        <p>详情一:详情内容</p><br>-->
+<!--                        <p>详情一:详情内容</p><br>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <!--第一部分，评分概述-右   -->-->
+<!--                <div class="details_card_right">-->
+<!--                    <div class="card_right_div">-->
+<!--                        <span class="card_right_title">用户评分</span>-->
+<!--                        <div class="card_right_bg bg_3">-->
+<!--                            <div class="circle-right"></div>-->
+<!--                            <div class="text">6.5</div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
             <!-- 分集页-->
             <div class="diversity">
@@ -212,8 +174,7 @@
                     <!--                    </div>-->
                 </div>
                 <div class="episode_card_right">
-
-                    <div class="episode_card_right_content">
+                <div class="episode_card_right_content">
                         <!--                        <div class="episode_card_right_title">-->
                         <!--                            正片-->
                         <!--                        </div>-->
@@ -287,16 +248,7 @@
             </div>
             <!--长评-->
             <div class="long_review">
-                <div class="details_card_left">
-                    <div class="card_left_title">详情</div>
-                    <div class="card_left_text">
-                        <p>详情一:详情内容</p><br>
-                        <p>详情一:详情内容</p><br>
-                        <p>详情一:详情内容</p><br>
-                        <p>详情一:详情内容</p><br>
-                        <p>详情一:详情内容</p><br>
-                    </div>
-                </div>
+
             </div>
             <!--短评-->
             <div class="short_review">
@@ -384,12 +336,12 @@
             </div>
         </div>
     </div>
-
-
 </div>
+
 <?php
 include "../footer.php";
 ?>
+
 </body>
 <!--这里是js-->
 <script>
