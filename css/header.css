@@ -196,6 +196,7 @@ margin-left: 20px;
     left: 0;
 }
 #search_text{
+    border-radius: 0;
     padding-left: 5px;
     font-size: 12px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

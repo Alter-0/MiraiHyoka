@@ -382,16 +382,27 @@
     color: #0a0000;
     font-size: 22px;
     line-height: 20px;
+    font-weight: 800;
 }
 
 .card_right_div {
     position: relative;
-    width: 50%;
-    height: 300px;
-    background-color: #f09199;
+    width: 80%;
+    height: 200px;
+    /*background-color: #f09199;*/
     text-align: center;
     margin-left: 10%;
     display: inline-block;
+    padding-top:10px;
+}
+.card_right_div_fourth {
+    position: relative;
+    width: 100%;
+    height: 270px;
+    /*background-color: #f09199;*/
+    text-align: center;
+    display: inline-block;
+    padding-top:10px;
 }
 
 .card_right_bg {
@@ -846,7 +857,110 @@
     left: 920px;
     top: 100px;
 }
+/*以下是评分排名部分*/
+.hyoka_rank{
+    width:100%;
+    height:80%;
+    margin-top: 40px;
+}
+.hyoka_rank_fourth{
+    width:100%;
+    height:80%;
+}
+.compre_score{
+    position: absolute;
+    display: inline-block;
+    font-size: 30px;
+    left: 45%;
+    width: 210px;
+    height: 50px;
+    line-height: 50px;
+}
+.compre_scorenum{
+    font-family: 幼圆, serif;
+    color: #0a0000;
+    font-weight: 800;
+    position: absolute;
+    display: inline-block;
+    font-size: 26px;
+    line-height: 50px;
+    left: 25%;
+}
+.compre_score_empty{
+    position: absolute;
+    display: inline-block;
+    font-size: 29.5px;
+    width: 210px;
+    height: 50px;
+    line-height: 50px;
+    left: 45%;
+}
+.compre_ping{
+    font-family: serif;
+    color: #0a0000;
+    font-size: 26px;
+    font-weight: 800;
+    position: absolute;
+    display: inline-block;
+    line-height: 50px;
+    left: 24%;
+    top: 45%;
+}
+.compre_ping_num{
+    width: 210px;
+    height: 50px;
+    font-family:serif;
+    color: #0a0000;
+    font-size: 26px;
+    font-weight: 800;
+    position: absolute;
+    display: inline-block;
+    line-height: 50px;
+    left: 45%;
+    top: 45%;
+    text-align: center;
+}
 
+.rank_first{
+    width: 100%;
+    overflow: hidden;
+    display: inline-block;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    border: 1px solid #e8e8e8;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.rank_first_line{
+    width: 90%;
+    margin-left: 5%;
+
+}
+.rank_first_img{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    overflow: hidden;
+    display: inline-block;
+}
+.rank_first_name{
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+.rank_first_score{
+    display: inline-block;
+    font-size: 25px;
+    font-weight: 600;
+}
+.rank_first_rank{
+    display: inline-block;
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+/*以上是评分排名部分*/
 /*动画效果*/
 @-webkit-keyframes fadeIn {
     0% {
@@ -884,7 +998,7 @@
 .episode_card_right{
     height: 100%;
     display: inline-block;
-    width: 66.0%;
+
 }
 .episode_card_right_content {
     padding: 25px;
@@ -901,7 +1015,6 @@
 .episode_card_left{
     padding: 25px;
     height: 100%;
-    margin-left: 10%;
     text-align: left;
 
     background: rgba(255, 255, 255, 0.8);
@@ -909,7 +1022,7 @@
     border-radius: 15px;
     box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
     display: inline-block;
-    width: 33.3%;
+
 }
 
 /*集数列表——开始*/
