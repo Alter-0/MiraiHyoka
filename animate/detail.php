@@ -1,3 +1,8 @@
+<?php
+session_start();
+$id = empty($_GET['id'])?1:$_GET['id'];
+$uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
+?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -777,7 +782,6 @@
                                                 12月22号 9:33
                                             </div>
                                         </div>
-
                                         <div class="common_text">
                                             这集确实不错
                                         </div>

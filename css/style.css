@@ -86,6 +86,7 @@
 }
 
 .rank-content>ul>li{
+    overflow: hidden;
     font-size: 18px;
     color: #73c9e5;
     text-align: left;
@@ -93,6 +94,9 @@
     line-height: 40px;
 }
 .rank-content>ul>li>a{
+    display: inline-block;
+    width: 80%;
+
     font-size: 18px;
     color: #73c9e5;
 }
@@ -261,6 +265,5 @@ a:hover{
     display: inline-block;
 }
 .word p{
-
     font-size: 12px;
 }
