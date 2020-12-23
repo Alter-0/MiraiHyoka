@@ -1,7 +1,7 @@
 <header>
 
 <!--  <?php
-session_start();
+
 $isLogin = 0;
 if(isset( $_SESSION['account'])){
     $isLogin =1;

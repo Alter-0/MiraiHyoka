@@ -154,7 +154,6 @@
             <input type="password" id="password"  name="password" value="" placeholder="密码">
             <input type="submit" id="submit" name="submit" value="登录">
             <button type="button" id="check" >验证</button>
-
             <button type="button" id="reg" >注册</button>
         </form>
         </div>
@@ -163,9 +162,7 @@
             <div id="captcha" style="position: relative"></div>
         </div>
         <script src="code.js"></script>
-
         <script>
-
             var i=0;
             $('#check').click(function () {
                 if (i==0){
@@ -207,7 +204,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
             if (password_verify($password, $row['password'])) {
-                $_SESSION["account"] = $username;
+                $_SESSION["UID"] =$row['user_id'];
+                $_SESSION["account"]=$username;
                 echo "<script language='javascript' type='text/javascript'>";
 
                 echo "alert('登陆成功');";
