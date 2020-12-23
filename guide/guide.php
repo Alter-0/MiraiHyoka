@@ -325,10 +325,10 @@
                     <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=0&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">全部</a></li>
                     <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=1&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">奇幻</a></li>
                     <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=2&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">剧情</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=4&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">喜剧</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=6&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">战争</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=7&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">爱情</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=8&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">动作</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=3&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">喜剧</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=4&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">战争</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=5&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">爱情</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=6&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">动作</a></li>
                     <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=7&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">科幻</a></li>
                     <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=8&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">犯罪</a></li>
                 </ul>
