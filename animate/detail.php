@@ -1,6 +1,6 @@
 <?php
 session_start();
-$id = empty($_GET['id'])?1:$_GET['id'];
+$id = empty($_GET['id'])?100001:$_GET['id'];
 $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
 ?>
 <!DOCTYPE html>
