@@ -3,11 +3,16 @@
 a{
     text-decoration: none;
     color: #000;
+    transition: all 0.3s ease;
 }
 a:visited{
     color: #000;
 }
 
+a:hover{
+    color: #00a6ff;
+    transition: all 0.3s ease;
+}
 body{
     background-image: url(../image/background.jpg);
     background-size: cover;
@@ -269,6 +274,11 @@ body{
 .content .right .filter-block ul .r_li_on a{
     color: #00a6ff;
 }
+.there_no_data{
+    margin-left: 40px;
+    margin-top: 40px;
+}
+
 
 /*content end*/
 img:hover{

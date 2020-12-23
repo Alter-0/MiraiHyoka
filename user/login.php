@@ -42,7 +42,6 @@
             border-radius: 15px;
             border-bottom-right-radius: 0;
             border-top-right-radius: 0;
-
             margin-left: 10%;
             margin-top: 20px;
             margin-bottom: 20px;
@@ -82,7 +81,7 @@
             transition: all .3s;
             line-height: 2;
             padding-left: 30px;
-            width: 40%;
+            width: 50%;
             height: 40px;
             margin-bottom: 24px;
             display: block;
@@ -94,7 +93,7 @@
             border-radius: 4px;
             transition: all .3s;
             line-height: 2;
-            width: 40%;
+            width: 50%;
             height: 40px;
             margin-bottom: 24px;
             display: block;
@@ -109,7 +108,7 @@
             line-height: 2;
             background-image: linear-gradient(120deg, #db3125 0%, #578bc3 100%);
             height: 40px;
-            width: 40%;
+            width: 50%;
             display: block;
             margin-top: 20px;
         }
@@ -124,6 +123,7 @@
             width: 20%;
             display:inline-block;
             margin-top: 30px;
+            margin-left: 10%;
         }
         #check{
             border: 1px solid #d9d9d9;
@@ -136,6 +136,7 @@
             width: 20%;
             display:inline-block;
             margin-top: 30px;
+
         }
     </style>
     <link rel="stylesheet" href="code.css">

@@ -218,7 +218,6 @@
 }(window))
 var j=0;
 jigsaw.init(document.getElementById('captcha'), function() {
-    //$(location).attr('href','reg.php');
         j=1;
         alert("验证成功!");
         $('#valid-code').css('display','none');

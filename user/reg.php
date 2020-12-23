@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/header.css">
     <script src="../js/jquery.js"></script>
+    <link rel="stylesheet" href="code.css">
 </head>
-<?php session_start(); ?>
 <style>
     .search{
         margin-right: 40px;
@@ -34,27 +34,38 @@
         height: auto;
         margin-bottom: 100px;
     }
-    .left {
+
+    .left{
         width: 40%;
         height: 500px;
         float: left;
         display: inline-block;
-        background: url("../image/user_background.jpg");
+        background: url("../image/user_background.jpg") ;
         background-size: cover;
         box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
         border-radius: 15px;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
         margin-left: 10%;
         margin-top: 20px;
         margin-bottom: 20px;
+
     }
-    .right {
+    .right{
         width: 40%;
         height: 500px;
         display: inline-block;
-        margin-left: 5%;
         margin-top: 20px;
         position: relative;
+        box-shadow: 7px 7px 17px rgba(52, 56, 66, 0.8);
+        border-radius: 15px;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        margin-right: 10%;
 
+    }
+    .total{
+        margin-left: 20%;
     }
 
     form {
@@ -77,7 +88,7 @@
         transition: all .3s;
         line-height: 2;
         padding-left: 30px;
-        width: 40%;
+        width: 50%;
         height: 40px;
         margin-bottom: 24px;
         display: block;
@@ -90,7 +101,7 @@
         border-radius: 4px;
         transition: all .3s;
         line-height: 2;
-        width: 40%;
+        width: 50%;
         height: 40px;
         margin-bottom: 24px;
         display: block;
@@ -104,7 +115,7 @@
         border-radius: 4px;
         transition: all .3s;
         line-height: 2;
-        width: 40%;
+        width: 50%;
         height: 40px;
         margin-bottom: 24px;
         display: block;
@@ -118,7 +129,7 @@
         border-radius: 4px;
         transition: all .3s;
         line-height: 2;
-        width: 40%;
+        width: 50%;
         height: 40px;
         margin-bottom: 24px;
         display: block;
@@ -126,19 +137,17 @@
         background: url("image/email.png") 3px 3px no-repeat;
     }
 
-    #checknum {
+    #check{
         border: 1px solid #d9d9d9;
         box-sizing: border-box;
         border-radius: 4px;
         transition: all .3s;
         line-height: 2;
-        width: 40%;
+        background-color: rgba(100, 149, 237, 0.7);
         height: 40px;
-        margin-bottom: 24px;
+        width: 50%;
         display: block;
-        padding-left: 30px;
-        background-color: transparent;
-        background: url("image/password.png") 3px 3px no-repeat;
+        margin-top: 20px;
     }
 
     #submit {
@@ -149,7 +158,7 @@
         line-height: 2;
         background-color: rgba(100, 149, 237, 0.7);
         height: 40px;
-        width: 40%;
+        width: 50%;
         display: block;
         margin-top: 20px;
     }
@@ -161,57 +170,69 @@
 <div class="content">
     <div class="left"></div>
     <div class="right">
+        <div class="total">
         <p>welcome</p>
-        <form name="reg" method="post" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <form name="reg" method="post" onsubmit="return veryfy()" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <input type="text" id="username" name="username" value="" placeholder="用户名">
             <input type="password" id="password" name="password" value="" placeholder="密码">
             <input type="password" id="repassword" name="repassword" value="" placeholder="确认密码">
             <input type="email" id="email" name="email" placeholder="邮箱">
-            <input type="text" id="checknum" name="checknum" value="" placeholder="请输入验证码">
-            <div class="check">
-                <img src="validcode.php" style="width:100px;height:25px;" id="code"/>
-                <a href="javascript:changeCode()">看不清，换一张</a>
-            </div>
+            <input type="button" id="check" name="check" value="验证">
             <input type="submit" id="submit" name="submit" value="提交">
         </form>
+        </div>
+        <div id="valid-code" style="display: none" class="container-code">
+            <div id="captcha" style="position: relative"></div>
+        </div>
+        <script src="code.js"></script>
+        <script>
+            var i=0;
+            $('#check').click(function () {
+                if (i==0){
+                    $('#valid-code').css('display','block');
+                    i++;
+                }else {
+                    $('#valid-code').css('display','none');
+                    i--;
+                }
+            })
+            function veryfy(){
+                if(j==1){
+                    return true;
+                }
+                if(j==0){
+                    alert("请先验证!");
+                    return false;
+                }
+            }
+        </script>
 
     </div>
 </div>
-
-<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript">
-
-    function changeCode() {
-        document.getElementById("code").src = "validcode.php?id=" + Math.random();
-    }
-</script>
-
 <?php
 include "../conn.php";
-$nameErr = "";
-$passErr = "";
-$emailErr = "";
-$passErr2 = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
     $repassword = $_POST["repassword"];
     $email = $_POST["email"];
-    $checknum = $_POST["checknum"];
-    if (!empty($_POST["checknum"] && ($_POST["checknum"] == $_SESSION["validcode"]))) {
-
         if (empty($username)) {
-            $nameErr = "用户名为空";
-            echo $nameErr;
+            echo "<script language='javascript' type='text/javascript'>";
+            echo "alert('用户名为空');";
+            echo "</script>";
         } elseif (empty($password)) {
-             $passErr="密码为空";
-            echo $passErr;
+            echo "<script language='javascript' type='text/javascript'>";
+            echo "alert('密码为空');";
+            echo "</script>";
+
         } elseif (empty($repassword)) {
-            $passErr2 = "密码为空";
-            echo $passErr2;
+            echo "<script language='javascript' type='text/javascript'>";
+            echo "alert('请确认密码');";
+            echo "</script>";
         } elseif (empty($email)) {
-            $emailErr = "邮箱为空";
-            echo $emailErr;
+            echo "<script language='javascript' type='text/javascript'>";
+            echo "alert('邮箱为空');";
+            echo "</script>";
         } else {
             $sql = "select * from user where account='$username'";
             $result = mysqli_query($conn, $sql) or die("查询失败，请检查SQL语法" . $sql);
@@ -223,7 +244,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "<script language='javascript' type='text/javascript'>";
                 echo "alert('两次密码不一致');";
                 echo "</script>";
-
             } else {
                 $pass_hash = password_hash($password, PASSWORD_DEFAULT);
                 $sql = "insert into user(account,password,email) values('$username','$pass_hash','$email')";
@@ -235,14 +255,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "alert('注册成功');";
                 echo "location.href='login.php';";
                 echo "</script>";
-
             }
         }
-    } else {
-        echo "<script language='javascript' type='text/javascript'>";
-        echo "alert('验证码不对，请重新输入');";
-        echo "</script>";
-    }
 }
 
 ?>

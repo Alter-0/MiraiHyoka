@@ -41,19 +41,11 @@
         </div>
         <!-- 数据库相关的内容 -->
         <?php
-//            页码
-            $num=130;
-            $pageall=ceil($num/16.0);
 
-            if(empty($_GET['pagenum'])){
-                $pagenum=1;
-            }else{
-                $pagenum=$_GET['pagenum'];
-            }
 //            取get
             $is_finished=array("全部",1,0);  //具体可能根据数据库进行修改
-            $time=array(2021-01-01,2020-01-01,2019-01-01,2018-01-01,2017-01-01,2016-01-01,2015-01-01,2014-01-01,2014-01-01);
-            $tags=array();
+            $time=array(2021,2020,2019,2018,2017,2016,2015,2014,2014);
+            $tags=array("全部","奇幻","剧情","喜剧","战争","爱情","动作","科幻","犯罪");
             $area=array("全部","日本","中国","欧美","其他");
             //这部分具体命名要根据数据库来定
             if(empty($_GET['is_finished'])){
@@ -78,23 +70,27 @@
             }
 
 //            连接数据库
-//            include  "../conn.php";
-            $conn = mysqli_connect("47.115.15.18", "wangyesheji", "e7BLUzfQv69wXybN", "web_design") or die("数据库连接失败");
-            mysqli_query($conn,'set names utf8');
+            include  "../conn.php";
+//            $conn = mysqli_connect("47.115.15.18", "wangyesheji", "e7BLUzfQv69wXybN", "web_design") or die("数据库连接失败");
+//            mysqli_query($conn,'set names utf8');
 
             $is_where=0;
             $cover=array();//这里存放封面
             $name=array();
             $rating=array();
+            $animate_id=array();
 
             $sql= "select * from animate";
+            $sql1="select count(animate_id) from animate";
 //            判断是否有完结条件
             if($get_is_finished!=0){
                 if($is_where==0){
                     $sql.=" where is_finish =$is_finished[$get_is_finished]";
+                    $sql1.=" where is_finish =$is_finished[$get_is_finished]";
                     $is_where=1;
                 }else{
                     $sql.=" and is_finish=$is_finished[$get_is_finished]";
+                    $sql1.=" and is_finish=$is_finished[$get_is_finished]";
                 }
             }
 
@@ -102,17 +98,21 @@
             if($get_time!=0){
                 if($is_where==0){
                     if($get_time!=8){
-                        $sql.=" where year(start_date) = $time[$get_time]" ;
+                        $sql.=" where year(start_time) = $time[$get_time]" ;
+                        $sql1.=" where year(start_time) = $time[$get_time]" ;
                     }else{
-                        $sql.=" where year(start_date)<$time[8]";
+                        $sql.=" where year(start_time)<$time[8]";
+                        $sql1.=" where year(start_time)<$time[8]";
                     }
                     $is_where=1;
                 }else{
                     if($get_time!=8){
                         $index_time=$get_time-1;
-                        $sql.=" and star_date > $time[$get_time] and star_date<$time[$index_time]";
+                        $sql.=" and year(start_time) = $time[$get_time] ";
+                        $sql1.=" and year(start_time) = $time[$get_time] ";
                     }else{
-                        $sql.=" and star_date<$time[8]";
+                        $sql.=" and year(start_time)<$time[8]";
+                        $sql1.=" and year(start_time)<$time[8]";
                     }
                 }
             }
@@ -121,9 +121,11 @@
             if($get_area!=0){
                 if($is_where==0){
                     $sql.=" where area like '%$area[$get_area]%'";
+                    $sql1.=" where area like '%$area[$get_area]%'";
                     $is_where=1;
                 }else{
                     $sql.=" and area like '%$area[$get_area]%'";
+                    $sql1.=" and area like '%$area[$get_area]%'";
                 }
             }
 
@@ -131,9 +133,11 @@
             if($get_tags!=0){
                 if($is_where==0){
                     $sql.=" where animate_id in (select animate.animate_id from animate,tags where animate.animate_id=tags.animate_id and tag like '%$tags[$get_tags]%')";
+                    $sql1.=" where animate_id in (select animate.animate_id from animate,tags where animate.animate_id=tags.animate_id and tag like '%$tags[$get_tags]%')";
                     $is_where=1;
                 }else{
                     $sql.=" and animate_id in (select animate.animate_id from animate,tags where animate.animate_id=tags.animate_id and tag like '%$tags[$get_tags]%')";
+                    $sql1.=" and animate_id in (select animate.animate_id from animate,tags where animate.animate_id=tags.animate_id and tag like '%$tags[$get_tags]%')";
                 }
             }
 //            判断排序
@@ -144,43 +148,72 @@
             }
 
             if($choosen==1){
-                $sql.=" order by rating ASC";
+                $sql.=" order by media_rating ASC";
             }
             if($choosen==2){
-                $sql.=" order by rating DESC";
+                $sql.=" order by media_rating DESC";
             }
             if($choosen==3){
-                $sql.=" order by start_date ASC";
+                $sql.=" order by start_time ASC";
             }
             if($choosen==4){
-                $sql.=" order by start_date DESC";
+                $sql.=" order by start_time DESC";
             }
-//            判断页码
-             $limit_start_num=($pagenum-1)*12;
-             $sql.=" limit $limit_start_num,16";
+//            判断有多少条内容
+            //            页码
+//          $num=mysqli_num_rows($result1);
+            $result1=mysqli_query($conn,$sql1) or die("sql语句执行失败".$sql1);
+            $row=mysqli_fetch_row($result1);
+            $num=$row[0];
+            $pageall=ceil($num/16.0);
+
+            if(empty($_GET['pagenum'])){
+                $pagenum=1;
+            }else{
+                $pagenum=$_GET['pagenum'];
+            }
+            //            判断页码
+            $limit_start_num=($pagenum-1)*16;
+            $sql.=" limit $limit_start_num,16";
 //            执行sql语句
-            $result=mysqli_query($conn,$sql) or die("sql语句执行失败".$sql);
-            if(mysqli_num_rows($result)){
-                while ($row=mysqli_fetch_assoc($result)){
+            $result2=mysqli_query($conn,$sql) or die("sql语句执行失败".$sql);
+            if(mysqli_num_rows($result2)){
+                while ($row=mysqli_fetch_assoc($result2)){
                     $cover[]=$row['cover'];
-                    $name[]=$row["name"];
-//                    $rating[]=$row["rating"];
+                    $name[]=$row["name_cn"];
+                    $rating[]=$row["media_rating"];
+                    $animate_id[]=$row['animate_id'];
                 }
             }
-
 //            数据库相关代码结束处
 
         ?>
         <div class="l-content">
             <ul>
              <?php
+                if($pagenum<$pageall){
 //                生成左边的封面和名字
-                for($i=0;$i<16;$i++){
-                    echo  "<li>";
-				    echo  "<div class='fengmian'><a href='' target='_blank'><img src='$cover[$i]' alt=''/></a><div>9.4</div></div>";
-				    echo  "<p><a href='' target='_blank'>$name[$i]</a></p>";
-			    	echo  "</li>";
-                 }
+                    for($i=0;$i<16;$i++){
+                        $this_rate=sprintf("%.1f",$rating[$i]);
+                        echo  "<li>";
+                        echo  "<div class='fengmian'><a href='../animate/detail.php?id=$animate_id[$i]' target='_blank'><img src='$cover[$i]' alt=''/></a><div> $this_rate</div></div>";
+                        echo  "<p><a href='../animate/detail.php?id=$animate_id[$i]' target='_blank'>$name[$i]</a></p>";
+                        echo  "</li>";
+                     }
+                }else{
+                    $last_num=$num-(($pageall-1)*16);
+                    if(!empty($rating)){
+                        for($i=0;$i<$last_num;$i++){
+                            $this_rate=sprintf("%.1f",$rating[$i]);
+                            echo  "<li>";
+                            echo  "<div class='fengmian'><a href='../animate/detail.php?id=$animate_id[$i]' target='_blank'><img src='$cover[$i]' alt=''/></a><div> $this_rate</div></div>";
+                            echo  "<p><a href='../animate/detail.php?id=$animate_id[$i]' target='_blank'>$name[$i]</a></p>";
+                            echo  "</li>";
+                        }
+                    }else{
+                            echo "<h2 class='there_no_data'>暂无数据</h2>";
+                    }
+                }
               ?>
             </ul>
         </div>
@@ -204,8 +237,8 @@
                             echo "<li><a href='?pagenum=$j&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>$j</a></li>";
                             }
                         }else if($pageall>6){
-                            if($pagenum<=6){
-                                for($j=1;$j<=7;$j++) {
+                            if($pagenum<6){
+                                for($j=1;$j<=6;$j++) {
                                     echo "<li><a href='?pagenum=$j&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>$j</a></li>";
                                 }
                                 echo "    ...    ";
@@ -214,7 +247,7 @@
                                  echo "<li><a href='?pagenum=1&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>1</a></li>";
                                  echo "    ...    ";
                                  for($j=1;$j<=($pageall-4);$j++){
-                                    $pagenum_now=($pagenum-3+$j);
+                                    $pagenum_now=(4+$j);
                                     echo "<li><a href='?pagenum=$pagenum_now&is_finished=$get_is_finished&time=$get_time&tags=$get_tags&area=$get_area&choosen=$choosen#content'>$pagenum_now</a></li>";
                                     }
                             }
@@ -290,14 +323,14 @@
                 <div class="filter-name">标签</div>
                 <ul>
                     <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=0&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">全部</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=1&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">标签</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=2&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">标签</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=3&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">标签</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=4&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">标签</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=5&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">标签</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=6&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">标签</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=7&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">标签</a></li>
-                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=8&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">标签</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=1&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">奇幻</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=2&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">剧情</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=3&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">喜剧</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=4&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">战争</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=5&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">爱情</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=6&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">动作</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=7&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">科幻</a></li>
+                    <li><a href="?is_finished=<?php echo "$get_is_finished"?>&time=<?php echo "$get_time"?>&tags=8&area=<?php echo "$get_area"?>&choosen=<?php echo $choosen?>">犯罪</a></li>
                 </ul>
             </div>
             <div class="filter-block">
@@ -355,12 +388,25 @@
         var pageall="<?php echo  $pageall ?>";
         pagenum=parseInt(pagenum);
         pageall=parseInt(pageall);
-        if(pagenum<=4){
-          var li= document.querySelector(".content .left .page li:nth-child(<?php echo ($pagenum+1); ?>)");
-        }else if(pagenum>4&&pagenum<(pageall-3)){
-          var li= document.querySelector(".content .left .page li:nth-child(5)");
-        }else if(pagenum>=((pageall-3))){
-          var li= document.querySelector(".content .left .page li:nth-last-child(<?php echo ($pageall-$pagenum+2); ?>)");
+
+        if(pageall<=9){
+            if(pageall<=6){
+               var li= document.querySelector(".content .left .page li:nth-child(<?php echo ($pagenum+1); ?>)");
+            }else if(pageall>6){
+                if(pagenum<6){
+                    var li= document.querySelector(".content .left .page li:nth-child(<?php echo ($pagenum+1); ?>)");
+                }else{
+                    var li= document.querySelector(".content .left .page li:nth-child(<?php echo ($pagenum-2); ?>)");
+                }
+            }
+        }else{
+            if(pagenum<=4){
+              var li= document.querySelector(".content .left .page li:nth-child(<?php echo ($pagenum+1); ?>)");
+            }else if(pagenum>4&&pagenum<(pageall-3)){
+              var li= document.querySelector(".content .left .page li:nth-child(5)");
+            }else if(pagenum>=((pageall-3))){
+              var li= document.querySelector(".content .left .page li:nth-last-child(<?php echo ($pageall-$pagenum+2); ?>)");
+            }
         }
         li.onclick=function(){
             return false;}
