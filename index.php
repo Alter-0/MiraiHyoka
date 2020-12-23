@@ -238,58 +238,56 @@ echo $_SESSION['account'];
    <div class="row rank">
        <div class="ranking col-lg-4 col-md-4 col-sm-12 col-xs-12">
            <div class="rank-content">
-               <h2>国产自拍</h2>
+               <h2>综合评分</h2>
                <ul>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <?php
+                      include "conn.php";
+                      include "static/dao.php";
+                      $sql = "select animate_id,name_cn,media_rating from animate order by media_rating desc limit 12;";
+                      $res = queryList($conn,$sql);
+                      foreach ($res as $item){
+                          $id = $item['animate_id'];
+                          $name = $item['name_cn'];
+                          $rates = floor($item['media_rating']*100)/100;
+                          echo "<li><a href=\"animate/detail.php?id=".$id."\">".$name."</a><span class=\"sorce\">".$rates."分</span></li>";
+                      }
+                   ?>
+
+<!--                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>-->
                </ul>
            </div>
        </div>
        <div class="ranking col-lg-4 col-md-4 col-sm-12 col-xs-12">
            <div class="rank-content">
-               <h2>日韩电影</h2>
+               <h2>最新排行</h2>
                <ul>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <?php
+                   $sql = "select animate_id,name_cn,media_rating from animate order by bangumi_rating desc limit 12;";
+                   $res = queryList($conn,$sql);
+                   foreach ($res as $item){
+                       $id = $item['animate_id'];
+                       $name = $item['name_cn'];
+                       $rates = floor($item['media_rating']*100)/100;
+                       echo "<li><a href=\"animate/detail.php?id=".$id."\">".$name."</a><span class=\"sorce\">".$rates."分</span></li>";
+                   }
+                   ?>
                </ul>
            </div>
        </div>
        <div class="ranking col-lg-4 col-md-4 col-sm-12 col-xs-12">
            <div class="rank-content">
-               <h2>欧美精品</h2>
+               <h2>权威评分</h2>
                <ul>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
-                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>
+                   <?php
+                   $sql = "select animate_id,name_cn,anikore_rating from animate order by anikore_rating desc limit 12;";
+                   $res = queryList($conn,$sql);
+                   foreach ($res as $item){
+                       $id = $item['animate_id'];
+                       $name = $item['name_cn'];
+                       $rates = floor($item['anikore_rating']*100)/100;
+                       echo "<li><a href=\"animate/detail.php?id=".$id."\">".$name."</a><span class=\"sorce\">".$rates."分</span></li>";
+                   }
+                   ?>
                </ul>
            </div>
        </div>

@@ -1,3 +1,8 @@
+<?php
+session_start();
+$id = empty($_GET['id'])?1:$_GET['id'];
+$uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
+?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -151,25 +156,23 @@
                                 <span class="card_right_title">综合媒体评分</span>
                                 <div class="hyoka_rank" style="position: relative">
 
-                                        <span class="compre_scorenum">7.9</span>
-                                        <div class="compre_score_empty">
-                                            <i class='icon-star-empty'> <i></i> </i>
-                                            <i class='icon-star-empty'> <i></i> </i>
-                                            <i class='icon-star-empty'> <i></i> </i>
-                                            <i class='icon-star-empty'> <i></i> </i>
-                                            <i class='icon-star-empty'> <i></i> </i>
-                                        </div>
-                                        <div class="compre_score">
-                                            <i class='icon-star-full'> <i></i> </i>
-                                            <i class='icon-star-full'> <i></i> </i>
-                                            <i class='icon-star-full'> <i></i> </i>
-                                            <i class='icon-star-full'> <i></i> </i>
-                                            <i class='icon-star-full'> <i></i> </i>
-                                        </div>
+                                    <span class="compre_scorenum">7.9</span>
+                                    <div class="compre_score_empty">
+                                        <i class='icon-star-empty'> <i></i> </i>
+                                        <i class='icon-star-empty'> <i></i> </i>
+                                        <i class='icon-star-empty'> <i></i> </i>
+                                        <i class='icon-star-empty'> <i></i> </i>
+                                        <i class='icon-star-empty'> <i></i> </i>
+                                    </div>
+                                    <div class="compre_score">
+                                        <i class='icon-star-full'> <i></i> </i>
+                                        <i class='icon-star-full'> <i></i> </i>
+                                        <i class='icon-star-full'> <i></i> </i>
+                                        <i class='icon-star-full'> <i></i> </i>
+                                        <i class='icon-star-full'> <i></i> </i>
+                                    </div>
                                     <span class="compre_ping">总评</span>
                                     <span class="compre_ping_num">第23名</span>
-
-
 
 
                                 </div>
@@ -779,7 +782,6 @@
                                                 12月22号 9:33
                                             </div>
                                         </div>
-
                                         <div class="common_text">
                                             这集确实不错
                                         </div>
@@ -885,7 +887,8 @@
                                 <!--点赞-->
                                 <div class="li_third_icon">
                                     <div>
-                                        <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i><span>5</span>
+                                        <i class="icon-praise"
+                                           style="font-size: 14px;margin-right: 6px;"></i><span>5</span>
                                     </div>
                                     <div>
                                         <i class="icon-criticism"
@@ -926,28 +929,38 @@
                     <!--短评具体内容-->
                     <ul class="short_review_write_ul">
                         <?php
-                        $pic_url = "//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp";
-                        $name = "cccccc";
-                        $time = "2020/12/21";
-                        $review = "那天发发图肥牛饭";
-                        $short_score = array(6, 4, 8, 10, 4, 8);
-                        for ($i = 0; $i < 5; $i++) {
+                        $conn = mysqli_connect("47.115.15.18",
+                            "wangyesheji", "e7BLUzfQv69wXybN",
+                            "miraihyoka") or die("数据库连接失败");
+                        mysqli_query($conn, 'set names utf8');
+                        $animate_id=100001;
+                        $sql = "select * from evaluation,user,animate where evaluation.user_id=user.user_id and animate_id=$animate_id and is_long=0 limit 0,5";
+                        $result = mysqli_query($conn, $sql) or die("数据库查询评论失败".$sql);
+
+                        //                        $pic_url = "//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp";
+                        //                        $name = "cccccc";
+                        //                        $time = "2020/12/21";
+                        //                        $review = "那天发发图肥牛饭";
+                        //                        $short_score = array(6, 4, 8, 10, 4, 8);
+                        //for ($i = 0; $i < 5; $i++)
+                        while ($row = mysqli_fetch_assoc($result)) {     //$row['time']= strtotime($row['time']);
+                            $row['time'] = substr($row['time'], 0, 16);
                             echo " <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
-                                . " <img alt='a' src='//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp' lazy='loaded'>"
-                                . "  </div> </div> <div class='short_review_name'>" . $name
+                                . " <img alt='无' src='" . "../image/headerpic.jpg" . "'>"
+                                . "  </div> </div> <div class='short_review_name'>" . $row['username']
                                 . " </div> <div class='short_review_star'> <span class='review_star'>";
                             for ($j = 0; $j < 5; $j++) {
 
-                                if ($short_score[$i] > 0) {
+                                if ($row['score'] > 0) {
                                     echo " <i class='icon-star-full'> <i></i> </i>";
-                                    $short_score[$i] = $short_score[$i] - 2;
+                                    $row['score'] = $row['score'] - 2;
                                 } else {
                                     echo "<i class='icon-star-empty'> <i></i> </i>";
                                 }
 
                             }
-                            echo "</span></div> <div class='short_review_time'>" . $time
-                                . "</div> </div> <div class='li_second_review'> <div class='second_review'>" . $review
+                            echo "</span></div> <div class='short_review_time'>" . $row['time']
+                                . "</div> </div> <div class='li_second_review'> <div class='second_review'>" . $row['content']
                                 . "</div> </div> <div class='li_third_icon'> <div> <i class='icon-praise' style='font-size: 14px;margin-right: 6px;'></i><span></span></div>"
                                 . "<div> <i class='icon-criticism' style='font-size: 14px;margin-right: 6px;'></i><span></span></div> </div> </li>";
                         }
@@ -1027,9 +1040,9 @@ include "../footer.php";
             }
             temp2++;
         }, 30);
-        var comprenum=<?php echo 148; ?>;
-        var comprescore="rect(0px,"+comprenum+"px,50px,0px)";
-        $('.compre_score').css("clip",comprescore);
+        var comprenum =<?php echo 148; ?>;
+        var comprescore = "rect(0px," + comprenum + "px,50px,0px)";
+        $('.compre_score').css("clip", comprescore);
         //var temp3 = 0;
         //var timer3 = setInterval(function () {
         //    calculate(2, temp3, 2);
@@ -1219,6 +1232,34 @@ include "../footer.php";
             }
 
         });
+
+        //后加入的点赞的互动
+        function praise(e) {
+            if ($(e.target).parent().parent().find("div:nth-child(2)").find("i").attr("class") == "icon-criticism_full") {
+                return;
+            }
+            if ($(e.target).attr("class") == "icon-praise") {
+                $(e.target).attr("class", "icon-praise_full");
+                $(e.target).siblings().css("color", "#1189ef");
+                var n = parseInt($(e.target).siblings().html());
+                if ($(e.target).siblings().html() == "") {
+                    n = 0;
+                }
+                $(e.target).siblings().html((n + 1));
+            } else {
+                $(e.target).attr("class", "icon-praise");
+                $(e.target).siblings().css("color", "#99a2aa");
+                var n = parseInt($(e.target).siblings().html());
+                if (n == 1) {
+                    $(e.target).siblings().html("");
+                } else {
+                    $(e.target).siblings().html((n - 1));
+                }
+
+            }
+
+        }
+
         //点赞按钮的互动
         $('.icon-praise').click(function (e) {
             if ($(e.target).parent().parent().find("div:nth-child(2)").find("i").attr("class") == "icon-criticism_full") {
@@ -1270,30 +1311,44 @@ include "../footer.php";
             }
         });
         //对滚轮的监听，是否申请新的评论
+        var postnum = 5;//请求的次数，决定了申请什么位置的评论
         $(window).scroll(function () {
             if ($(".short_review").css("display") != "none") {
                 var scrollTop = $(this).scrollTop();
                 var scrollHeight = $(document).height();
                 var windowHeight = $(this).height();
-                if ((scrollHeight - (scrollTop + windowHeight)) < 10) {
+                if ((scrollHeight - (scrollTop + windowHeight)) <= 0.4) {
                     $.post("short_review_load.php",
-                        {objective: "reviewload"},
+                        {objective: "reviewload", "postnum": postnum},
                         function (data) {
+                            postnum = postnum + 5;
                             data = eval('(' + data + ')');
-                            for (i = 0; i < 5; i++) {
+                            for (i = 0; i < data.num; i++) {
                                 var name = data.name[i];
                                 var time = data.time[i];
                                 var review = data.review[i];
-                                $(".short_review_middle .short_review_write_ul").append(" <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
-                                    + " <img alt='a' src='//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp' lazy='loaded'>"
+                                var score = data.score[i];
+
+                                var revtext1 = " <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
+                                    + " <img alt='a' src='" + "../image/headerpic.jpg" + "' lazy='loaded'>"
                                     + "  </div> </div> <div class='short_review_name'>" + name
-                                    + " </div> <div class='short_review_star'> <span class='review_star'>"
-                                    + " <i class='icon-star-full'> <i></i> </i> <i class='icon-star-full'> <i></i> </i> <i class='icon-star-full'>"
-                                    + "<i></i> </i> <i class='icon-star-full'> <i></i> </i> <i class='icon-star-empty'> <i></i> </i> </span>"
+                                    + " </div> <div class='short_review_star'> <span class='review_star'>";
+                                for ($j = 0; $j < 5; $j++) {
+
+                                    if (score > 0) {
+                                        var revtext1 = revtext1 + " <i class='icon-star-full'> <i></i> </i>";
+                                        score = score - 2;
+                                    } else {
+                                        var revtext1 = revtext1 + " <i class='icon-star-empty'> <i></i> </i>";
+                                    }
+
+                                }
+                                var revtext3 = revtext1 + "</span>"
                                     + "</div> <div class='short_review_time'>" + time
                                     + "</div> </div> <div class='li_second_review'> <div class='second_review'>" + review
-                                    + "</div> </div> <div class='li_third_icon'> <div> <i class='icon-praise' style='font-size: 14px;margin-right: 6px;'></i><span>5</span></div>"
-                                    + "<div> <i class='icon-criticism' style='font-size: 14px;margin-right: 6px;'></i><span>1</span></div> </div> </li>");
+                                    + "</div> </div> <div class='li_third_icon'> <div> <i class='icon-praise' style='font-size: 14px;margin-right: 6px;' onclick='praise(this)'></i><span></span></div>"
+                                    + "<div> <i class='icon-criticism' style='font-size: 14px;margin-right: 6px;'></i><span></span></div> </div> </li>";
+                                $(".short_review_middle .short_review_write_ul").append(revtext3);
                             }
                         });
 
@@ -1317,11 +1372,12 @@ include "../footer.php";
                 }
             }
             $.post("short_review_load.php",
-                {objective: "reviewinsert", score: index, shortreview: text},
+                {objective: "reviewinsert", score: index, shortreview: text, userid: 100009},
                 function (data) {
-                    var name = "vcscsdvdv";
+                    var name = data.name;
                     var time = "刚刚";
                     var review = text;
+                    var photo = data.photo;
                     data = eval('(' + data + ')');
                     if (data.makesure == 1) {
                         $(".write_review").css("display", "none");
@@ -1330,7 +1386,7 @@ include "../footer.php";
                             $('.insert_success').css("display", "none");
                         }, 500);
                         $(".short_review_middle .short_review_write_ul").prepend(" <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
-                            + " <img alt='a' src='//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp' lazy='loaded'>"
+                            + " <img alt='a' src='" + photo + "' lazy='loaded'>"
                             + "  </div> </div> <div class='short_review_name'>" + name
                             + " </div> <div class='short_review_star'> <span class='review_star'>"
                             + " <i class='icon-star-full'> <i></i> </i> <i class='icon-star-full'> <i></i> </i> <i class='icon-star-full'>"
