@@ -933,8 +933,9 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                             "wangyesheji", "e7BLUzfQv69wXybN",
                             "miraihyoka") or die("数据库连接失败");
                         mysqli_query($conn, 'set names utf8');
-                        $sql = "select * from evaluation,user where evaluation.user_id=user.user_id and animate_id=100001 and is_long=0 limit 0,5";
-                        $result = mysqli_query($conn, $sql) or die("数据库查询评论失败");
+                        $animate_id=100001;
+                        $sql = "select * from evaluation,user,animate where evaluation.user_id=user.user_id and animate_id=$animate_id and is_long=0 limit 0,5";
+                        $result = mysqli_query($conn, $sql) or die("数据库查询评论失败".$sql);
 
                         //                        $pic_url = "//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp";
                         //                        $name = "cccccc";
