@@ -73,6 +73,7 @@
 .top .nei #fj {
     margin: 25px 0px;
     width: 255px;
+    height: 336px;
     border: 5px solid #ffffff;
     border-radius: 5px;
     float: left;
@@ -361,7 +362,20 @@
     border-radius: 15px;
     box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
 }
-
+.details_card_right_cv {
+    padding: 25px 0;
+    width: 100%;
+    text-align: left;
+    box-sizing: border-box;
+    border-radius: 15px;
+}
+.cv_border{
+    border-radius: 15px;
+    border: 1px solid #e8e8e8;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding-top: 10px;
+}
 .card_left_title {
     font-family: 幼圆, serif;
     font-size: 20px;
@@ -372,7 +386,6 @@
 .card_left_text {
     font-family: 幼圆, serif;
     text-align: left;
-    padding-top: 25px;
     line-height: 20px;
     font-size: 15px;
 }
@@ -398,7 +411,16 @@
 .card_right_div_fourth {
     position: relative;
     width: 100%;
-    height: 270px;
+    height: 200px;
+    /*background-color: #f09199;*/
+    text-align: center;
+    display: inline-block;
+    padding-top:10px;
+}
+.card_right_div_fifth {
+    position: relative;
+    width: 100%;
+    height: auto;
     /*background-color: #f09199;*/
     text-align: center;
     display: inline-block;

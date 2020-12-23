@@ -13,15 +13,24 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
     <link href="font/style.css" rel="stylesheet"/>
     <link href="detail_m.css" rel="stylesheet"/>
     <meta charset="UTF-8" name="referrer" content="never">
+   <?php
+   include "../conn.php";
+   $sql="select *from animate where animate_id=$id";
+   $result = mysqli_query($conn, $sql) or die("数据库查询评论失败".$sql);
+   if(mysqli_num_rows($result)<=0)
+   {
+       echo "<script>alert('番剧信息不存在');</script>";
+   }
+
+   $row=mysqli_fetch_assoc($result);
+   $animate_name=$row['name_cn'];
+   $animate_fj=$row['cover'];
+    ?>
     <title>
         <?php
-        echo "番名"
+        echo $animate_name
         ?>_番剧点评_MiraiHyoka</title>
-    <?php
-    $score = 6.8;
-    $score1 = 6.4;
-    $score2 = 7.5;
-    ?>
+
     <!--    头和脚-->
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
@@ -38,11 +47,11 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                 <!--  fgimg放番剧展示图 -->
                 <div class="fjimg">
                     <img id="fj"
-                         src="http://i0.hdslb.com/bfs/bangumi/image/0212baa8898d0c819c7fb84015e95b8fca621435.png">
+                         src="<?php echo $animate_fj;?>">
                 </div>
                 <!--  title放番剧名和标签 -->
                 <div class="title">
-                    <span class="title_name"><?php echo "阿松" ?></span>
+                    <span class="title_name"><?php echo $animate_name; ?></span>
                     <!--  title放番剧标签  -->
                     <span class="title_tags">
                         <span class='title_tag'>日常番</span>
@@ -155,8 +164,40 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                             <div class="card_right_div">
                                 <span class="card_right_title">综合媒体评分</span>
                                 <div class="hyoka_rank" style="position: relative">
+                                  <?php
+                                  include "../conn.php";
+                                  $sql="select *from animate where animate_id=$id";
+                                  $result = mysqli_query($conn, $sql) or die("数据库查询评论失败".$sql);
+                                  if(mysqli_num_rows($result)<=0)
+                                  {
+                                      echo "<script>alert('番剧信息不存在');</script>";
+                                  }
 
-                                    <span class="compre_scorenum">7.9</span>
+                                  $row=mysqli_fetch_assoc($result);
+                                  $score2=$row['media_rating'];//综合媒体评分
+                                  $score2=round($score2,1);
+                                  $score =$row['user_rating'];//综合用户评分
+                                  if($score==null){
+                                      $score=0;
+                                  }
+                                  else{
+                                      $score=round($score,1);
+                                  }
+                                  $score3=$score2*14.5;
+                                  if(0<$score2&&$score2<=2)
+                                  {}
+                                  else if(2<$score2&&$score2<=4)
+                                  { $score3=$score3+16.3;}
+                                  else if(4<$score2&&$score2<=6)
+                                  { $score3=$score3+32.6;}
+                                  else if(6<$score2&&$score2<=8)
+                                  { $score3=$score3+48.9;}
+                                  else if(8<$score2&&$score2<=10)
+                                  { $score3=$score3+65;}
+
+
+                                  ?>
+                                    <span class="compre_scorenum"><?php echo $row['media_rating'] ?></span>
                                     <div class="compre_score_empty">
                                         <i class='icon-star-empty'> <i></i> </i>
                                         <i class='icon-star-empty'> <i></i> </i>
@@ -172,7 +213,7 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                         <i class='icon-star-full'> <i></i> </i>
                                     </div>
                                     <span class="compre_ping">总评</span>
-                                    <span class="compre_ping_num">第23名</span>
+                                    <span class="compre_ping_num">第<?php echo $row['media_rank'] ?>名</span>
 
 
                                 </div>
@@ -184,28 +225,13 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                         <div class="rank_first">
                                             <div class="rank_first_line">
                                                 <img src="img/555.webp" class="rank_first_img">
-                                                <span class="rank_first_name">第一个网站</span>
+                                                <span class="rank_first_name">mal</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_score">9.9</span>
+                                                <span class="rank_first_score"><?php echo $row['mal_rating'] ?></span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第222名</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 .col-xs-12 .col-sm-12">
-                                        <div class="rank_first">
-                                            <div class="rank_first_line">
-                                                <img src="img/555.webp" class="rank_first_img">
-                                                <span class="rank_first_name">第一个网站</span>
-                                            </div>
-                                            <div class="rank_first_line">
-                                                <span class="rank_first_score">9.9</span>
-                                            </div>
-                                            <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第222名</span>
+                                                <span class="rank_first_rank">#第<?php echo $row['mal_rank'] ?>名</span>
                                             </div>
 
                                         </div>
@@ -214,13 +240,28 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                         <div class="rank_first">
                                             <div class="rank_first_line">
                                                 <img src="img/555.webp" class="rank_first_img">
-                                                <span class="rank_first_name">第一个网站</span>
+                                                <span class="rank_first_name">anidb</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_score">9.9</span>
+                                                <span class="rank_first_score"><?php echo $row['anidb_rating'] ?></span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第222名</span>
+                                                <span class="rank_first_rank">#第<?php echo $row['anidb_rank'] ?>名</span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 .col-xs-12 .col-sm-12">
+                                        <div class="rank_first">
+                                            <div class="rank_first_line">
+                                                <img src="img/555.webp" class="rank_first_img">
+                                                <span class="rank_first_name">ann</span>
+                                            </div>
+                                            <div class="rank_first_line">
+                                                <span class="rank_first_score"><?php echo $row['ann_rating'] ?></span>
+                                            </div>
+                                            <div class="rank_first_line">
+                                                <span class="rank_first_rank">#第<?php echo $row['ann_rank'] ?>名</span>
                                             </div>
 
                                         </div>
@@ -235,28 +276,13 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                         <div class="rank_first">
                                             <div class="rank_first_line">
                                                 <img src="img/555.webp" class="rank_first_img">
-                                                <span class="rank_first_name">第一个网站</span>
+                                                <span class="rank_first_name">anikore</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_score">9.9</span>
+                                                <span class="rank_first_score"><?php echo $row['ann_rating'] ?></span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第222名</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-3 .col-xs-12 .col-sm-12">
-                                        <div class="rank_first">
-                                            <div class="rank_first_line">
-                                                <img src="img/555.webp" class="rank_first_img">
-                                                <span class="rank_first_name">第一个网站</span>
-                                            </div>
-                                            <div class="rank_first_line">
-                                                <span class="rank_first_score">9.9</span>
-                                            </div>
-                                            <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第222名</span>
+                                                <span class="rank_first_rank">#第<?php echo $row['anikore_rank'] ?>名</span>
                                             </div>
 
                                         </div>
@@ -265,13 +291,13 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                         <div class="rank_first">
                                             <div class="rank_first_line">
                                                 <img src="img/555.webp" class="rank_first_img">
-                                                <span class="rank_first_name">第一个网站</span>
+                                                <span class="rank_first_name">bangumi</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_score">9.9</span>
+                                                <span class="rank_first_score"><?php echo $row['bangumi_rating'] ?></span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第222名</span>
+                                                <span class="rank_first_rank">#第<?php echo $row['bangumi_rank'] ?>名</span>
                                             </div>
 
                                         </div>
@@ -280,13 +306,28 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                         <div class="rank_first">
                                             <div class="rank_first_line">
                                                 <img src="img/555.webp" class="rank_first_img">
-                                                <span class="rank_first_name">第一个网站</span>
+                                                <span class="rank_first_name">imdb</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_score">9.9</span>
+                                                <span class="rank_first_score"><?php echo $row['imdb_rating'] ?></span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第222名</span>
+                                                <span class="rank_first_rank">#第<?php echo $row['imdb_rank'] ?>名</span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 .col-xs-12 .col-sm-12">
+                                        <div class="rank_first">
+                                            <div class="rank_first_line">
+                                                <img src="img/555.webp" class="rank_first_img">
+                                                <span class="rank_first_name">douban</span>
+                                            </div>
+                                            <div class="rank_first_line">
+                                                <span class="rank_first_score"><?php echo $row['douban_rating'] ?></span>
+                                            </div>
+                                            <div class="rank_first_line">
+                                                <span class="rank_first_rank">#第<?php echo $row['douban_rank'] ?>名</span>
                                             </div>
 
                                         </div>
@@ -294,6 +335,30 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                 </div>
 
                             </div>
+                            <div></div>
+                            <div class="card_right_div_fifth" style="border-top: 1px solid #e5e9ef;padding-top: 30px;">
+                                <div class="details_card_right_cv" style="padding-left: 10px;">
+                                    <div class="card_left_title" style="text-align: center">CV表</div>
+
+                                        <?php
+                                        $cv=explode("\n",$row['cv']);
+                                        foreach($cv as $cvname)
+                                        {
+                                            $c=explode(":",$cvname);
+                                            if($c[0]=="")
+                                            {break;}
+                                        echo "<div class='col-lg-4 col-md-4 .col-xs-12 .col-sm-12'><div class='cv_border'><p>";
+                                        echo  "角色："."$c[0]"."<br>";
+                                        echo  "声优："."$c[1]"."<br>";
+                                        echo "</div></p></div>";
+
+                                        }
+
+                                         ?>
+
+                                </div>
+                            </div>
+
 
 
                         </div>
@@ -301,28 +366,20 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                     <!--    第一部分，评分概述-右-->
                     <div class=" col-lg-3 col-md-3 hidden-sm hidden-xs">
                         <div class="details_card_right" style="padding-left: 10px;">
-                            <div class="card_left_title">详情</div>
+                            <div class="card_left_title">信息</div>
                             <div class="card_left_text">
-                                <p>详情一:详情内容</p><br>
-                                <p>详情一:详情内容</p><br>
-                                <p>详情一:详情内容</p><br>
-                                <p>详情一:详情内容</p><br>
-                                <p>详情一:详情内容</p><br>
+                            <?php
+                                      echo nl2br($row['info']);
+                            ?>
+<!--                                <p>详情一:详情内容</p><br>-->
+<!--                                <p>详情一:详情内容</p><br>-->
+<!--                                <p>详情一:详情内容</p><br>-->
+<!--                                <p>详情一:详情内容</p><br>-->
+<!--                                <p>详情一:详情内容</p><br>-->
                             </div>
                         </div>
                     </div>
-                    <div class=" col-lg-3 col-md-3 hidden-sm hidden-xs" style="margin-top: 20px;">
-                        <div class="details_card_right" style="padding-left: 10px;">
-                            <div class="card_left_title">详情</div>
-                            <div class="card_left_text">
-                                <p>详情一:详情内容</p><br>
-                                <p>详情一:详情内容</p><br>
-                                <p>详情一:详情内容</p><br>
-                                <p>详情一:详情内容</p><br>
-                                <p>详情一:详情内容</p><br>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
             <!-- 分集页-->
@@ -933,8 +990,7 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                             "wangyesheji", "e7BLUzfQv69wXybN",
                             "miraihyoka") or die("数据库连接失败");
                         mysqli_query($conn, 'set names utf8');
-                        $animate_id=100001;
-                        $sql = "select * from evaluation,user where evaluation.user_id=user.user_id and animate_id=$animate_id and is_long=0 limit 0,5";
+                        $sql = "select * from evaluation,user where evaluation.user_id=user.user_id and animate_id=$id and is_long=0 limit 0,5";
                         $result = mysqli_query($conn, $sql) or die("数据库查询评论失败".$sql);
 
                         //                        $pic_url = "//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp";
@@ -1040,7 +1096,7 @@ include "../footer.php";
             }
             temp2++;
         }, 30);
-        var comprenum =<?php echo 148; ?>;
+        var comprenum =<?php echo $score3; ?>;
         var comprescore = "rect(0px," + comprenum + "px,50px,0px)";
         $('.compre_score').css("clip", comprescore);
         //var temp3 = 0;
@@ -1317,9 +1373,9 @@ include "../footer.php";
                 var scrollTop = $(this).scrollTop();
                 var scrollHeight = $(document).height();
                 var windowHeight = $(this).height();
-                if ((scrollHeight - (scrollTop + windowHeight)) <= 0.4) {
+                if ((scrollHeight - (scrollTop + windowHeight)) <= 1) {
                     $.post("short_review_load.php",
-                        {objective: "reviewload", "postnum": postnum},
+                        {objective: "reviewload", "postnum": postnum,"id":<?php echo $id ?>},
                         function (data) {
                             postnum = postnum + 5;
                             data = eval('(' + data + ')');
@@ -1328,9 +1384,10 @@ include "../footer.php";
                                 var time = data.time[i];
                                 var review = data.review[i];
                                 var score = data.score[i];
+                                var photo = data.photo[i];
 
                                 var revtext1 = " <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
-                                    + " <img alt='a' src='" + "../image/headerpic.jpg" + "' lazy='loaded'>"
+                                    + " <img alt='a' src='" + photo + "' lazy='loaded'>"
                                     + "  </div> </div> <div class='short_review_name'>" + name
                                     + " </div> <div class='short_review_star'> <span class='review_star'>";
                                 for ($j = 0; $j < 5; $j++) {
@@ -1372,7 +1429,7 @@ include "../footer.php";
                 }
             }
             $.post("short_review_load.php",
-                {objective: "reviewinsert", score: index, shortreview: text, userid: 1},
+                {objective: "reviewinsert", score: index, shortreview: text, userid: <?php echo $uid ?>,id:<?php echo $id ?>},
                 function (data) {
                     data = eval('(' + data + ')');
                     var name = data.name[0];
@@ -1385,17 +1442,26 @@ include "../footer.php";
                         setTimeout(function () {
                             $('.insert_success').css("display", "none");
                         }, 500);
-                        $(".short_review_middle .short_review_write_ul").prepend(" <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
+                        var revtext1 = " <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
                             + " <img alt='a' src='" + photo + "' lazy='loaded'>"
                             + "  </div> </div> <div class='short_review_name'>" + name
-                            + " </div> <div class='short_review_star'> <span class='review_star'>"
-                            + " <i class='icon-star-full'> <i></i> </i> <i class='icon-star-full'> <i></i> </i> <i class='icon-star-full'>"
-                            + "<i></i> </i> <i class='icon-star-full'> <i></i> </i> <i class='icon-star-empty'> <i></i> </i> </span>"
+                            + " </div> <div class='short_review_star'> <span class='review_star'>";
+                        for ($j = 0; $j < 5; $j++) {
+
+                            if (index > 0) {
+                                 revtext1 = revtext1 + " <i class='icon-star-full'> <i></i> </i>";
+                                index = index - 2;
+                            } else {
+                                 revtext1 = revtext1 + " <i class='icon-star-empty'> <i></i> </i>";
+                            }
+
+                        }
+                        var revtext3 = revtext1 + "</span>"
                             + "</div> <div class='short_review_time'>" + time
                             + "</div> </div> <div class='li_second_review'> <div class='second_review'>" + review
-                            + "</div> </div> <div class='li_third_icon'> <div> <i class='icon-praise' style='font-size: 14px;margin-right: 6px;'></i><span></span></div>"
-                            + "<div> <i class='icon-criticism' style='font-size: 14px;margin-right: 6px;'></i><span></span></div> </div> </li>");
-
+                            + "</div> </div> <div class='li_third_icon'> <div> <i class='icon-praise' style='font-size: 14px;margin-right: 6px;' onclick='praise(this)'></i><span></span></div>"
+                            + "<div> <i class='icon-criticism' style='font-size: 14px;margin-right: 6px;'></i><span></span></div> </div> </li>";
+                        $(".short_review_middle .short_review_write_ul").prepend(revtext3);
                     }
                 });
         });
