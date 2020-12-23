@@ -45,13 +45,24 @@ else if($objective=="reviewinsert")
      $user_id=$_POST["userid"];
      $score=$_POST["score"];
     date_default_timezone_set("PRC");
-    $time=time();
+    $time= date('Y-m-d h:i:s', time());
     $sql="insert into evaluation(animate_id,is_long,content,user_id,score,time) value(100001,0,'$content',$user_id,$score,'$time')";
-    $result= mysqli_query($conn,$sql) or die("评论失败");
-    $sql="select * from user where user_id=100001";
+    $result= mysqli_query($conn,$sql) or die("评论失败".$sql);
+    $sql="select * from user where user_id=1";
     $result= mysqli_query($conn,$sql) or die("查询失败");
-    if($row=mysqli_num_rows($result))
-    $review=array("name"=>$row['name'],"makesure"=>"1","photo"=>"../image/headerpic.jpg");
+
+    if(mysqli_num_rows($result)>0)
+    {   $row=mysqli_fetch_assoc($result);
+        $username=$row['username'];
+        $photo=$row['avatar'];
+        $review=array(
+            "name"=>array(),
+            "makesure"=>"1",
+            "photo"=>array()
+        );
+    }
+    $review["name"][0]=$username;
+    $review["photo"][0]=$photo;
     echo json_encode($review);
 }
 
