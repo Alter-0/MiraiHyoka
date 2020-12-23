@@ -12,7 +12,6 @@
         .search{
             margin-right: 40px;
         }
-
         *{
             margin: 0;
             padding: 0;
@@ -41,26 +40,37 @@
             background-size: cover;
             box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
             border-radius: 15px;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+
             margin-left: 10%;
             margin-top: 20px;
             margin-bottom: 20px;
+
         }
         .right{
             width: 40%;
             height: 500px;
             display: inline-block;
-            margin-left: 5%;
             margin-top: 20px;
             position: relative;
+            box-shadow: 7px 7px 17px rgba(52, 56, 66, 0.8);
+            border-radius: 15px;
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            margin-right: 10%;
 
+        }
+        .total{
+            margin-left: 20%;
         }
         form{
             margin-left: 30px;
         }
         p{
             font-size: 40px;
-            color: #6cc4ff;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color: #00cdff;
+            font-family: Arial;
             margin-bottom: 20px;
             margin-left: 40px;
             margin-top: 0;
@@ -97,7 +107,7 @@
             border-radius: 4px;
             transition: all .3s;
             line-height: 2;
-            background-color: #1890ff;
+            background-image: linear-gradient(120deg, #db3125 0%, #578bc3 100%);
             height: 40px;
             width: 40%;
             display: block;
@@ -109,7 +119,7 @@
             border-radius: 4px;
             transition: all .3s;
             line-height: 2;
-            background-color: #1890ff;
+            background-color: rgba(100, 149, 237, 0.7);
             height: 40px;
             width: 20%;
             display:inline-block;
@@ -121,7 +131,7 @@
             border-radius: 4px;
             transition: all .3s;
             line-height: 2;
-            background-color: #1890ff;
+            background-color: rgba(100, 149, 237, 0.7);
             height: 40px;
             width: 20%;
             display:inline-block;
@@ -130,7 +140,6 @@
     </style>
     <link rel="stylesheet" href="code.css">
 </head>
-<?php session_start();?>
 
 <body>
 <?php include "../header.php"?>
@@ -138,6 +147,7 @@
     <div class="left">
     </div>
     <div class="right">
+        <div class="total">
         <p>welcome</p>
         <form id="form" name="login" method="post" onsubmit="return veryfy()" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]);?>">
             <input type="text" id="username"  name="username" value="" placeholder="用户名">
@@ -147,6 +157,7 @@
 
             <button type="button" id="reg" >注册</button>
         </form>
+        </div>
 
         <div id="valid-code" style="display: none" class="container-code">
             <div id="captcha" style="position: relative"></div>
@@ -167,7 +178,7 @@
             })
             function veryfy(){
                 if(j==1){
-                    return ture;
+                    return true;
                 }
                 if(j==0){
                     alert("请先验证!");
@@ -201,7 +212,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
 
                 echo "alert('登陆成功');";
 
-                echo "location.href='user.php';";
+                echo "location.href='../user-center/usercenter.php';";
 
                 echo "</script>";
 
