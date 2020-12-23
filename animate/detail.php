@@ -1,6 +1,6 @@
 <?php
 session_start();
-$id = empty($_GET['id'])?1:$_GET['id'];
+$id = empty($_GET['id'])?100001:$_GET['id'];
 $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
 ?>
 <!DOCTYPE html>
@@ -934,7 +934,7 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                             "miraihyoka") or die("数据库连接失败");
                         mysqli_query($conn, 'set names utf8');
                         $animate_id=100001;
-                        $sql = "select * from evaluation,user,animate where evaluation.user_id=user.user_id and animate_id=$animate_id and is_long=0 limit 0,5";
+                        $sql = "select * from evaluation,user where evaluation.user_id=user.user_id and animate_id=$animate_id and is_long=0 limit 0,5";
                         $result = mysqli_query($conn, $sql) or die("数据库查询评论失败".$sql);
 
                         //                        $pic_url = "//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp";
@@ -946,7 +946,7 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                         while ($row = mysqli_fetch_assoc($result)) {     //$row['time']= strtotime($row['time']);
                             $row['time'] = substr($row['time'], 0, 16);
                             echo " <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
-                                . " <img alt='无' src='" . "../image/headerpic.jpg" . "'>"
+                                . " <img alt='无' src='" .$row['avatar']. "'>"
                                 . "  </div> </div> <div class='short_review_name'>" . $row['username']
                                 . " </div> <div class='short_review_star'> <span class='review_star'>";
                             for ($j = 0; $j < 5; $j++) {
@@ -1372,13 +1372,13 @@ include "../footer.php";
                 }
             }
             $.post("short_review_load.php",
-                {objective: "reviewinsert", score: index, shortreview: text, userid: 100009},
+                {objective: "reviewinsert", score: index, shortreview: text, userid: 1},
                 function (data) {
-                    var name = data.name;
+                    data = eval('(' + data + ')');
+                    var name = data.name[0];
                     var time = "刚刚";
                     var review = text;
-                    var photo = data.photo;
-                    data = eval('(' + data + ')');
+                    var photo = data.photo[0];
                     if (data.makesure == 1) {
                         $(".write_review").css("display", "none");
                         $('.insert_success').css({"display": "block", "z-index": 1000, "top": "50%"});
