@@ -42,7 +42,6 @@
             border-radius: 15px;
             border-bottom-right-radius: 0;
             border-top-right-radius: 0;
-
             margin-left: 10%;
             margin-top: 20px;
             margin-bottom: 20px;
