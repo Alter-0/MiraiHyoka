@@ -205,6 +205,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
             $row = mysqli_fetch_assoc($result);
             if (password_verify($password, $row['password'])) {
                 $_SESSION["UID"] =$row['user_id'];
+                $_SESSION["account"]=$username;
                 echo "<script language='javascript' type='text/javascript'>";
 
                 echo "alert('登陆成功');";
