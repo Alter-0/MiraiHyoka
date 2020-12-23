@@ -269,7 +269,10 @@ body{
 .content .right .filter-block ul .r_li_on a{
     color: #00a6ff;
 }
-
+.there_no_data{
+    margin-left: 40px;
+    margin-top: 40px;
+}
 /*content end*/
 img:hover{
     filter: brightness(80%);
