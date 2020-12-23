@@ -1001,7 +1001,7 @@
 .episode_card_right{
     height: 100%;
     display: inline-block;
-
+    width: 100%;
 }
 .episode_card_right_content {
     padding: 25px;
@@ -1012,19 +1012,20 @@
     box-sizing: border-box;
     border-radius: 15px;
     box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+    width: 100%;
 }
 
 /*分集页*/
 .episode_card_left{
-    padding: 25px;
+    /*padding: 25px;*/
     height: 100%;
     text-align: left;
-
+    padding-bottom: 15px;
     background: rgba(255, 255, 255, 0.8);
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/
     border-radius: 15px;
     box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
-    display: inline-block;
+    /*display: inline-block;*/
 
 }
 
@@ -1155,7 +1156,13 @@
 
 /*集数列表——结束*/
 
-/*每集下面的讨论--开始*/
+/*每集下面的讨论-左边--开始*/
+
+.no_common{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 17px;
+}
 .episode_comment_title{
     margin-top: 10px;
     margin-left: 10px;
@@ -1168,10 +1175,43 @@
     font-size: 20px;
     font-weight: 700;
     font-family: 幼圆, serif;
+    display: inline-block;
 }
-.episode_comment_content{
 
+
+.common_content_re{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    float: right;
+    width: 70px;
+    height: 30px;
+    box-sizing: border-box;
+    border: 1px solid #00a1d6;
+    border-radius: 4px;
+    color: #00a1d6;
+    line-height: 28px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: -3px;
 }
+
+.common_content_re:hover{
+    filter:brightness(110%);
+    border: 1px solid #03c0ff;
+    color: #03c0ff;
+}
+
+.episode_comment_content{
+    min-height: 1513px;
+}
+
+
+
+
 
 .common_icon{
     display: inline;
@@ -1259,7 +1299,226 @@
 
 
 
+/*每集下面的讨论-左边--结束*/
 
 
-/*每集下面的讨论--结束*/
+/*每集下面讨论-右边--开始*/
+
+.episode_card_left{
+    background: #f4f4f4;
+}
+
+
+.episode_directory_title{
+
+    margin-left: 10px;
+    border-bottom:1px solid #e5e9ef ;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 幼圆, serif;
+    padding-top: 25px;
+    padding-left: 25px;
+
+}
+.episode_directory_back{
+    border-top:1px solid #e5e9ef ;
+    padding-top: 15px;
+    font-size: 13px;
+    padding-left: 25px;
+}
+.episode_directory_back:hover{
+    color: #00a1d6;
+
+}
+
+
+.episode_directory_content{
+    margin-top: 10px;
+
+}
+
+.episode_directory_item{
+    font-size: 14px;
+    /*border: 1px solid #e8e8e8;*/
+    margin: 7px 15px 7px 15px;
+    padding: 5px 7px;
+    transition: background-color .3s ease;
+    border-radius: 5px;
+}
+
+.chosendd{
+    color: #00a1d6;
+    background-color: #ffffff;
+    /*padding: 5px 10px 5px 10px;*/
+
+    /*margin: -5px -10px -5px -10px;*/
+    font-size: 15px;
+}
+
+.episode_directory_item:hover{
+    color: #00a1d6;
+    background-color: #ffffff;
+    /*padding: 5px 10px 5px 10px;*/
+    /*border-radius: 10px;*/
+    /*margin: -5px -10px -5px -10px;*/
+}
+
+
+
+/*加入讨论弹窗---开始*/
+.diversity_review {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .2);
+    z-index: 10000;
+}
+
+.diversity_review_bg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 594px;
+    height: 404px;
+    background: #fff;
+    border-radius: 4px;
+    margin-left: -297px;
+    margin-top: -202px;
+    cursor: default;
+
+}
+.diversity_review_close {
+    position: absolute;
+    top: 20px;
+    right: 22px;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    background: url(img/close.png);
+    background-size: cover;
+    cursor: pointer;
+}
+
+.diversity_review_header {
+    padding: 30px 30px 20px;
+}
+
+.diversity_review_info {
+    padding-left: 120px;
+}
+
+.diversity_review_star {
+
+}
+
+.diversity_review_star i {
+    width: 20px;
+    height: 20px;
+    padding-right: 6px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.diversity_review_middle {
+    position: relative;
+    width: 534px;
+    height: 130px;
+    border: 1px solid #ccd0d7;
+    border-radius: 4px;
+    margin: 40px auto;
+}
+
+.diversity_review_middle textarea {
+    width: 510px;
+    height: 72px;
+    line-height: 24px;
+    display: block;
+    margin: 12px auto 0;
+    font-size: 14px;
+    color: #222;
+    border: none;
+    outline: none;
+    resize: none;
+    overflow: hidden;
+}
+
+.diversity_review_middle span {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    font-size: 12px;
+    color: #99a2aa;
+    line-height: 14px;
+}
+.diversity_review_button{
+    cursor: not-allowed;
+    color: #a0a5a5;
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: -60px;
+    text-align: center;
+    display: block;
+    /*background: #f4f5f7;*/
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    font-size: 14px;
+    /*color: #0cc7ef;*/
+}
+
+/*加入讨论弹窗---结束*/
+
+/*每集下面讨论-右边--结束*/
+
+
+
+
+/*控制集数讨论跳转----开始*/
+.episode_comment_lists{
+    display: none;
+}
+
+.episode_directory{
+    display: none;
+}
+
+.episode_lists{
+    display: block;
+}
+.episode_detail{
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+/*控制集数讨论跳转----结束*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
