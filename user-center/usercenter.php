@@ -225,7 +225,7 @@ include "../header.php"?>
 <!--<div style="height: 50px"></div>-->
 <div class="all">
     <div class="top">
-        <div class="banner">
+        <div class="banner" style="background: url('<?php echo $background ?>') center center;">
             <div style="height: 200px"></div>
             <div class="banner_filter">
                 <div class="info">
@@ -541,7 +541,7 @@ include "../header.php"?>
                                 <span role="button">
                                     <input type="file" name="avatar" id="input_avatar" onchange="preview_avatar(this)"
                                            accept style="display: none" alt="">
-                                    <img src="../image/akari.jpg" id="img_avatar" alt="avatar"
+                                    <img src="<?php echo $avatar?>" id="img_avatar" alt="avatar"
                                          style="max-height: 100%;max-width: 100%">
                                 </span>
                                 </label>
@@ -556,7 +556,7 @@ include "../header.php"?>
                                 <span role="button">
                                     <input type="file" name="background" id="input_background"
                                            onchange="preview_background(this)" accept style="display: none" alt="">
-                                    <img src="../image/new_banner1.png" id="img_background" alt="background"
+                                    <img src="<?php echo $background?>" id="img_background" alt="background"
                                          style="max-height: 100%;max-width: 100%">
                                 </span>
                                 </label>

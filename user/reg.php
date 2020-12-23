@@ -147,7 +147,7 @@
         border-radius: 4px;
         transition: all .3s;
         line-height: 2;
-        background-color: #1890ff;
+        background-color: rgba(100, 149, 237, 0.7);
         height: 40px;
         width: 40%;
         display: block;

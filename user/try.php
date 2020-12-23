@@ -47,6 +47,16 @@
 </div>
 
 <script  src="js/script.js"></script>
+<script>
+    // 点击sigup触发翻转样式
+    $("#signup").click(function() {
+        $(".middle").toggleClass("middle-flip");
+    });
+    // 点击login触发翻转样式
+    $("#login").click(function() {
+        $(".middle").toggleClass("middle-flip");
+    });
+</script>
 
 </body>
 </html>

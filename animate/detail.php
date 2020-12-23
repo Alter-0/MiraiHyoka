@@ -322,6 +322,7 @@
             </div>
             <!-- 分集页-->
             <div class="diversity">
+                <div class="col-lg-9 col-md-9 hidden-12 hidden-12">
                 <div class="episode_card_right">
                     <div class="episode_card_right_content">
                         <!--                        <div class="episode_card_right_title">-->
@@ -819,6 +820,8 @@
                     </div>
 
                 </div>
+                </div>
+                <div class=" col-lg-3 col-md-3 hidden-sm hidden-xs">
                 <div class="episode_card_left">
                     <div class="card_left_title">详情</div>
                     <div class="card_left_text">
@@ -826,6 +829,7 @@
                         <p>详情一:详情内容</p><br>
                         <p>详情一:详情内容</p><br>
                     </div>
+                </div>
                 </div>
             </div>
             <!--长评-->
