@@ -1,7 +1,7 @@
 <?php
 session_start();
-$id = empty($_GET['id'])?100001:$_GET['id'];
-$uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
+$id = empty($_GET['animate_id']) ? 100001 : $_GET['animate_id'];
+$uid = empty($_SESSION['user_id']) ? 1 : $_SESSION['user_id'];
 ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -13,18 +13,36 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
     <link href="font/style.css" rel="stylesheet"/>
     <link href="detail_m.css" rel="stylesheet"/>
     <meta charset="UTF-8" name="referrer" content="never">
-   <?php
-   include "../conn.php";
-   $sql="select *from animate where animate_id=$id";
-   $result = mysqli_query($conn, $sql) or die("数据库查询评论失败".$sql);
-   if(mysqli_num_rows($result)<=0)
-   {
-       echo "<script>alert('番剧信息不存在');</script>";
-   }
+    <?php
+    include "../conn.php";
+    $sql = "select *from animate where animate_id=$id";
+    $result = mysqli_query($conn, $sql) or die("数据库查询评论失败" . $sql);
+    if (mysqli_num_rows($result) <= 0) {
+        echo "<script>alert('番剧信息不存在');</script>";
+    }
 
-   $row=mysqli_fetch_assoc($result);
-   $animate_name=$row['name_cn'];
-   $animate_fj=$row['cover'];
+    $row = mysqli_fetch_assoc($result);
+    $animate_name = $row['name_cn'];
+    $animate_fj = $row['cover'];
+    $animate_starttime = $row['start_time'];
+    $animate_isfinish = $row['is_finish'];
+    $animate_info = $row['introduction'];
+    $sql = "select COUNT(animate_id) from evaluation where animate_id=$id";
+    $result = mysqli_query($conn, $sql) or die("数据库查询评论失败" . $sql);
+    if (mysqli_num_rows($result) <= 0) {
+        $animate_reviewnum = 0;
+    } else {
+        $row = mysqli_fetch_row($result);
+        $animate_reviewnum = $row[0];
+    }
+    $sql = "select COUNT(animate_id) from favorites where animate_id=$id";
+    $result = mysqli_query($conn, $sql) or die("数据库查询评论失败" . $sql);
+    if (mysqli_num_rows($result) <= 0) {
+        $animate_favnum = 0;
+    } else {
+        $row = mysqli_fetch_row($result);
+        $animate_favnum = $row[0];
+    }
     ?>
     <title>
         <?php
@@ -47,22 +65,21 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                 <!--  fgimg放番剧展示图 -->
                 <div class="fjimg">
                     <img id="fj"
-                         src="<?php echo $animate_fj;?>">
+                         src="<?php echo $animate_fj; ?>">
                 </div>
                 <!--  title放番剧名和标签 -->
                 <div class="title">
                     <span class="title_name"><?php echo $animate_name; ?></span>
                     <!--  title放番剧标签  -->
                     <span class="title_tags">
-                        <span class='title_tag'>日常番</span>
-                        <span class='title_tag'>日常番</span>
-                        <span class='title_tag'>日常番</span>
                         <?php
                         //循环输出番剧标签
-                        /*  while ($arr = mysqli_fetch_row($tagsresult)) {
-                            echo "<span class='title_tag'>" . $arr[0] . "</span>";
+                        $sql = "select * from tags where animate_id=$id";
+                        $result = mysqli_query($conn, $sql) or die("数据库查询评论失败" . $sql);
+                        while ($arr = mysqli_fetch_row($result)) {
+                            echo "<span class='title_tag'>" . $arr[1] . "</span>";
                         }
-                        */ ?>
+                        ?>
                     </span>
                 </div>
                 <div class="data">
@@ -70,12 +87,12 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                         <span class="plays">
                             <span class="playslabel">总评论数</span>
                             <br/>
-                            <em>0</em>
+                            <em><?php echo $animate_reviewnum; ?></em>
                         </span>
                         <span class="likes">
                             <span class="likeslabel">收藏人数</span>
                             <br/>
-                            <em>0</em>
+                            <em><?php echo $animate_favnum; ?></em>
                         </span>
                     </div>
                 </div>
@@ -101,27 +118,49 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                     //上架时间
                     date_default_timezone_set('PRC');
                     $startdate = date("Y年m月d日", time());
-                    echo "<span>" . $startdate . "开播</span>";
+                    echo "<span>" . $animate_starttime . "开播</span>";
                     //判断是否完结，如果已完结，则执行
-                    if (true) {
+                    if ($animate_isfinish == 1) {
                         echo "<span>已完结</span>";
+                    } else {
+                        echo "<span>连载中</span>";
                     }
+                    ?>
+                <?php function substr_max($str)
+                    {$start=0;
+                     $strlen=200;
+                        $tmpstr="";
+                        for($i = $start; $i < $strlen;) {
+                         if (ord ( substr ( $str, $i, 1 ) ) > 0xa0) { // 如果字符串中首个字节的ASCII序数
+                         $tmpstr .= substr ( $str, $i, 3 ); // 每次取出三位字符赋给变量$tmpstr，即等
+
+                         $i=$i+3; // 变量自加3
+                         } else{
+                         $tmpstr .= substr ( $str, $i, 1 ); // 如果不是汉字，则每次取出一位字符赋给
+                         $i++;
+                         }
+                         }
+                         return $tmpstr; // 返回字符串
+ }
+
                     ?>
 
                 </div>
                 <div class="intro">
-                    <span class="intro_text"><?php echo substr("这里是简介", 0, 490); ?>......</span>
+                    <span class="intro_text"><?php echo substr_max($animate_info); ?>......</span>
                 </div>
                 <div onclick="changelike()" id="like_btn" class="btns">
                     <?php
 
                     //首先判断用户是否已经登录，若已经登录
-                    if (1 == 1) {
+                    if ($uid == "") {
                         echo '<div class="btn_like">';
                         echo '<i></i>';
                         echo '收藏';
                     } else {
-                        if (1 == 1) {
+                        $sql = "select *from favorites where animate_id=$id and user_id=$uid";
+                        $result = mysqli_query($conn, $sql) or die("数据库查询评论失败" . $sql);
+                        if (mysqli_num_rows($result) > 0) {
                             $islike = 1;
                             echo '<div class="btn_like btn_liked">';
                             echo '<i></i>';
@@ -140,7 +179,7 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
             </div>
         </div>
         <!--bg放的图片即番剧图        -->
-        <img id="bg" src="http://i0.hdslb.com/bfs/bangumi/image/0212baa8898d0c819c7fb84015e95b8fca621435.png">
+        <img id="bg" src="<?php echo $animate_fj; ?>">
     </div>
     <!--  选择标签及具体内容部分  -->
     <div class="detail_tab container" style="padding: 0">
@@ -164,40 +203,50 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                             <div class="card_right_div">
                                 <span class="card_right_title">综合媒体评分</span>
                                 <div class="hyoka_rank" style="position: relative">
-                                  <?php
-                                  include "../conn.php";
-                                  $sql="select *from animate where animate_id=$id";
-                                  $result = mysqli_query($conn, $sql) or die("数据库查询评论失败".$sql);
-                                  if(mysqli_num_rows($result)<=0)
-                                  {
-                                      echo "<script>alert('番剧信息不存在');</script>";
-                                  }
+                                    <?php
+                                    include "../conn.php";
+                                    $sql = "select *from animate where animate_id=$id";
+                                    $result = mysqli_query($conn, $sql) or die("数据库查询评论失败" . $sql);
+                                    $sql_user = "select COUNT(user_id),SUM(score) from evaluation where animate_id=$id";
+                                    $result_user = mysqli_query($conn, $sql_user) or die("数据库查询评论失败" . $sql_user);
+                                    if (mysqli_num_rows($result) <= 0) {
+                                        echo "<script>alert('番剧信息不存在');</script>";
+                                    }
 
-                                  $row=mysqli_fetch_assoc($result);
-                                  $score2=$row['media_rating'];//综合媒体评分
-                                  $score2=round($score2,1);
-                                  $score =$row['user_rating'];//综合用户评分
-                                  if($score==null){
-                                      $score=0;
-                                  }
-                                  else{
-                                      $score=round($score,1);
-                                  }
-                                  $score3=$score2*14.5;
-                                  if(0<$score2&&$score2<=2)
-                                  {}
-                                  else if(2<$score2&&$score2<=4)
-                                  { $score3=$score3+16.3;}
-                                  else if(4<$score2&&$score2<=6)
-                                  { $score3=$score3+32.6;}
-                                  else if(6<$score2&&$score2<=8)
-                                  { $score3=$score3+48.9;}
-                                  else if(8<$score2&&$score2<=10)
-                                  { $score3=$score3+65;}
+                                    $row = mysqli_fetch_assoc($result);
+                                    $score2 = $row['media_rating'];//综合媒体评分
+                                    $score2 = round($score2, 1);
+                                    $score = $row['user_rating'];//综合用户评分
+                                    if ($score == null) {
+                                        $score = 0;
+                                    } else {
+                                        $score = round($score, 1);
+                                    }
+                                    if (mysqli_num_rows($result_user) > 0) {
+                                        $row_user = mysqli_fetch_row($result_user);
+                                        if($row_user[1]!=0&&$row_user[0]!=0)
+                                        {$score = $row_user[1] / $row_user[0];}
+                                        else{$score = 0;}
+                                        $score = round($score, 1);
+                                    }
+
+                                    $score3 = $score2 * 14.5;
+                                    if (0 < $score2 && $score2 <= 2) {
+                                    } else if (2 < $score2 && $score2 <= 4) {
+                                        $score3 = $score3 + 16.3;
+                                    } else if (4 < $score2 && $score2 <= 6) {
+                                        $score3 = $score3 + 32.6;
+                                    } else if (6 < $score2 && $score2 <= 8) {
+                                        $score3 = $score3 + 48.9;
+                                    } else if (8 < $score2 && $score2 <= 10) {
+                                        $score3 = $score3 + 65;
+                                    }
 
 
-                                  ?>
-                                    <span class="compre_scorenum"><?php echo $row['media_rating'] ?></span>
+                                    ?>
+
+                                    <div class="compre_background"></div>
+                                    <span class="compre_scorenum"><?php echo round($row['media_rating'],1); ?></span>
                                     <div class="compre_score_empty">
                                         <i class='icon-star-empty'> <i></i> </i>
                                         <i class='icon-star-empty'> <i></i> </i>
@@ -212,7 +261,9 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                         <i class='icon-star-full'> <i></i> </i>
                                         <i class='icon-star-full'> <i></i> </i>
                                     </div>
-                                    <span class="compre_ping">总评</span>
+
+                                    <div class="compre_background_second"></div>
+                                    <span class="compre_ping"><img src="img/rank.png" style="width: 45px;"> </span>
                                     <span class="compre_ping_num">第<?php echo $row['media_rank'] ?>名</span>
 
 
@@ -224,14 +275,14 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                     <div class="col-lg-4 col-md-4 .col-xs-12 .col-sm-12">
                                         <div class="rank_first">
                                             <div class="rank_first_line">
-                                                <img src="img/555.webp" class="rank_first_img">
+                                                <img src="img/mal.png" class="rank_first_img">
                                                 <span class="rank_first_name">mal</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_score"><?php echo $row['mal_rating'] ?></span>
+                                                <span class="rank_first_score"><?php echo empty($row['mal_rating'])?'暂无':$row['mal_rating']; ?></span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第<?php echo $row['mal_rank'] ?>名</span>
+                                                <span class="rank_first_rank">#第<?php echo empty($row['mal_rank'])?0:$row['mal_rank']; ?>名</span>
                                             </div>
 
                                         </div>
@@ -239,14 +290,14 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                     <div class="col-lg-4 col-md-4 .col-xs-12 .col-sm-12">
                                         <div class="rank_first">
                                             <div class="rank_first_line">
-                                                <img src="img/555.webp" class="rank_first_img">
+                                                <img src="img/anidb.png" class="rank_first_img">
                                                 <span class="rank_first_name">anidb</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_score"><?php echo $row['anidb_rating'] ?></span>
+                                                <span class="rank_first_score"><?php echo empty($row['anidb_rating'])?'暂无':$row['anidb_rating']; ?></span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第<?php echo $row['anidb_rank'] ?>名</span>
+                                                <span class="rank_first_rank">#第<?php echo empty($row['anidb_rank'])?0:$row['anidb_rank']; ?>名</span>
                                             </div>
 
                                         </div>
@@ -254,14 +305,14 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                     <div class="col-lg-4 col-md-4 .col-xs-12 .col-sm-12">
                                         <div class="rank_first">
                                             <div class="rank_first_line">
-                                                <img src="img/555.webp" class="rank_first_img">
+                                                <img src="img/ann.png" class="rank_first_img">
                                                 <span class="rank_first_name">ann</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_score"><?php echo $row['ann_rating'] ?></span>
+                                                <span class="rank_first_score"><?php echo empty($row['ann_rating'])?'暂无':$row['ann_rating']; ?></span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第<?php echo $row['ann_rank'] ?>名</span>
+                                                <span class="rank_first_rank">#第<?php echo empty($row['ann_rank'])?0:$row['ann_rank']; ?>名</span>
                                             </div>
 
                                         </div>
@@ -275,14 +326,14 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                     <div class="col-lg-3 col-md-3 .col-xs-12 .col-sm-12">
                                         <div class="rank_first">
                                             <div class="rank_first_line">
-                                                <img src="img/555.webp" class="rank_first_img">
+                                                <img src="img/anikore.ico" class="rank_first_img">
                                                 <span class="rank_first_name">anikore</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_score"><?php echo $row['ann_rating'] ?></span>
+                                                <span class="rank_first_score"><?php echo empty($row['anikore_rating'])?'暂无':$row['anikore_rating']; ?></span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第<?php echo $row['anikore_rank'] ?>名</span>
+                                                <span class="rank_first_rank">#第<?php echo empty($row['anikore_rank'])?0:$row['anikore_rank']; ?>名</span>
                                             </div>
 
                                         </div>
@@ -290,14 +341,14 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                     <div class="col-lg-3 col-md-3 .col-xs-12 .col-sm-12">
                                         <div class="rank_first">
                                             <div class="rank_first_line">
-                                                <img src="img/555.webp" class="rank_first_img">
+                                                <img src="img/bangumi.png" class="rank_first_img">
                                                 <span class="rank_first_name">bangumi</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_score"><?php echo $row['bangumi_rating'] ?></span>
+                                                <span class="rank_first_score"><?php echo empty($row['bangumi_rating'])?'暂无':$row['bangumi_rating']; ?></span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第<?php echo $row['bangumi_rank'] ?>名</span>
+                                                <span class="rank_first_rank">#第<?php echo empty($row['bangumi_rank'])?0:$row['bangumi_rank']; ?>名</span>
                                             </div>
 
                                         </div>
@@ -305,14 +356,14 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                     <div class="col-lg-3 col-md-3 .col-xs-12 .col-sm-12">
                                         <div class="rank_first">
                                             <div class="rank_first_line">
-                                                <img src="img/555.webp" class="rank_first_img">
+                                                <img src="img/imdb.png" class="rank_first_img">
                                                 <span class="rank_first_name">imdb</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_score"><?php echo $row['imdb_rating'] ?></span>
+                                                <span class="rank_first_score"><?php echo empty($row['imdb_rating'])?'暂无':$row['imdb_rating']; ?></span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第<?php echo $row['imdb_rank'] ?>名</span>
+                                                <span class="rank_first_rank">#第<?php echo empty($row['imdb_rank'])?0:$row['imdb_rank']; ?>名</span>
                                             </div>
 
                                         </div>
@@ -320,14 +371,14 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                     <div class="col-lg-3 col-md-3 .col-xs-12 .col-sm-12">
                                         <div class="rank_first">
                                             <div class="rank_first_line">
-                                                <img src="img/555.webp" class="rank_first_img">
+                                                <img src="img/douban.png" class="rank_first_img">
                                                 <span class="rank_first_name">douban</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_score"><?php echo $row['douban_rating'] ?></span>
+                                                <span class="rank_first_score"><?php echo empty($row['douban_rating'])?'暂无':$row['douban_rating']; ?></span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第<?php echo $row['douban_rank'] ?>名</span>
+                                                <span class="rank_first_rank">#第<?php echo empty($row['douban_rank'])?0:$row['douban_rank']; ?>名</span>
                                             </div>
 
                                         </div>
@@ -340,42 +391,41 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                 <div class="details_card_right_cv" style="padding-left: 10px;">
                                     <div class="card_left_title" style="text-align: center">CV表</div>
 
-                                        <?php
-                                        $cv=explode("\n",$row['cv']);
-                                        foreach($cv as $cvname)
-                                        {
-                                            $c=explode(":",$cvname);
-                                            if($c[0]=="")
-                                            {break;}
+                                    <?php
+                                    $cv = explode("\n", $row['cv']);
+                                    foreach ($cv as $cvname) {
+                                        $c = explode(":", $cvname);
+                                        if ($c[0] == "") {
+                                            break;
+                                        }
                                         echo "<div class='col-lg-4 col-md-4 .col-xs-12 .col-sm-12'><div class='cv_border'><p>";
-                                        echo  "角色："."$c[0]"."<br>";
-                                        echo  "声优："."$c[1]"."<br>";
+                                        echo "角色：" . "$c[0]" . "<br>";
+                                        echo "声优：" . "$c[1]" . "<br>";
                                         echo "</div></p></div>";
 
-                                        }
+                                    }
 
-                                         ?>
+                                    ?>
 
                                 </div>
                             </div>
-
 
 
                         </div>
                     </div>
                     <!--    第一部分，评分概述-右-->
                     <div class=" col-lg-3 col-md-3 hidden-sm hidden-xs">
-                        <div class="details_card_right" style="padding-left: 10px;">
-                            <div class="card_left_title">信息</div>
-                            <div class="card_left_text">
-                            <?php
-                                      echo nl2br($row['info']);
-                            ?>
-<!--                                <p>详情一:详情内容</p><br>-->
-<!--                                <p>详情一:详情内容</p><br>-->
-<!--                                <p>详情一:详情内容</p><br>-->
-<!--                                <p>详情一:详情内容</p><br>-->
-<!--                                <p>详情一:详情内容</p><br>-->
+                        <div class="details_card_right" style="padding-bottom: 30px; ">
+                            <div class="card_left_title_new">信息</div>
+                            <div class="card_left_text_new">
+                                <?php
+                                echo nl2br($row['info']);
+                                ?>
+                                <!--                                <p>详情一:详情内容</p><br>-->
+                                <!--                                <p>详情一:详情内容</p><br>-->
+                                <!--                                <p>详情一:详情内容</p><br>-->
+                                <!--                                <p>详情一:详情内容</p><br>-->
+                                <!--                                <p>详情一:详情内容</p><br>-->
                             </div>
                         </div>
                     </div>
@@ -390,8 +440,8 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                         <div class="diversity_review_close"></div>
                         <div class="diversity_review_header">
                             <div style="width: 100%;">
-                                <img src="//i0.hdslb.com/bfs/bangumi/image/0cc63d7bd7f82722137b6d5b27f13866c865e671.png@100w_133h.png"
-                                     alt="" style="float: left;">
+                                <img src="<?php echo $animate_fj; ?>"
+                                     alt="" style="float: left;width: 100px;height: 133px;">
                                 <div class="diversity_review_info">
                                     <h4><strong>第1话</strong></h4>
                                     <p style="font-size: 14px;margin-top: 20px;margin-bottom: 25px;">请与他人友善讨论本话</p>
@@ -415,25 +465,25 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                 </div>
                                 <div class="sl_list">
                                     <ul class="episode_list_php">
-<!--                                        <li title="第1话：「无能力」" class="misl_ep_item">-->
-<!--                                            <div class="misl_ep_img">-->
-<!--                                                <div class="common_lazy_img">-->
-<!--                                                    <img src="http://i0.hdslb.com/bfs/bangumi/image/0212baa8898d0c819c7fb84015e95b8fca621435.png"-->
-<!--                                                         alt="第1话">-->
-<!--                                                    <div class="common_lazy_img_text">第<span-->
-<!--                                                                class="common_lazy_img_num">1</span>话-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-<!--                                            <div class="misl_ep_title">-->
-<!--                                                <div class="misl_ep_title_name">「无能力」</div>-->
-<!---->
-<!--                                            </div>-->
-<!--                                            <div class="misl_ep_text">-->
-<!--                                                <div class="misl_ep_info">时长:24分钟</div>-->
-<!--                                                <div class="misl_ep_info">评论:+20</div>-->
-<!--                                            </div>-->
-<!--                                        </li>-->
+                                        <!--                                        <li title="第1话：「无能力」" class="misl_ep_item">-->
+                                        <!--                                            <div class="misl_ep_img">-->
+                                        <!--                                                <div class="common_lazy_img">-->
+                                        <!--                                                    <img src="http://i0.hdslb.com/bfs/bangumi/image/0212baa8898d0c819c7fb84015e95b8fca621435.png"-->
+                                        <!--                                                         alt="第1话">-->
+                                        <!--                                                    <div class="common_lazy_img_text">第<span-->
+                                        <!--                                                                class="common_lazy_img_num">1</span>话-->
+                                        <!--                                                    </div>-->
+                                        <!--                                                </div>-->
+                                        <!--                                            </div>-->
+                                        <!--                                            <div class="misl_ep_title">-->
+                                        <!--                                                <div class="misl_ep_title_name">「无能力」</div>-->
+                                        <!---->
+                                        <!--                                            </div>-->
+                                        <!--                                            <div class="misl_ep_text">-->
+                                        <!--                                                <div class="misl_ep_info">时长:24分钟</div>-->
+                                        <!--                                                <div class="misl_ep_info">评论:+20</div>-->
+                                        <!--                                            </div>-->
+                                        <!--                                        </li>-->
 
                                     </ul>
                                 </div>
@@ -451,60 +501,60 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                 <div class="episode_comment_content">
                                     <ul class="episode_comment_items_php">
 
-<!--                                        <li class="episode_comment_item ll">-->
-<!---->
-<!--                                            <div class="common_icon">-->
-<!--                                                <div class="common_icon_face">-->
-<!--                                                    <div class="common_icon_img">-->
-<!--                                                        <img alt="Yrqiiii"-->
-<!--                                                             src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"-->
-<!--                                                             lazy="loaded">-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-<!--                                            <div class="common_content">-->
-<!--                                                <div class="common_content_info">-->
-<!--                                                    <div class="common_username">-->
-<!--                                                        gaibian-->
-<!--                                                    </div>-->
-<!---->
-<!--                                                    <div class="common_time">-->
-<!--                                                        12月22号 9:33-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
-<!---->
-<!--                                                <div class="common_text">-->
-<!--                                                    这集确实不错-->
-<!--                                                </div>-->
-<!---->
-<!--                                            </div>-->
-<!--                                        </li>-->
-<!--                                        <li class="episode_comment_item rr">-->
-<!---->
-<!--                                            <div class="common_icon">-->
-<!--                                                <div class="common_icon_face">-->
-<!--                                                    <div class="common_icon_img">-->
-<!--                                                        <img alt="Yrqiiii"-->
-<!--                                                             src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"-->
-<!--                                                             lazy="loaded">-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-<!--                                            <div class="common_content">-->
-<!--                                                <div class="common_content_info">-->
-<!--                                                    <div class="common_username">-->
-<!--                                                        gaibian-->
-<!--                                                    </div>-->
-<!---->
-<!--                                                    <div class="common_time">-->
-<!--                                                        12月22号 9:33-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
-<!--                                                <div class="common_text">-->
-<!--                                                    这集确实不错-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-<!--                                        </li>-->
+                                        <!--                                        <li class="episode_comment_item ll">-->
+                                        <!---->
+                                        <!--                                            <div class="common_icon">-->
+                                        <!--                                                <div class="common_icon_face">-->
+                                        <!--                                                    <div class="common_icon_img">-->
+                                        <!--                                                        <img alt="Yrqiiii"-->
+                                        <!--                                                             src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"-->
+                                        <!--                                                             lazy="loaded">-->
+                                        <!--                                                    </div>-->
+                                        <!--                                                </div>-->
+                                        <!--                                            </div>-->
+                                        <!--                                            <div class="common_content">-->
+                                        <!--                                                <div class="common_content_info">-->
+                                        <!--                                                    <div class="common_username">-->
+                                        <!--                                                        gaibian-->
+                                        <!--                                                    </div>-->
+                                        <!---->
+                                        <!--                                                    <div class="common_time">-->
+                                        <!--                                                        12月22号 9:33-->
+                                        <!--                                                    </div>-->
+                                        <!--                                                </div>-->
+                                        <!---->
+                                        <!--                                                <div class="common_text">-->
+                                        <!--                                                    这集确实不错-->
+                                        <!--                                                </div>-->
+                                        <!---->
+                                        <!--                                            </div>-->
+                                        <!--                                        </li>-->
+                                        <!--                                        <li class="episode_comment_item rr">-->
+                                        <!---->
+                                        <!--                                            <div class="common_icon">-->
+                                        <!--                                                <div class="common_icon_face">-->
+                                        <!--                                                    <div class="common_icon_img">-->
+                                        <!--                                                        <img alt="Yrqiiii"-->
+                                        <!--                                                             src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"-->
+                                        <!--                                                             lazy="loaded">-->
+                                        <!--                                                    </div>-->
+                                        <!--                                                </div>-->
+                                        <!--                                            </div>-->
+                                        <!--                                            <div class="common_content">-->
+                                        <!--                                                <div class="common_content_info">-->
+                                        <!--                                                    <div class="common_username">-->
+                                        <!--                                                        gaibian-->
+                                        <!--                                                    </div>-->
+                                        <!---->
+                                        <!--                                                    <div class="common_time">-->
+                                        <!--                                                        12月22号 9:33-->
+                                        <!--                                                    </div>-->
+                                        <!--                                                </div>-->
+                                        <!--                                                <div class="common_text">-->
+                                        <!--                                                    这集确实不错-->
+                                        <!--                                                </div>-->
+                                        <!--                                            </div>-->
+                                        <!--                                        </li>-->
                                     </ul>
                                 </div>
 
@@ -517,11 +567,11 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                     <div class="episode_card_left">
 
                         <div class="episode_detail">
-                            <div class="card_left_title">详情</div>
-                            <div class="card_left_text">
-                                <p>详情一:详情内容</p><br>
-                                <p>详情一:详情内容</p><br>
-                                <p>详情一:详情内容</p><br>
+                            <div class="episode_detail_left_title">信息</div>
+                            <div class="episode_detail_left_text">
+                                <?php
+                                echo nl2br($row['info']);
+                                ?>
                             </div>
                         </div>
                         <div class="episode_directory">
@@ -531,31 +581,31 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
 
                             <div class="episode_directory_content">
                                 <ul class="episode_directory_php">
-<!--                                    <li>-->
-<!--                                        <div class="episode_directory_item">-->
-<!--                                            第1话：「无能力」-->
-<!--                                        </div>-->
-<!--                                    </li>-->
-<!--                                    <li>-->
-<!--                                        <div class="episode_directory_item chosendd">-->
-<!--                                            第1话：「无能力」-->
-<!--                                        </div>-->
-<!--                                    </li>-->
-<!--                                    <li>-->
-<!--                                        <div class="episode_directory_item">-->
-<!--                                            第1话：「无能力」-->
-<!--                                        </div>-->
-<!--                                    </li>-->
-<!--                                    <li>-->
-<!--                                        <div class="episode_directory_item">-->
-<!--                                            第1话：「无能力」-->
-<!--                                        </div>-->
-<!--                                    </li>-->
-<!--                                    <li>-->
-<!--                                        <div class="episode_directory_item">-->
-<!--                                            第1话：「无能力」-->
-<!--                                        </div>-->
-<!--                                    </li>-->
+                                    <!--                                    <li>-->
+                                    <!--                                        <div class="episode_directory_item">-->
+                                    <!--                                            第1话：「无能力」-->
+                                    <!--                                        </div>-->
+                                    <!--                                    </li>-->
+                                    <!--                                    <li>-->
+                                    <!--                                        <div class="episode_directory_item chosendd">-->
+                                    <!--                                            第1话：「无能力」-->
+                                    <!--                                        </div>-->
+                                    <!--                                    </li>-->
+                                    <!--                                    <li>-->
+                                    <!--                                        <div class="episode_directory_item">-->
+                                    <!--                                            第1话：「无能力」-->
+                                    <!--                                        </div>-->
+                                    <!--                                    </li>-->
+                                    <!--                                    <li>-->
+                                    <!--                                        <div class="episode_directory_item">-->
+                                    <!--                                            第1话：「无能力」-->
+                                    <!--                                        </div>-->
+                                    <!--                                    </li>-->
+                                    <!--                                    <li>-->
+                                    <!--                                        <div class="episode_directory_item">-->
+                                    <!--                                            第1话：「无能力」-->
+                                    <!--                                        </div>-->
+                                    <!--                                    </li>-->
                                 </ul>
                             </div>
                             <div class="episode_directory_back">
@@ -569,78 +619,141 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
             <!--长评-->
             <div class="long_review">
                 <div class="short_review_middle">
+                    <!--长评啊啊啊啊的头部-->
                     <div class="card_left_title" style="display: inline-block">短评</div>
                     <div class="short_review_drop">
                         <div>默认<i></i></div>
                         <ul>
-                            <li>
-                                <!--短评具体内容-头像那一行-->
-                                <div class="li_first_div">
-                                    <div class="short_review_face">
-                                        <div class="short_review_img">
-                                            <img alt="Yrqiiii"
-                                                 src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
-                                                 lazy="loaded">
-                                        </div>
-                                    </div>
-                                    <div class="short_review_name">
-                                        bfbdntf
-                                    </div>
-                                    <div class="short_review_star">
-                                        <span class="review_star">
-                                            <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-empty">
-                                                <i></i>
-                                            </i>
-                                        </span>
-                                    </div>
-                                    <div class="short_review_time">22小时前</div>
-                                </div>
-                                <!--短评具体内容-评论内一行-->
-                                <div class="li_second_review">
-                                    <div class="second_review">
-                                        剧情紧凑不拖沓 打击感强 人物性格也很鲜明 纯恶与善的对决
-                                    </div>
-
-                                </div>
-                                <!--点赞-->
-                                <div class="li_third_icon">
-                                    <div>
-                                        <i class="icon-praise"
-                                           style="font-size: 14px;margin-right: 6px;"></i><span>5</span>
-                                    </div>
-                                    <div>
-                                        <i class="icon-criticism"
-                                           style="font-size: 14px;margin-right: 6px;"></i><span>1</span>
-                                    </div>
-                                </div>
-                            </li>
+                            <li>默认</li>
+                            <li>最新</li>
                         </ul>
                     </div>
-                    <div class="short_review_write">去写短评</div>
-                    <ul class="short_review_write_ul">
-                        <li><a href="long-comment-out.php">hello</a></li>
-                        <li><a href="long-comment-out.php">hello</a></li>
-                        <li><a href="long-comment-out.php">hello</a></li>
-                        <li><a href="long-comment-out.php">hello</a></li>
-                        <li><a href="long-comment-out.php">hello</a></li>
-                        <li><a href="long-comment-out.php">hello</a></li>
-                        <li><a href="long-comment-out.php">hello</a></li>
-                        <li><a href="long-comment-out.php">hello</a></li>
-                        <li><a href="long-comment-out.php">hello</a></li>
-                        <li><a href="long-comment-out.php">hello</a></li>
-                    </ul>
+                    <a href="edit.php?id=22"><div class="short_review_write">去写长评</div></a>
+                    <!--长评具体内容-->
+                    <ul class="short_review_write_ulll">
+                        <li>
+                            <div class="li_first_div">
+                                <div class="short_review_face">
+                                    <div class="short_review_img">
+                                        <img alt="无" src="../image/upload/headerpic.jpg">
+                                    </div>
+                                </div>
+                                <div class="short_review_name">
+                                    我是萌新
+                                </div>
+                                <div class="short_review_star">
+                                    <span class="review_star">
+                                        <i class="icon-star-full">
+                                            <i></i> </i>
+                                        <i class="icon-star-full"> <i></i> </i>
+                                        <i class="icon-star-full"> <i></i> </i>
+                                        <i class="icon-star-full"> <i></i>
+                                        </i><i class="icon-star-empty">
+                                            <i></i> </i></span>
+                                </div>
+                                <div class="short_review_time">2020-12-24 12:10</div>
+                            </div>
+                            <a href="#">
+                                <div class="l-main">
+                                    <div class="l-main-title">
+                                        <span>某科学的超电磁炮</span>
+                                    </div>
+                                    <p class="l-content">
+                                        重新看妹妹篇的时候，弹幕看得我好气啊，所以就把原来的稿子加了些方厨的内容关于炮厨“只喜欢超炮，只想看炮姐”其实这种话在魔禁视频里少说，不然某系列粉丝（魔禁粉和超炮粉）又会撕起来，毕竟这是魔禁的视频，喜欢就说出来，不喜欢就藏在心里，最近一直在和魔禁粉
+                                        重新看妹妹篇的时候，弹幕看得我好气啊，所以就把原来的稿子加了些方厨的内容关于炮厨“只喜欢超炮，只想看炮姐”其实这种话在魔禁视频里少说，不然某系列粉丝（魔禁粉和超炮粉）又会撕起来，毕竟这是魔禁的视频，喜欢就说出来，不喜欢就藏在心里，最近一直在和魔禁粉
+                                    </p>
+                                </div>
+                            </a>
+                            <div class="li_third_icon">
+                                <div>
+                                    <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i><span></span></div><div> <i class="icon-criticism" style="font-size: 14px;margin-right: 6px;"></i>
+                                    <span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="li_first_div">
+                                <div class="short_review_face">
+                                    <div class="short_review_img">
+                                        <img alt="无" src="../image/upload/headerpic.jpg">
+                                    </div>
+                                </div>
+                                <div class="short_review_name">
+                                    我是萌新
+                                </div>
+                                <div class="short_review_star">
+                                    <span class="review_star">
+                                        <i class="icon-star-full">
+                                            <i></i> </i>
+                                        <i class="icon-star-full"> <i></i> </i>
+                                        <i class="icon-star-full"> <i></i> </i>
+                                        <i class="icon-star-full"> <i></i>
+                                        </i><i class="icon-star-empty">
+                                            <i></i> </i></span>
+                                </div>
+                                <div class="short_review_time">2020-12-24 12:10</div>
+                            </div>
+                            <a href="#">
+                                <div class="l-main">
+                                    <div class="l-main-title">
+                                        <span>某科学的超电磁炮</span>
+                                    </div>
+                                    <p class="l-content">
+                                        重新看妹妹篇的时候，弹幕看得我好气啊，所以就把原来的稿子加了些方厨的内容关于炮厨“只喜欢超炮，只想看炮姐”其实这种话在魔禁视频里少说，不然某系列粉丝（魔禁粉和超炮粉）又会撕起来，毕竟这是魔禁的视频，喜欢就说出来，不喜欢就藏在心里，最近一直在和魔禁粉
+                                        重新看妹妹篇的时候，弹幕看得我好气啊，所以就把原来的稿子加了些方厨的内容关于炮厨“只喜欢超炮，只想看炮姐”其实这种话在魔禁视频里少说，不然某系列粉丝（魔禁粉和超炮粉）又会撕起来，毕竟这是魔禁的视频，喜欢就说出来，不喜欢就藏在心里，最近一直在和魔禁粉
+                                    </p>
+                                </div>
+                            </a>
+                            <div class="li_third_icon">
+                                <div>
+                                    <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i><span></span></div><div> <i class="icon-criticism" style="font-size: 14px;margin-right: 6px;"></i>
+                                    <span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="li_first_div">
+                                <div class="short_review_face">
+                                    <div class="short_review_img">
+                                        <img alt="无" src="../image/upload/headerpic.jpg">
+                                    </div>
+                                </div>
+                                <div class="short_review_name">
+                                    我是萌新
+                                </div>
+                                <div class="short_review_star">
+                                    <span class="review_star">
+                                        <i class="icon-star-full">
+                                            <i></i> </i>
+                                        <i class="icon-star-full"> <i></i> </i>
+                                        <i class="icon-star-full"> <i></i> </i>
+                                        <i class="icon-star-full"> <i></i>
+                                        </i><i class="icon-star-empty">
+                                            <i></i> </i></span>
+                                </div>
+                                <div class="short_review_time">2020-12-24 12:10</div>
+                            </div>
+                            <a href="#">
+                                <div class="l-main">
+                                    <div class="l-main-title">
+                                        <span>某科学的超电磁炮</span>
+                                    </div>
+                                    <p class="l-content">
+                                        重新看妹妹篇的时候，弹幕看得我好气啊，所以就把原来的稿子加了些方厨的内容关于炮厨“只喜欢超炮，只想看炮姐”其实这种话在魔禁视频里少说，不然某系列粉丝（魔禁粉和超炮粉）又会撕起来，毕竟这是魔禁的视频，喜欢就说出来，不喜欢就藏在心里，最近一直在和魔禁粉
+                                        重新看妹妹篇的时候，弹幕看得我好气啊，所以就把原来的稿子加了些方厨的内容关于炮厨“只喜欢超炮，只想看炮姐”其实这种话在魔禁视频里少说，不然某系列粉丝（魔禁粉和超炮粉）又会撕起来，毕竟这是魔禁的视频，喜欢就说出来，不喜欢就藏在心里，最近一直在和魔禁粉
+                                    </p>
+                                </div>
+                            </a>
+                            <div class="li_third_icon">
+                                <div>
+                                    <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i><span></span></div><div> <i class="icon-criticism" style="font-size: 14px;margin-right: 6px;"></i>
+                                    <span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
                 </div>
             </div>
             <!--短评-->
@@ -664,7 +777,7 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                             "miraihyoka") or die("数据库连接失败");
                         mysqli_query($conn, 'set names utf8');
                         $sql = "select * from evaluation,user where evaluation.user_id=user.user_id and animate_id=$id and is_long=0 limit 0,5";
-                        $result = mysqli_query($conn, $sql) or die("数据库查询评论失败".$sql);
+                        $result = mysqli_query($conn, $sql) or die("数据库查询评论失败" . $sql);
 
                         //                        $pic_url = "//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp";
                         //                        $name = "cccccc";
@@ -672,11 +785,13 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                         //                        $review = "那天发发图肥牛饭";
                         //                        $short_score = array(6, 4, 8, 10, 4, 8);
                         //for ($i = 0; $i < 5; $i++)
-                        while ($row = mysqli_fetch_assoc($result)) {     //$row['time']= strtotime($row['time']);
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            //$row['time']= strtotime($row['time']);
+                            $user_name=empty($row['username'])?$row['account']:$row['username'];
                             $row['time'] = substr($row['time'], 0, 16);
                             echo " <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
-                                . " <img alt='无' src='" .$row['avatar']. "'>"
-                                . "  </div> </div> <div class='short_review_name'>" . $row['username']
+                                . " <img alt='无' src='" . $row['avatar'] . "'>"
+                                . "  </div> </div> <div class='short_review_name'>" . $user_name
                                 . " </div> <div class='short_review_star'> <span class='review_star'>";
                             for ($j = 0; $j < 5; $j++) {
 
@@ -702,10 +817,10 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                         <div class="write_review_close"></div>
                         <div class="write_review_header">
                             <div style="width: 100%;">
-                                <img src="//i0.hdslb.com/bfs/bangumi/image/0cc63d7bd7f82722137b6d5b27f13866c865e671.png@100w_133h.png"
-                                     alt="" style="float: left;">
+                                <img src="<?php echo $animate_fj; ?>"
+                                     alt="" style="float: left;width: 100px;height: 133px;">
                                 <div class="write_review_info">
-                                    <h4><strong>阿松</strong></h4>
+                                    <h4><strong><?php echo $animate_name; ?></strong></h4>
                                     <p style="font-size: 14px;margin-top: 20px;margin-bottom: 25px;">请发表你对这部作品的评价</p>
                                     <span class="write_review_star">
                                             <i class="icon-star-empty" index="1">
@@ -730,7 +845,7 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                         <div class="write_review_middle">
                             <textarea></textarea>
                             <span>0/100</span>
-                            <button class="write_review_button">发表短评</button>
+                            <button class="write_review_button">发表评论</button>
                         </div>
                     </div>
                 </div>
@@ -896,6 +1011,8 @@ include "../footer.php";
             if (tabs[i] === tab) {
                 tabs[i].className = 'on';
                 contents[i].style.display = 'block';
+                changeheight();
+
 
             } else {
                 tabs[i].className = '';
@@ -903,6 +1020,93 @@ include "../footer.php";
             }
         }
     }
+    // 更新左侧高度
+    function changeheight(){
+        var tureheight1 = $(".details_card_right").height()+50;
+        // console.log(tureheight);
+        $(".details_card_left").css("min-height", tureheight1);
+
+        var tureheight2 = $(".episode_detail").height()+55;
+        $(".episode_card_right_content").css("min-height", tureheight2);
+    }
+
+</script>
+<script>
+    //是否点击收藏
+    function changelike() {
+        var islogin =<?php echo $uid; ?>;
+        var user_idd =<?php if ($uid != "") echo $uid; else echo '1';?>;
+
+
+        if (islogin === "") {
+            alert("请登录！")
+            window.location.href = "../auth/login.php";
+        } else {
+            $.post("short_review_load.php",
+                {objective: "islike", userid: user_idd, animateid:<?php echo $id;?>},
+                function (data) {
+                    data = eval('(' + data + ')');
+                    $("#like_btn").html(data.text);
+                });
+        }
+    }
+
+    //后加入的点赞的互动
+    function praise(e) {
+        if ($(e).attr("class") == 'icon-praise' || $(e).attr("class") == 'icon-praise_full') {
+            if ($(e).parent().parent().find("div:nth-child(2)").find("i").attr("class") == "icon-criticism_full") {
+                return;
+            }
+            if ($(e).attr("class") == "icon-praise") {
+                $(e).attr("class", "icon-praise_full");
+                $(e).siblings().css("color", "#1189ef");
+                var n = parseInt($(e).siblings().html());
+                if ($(e).siblings().html() == "") {
+                    n = 0;
+                }
+                $(e).siblings().html((n + 1));
+            } else {
+                $(e).attr("class", "icon-praise");
+                $(e).siblings().css("color", "#99a2aa");
+                var n = parseInt($(e).siblings().html());
+                if (n == 1) {
+                    $(e).siblings().html("");
+                } else {
+                    $(e).siblings().html((n - 1));
+                }
+
+            }
+        }
+
+    }
+
+    function criticism(e) {
+        if ($(e).attr("class") == 'icon-criticism' || $(e).attr("class") == 'icon-criticism_full') {
+            if ($(e).parent().parent().find("div:nth-child(1)").find("i").attr("class") == "icon-praise_full") {
+                return;
+            }
+            if ($(e).attr("class") == "icon-criticism") {
+                $(e).attr("class", "icon-criticism_full");
+                $(e).siblings().css("color", "#1189ef");
+                var n = parseInt($(e).siblings().html());
+                if ($(e).siblings().html() == "") {
+                    n = 0;
+                }
+                $(e).siblings().html((n + 1));
+            } else {
+
+                $(e).attr("class", "icon-criticism");
+                $(e).siblings().css("color", "#99a2aa");
+                var n = parseInt($(e).siblings().html());
+                if (n == 1) {
+                    $(e).siblings().html("");
+                } else {
+                    $(e).siblings().html((n - 1));
+                }
+            }
+        }
+    }
+
 
 </script>
 <script>
@@ -915,13 +1119,33 @@ include "../footer.php";
         $(".short_review_write").click(function () {
             $(".write_review").css("display", "block");
             $.post("short_review_load.php",
-                {objective: "reviewcheck", userid: "11111"},
+                {objective: "reviewcheck", userid: <?php echo $uid ?>},
                 function (data) {
                     data = eval('(' + data + ')');
                     if (data.makesure == 1) {
                         //发表评论
+                        $(".write_review_button").text("发表评论");
                     } else {
                         //修改评论
+                        $(".write_review_button").text("修改评论");
+                        $('.write_review_middle textarea').text(data.review);
+                        var score=data.score;
+                        for (j = 0; j < 5; j++) {
+
+                            if (score > 0) {
+                                $('.write_review_star i').eq(j).attr("class", "icon-star-full");
+                                score = score - 2;
+                            } else {
+                                $('.write_review_star i').eq(j).attr("class", "icon-star-empty");
+                            }
+
+                        }
+                        if ($('.write_review_button').css("cursor") == "not-allowed") {
+                            $('.write_review_button').css("cursor", "pointer");
+                            $('.write_review_button').css("background", "#0cc7ef");
+                            $('.write_review_button').css("color", "#ffffff");
+                        }
+
                     }
                 });
         });
@@ -962,32 +1186,6 @@ include "../footer.php";
 
         });
 
-        //后加入的点赞的互动
-        function praise(e) {
-            if ($(e.target).parent().parent().find("div:nth-child(2)").find("i").attr("class") == "icon-criticism_full") {
-                return;
-            }
-            if ($(e.target).attr("class") == "icon-praise") {
-                $(e.target).attr("class", "icon-praise_full");
-                $(e.target).siblings().css("color", "#1189ef");
-                var n = parseInt($(e.target).siblings().html());
-                if ($(e.target).siblings().html() == "") {
-                    n = 0;
-                }
-                $(e.target).siblings().html((n + 1));
-            } else {
-                $(e.target).attr("class", "icon-praise");
-                $(e.target).siblings().css("color", "#99a2aa");
-                var n = parseInt($(e.target).siblings().html());
-                if (n == 1) {
-                    $(e.target).siblings().html("");
-                } else {
-                    $(e.target).siblings().html((n - 1));
-                }
-
-            }
-
-        }
 
         //点赞按钮的互动
         $('.icon-praise').click(function (e) {
@@ -1048,7 +1246,7 @@ include "../footer.php";
                 var windowHeight = $(this).height();
                 if ((scrollHeight - (scrollTop + windowHeight)) <= 1) {
                     $.post("short_review_load.php",
-                        {objective: "reviewload", "postnum": postnum,"id":<?php echo $id ?>},
+                        {objective: "reviewload", "postnum": postnum, "id":<?php echo $id ?>},
                         function (data) {
                             postnum = postnum + 5;
                             data = eval('(' + data + ')');
@@ -1077,7 +1275,7 @@ include "../footer.php";
                                     + "</div> <div class='short_review_time'>" + time
                                     + "</div> </div> <div class='li_second_review'> <div class='second_review'>" + review
                                     + "</div> </div> <div class='li_third_icon'> <div> <i class='icon-praise' style='font-size: 14px;margin-right: 6px;' onclick='praise(this)'></i><span></span></div>"
-                                    + "<div> <i class='icon-criticism' style='font-size: 14px;margin-right: 6px;'></i><span></span></div> </div> </li>";
+                                    + "<div> <i class='icon-criticism' style='font-size: 14px;margin-right: 6px;' onclick='criticism(this)'></i><span></span></div> </div> </li>";
                                 $(".short_review_middle .short_review_write_ul").append(revtext3);
                             }
                         });
@@ -1101,8 +1299,17 @@ include "../footer.php";
                     break;
                 }
             }
+            var flag=$(".write_review_button").text();
+
+
             $.post("short_review_load.php",
-                {objective: "reviewinsert", score: index, shortreview: text, userid: <?php echo $uid ?>,id:<?php echo $id ?>},
+                {
+                    objective: "reviewinsert",
+                    score: index,
+                    shortreview: text,
+                    userid: <?php echo $uid ?>,
+                    id:<?php echo $id ?>,
+                flag:flag},
                 function (data) {
                     data = eval('(' + data + ')');
                     var name = data.name[0];
@@ -1122,10 +1329,10 @@ include "../footer.php";
                         for ($j = 0; $j < 5; $j++) {
 
                             if (index > 0) {
-                                 revtext1 = revtext1 + " <i class='icon-star-full'> <i></i> </i>";
+                                revtext1 = revtext1 + " <i class='icon-star-full'> <i></i> </i>";
                                 index = index - 2;
                             } else {
-                                 revtext1 = revtext1 + " <i class='icon-star-empty'> <i></i> </i>";
+                                revtext1 = revtext1 + " <i class='icon-star-empty'> <i></i> </i>";
                             }
 
                         }
@@ -1133,43 +1340,116 @@ include "../footer.php";
                             + "</div> <div class='short_review_time'>" + time
                             + "</div> </div> <div class='li_second_review'> <div class='second_review'>" + review
                             + "</div> </div> <div class='li_third_icon'> <div> <i class='icon-praise' style='font-size: 14px;margin-right: 6px;' onclick='praise(this)'></i><span></span></div>"
-                            + "<div> <i class='icon-criticism' style='font-size: 14px;margin-right: 6px;'></i><span></span></div> </div> </li>";
+                            + "<div> <i class='icon-criticism' style='font-size: 14px;margin-right: 6px;' onclick='criticism(this)'></i><span></span></div> </div> </li>";
                         $(".short_review_middle .short_review_write_ul").prepend(revtext3);
                     }
                 });
         });
-
-
     });
 </script>
 
 <!--集数评论-->
 <script>
 
-
+    const animate_id = <?php echo $id ?>;
+    const user_id=<?php echo $uid?>;
     $(document).ready(function () {
+
+
         //弹窗的加载
         $(".common_content_re").click(function () {
+            // diversity_review_info
+            let noin = $(".episode_directory_php li").index($(".chosendd").parent());
+            // <h4><strong>第1话</strong></h4>
             $(".diversity_review").css("display", "block");
-            // $.post("short_review_load.php",
-            //     {objective: "reviewcheck", userid: "11111"},
-            //     function (data) {
-            //         data = eval('(' + data + ')');
-            //         if (data.makesure == 1) {
-            //             //发表评论
-            //         } else {
-            //             //修改评论
-            //         }
-            //     });
+            $(".diversity_review_info h4 strong").text("第"+(noin+1)+"话");
+
+            //$.post("release_episode_conmment.php",
+            //    {objective: "reviewcheck", userid:<?php //echo $uid;?>//},
+            //    function (data) {
+            //        data = eval('(' + data + ')');
+            //        if (data.makesure == 1) {
+            //            $('.write_review_button').text("发表评论");
+            //            //发表评论
+            //        } else {
+            //            //修改评论
+            //            $('.write_review_button').text("修改评论");
+            //        }
+            //    });
         });
         //弹窗的关闭
         $(".diversity_review_close").click(function () {
             $(".diversity_review").css("display", "none");
         });
 
+        //弹窗字数的更新及超字数提示
+        $('.diversity_review_middle textarea').keyup(function () {
+            var textlength = $(this).val().length;
+            $('.diversity_review_middle span').text(textlength + "/100");
+
+            if (textlength === 0) {
+                $('.diversity_review_button').css("cursor", "not-allowed");
+                $('.diversity_review_button').css("background", "");
+                $('.diversity_review_button').css("color", "");
+
+            } else {
+                if ($('.diversity_review_button').css("cursor") == "not-allowed") {
+                    $('.diversity_review_button').css("cursor", "pointer");
+                    $('.diversity_review_button').css("background", "#0cc7ef");
+                    $('.diversity_review_button').css("color", "#ffffff");
+
+                }
+            }
+
+            if (textlength > 100) {
+                $('.diversity_review_middle span').text("评论不超过100字");
+                $('.diversity_review_middle span').css("color", "red");
+
+
+            } else if ($('.diversity_review_middle span').css("color") == "rgb(255, 0, 0)") {
+                $('.diversity_review_middle span').css("color", "#99a2aa");
+            }
+
+        });
+
+        //发布讨论
+        $('.diversity_review_button').click(function () {
+
+
+
+
+            var text = $('.diversity_review_middle textarea').val();
+            var textlength = text.length;
+            if (textlength > 100 || textlength === 0) {
+                return;
+            }
+            let noin = $(".episode_directory_php li").index($(".chosendd").parent());
+            noin = noin + 1
+            $(".diversity_review").css("display", "none");
+            $.post("release_episode_conmment.php",
+                {diversity_review: text, userid: user_id, no: noin, animate_id: animate_id},
+                function (data) {
+                    $(".episode_comment_items_php").html(data);
+                });
+        });
+        changeheight();
+        window.onresize = function () {
+            changeheight();
+        }
+
+        function changeheight(){
+            var tureheight1 = $(".details_card_right").height()+50;
+            // console.log(tureheight);
+            $(".details_card_left").css("min-height", tureheight1);
+
+            var tureheight2 = $(".episode_detail").height()+55;
+            $(".episode_card_right_content").css("min-height", tureheight2);
+        }
+
+
         // $.ajaxSettings.async = true;
         //得到剧集列表
-        $.get("episode_list.php?animate_id=" + 100001, function (data, status) {
+        $.get("episode_list.php?animate_id=" + animate_id, function (data, status) {
             $(".episode_list_php").html(data);
             // 返回列表
             $('.episode_directory_back').click(function (e) {
@@ -1180,6 +1460,7 @@ include "../footer.php";
                 $(window).off("scroll");
                 $('.clearfix>li').off("click");
                 $('.episode_card_left').css('marginTop', 0);
+                $(".episode_card_left").css("background","#FFFFFF")
                 backep_top();
             });
 
@@ -1189,30 +1470,32 @@ include "../footer.php";
                 $(".episode_directory").show();
                 $(".episode_lists").css("display", "none");
                 $(".episode_detail").css("display", "none");
+                $(".episode_card_left").css("background","#f4f4f4")
                 // 浮动侧栏
                 $(window).scroll(setmargintop);
                 $('.clearfix>li').click(setmargintop);
 
+
                 const no = $(this).find(".common_lazy_img_num").text()
                 $('.chosendd').removeClass("chosendd");
-                $(".episode_directory_php li:eq("+(no-1)+") div").addClass("chosendd");
+                $(".episode_directory_php li:eq(" + (no - 1) + ") div").addClass("chosendd");
                 // console.log($(".episode_directory_php li:eq("+(no-1)+")" ).html())
-                $.get("episode_comment.php?no=" + no+"&animate_id=" + 100001, function (data, status) {
+                $.get("episode_comment.php?no=" + no + "&animate_id=" + animate_id, function (data, status) {
                     $(".episode_comment_items_php").html(data);
                 });
             });
         });
 
 
-        $.get("get_episode.php?animate_id=" + 100001, function (data, status) {
+        $.get("get_episode.php?animate_id=" + animate_id, function (data, status) {
             $(".episode_directory_php").html(data);
             // 侧栏点击
             $('.episode_directory_item').click(function (e) {
                 $('.chosendd').removeClass("chosendd");
                 $(this).addClass("chosendd");
-                const index=$(".episode_directory_php li").index($(this).parent());
+                const index = $(".episode_directory_php li").index($(this).parent());
 
-                $.get("episode_comment.php?no=" + (index+1)+"&animate_id=" + 100001, function (data, status) {
+                $.get("episode_comment.php?no=" + (index + 1) + "&animate_id=" + animate_id, function (data, status) {
                     $(".episode_comment_items_php").html(data);
                 });
 
@@ -1222,42 +1505,40 @@ include "../footer.php";
 
 
         //返回列表后返回顶部
-         function backep_top(){
+        function backep_top() {
 
-             //每30ms执行一次  scrollTop+iSpeed
-             timer = setInterval(function(){
-                 var scrollTop=document.documentElement.scrollTop || document.body.scrollTop;
-                 //算速度     除以的数值越大，速度越慢
-                 var iSpeed=Math.floor(0-scrollTop/5);
-                 if(scrollTop == 0){
-                     //不关闭定时器，会导致第一次回到顶部之后，导致不能在响应用户的滚动，不定的触发回到顶部
-                     clearInterval(timer);
-                 }
-                 //当按钮启动页面滚动，设置为true
-                 bSys=true;
-                 document.documentElement.scrollTop=document.body.scrollTop=scrollTop+iSpeed;
-             }, 30);
+            //每30ms执行一次  scrollTop+iSpeed
+            timer = setInterval(function () {
+                var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                //算速度     除以的数值越大，速度越慢
+                var iSpeed = Math.floor(0 - scrollTop / 5);
+                if (scrollTop == 0) {
+                    //不关闭定时器，会导致第一次回到顶部之后，导致不能在响应用户的滚动，不定的触发回到顶部
+                    clearInterval(timer);
+                }
+                //当按钮启动页面滚动，设置为true
+                bSys = true;
+                document.documentElement.scrollTop = document.body.scrollTop = scrollTop + iSpeed;
+            }, 30);
 
-         }
-
-
-
-
-
-
-
-
+        }
 
 
         function setmargintop() {
+
+            var scrtop = $(window).scrollTop() - 360;
+            if (scrtop < 0) {
+                return
+            }
+            console.log(scrtop);
             // 计算用户向下滚动页面的百分比
-            var scrollPercent = 100 * $(window).scrollTop() / ($(document).height() - $(window).height());
+            var scrollPercent = 100 * scrtop / ($(document).height() - $(window).height());
 
             // 获取粘性元素的高度
-            var stickyHeight = $('.episode_directory').height() - 250;
+            var stickyHeight = 350;
             // console.log(stickyHeight);
             // 计算粘性元素的边距顶部
-            var marginTop = (($(window).height() - stickyHeight) / 100) * scrollPercent;
+            var marginTop = (($(".episode_card_right_content").height() - stickyHeight) / 100) * scrollPercent;
 
             // 设置粘性元素的上边距
             $('.episode_card_left').css('marginTop', marginTop);

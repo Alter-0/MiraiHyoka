@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="css/long-comment-out.css">
     <script src="../js/jquery.js"></script>
 </head>
-
 <body>
 <?php  include "../header.php";?>
 <div  class="container">
@@ -127,13 +126,16 @@
                    </div>
                    <div id="l-in-comment">
                        <ul>
+                            <!--    一级回复-->
                            <li>
                                <div id="user-header" class="l-icon">
                                    <img src="../image/headerpic.jpg" alt="ghello">
                                </div>
                                <div class="l-main-commment">
                                    <div id="input-comment">
-                                       <input type="text" id="comment" >
+                                       <textarea cols="80" name="msg" rows="5" placeholder="发条友善的评论" class="ipt-txt">
+
+                                       </textarea>
                                        <button class="btn btn-default" id="l-btn">发表<br>评论</button>
                                    </div>
                                </div>
@@ -166,16 +168,41 @@
                                        <div class="l-r-icon">
                                            <img src="../image/headerpic.jpg" alt="ghello">
                                        </div>
+                                <!--        二级回复-->
+                                       <div class="l-r-main">
+                                           <span class="l-r-replay-time">2020-12-18 16:44:12</span>
+                                           <h6>你妈的</h6>
+                                           <p class="l-r-text">我是动画入的坑，记得当年看完超炮，就一直在感叹，黑子才是四人组中最冷静最坚守自己信条的那一个（其实动画对黑仔的塑造也很不错，虽然加强了hentai属性，但只是日常的调味剂而已，我也是不懂为什么很多人只看到了黑仔的hentai而忽略了其他） 后来去补了漫画，我次奥老黑好帅啊，减少了hentai属性的黑子，真的帅爆！但不变的依旧是她的内心，不论是在动画里还是漫画里（原著没看过，不过看过很多粉丝贴的原著片段，应该也是一样），黑子始终是那个站在光明的一侧，努力追寻心中的正义，坚强、睿智、冷静又敏感的风纪委员；始终是那个对他人保持着淑女礼仪君子之交，对朋友关心照顾包容体贴的常盘台“大小姐”；始终是那个不会过多追问，默默守护在身旁，竭尽全力去帮助她，适时的hentai一下帮她缓解紧张悲伤心情的，乖巧完美的学妹，御坂美琴的白井黑子。 她也有缺点，为了坚持正义总让自己深陷危机，伤痕累累，河马对黑子可能是有多爱就要有多虐？始终没让黑子接触学园都市的黑暗面，让她行走于光明之中，却也总是让她受各种各样或大或小的伤，心疼我老黑…… 看超炮也好多年了，越来越爱黑子，越来越爱小琴琴，当然也越来越爱黑琴，官配什么的我不管，美琴喜不喜欢当麻我也不管，黑子和美琴的羁绊就摆在那里，更何况，上茵不倒，我黑琴就长青[doge] 期待大霸星祭老黑再次被小琴琴攻略，两人的羁绊再次发光发热，期待老黑主场的美山篇！ 白井黑子我爱你！！！[打call] 黑琴赛高！黑琴赛高！！黑琴赛高！！！[打call]
+                                              </p>
+                                            <div class="l-info">
+                                                <button  class="btn btn-xs">
+                                                    <span style="top:3px;left: -5px" class="glyphicon glyphicon-thumbs-up">
+                                                    </span>
+                                                </button>
+                                                <button  class="btn btn-xs">
+                                                    <span style="top:3px;left: -5px" class="glyphicon glyphicon-thumbs-down">
+                                                    </span>
+                                                </button>
+                                                <button class="btn btn-xs">
+                                                    回复
+                                                </button>
+                                            </div>
+                                       </div>
+                                   </div>
+                                   <div class="l-replay">
+                                       <div class="l-r-icon">
+                                           <img src="../image/headerpic.jpg" alt="ghello">
+                                       </div>
                                        <div class="l-r-main">
                                            <h6>你妈的</h6>
-                                              <p class="l-r-text">
-                                                  还不错吧
-                                              </p>
-                                            <button  class="btn btn-xs">
+                                           <p class="l-r-text">
+                                               还不错吧
+                                           </p>
+                                           <button  class="btn btn-xs">
                                             <span style="top:3px;left: -5px" class="glyphicon glyphicon-thumbs-down">
                                             </span>
-                                            </button>
-                                            <button class="btn btn-xs">
+                                           </button>
+                                           <button class="btn btn-xs">
                                                回复
                                            </button>
                                        </div>

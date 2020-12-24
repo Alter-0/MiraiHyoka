@@ -35,9 +35,12 @@ include "../conn.php";
 
 date_default_timezone_set("Asia/Shanghai");
 
-$_SESSION['user_id'] = 100009;
-$user_id = $_SESSION['user_id'];
-//$user_id=100003;
+//$_SESSION['user_id'] = 100001;
+if(empty($_SESSION['user_id'])){
+    $user_id=100001;
+}else{
+    $user_id = $_SESSION['user_id'];
+}
 
 $sql = "select * from user where user_id='$user_id'";
 $result = mysqli_query($conn, $sql) or die("数据查询失败" . $sql);
@@ -60,76 +63,82 @@ function timeline($choice)
 
     $user_id = $_SESSION['user_id'];
     if ($choice == 1) {
-        $sql = "select time from evaluation group by date(time)";
+        $sql = "select time from evaluation where user_id='$user_id' group by date(time)";
         $result = mysqli_query($conn, $sql) or die("数据查询失败" . $sql);
+        $num_rows = mysqli_num_rows($result);
+//        echo $num_rows;
+        if ($num_rows != 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $date = date("Y-m-d", strtotime($row['time']));
 
-        while ($row = mysqli_fetch_assoc($result)) {
-            $date = date("Y-m-d", strtotime($row['time']));
-
-            $sql_time = "select * from evaluation where user_id='$user_id' and time like '$date%' order by time desc";
-            $result_time = mysqli_query($conn, $sql_time) or die("数据查询失败" . $sql_time);
-            echo '<div class="timeline_cell">';
-            echo "
+                $sql_time = "select * from evaluation where user_id='$user_id' and time like '$date%' order by time desc";
+                $result_time = mysqli_query($conn, $sql_time) or die("数据查询失败" . $sql_time);
+                echo '<div class="timeline_cell">';
+                echo "
                 <div class='timeline_time'>
                         $date
                 </div>";
 
-            echo "<div class='timeline_content'>";
+                echo "<div class='timeline_content'>";
 
-            while ($row_time = mysqli_fetch_assoc($result_time)) {
+                while ($row_time = mysqli_fetch_assoc($result_time)) {
 
-                $animate_id = $row_time['animate_id'];
-                $sql_animate = "select name_jp from animate where animate_id='$animate_id'";
-                $result_animate = mysqli_query($conn, $sql_animate) or die("数据查询失败" . $sql);
-                $row_animate = mysqli_fetch_assoc($result_animate);
+                    $animate_id = $row_time['animate_id'];
+                    $sql_animate = "select name_jp from animate where animate_id='$animate_id'";
+                    $result_animate = mysqli_query($conn, $sql_animate) or die("数据查询失败" . $sql);
+                    $row_animate = mysqli_fetch_assoc($result_animate);
 
-                $animate_name = $row_animate['name_jp'];
+                    $animate_name = $row_animate['name_jp'];
 
-                $time = cal_time($row_time['time']);
+                    $time = cal_time($row_time['time']);
 
-                echo "
+                    echo "
                     <div class='timeline_content'>
                         <p id='main'>我对[$animate_name]进行了评分</p>
                         <p id='other'>$time</p>
                     </div>";
+                }
+                echo '</div></div>';
             }
-            echo '</div></div>';
         }
     } elseif ($choice == 2) {
-        $sql = "select time from favorites group by date(time)";
+        $sql = "select time from favorites where user_id='$user_id' group by date(time)";
         $result = mysqli_query($conn, $sql) or die("数据查询失败" . $sql);
 
-        while ($row = mysqli_fetch_assoc($result)) {
-            $date = date("Y-m-d", strtotime($row['time']));
+        $num_rows = mysqli_num_rows($result);
+        if ($num_rows != 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $date = date("Y-m-d", strtotime($row['time']));
 
-            $sql_time = "select * from favorites where user_id='$user_id' and time like '$date%' order by time desc";
-            $result_time = mysqli_query($conn, $sql_time) or die("数据查询失败" . $sql_time);
-            echo '<div class="timeline_cell">';
-            echo "
+                $sql_time = "select * from favorites where user_id='$user_id' and time like '$date%' order by time desc";
+                $result_time = mysqli_query($conn, $sql_time) or die("数据查询失败" . $sql_time);
+                echo '<div class="timeline_cell">';
+                echo "
                 <div class='timeline_time'>
                         $date
                 </div>";
 
-            echo "<div class='timeline_content'>";
+                echo "<div class='timeline_content'>";
 
-            while ($row_time = mysqli_fetch_assoc($result_time)) {
+                while ($row_time = mysqli_fetch_assoc($result_time)) {
 
-                $animate_id = $row_time['animate_id'];
-                $sql_animate = "select name_jp from animate where animate_id='$animate_id'";
-                $result_animate = mysqli_query($conn, $sql_animate) or die("数据查询失败" . $sql);
-                $row_animate = mysqli_fetch_assoc($result_animate);
+                    $animate_id = $row_time['animate_id'];
+                    $sql_animate = "select name_jp from animate where animate_id='$animate_id'";
+                    $result_animate = mysqli_query($conn, $sql_animate) or die("数据查询失败" . $sql);
+                    $row_animate = mysqli_fetch_assoc($result_animate);
 
-                $animate_name = $row_animate['name_jp'];
+                    $animate_name = $row_animate['name_jp'];
 
-                $time = cal_time($row_time['time']);
+                    $time = cal_time($row_time['time']);
 
-                echo "
+                    echo "
                     <div class='timeline_content'>
                         <p id='main'>我收藏了[$animate_name]</p>
                         <p id='other'>$time</p>
                     </div>";
+                }
+                echo '</div></div>';
             }
-            echo '</div></div>';
         }
     }
 }
@@ -185,32 +194,49 @@ function favorite()
 function message($choice)
 {
     include "../conn.php";
-    $user_id = $_SESSION['user_id'];
+//    $user_id = $_SESSION['user_id'];
 
     if ($choice == 0) {
-        $sql = "select * from reply where user_id='$user_id' order by time desc ";
+        $sql = "select * from reply order by time desc ";
         $result = mysqli_query($conn, $sql) or die("数据查询失败" . $sql);
         echo '<div class="timeline_cell">';
         while ($row = mysqli_fetch_assoc($result)) {
-            $re_reply_id=$row['re_reply_id'];
-            $sql_re = "select * from reply where re_reply_id='$re_reply_id'";
+            $re_reply_id = $row['re_reply_id'];
+            $reply_id=$row['reply_id'];
+            $content=$row['content'];
+            $sql_re = "select * from reply where reply_id='$re_reply_id'";
             $result_re = mysqli_query($conn, $sql_re) or die("数据查询失败" . $sql);
-            $row_re = mysqli_fetch_assoc($result_re);
 
-            $time=date("Y-m-d", strtotime($row['time']));
+            $num_rows = mysqli_num_rows($result_re);
+            if ($num_rows!=0){
+                $row_re = mysqli_fetch_assoc($result_re);
+                $time = date("Y-m-d", strtotime($row['time']));
+                $re_content = $row_re['content'];
 
-            $content=$row_re['content'];
-
-            echo "<div class='message_content'>
-                     <p id='main'>回复：</p>
-                     <p id='main'>$content</p>
+                $is_read=$row['is_read'];
+                if ($is_read==0){
+                    echo "<div class='message_content'>
+                     <p id='main'>回复：'$content'</p>
+                     <p id='main'>$re_content</p>
+                     <p id='other'><a href='javascript:' id='refresh'><span id='$reply_id' class='reply'>未读</span></a></p>
                      <p id='other'>$time</p>
                   </div>";
+                    $answer=$reply_id;
+                }else{
+                    echo "<div class='message_content'>
+                     <p id='main'>回复：'$content'</p>
+                     <p id='main'>$re_content</p>
+                     <p id='other'>已读</p>
+                     <p id='other'>$time</p>
+                  </div>";
+                    $answer='';
+                }
+            }
         }
         echo "</div>";
     }
+    return $answer;
 }
-
 
 ?>
 
@@ -221,11 +247,17 @@ function message($choice)
  * 登录后取消登录注册按钮，显示用户头像以及相关操作
  */
 
-include "../header.php"?>
+include "../header.php" ?>
 <!--<div style="height: 50px"></div>-->
 <div class="all">
     <div class="top">
-        <div class="banner" style="background: url('<?php echo $background ?>') center center;">
+        <div class="banner" style="background: url('<?php
+        if (empty($background)) {
+            echo "../image/new_banner1.png";
+        } else {
+            echo $background;
+        }
+        ?>') center center;">
             <div style="height: 200px"></div>
             <div class="banner_filter">
                 <div class="info">
@@ -233,7 +265,7 @@ include "../header.php"?>
                         <a href="#">
                             <img src="
                             <?php
-                            if (empty($username)) {
+                            if (empty($avatar)) {
                                 echo "../image/akari.jpg";
                             } else {
                                 echo $avatar;
@@ -279,17 +311,17 @@ include "../header.php"?>
             <div class="left">
                 <div class="timeline_tab_nav">
                     <ul>
-<!--                        <li onclick="changeTab_timeline(this)" class="on">全部</li>-->
+                        <!--                        <li onclick="changeTab_timeline(this)" class="on">全部</li>-->
                         <li onclick="changeTab_timeline(this)" class="on">评分</li>
                         <li onclick="changeTab_timeline(this)">收藏</li>
                     </ul>
                 </div>
                 <div class="timeline_tab_de">
-<!--                    <div class="timeline_all">-->
-<!--                        --><?php
-//                        timeline(1);
-//                        ?>
-<!--                    </div>-->
+                    <!--                    <div class="timeline_all">-->
+                    <!--                        --><?php
+                    //                        timeline(1);
+                    //                        ?>
+                    <!--                    </div>-->
 
                     <div class="timeline_rating">
                         <?php
@@ -353,18 +385,6 @@ include "../header.php"?>
                     favorite();
                     ?>
                     <!--需要动态插入-->
-                    <!--                    <div class="animate">-->
-                    <!--                        <div class="animate_img">-->
-                    <!--                            <a href="#">-->
-                    <!--                                <img src="../image/default_animate.png" alt="">-->
-                    <!--                            </a>-->
-                    <!--                        </div>-->
-                    <!--                        <div class="animate_text">-->
-                    <!--                            <a href="#">-->
-                    <!--                                要显示的动漫名字-->
-                    <!--                            </a>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
                     <!--需要动态插入-->
                 </div>
 
@@ -422,26 +442,9 @@ include "../header.php"?>
                     <div class="message_my">
 
                         <?php
-                        message(0);
+                        $reply_id=message(0);
                         ?>
                         <!--需要动态插入-->
-<!--                        <div class="message_time">-->
-<!--                            2020-12-21-->
-<!--                        </div>-->
-<!---->
-<!--                        <div class="message_content">-->
-<!--                            <p id="main">123123123</p>-->
-<!--                            <p id="other">2天3小时前</p>-->
-<!--                        </div>-->
-<!---->
-<!--                        <div class="message_time">-->
-<!--                            2020-12-21-->
-<!--                        </div>-->
-<!---->
-<!--                        <div class="message_content">-->
-<!--                            <p id="main">123123123</p>-->
-<!--                            <p id="other">2天3小时前</p>-->
-<!--                        </div>-->
                         <!--需要动态插入-->
                     </div>
                     <div class="message_system">
@@ -502,7 +505,7 @@ include "../header.php"?>
                             </div>
                             <div class="settings_right">
                                 <label>
-                                    <input type="text" value="<?php echo $username;?>" name="name">
+                                    <input type="text" value="<?php echo $username; ?>" name="name">
                                 </label>
                             </div>
                         </div>
@@ -541,7 +544,13 @@ include "../header.php"?>
                                 <span role="button">
                                     <input type="file" name="avatar" id="input_avatar" onchange="preview_avatar(this)"
                                            accept style="display: none" alt="">
-                                    <img src="<?php echo $avatar?>" id="img_avatar" alt="avatar"
+                                    <img src="<?php
+                                    if (empty($avatar)) {
+                                        echo "../image/akari.jpg";
+                                    } else {
+                                        echo $avatar;
+                                    }
+                                    ?>" id="img_avatar" alt="avatar"
                                          style="max-height: 100%;max-width: 100%">
                                 </span>
                                 </label>
@@ -556,7 +565,13 @@ include "../header.php"?>
                                 <span role="button">
                                     <input type="file" name="background" id="input_background"
                                            onchange="preview_background(this)" accept style="display: none" alt="">
-                                    <img src="<?php echo $background?>" id="img_background" alt="background"
+                                    <img src="<?php
+                                    if (empty($background)) {
+                                        echo "../image/new_banner1.png";
+                                    } else {
+                                        echo $background;
+                                    }
+                                    ?>" id="img_background" alt="background"
                                          style="max-height: 100%;max-width: 100%">
                                 </span>
                                 </label>
@@ -646,7 +661,20 @@ include "../header.php"?>
     </div>
 </div>
 
-<?php include "../footer.php"?>
+<?php include "../footer.php" ?>
+<?php
+//
+//if(isset($_GET['d']) && $_GET['d']=='ajax'){
+//    $id=$GLOBALS['reply_id'];
+//    echo "<script>alert('$id')</script>";
+//    include "../conn.php";
+//    echo '<script>alert("已经执行了方法")</script>';
+//    $sql="update reply set is_read='1' where reply_id=$id";
+//    mysqli_query($conn, $sql);
+//    exit();
+//}
+//
+//?>
 </body>
 
 <script>
@@ -711,6 +739,13 @@ include "../header.php"?>
             document.getElementById('img_background').src = this.result;
         }
     }
+
+    $('#refresh').click(function (){
+        $.get('upload_read.php?d=ajax&reply_id=<?php echo $reply_id?>',function (d){
+            $('.reply').text('已读');
+            alert(d);
+        })
+    })
 
 </script>
 

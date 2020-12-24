@@ -223,7 +223,7 @@
 .intro {
     text-align: left;
     float: left;
-    width: 950px;
+    width: 350px;
     position: absolute;
     display: block;
     top: 225px;
@@ -278,8 +278,8 @@
 }
 
 .btn_liked {
-    width: 120px;
-    height: 40px;
+    width: 128px;
+    height: 48px;
     line-height: 42px;
     background-color: hsla(0, 0%, 100%, 0.12);
     border: 4px solid hsla(0, 0%, 100%, 0.5);
@@ -354,7 +354,7 @@
 }
 
 .details_card_right {
-    padding: 25px 0;
+    padding: 20px;
     width: 100%;
     text-align: left;
     background: rgba(255, 255, 255, 0.8);
@@ -382,14 +382,45 @@
     font-weight: 700;
     height: 50px;
 }
-
+.card_left_title_new{
+    margin-top: 10px;
+    margin-left: 10px;
+    border-bottom: 1px solid #e5e9ef;
+    padding-bottom: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 幼圆, serif;
+}
 .card_left_text {
     font-family: 幼圆, serif;
     text-align: left;
     line-height: 20px;
     font-size: 15px;
 }
-
+.card_left_text_new{
+    margin-top: 20px;
+}
+.compre_background{
+    width: 60%;
+    height: 40%;
+    position: absolute;
+    left: 20%;
+    border-radius: 15px;
+    border: 1px solid #e8e8e8;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    min-width: 370px;
+}
+.compre_background_second{
+    width: 60%;
+    height: 40%;
+    position: absolute;
+    left: 20%;
+    top: 50%;
+    border-radius: 15px;
+    border: 1px solid #e8e8e8;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    min-width: 370px;
+}
 .card_right_title {
     font-family: 幼圆, serif;
     color: #0a0000;
@@ -900,6 +931,7 @@
     width: 210px;
     height: 50px;
     line-height: 50px;
+    top: 5%;
 }
 .compre_scorenum{
     font-family: 幼圆, serif;
@@ -910,6 +942,7 @@
     font-size: 26px;
     line-height: 50px;
     left: 25%;
+    top: 5%;
 }
 .compre_score_empty{
     position: absolute;
@@ -919,6 +952,7 @@
     height: 50px;
     line-height: 50px;
     left: 45%;
+    top: 5%;
 }
 .compre_ping{
     font-family: serif;
@@ -928,8 +962,8 @@
     position: absolute;
     display: inline-block;
     line-height: 50px;
-    left: 24%;
-    top: 45%;
+    left: 25%;
+    top: 53%;
 }
 .compre_ping_num{
     width: 210px;
@@ -942,7 +976,7 @@
     display: inline-block;
     line-height: 50px;
     left: 45%;
-    top: 45%;
+    top: 55%;
     text-align: center;
 }
 
@@ -1228,7 +1262,7 @@
 }
 
 .episode_comment_content{
-    min-height: 1513px;
+    min-height: 1213px;
 }
 
 
@@ -1327,7 +1361,7 @@
 /*每集下面讨论-右边--开始*/
 
 .episode_card_left{
-    background: #f4f4f4;
+    background: #ffffff;
 }
 
 
@@ -1358,7 +1392,25 @@
 
 .episode_directory_content{
     margin-top: 10px;
+    max-height: 338px;
+    overflow: auto;
+}
+.episode_directory_content::-webkit-scrollbar-corner , .episode_directory_content::-webkit-scrollbar-track{
+    background:rgba(0,0,0,0);
+    -webkit-box-shadow:inset 0 0 0 rgba(0,0,0,0);
+}
+.episode_directory_content::-webkit-resizer , .episode_directory_content::-webkit-scrollbar-thumb{
+    background:rgb(170,170,170);
+    border-radius: 3px;
+    -webkit-box-shadow:inset 0 0 0 rgba(0,0,0,0);
+}
 
+.episode_directory_content::-webkit-scrollbar-thumb:hover{
+    background:rgb(136,136,136);
+}
+.episode_directory_content::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
 }
 
 .episode_directory_item{
@@ -1518,6 +1570,7 @@
 }
 .episode_detail{
     display: block;
+
 }
 
 
@@ -1531,16 +1584,56 @@
 /*控制集数讨论跳转----结束*/
 
 
+/*分集右侧开始*/
+
+
+.episode_detail{
+    padding:20px;
+}
+.episode_detail_left_title{
+    margin-top: 10px;
+    margin-left: 10px;
+    border-bottom:1px solid #e5e9ef ;
+    padding-bottom: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 幼圆, serif;
+}
+
+.episode_detail_left_text{
+    margin-top: 20px;
+}
 
 
 
 
+/*long-comment*/
+.l-main{
+    height: 100px;
+    width: 100%;
+    /*background-color: #5bc0de;*/
+}
+.l-main:hover .l-main-title{
+    -webkit-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    color: #5bc0de;
+}
+.l-main-title{
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    font-weight: 700;
+    font-size: 16px;
+    color: #212121;
+    padding: 0 0 10px;
+}
 
-
-
-
-
-
-
+.l-main p{
+    line-height: 25px;
+    /*font-size: ;*/
+    overflow: hidden;
+    height: 50px;
+    font-size: 14px;
+    color: #6d757a;
+}
 
 
