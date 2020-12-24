@@ -59,7 +59,7 @@ if ((($_FILES["background"]["type"] == "image/gif")
         || ($_FILES["background"]["type"] == "image/pjpeg")
         || ($_FILES["background"]["type"] == "image/x-png")
         || ($_FILES["background"]["type"] == "image/png"))
-    && ($_FILES["background"]["size"] < 20480000)   // 小于 200 kb
+    && ($_FILES["background"]["size"] < 204800000)   // 小于 200 kb
     && in_array($extension, $allowedExts))
 {
     if ($_FILES["background"]["error"] > 0)
@@ -96,8 +96,16 @@ $user_id=$_SESSION['user_id'];
 $username=$_POST['name'];
 $sex=$_POST['sex'];
 $introduction=$_POST['introduction'];
-$avatar="../image/upload/".$_FILES["avatar"]["name"];
-$background="../image/upload/".$_FILES["background"]["name"];
+if (empty($_FILES["avatar"]["name"])){
+    $avatar='';
+}else{
+    $avatar="../image/upload/".$_FILES["avatar"]["name"];
+}
+if (empty($_FILES["background"]["name"])){
+    $background='';
+}else{
+    $background="../image/upload/".$_FILES["background"]["name"];
+}
 $is_timeline=$_POST['is_timeline'];
 $is_favorite=$_POST['is_favorite'];
 
@@ -106,5 +114,5 @@ $result = mysqli_query($conn, $sql) or die("数据更新失败".$sql);
 
 header('location:usercenter.php');
 
-
+echo "<script>alert('上传成功')</script>";
 ?>
