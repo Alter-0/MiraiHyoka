@@ -25,6 +25,8 @@ if($objective=="reviewload")
     while($row=mysqli_fetch_assoc($result))
     {   $row['time']=substr($row['time'], 0,16);
         $review["name"][$i]=$row['username'];
+        if($row['username']=="")
+        {$review["name"][$i] = $row['account'];}
         $review["time"][$i]=$row['time'];
         $review["review"][$i]=$row['content'];
         $review["score"][$i]=$row['score'];
@@ -37,11 +39,23 @@ if($objective=="reviewload")
 echo json_encode($review);
 }
 else if($objective=="reviewcheck")
-{
+{   $user_id=$_POST["userid"];
+    $sql="select * from evaluation where user_id=$user_id";
+    $result= mysqli_query($conn,$sql) or die("评论查询失败".$sql);
+    if(mysqli_num_rows($result)<=0) {
+        $review = array(
+            "makesure" => "1"
+        );
+    }
+    else{
+        $row=mysqli_fetch_assoc($result);
+        $review = array(
+            "makesure" => "2",
+            "score"=>$row['score'],
+            "review"=>$row['content']
+        );
 
-    $review=array(
-        "makesure"=>"1"
-    );
+    }
     echo json_encode($review);
 }
 else if($objective=="reviewinsert")
@@ -49,26 +63,55 @@ else if($objective=="reviewinsert")
      $user_id=$_POST["userid"];
      $score=$_POST["score"];
     $id=$_POST["id"];
-    date_default_timezone_set("PRC");
-    $time= date('Y-m-d h:i:s', time());
-    $sql="insert into evaluation(animate_id,is_long,content,user_id,score,time) value($id,0,'$content',$user_id,$score,'$time')";
-    $result= mysqli_query($conn,$sql) or die("评论失败".$sql);
-    $sql="select * from user where user_id=$user_id";
-    $result= mysqli_query($conn,$sql) or die("查询失败");
+    $flag=$_POST["flag"];
+    if($flag=="发表评论") {
+        date_default_timezone_set("PRC");
+        $time = date('Y-m-d h:i:s', time());
+        $sql = "insert into evaluation(animate_id,is_long,content,user_id,score,time) value($id,0,'$content',$user_id,$score,'$time')";
+        $result = mysqli_query($conn, $sql) or die("评论失败" . $sql);
+        $sql = "select * from user where user_id=$user_id";
+        $result = mysqli_query($conn, $sql) or die("查询失败");
 
-    if(mysqli_num_rows($result)>0)
-    {   $row=mysqli_fetch_assoc($result);
-        $username=$row['username'];
-        $photo=$row['avatar'];
-        $review=array(
-            "name"=>array(),
-            "makesure"=>"1",
-            "photo"=>array()
-        );
+        if (mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            $username = $row['username'];
+            if($row['username']=="")
+            {$username = $row['account'];}
+            $photo = $row['avatar'];
+            $review = array(
+                "name" => array(),
+                "makesure" => "1",
+                "photo" => array()
+            );
+        }
+        $review["name"][0] = $username;
+        $review["photo"][0] = $photo;
     }
-    $review["name"][0]=$username;
-    $review["photo"][0]=$photo;
+    if($flag=="修改评论") {
+        date_default_timezone_set("PRC");
+        $time = date('Y-m-d h:i:s', time());
+        $sql = "update evaluation set content='$content',score=$score,time='$time' where user_id=$user_id and animate_id=$id";
+        $result = mysqli_query($conn, $sql) or die("修改失败" . $sql);
+        $sql = "select * from user where user_id=$user_id";
+        $result = mysqli_query($conn, $sql) or die("查询失败");
+
+        if (mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            $username = $row['username'];
+            if($row['username']=="")
+            {$username = $row['account'];}
+            $photo = $row['avatar'];
+            $review = array(
+                "name" => array(),
+                "makesure" => "1",
+                "photo" => array()
+            );
+        }
+        $review["name"][0] = $username;
+        $review["photo"][0] = $photo;
+    }
     echo json_encode($review);
+
 }
 else if($objective=="islike")
 {   $user_id=$_POST["userid"];

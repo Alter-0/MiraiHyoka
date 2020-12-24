@@ -698,11 +698,13 @@ $uid = empty($_SESSION['uid']) ? 1 : $_SESSION['uid'];
                         //                        $review = "那天发发图肥牛饭";
                         //                        $short_score = array(6, 4, 8, 10, 4, 8);
                         //for ($i = 0; $i < 5; $i++)
-                        while ($row = mysqli_fetch_assoc($result)) {     //$row['time']= strtotime($row['time']);
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            //$row['time']= strtotime($row['time']);
+                            $user_name=empty($row['username'])?$row['account']:$row['username'];
                             $row['time'] = substr($row['time'], 0, 16);
                             echo " <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
                                 . " <img alt='无' src='" . $row['avatar'] . "'>"
-                                . "  </div> </div> <div class='short_review_name'>" . $row['username']
+                                . "  </div> </div> <div class='short_review_name'>" . $user_name
                                 . " </div> <div class='short_review_star'> <span class='review_star'>";
                             for ($j = 0; $j < 5; $j++) {
 
@@ -756,7 +758,7 @@ $uid = empty($_SESSION['uid']) ? 1 : $_SESSION['uid'];
                         <div class="write_review_middle">
                             <textarea></textarea>
                             <span>0/100</span>
-                            <button class="write_review_button">发表短评</button>
+                            <button class="write_review_button">发表评论</button>
                         </div>
                     </div>
                 </div>
@@ -1028,6 +1030,23 @@ include "../footer.php";
                     } else {
                         //修改评论
                         $(".write_review_button").text("修改评论");
+                        $('.write_review_middle textarea').text(data.review);
+                        var score=data.score;
+                        for (j = 0; j < 5; j++) {
+
+                            if (score > 0) {
+                                $('.write_review_star i').eq(j).attr("class", "icon-star-full");
+                                score = score - 2;
+                            } else {
+                                $('.write_review_star i').eq(j).attr("class", "icon-star-empty");
+                            }
+
+                        }
+                        if ($('.write_review_button').css("cursor") == "not-allowed") {
+                            $('.write_review_button').css("cursor", "pointer");
+                            $('.write_review_button').css("background", "#0cc7ef");
+                            $('.write_review_button').css("color", "#ffffff");
+                        }
 
                     }
                 });
@@ -1182,13 +1201,17 @@ include "../footer.php";
                     break;
                 }
             }
+            var flag=$(".write_review_button").text();
+
+
             $.post("short_review_load.php",
                 {
                     objective: "reviewinsert",
                     score: index,
                     shortreview: text,
                     userid: <?php echo $uid ?>,
-                    id:<?php echo $id ?>},
+                    id:<?php echo $id ?>,
+                flag:flag},
                 function (data) {
                     data = eval('(' + data + ')');
                     var name = data.name[0];
@@ -1235,16 +1258,18 @@ include "../footer.php";
         //弹窗的加载
         $(".common_content_re").click(function () {
             $(".diversity_review").css("display", "block");
-            // $.post("release_episode_conmment.php",
-            //     {objective: "reviewcheck", userid: "11111"},
-            //     function (data) {
-            //         data = eval('(' + data + ')');
-            //         if (data.makesure == 1) {
-            //             //发表评论
-            //         } else {
-            //             //修改评论
-            //         }
-            //     });
+            $.post("release_episode_conmment.php",
+                {objective: "reviewcheck", userid:<?php echo $uid;?>},
+                function (data) {
+                    data = eval('(' + data + ')');
+                    if (data.makesure == 1) {
+                        $('.write_review_button').text("发表评论");
+                        //发表评论
+                    } else {
+                        //修改评论
+                        $('.write_review_button').text("修改评论");
+                    }
+                });
         });
         //弹窗的关闭
         $(".diversity_review_close").click(function () {
