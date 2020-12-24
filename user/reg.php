@@ -74,8 +74,8 @@
 
     p {
         font-size: 40px;
-        color: #6cc4ff;
-        font-family: 微软雅黑;
+        color: #00cdff;
+        font-family: Arial;
         margin-bottom: 20px;
         margin-left: 40px;
         margin-top: 0;
@@ -171,7 +171,7 @@
     <div class="left"></div>
     <div class="right">
         <div class="total">
-        <p>welcome</p>
+        <p>MiraiHyoka</p>
         <form name="reg" method="post" onsubmit="return veryfy()" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <input type="text" id="username" name="username" value="" placeholder="用户名">
             <input type="password" id="password" name="password" value="" placeholder="密码">
