@@ -22,57 +22,64 @@
             display: flex;
             flex-direction: column;
             background-attachment:fixed;
-            background-image: url(../image/background.jpg);
+            background: url(../image/background.jpg) no-repeat center center fixed;
             background-size: cover;
         }
         .content{
-            width:100%;
-            height: auto;
-            margin-bottom: 100px;
-        }
-
-        .left{
-            width: 40%;
             height: 500px;
+            width: auto;
+            position: relative;
+            white-space: nowrap;
+            margin-left: 10%;
+            margin-right: 10%;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            box-sizing: border-box;
+        }
+        .left{
+            height: 100%;
+            width: 50%;
+            margin-left: 10%;
             float: left;
-            display: inline-block;
-            background: url("../image/user_background.jpg") ;
+            box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+            background: url("../image/user_background.jpg") center center;
             background-size: cover;
-            box-shadow: 5px 5px 20px 5px rgba(52, 56, 66, 0.8);;
             border-radius: 15px;
             border-bottom-right-radius: 0;
             border-top-right-radius: 0;
-            margin-left: 10%;
-            margin-top: 20px;
-            margin-bottom: 20px;
-
         }
         .right{
-            width: 40%;
-            height: 500px;
-            display: inline-block;
-            margin-top: 20px;
-            position: relative;
-            box-shadow: 7px 7px 17px rgba(52, 56, 66, 0.8);
+            width: 30%;
+            height: 100%;
+            float: left;
+            margin-right: 10%;
+            overflow: hidden
+            box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
             border-radius: 15px;
             border-bottom-left-radius: 0;
             border-top-left-radius: 0;
-            margin-right: 10%;
+            background-color:rgba(255,255,255,0.8);
 
         }
         .total{
-            margin-left: 20%;
+            margin-left: 10%;
+            margin-right: 10%;
+            height: 100%;
         }
         form{
-            margin-left: 30px;
+            margin-left: 10%;
+            margin-right: 10%;
         }
-        p{
-            font-size: 40px;
-            color: #00cdff;
-            font-family: Arial;
-            margin-bottom: 20px;
-            margin-left: 40px;
-            margin-top: 0;
+        .mylogo{
+            height: 50px;
+            margin-top: 10%;
+            margin-left: 25%;
+            margin-right: 25%;
+            width: 50%;
+        }
+        .mylogo img{
+            height: 100%;
+            width: auto;
         }
         #username{
             border: 1px solid #d9d9d9;
@@ -81,11 +88,12 @@
             transition: all .3s;
             line-height: 2;
             padding-left: 30px;
-            width: 50%;
+            width: 100%;
             height: 40px;
-            margin-bottom: 24px;
+            margin-bottom: 25px;
             display: block;
             background: url("image/head.png") 3px 3px no-repeat;
+            margin-top:100px;
         }
         #password{
             border: 1px solid #d9d9d9;
@@ -93,9 +101,9 @@
             border-radius: 4px;
             transition: all .3s;
             line-height: 2;
-            width: 50%;
+            width: 100%;
             height: 40px;
-            margin-bottom: 24px;
+            margin-bottom: 25px;
             display: block;
             padding-left: 30px;
             background: url("image/password.png") 3px 3px no-repeat;
@@ -104,13 +112,11 @@
             border: 1px solid #d9d9d9;
             box-sizing: border-box;
             border-radius: 4px;
-            transition: all .3s;
-            line-height: 2;
-            background-image: linear-gradient(120deg, #db3125 0%, #578bc3 100%);
             height: 40px;
-            width: 50%;
-            display: block;
-            margin-top: 20px;
+            width: 25%;
+            transition: all .3s;
+            display:inline-block;
+            background-color: rgba(100, 149, 237, 0.7);
         }
         #reg{
             border: 1px solid #d9d9d9;
@@ -120,10 +126,9 @@
             line-height: 2;
             background-color: rgba(100, 149, 237, 0.7);
             height: 40px;
-            width: 20%;
+            width: 25%;
             display:inline-block;
-            margin-top: 30px;
-            margin-left: 10%;
+            margin-left: 50%;
         }
         #check{
             border: 1px solid #d9d9d9;
@@ -133,28 +138,40 @@
             line-height: 2;
             background-color: rgba(100, 149, 237, 0.7);
             height: 40px;
-            width: 20%;
-            display:inline-block;
-            margin-top: 30px;
-
+            width: 100%;
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 25px;
         }
+        #reg:hover{
+            background-color: #F4A6D7;
+        }
+        #submit:hover{
+            background-color: #F4A6D7;
+        }
+        #check:hover{
+            background-color: #F4A6D7;
+        }
+
     </style>
     <link rel="stylesheet" href="code.css">
 </head>
 
 <body>
 <?php include "../header.php"?>
+
 <div class="content">
-    <div class="left">
-    </div>
+    <img class="left">
     <div class="right">
         <div class="total">
-        <p>MiraiHyoka</p>
+        <div class="mylogo">
+            <img src="../image/logo.png">
+        </div>
         <form id="form" name="login" method="post" onsubmit="return veryfy()" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]);?>">
             <input type="text" id="username"  name="username" value="" placeholder="用户名">
             <input type="password" id="password"  name="password" value="" placeholder="密码">
-            <input type="submit" id="submit" name="submit" value="登录">
             <button type="button" id="check" >验证</button>
+            <input type="submit" id="submit" name="submit" value="登录">
             <button type="button" id="reg" >注册</button>
         </form>
         </div>
@@ -186,6 +203,7 @@
         </script>
     </div>
 </div>
+
 <script>
     $(document).ready(function(){
         $("#reg").click(function (){
