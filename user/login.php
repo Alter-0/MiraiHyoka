@@ -113,7 +113,7 @@
             box-sizing: border-box;
             border-radius: 4px;
             height: 40px;
-            width: 25%;
+            width: 40%;
             transition: all .3s;
             display:inline-block;
             background-color: rgba(100, 149, 237, 0.7);
@@ -126,9 +126,9 @@
             line-height: 2;
             background-color: rgba(100, 149, 237, 0.7);
             height: 40px;
-            width: 25%;
+            width: 40%;
             display:inline-block;
-            margin-left: 50%;
+            margin-left: 20%;
         }
         #check{
             border: 1px solid #d9d9d9;
