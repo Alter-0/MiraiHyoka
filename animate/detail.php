@@ -1028,6 +1028,7 @@ include "../footer.php";
                     } else {
                         //修改评论
                         $(".write_review_button").text("修改评论");
+
                     }
                 });
         });

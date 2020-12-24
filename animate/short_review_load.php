@@ -38,6 +38,7 @@ echo json_encode($review);
 }
 else if($objective=="reviewcheck")
 {
+
     $review=array(
         "makesure"=>"1"
     );
@@ -52,7 +53,7 @@ else if($objective=="reviewinsert")
     $time= date('Y-m-d h:i:s', time());
     $sql="insert into evaluation(animate_id,is_long,content,user_id,score,time) value($id,0,'$content',$user_id,$score,'$time')";
     $result= mysqli_query($conn,$sql) or die("评论失败".$sql);
-    $sql="select * from user where user_id=1";
+    $sql="select * from user where user_id=$user_id";
     $result= mysqli_query($conn,$sql) or die("查询失败");
 
     if(mysqli_num_rows($result)>0)
