@@ -1387,6 +1387,7 @@ include "../footer.php";
                 $(window).off("scroll");
                 $('.clearfix>li').off("click");
                 $('.episode_card_left').css('marginTop', 0);
+                $(".episode_card_left").css("background","#FFFFFF")
                 backep_top();
             });
 
@@ -1396,6 +1397,7 @@ include "../footer.php";
                 $(".episode_directory").show();
                 $(".episode_lists").css("display", "none");
                 $(".episode_detail").css("display", "none");
+                $(".episode_card_left").css("background","#f4f4f4")
                 // 浮动侧栏
                 $(window).scroll(setmargintop);
                 $('.clearfix>li').click(setmargintop);
