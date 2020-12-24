@@ -35,9 +35,12 @@ include "../conn.php";
 
 date_default_timezone_set("Asia/Shanghai");
 
-$_SESSION['user_id'] = 100001;
-$user_id = $_SESSION['user_id'];
-//$user_id=100003;
+//$_SESSION['user_id'] = 100001;
+if(empty($_SESSION['user_id'])){
+    $user_id=100001;
+}else{
+    $user_id = $_SESSION['user_id'];
+}
 
 $sql = "select * from user where user_id='$user_id'";
 $result = mysqli_query($conn, $sql) or die("数据查询失败" . $sql);
