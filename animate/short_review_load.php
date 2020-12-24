@@ -69,5 +69,29 @@ else if($objective=="reviewinsert")
     $review["photo"][0]=$photo;
     echo json_encode($review);
 }
+else if($objective=="islike")
+{   $user_id=$_POST["userid"];
+    $animate_id=$_POST["animateid"];
+    date_default_timezone_set("PRC");
+    $time= date('Y-m-d h:i:s', time());
+    $sql="select * from favorites where user_id=$user_id and animate_id=$animate_id";
+    $result= mysqli_query($conn,$sql);
+    $review=array(
+        "text"=>"<div class='btn_like'><i></i>收藏</div>"
+    );
+    if(mysqli_num_rows($result)<=0)
+    {
+        $review['text']="<div class='btn_like'><i></i>收藏</div>";
+        $sql="insert into favorites(user_id,animate_id,time) value('$user_id','$animate_id','$time')";
+        $result= mysqli_query($conn,$sql) or die("收藏失败".$sql);
+        $review['text']="<div class='btn_like  btn_liked'><i></i>已收藏</div>";
+    }
+    else{
+        $sql="delete from favorites where user_id=$user_id and animate_id=$animate_id";
+        $result= mysqli_query($conn,$sql) or die("取消收藏失败".$sql);
+        $review['text']="<div class='btn_like'><i></i>收藏</div>";
+    }
+    echo json_encode($review);
+}
 
 ?>
