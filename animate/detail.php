@@ -944,12 +944,23 @@ include "../footer.php";
             if (tabs[i] === tab) {
                 tabs[i].className = 'on';
                 contents[i].style.display = 'block';
+                changeheight();
+
 
             } else {
                 tabs[i].className = '';
                 contents[i].style.display = 'none';
             }
         }
+    }
+    // 更新左侧高度
+    function changeheight(){
+        var tureheight1 = $(".details_card_right").height()+50;
+        // console.log(tureheight);
+        $(".details_card_left").css("min-height", tureheight1);
+
+        var tureheight2 = $(".episode_detail").height()+55;
+        $(".episode_card_right_content").css("min-height", tureheight2);
     }
 
 </script>
@@ -1384,6 +1395,7 @@ include "../footer.php";
                 // 浮动侧栏
                 $(window).scroll(setmargintop);
                 $('.clearfix>li').click(setmargintop);
+
 
                 const no = $(this).find(".common_lazy_img_num").text()
                 $('.chosendd').removeClass("chosendd");
