@@ -1,5 +1,6 @@
 <?php
 include '../conn.php';
+date_default_timezone_set('Asia/Shanghai');
 //查集数表
 $no = $_GET["no"];
 $animate_id = $_GET["animate_id"];
