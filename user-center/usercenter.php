@@ -215,7 +215,7 @@ function message($choice)
                     echo "<div class='message_content'>
                      <p id='main'>回复：'$content'</p>
                      <p id='main'>$re_content</p>
-                     <p id='other'><a href='javascript:' id='refresh'><span id='$reply_id' class='reply'>我已阅读</span></a></p>
+                     <p id='other'><a href='javascript:' id='refresh'><span id='$reply_id' class='reply'>未读</span></a></p>
                      <p id='other'>$time</p>
                   </div>";
                     $answer=$reply_id;
