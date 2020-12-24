@@ -244,7 +244,9 @@ $uid = empty($_SESSION['user_id']) ? 1 : $_SESSION['user_id'];
 
 
                                     ?>
-                                    <span class="compre_scorenum"><?php echo $row['media_rating'] ?></span>
+
+                                    <div class="compre_background"></div>
+                                    <span class="compre_scorenum"><?php echo round($row['media_rating'],1); ?></span>
                                     <div class="compre_score_empty">
                                         <i class='icon-star-empty'> <i></i> </i>
                                         <i class='icon-star-empty'> <i></i> </i>
@@ -259,7 +261,9 @@ $uid = empty($_SESSION['user_id']) ? 1 : $_SESSION['user_id'];
                                         <i class='icon-star-full'> <i></i> </i>
                                         <i class='icon-star-full'> <i></i> </i>
                                     </div>
-                                    <span class="compre_ping">总评</span>
+
+                                    <div class="compre_background_second"></div>
+                                    <span class="compre_ping"><img src="img/rank.png" style="width: 45px;"> </span>
                                     <span class="compre_ping_num">第<?php echo $row['media_rank'] ?>名</span>
 
 
@@ -411,9 +415,9 @@ $uid = empty($_SESSION['user_id']) ? 1 : $_SESSION['user_id'];
                     </div>
                     <!--    第一部分，评分概述-右-->
                     <div class=" col-lg-3 col-md-3 hidden-sm hidden-xs">
-                        <div class="details_card_right" style="padding-left: 10px;">
-                            <div class="card_left_title">信息</div>
-                            <div class="card_left_text">
+                        <div class="details_card_right" style="padding-bottom: 30px; ">
+                            <div class="card_left_title_new">信息</div>
+                            <div class="card_left_text_new">
                                 <?php
                                 echo nl2br($row['info']);
                                 ?>
