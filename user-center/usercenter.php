@@ -191,32 +191,49 @@ function favorite()
 function message($choice)
 {
     include "../conn.php";
-    $user_id = $_SESSION['user_id'];
+//    $user_id = $_SESSION['user_id'];
 
     if ($choice == 0) {
-        $sql = "select * from reply where user_id='$user_id' order by time desc ";
+        $sql = "select * from reply order by time desc ";
         $result = mysqli_query($conn, $sql) or die("数据查询失败" . $sql);
         echo '<div class="timeline_cell">';
         while ($row = mysqli_fetch_assoc($result)) {
             $re_reply_id = $row['re_reply_id'];
-            $sql_re = "select * from reply where re_reply_id='$re_reply_id'";
+            $reply_id=$row['reply_id'];
+            $content=$row['content'];
+            $sql_re = "select * from reply where reply_id='$re_reply_id'";
             $result_re = mysqli_query($conn, $sql_re) or die("数据查询失败" . $sql);
-            $row_re = mysqli_fetch_assoc($result_re);
 
-            $time = date("Y-m-d", strtotime($row['time']));
+            $num_rows = mysqli_num_rows($result_re);
+            if ($num_rows!=0){
+                $row_re = mysqli_fetch_assoc($result_re);
+                $time = date("Y-m-d", strtotime($row['time']));
+                $re_content = $row_re['content'];
 
-            $content = $row_re['content'];
-
-            echo "<div class='message_content'>
-                     <p id='main'>回复：</p>
-                     <p id='main'>$content</p>
+                $is_read=$row['is_read'];
+                if ($is_read==0){
+                    echo "<div class='message_content'>
+                     <p id='main'>回复：'$content'</p>
+                     <p id='main'>$re_content</p>
+                     <p id='other'><a href='javascript:' id='refresh'><span id='$reply_id' class='reply'>我已阅读</span></a></p>
                      <p id='other'>$time</p>
                   </div>";
+                    $answer=$reply_id;
+                }else{
+                    echo "<div class='message_content'>
+                     <p id='main'>回复：'$content'</p>
+                     <p id='main'>$re_content</p>
+                     <p id='other'>已读</p>
+                     <p id='other'>$time</p>
+                  </div>";
+                    $answer='';
+                }
+            }
         }
         echo "</div>";
     }
+    return $answer;
 }
-
 
 ?>
 
@@ -422,7 +439,7 @@ include "../header.php" ?>
                     <div class="message_my">
 
                         <?php
-                        message(0);
+                        $reply_id=message(0);
                         ?>
                         <!--需要动态插入-->
                         <!--需要动态插入-->
@@ -642,6 +659,19 @@ include "../header.php" ?>
 </div>
 
 <?php include "../footer.php" ?>
+<?php
+//
+//if(isset($_GET['d']) && $_GET['d']=='ajax'){
+//    $id=$GLOBALS['reply_id'];
+//    echo "<script>alert('$id')</script>";
+//    include "../conn.php";
+//    echo '<script>alert("已经执行了方法")</script>';
+//    $sql="update reply set is_read='1' where reply_id=$id";
+//    mysqli_query($conn, $sql);
+//    exit();
+//}
+//
+//?>
 </body>
 
 <script>
@@ -706,6 +736,13 @@ include "../header.php" ?>
             document.getElementById('img_background').src = this.result;
         }
     }
+
+    $('#refresh').click(function (){
+        $.get('upload_read.php?d=ajax&reply_id=<?php echo $reply_id?>',function (d){
+            $('.reply').text('已读');
+            alert(d);
+        })
+    })
 
 </script>
 
