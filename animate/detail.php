@@ -440,8 +440,8 @@ $uid = empty($_SESSION['user_id']) ? 1 : $_SESSION['user_id'];
                         <div class="diversity_review_close"></div>
                         <div class="diversity_review_header">
                             <div style="width: 100%;">
-                                <img src="//i0.hdslb.com/bfs/bangumi/image/0cc63d7bd7f82722137b6d5b27f13866c865e671.png@100w_133h.png"
-                                     alt="" style="float: left;">
+                                <img src="<?php echo $animate_fj; ?>"
+                                     alt="" style="float: left;width: 100px;height: 133px;">
                                 <div class="diversity_review_info">
                                     <h4><strong>第1话</strong></h4>
                                     <p style="font-size: 14px;margin-top: 20px;margin-bottom: 25px;">请与他人友善讨论本话</p>
@@ -1288,25 +1288,31 @@ include "../footer.php";
 <!--集数评论-->
 <script>
 
-    const animate_id = 100001;
+    const animate_id = <?php echo $id ?>;
+    const user_id=<?php echo $uid?>;
     $(document).ready(function () {
 
 
         //弹窗的加载
         $(".common_content_re").click(function () {
+            // diversity_review_info
+            let noin = $(".episode_directory_php li").index($(".chosendd").parent());
+            // <h4><strong>第1话</strong></h4>
             $(".diversity_review").css("display", "block");
-            $.post("release_episode_conmment.php",
-                {objective: "reviewcheck", userid:<?php echo $uid;?>},
-                function (data) {
-                    data = eval('(' + data + ')');
-                    if (data.makesure == 1) {
-                        $('.write_review_button').text("发表评论");
-                        //发表评论
-                    } else {
-                        //修改评论
-                        $('.write_review_button').text("修改评论");
-                    }
-                });
+            $(".diversity_review_info h4 strong").text("第"+(noin+1)+"话");
+
+            //$.post("release_episode_conmment.php",
+            //    {objective: "reviewcheck", userid:<?php //echo $uid;?>//},
+            //    function (data) {
+            //        data = eval('(' + data + ')');
+            //        if (data.makesure == 1) {
+            //            $('.write_review_button').text("发表评论");
+            //            //发表评论
+            //        } else {
+            //            //修改评论
+            //            $('.write_review_button').text("修改评论");
+            //        }
+            //    });
         });
         //弹窗的关闭
         $(".diversity_review_close").click(function () {
@@ -1345,6 +1351,10 @@ include "../footer.php";
 
         //发布讨论
         $('.diversity_review_button').click(function () {
+
+
+
+
             var text = $('.diversity_review_middle textarea').val();
             var textlength = text.length;
             if (textlength > 100 || textlength === 0) {
@@ -1354,7 +1364,7 @@ include "../footer.php";
             noin = noin + 1
             $(".diversity_review").css("display", "none");
             $.post("release_episode_conmment.php",
-                {diversity_review: text, userid: 1, no: noin, animate_id: animate_id},
+                {diversity_review: text, userid: user_id, no: noin, animate_id: animate_id},
                 function (data) {
                     $(".episode_comment_items_php").html(data);
                 });
