@@ -13,15 +13,24 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
     <link href="font/style.css" rel="stylesheet"/>
     <link href="detail_m.css" rel="stylesheet"/>
     <meta charset="UTF-8" name="referrer" content="never">
+   <?php
+   include "../conn.php";
+   $sql="select *from animate where animate_id=$id";
+   $result = mysqli_query($conn, $sql) or die("数据库查询评论失败".$sql);
+   if(mysqli_num_rows($result)<=0)
+   {
+       echo "<script>alert('番剧信息不存在');</script>";
+   }
+
+   $row=mysqli_fetch_assoc($result);
+   $animate_name=$row['name_cn'];
+   $animate_fj=$row['cover'];
+    ?>
     <title>
         <?php
-        echo "番名"
+        echo $animate_name
         ?>_番剧点评_MiraiHyoka</title>
-    <?php
-    $score = 6.8;
-    $score1 = 6.4;
-    $score2 = 7.5;
-    ?>
+
     <!--    头和脚-->
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
@@ -38,11 +47,11 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                 <!--  fgimg放番剧展示图 -->
                 <div class="fjimg">
                     <img id="fj"
-                         src="http://i0.hdslb.com/bfs/bangumi/image/0212baa8898d0c819c7fb84015e95b8fca621435.png">
+                         src="<?php echo $animate_fj;?>">
                 </div>
                 <!--  title放番剧名和标签 -->
                 <div class="title">
-                    <span class="title_name"><?php echo "阿松" ?></span>
+                    <span class="title_name"><?php echo $animate_name; ?></span>
                     <!--  title放番剧标签  -->
                     <span class="title_tags">
                         <span class='title_tag'>日常番</span>
@@ -155,8 +164,40 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                             <div class="card_right_div">
                                 <span class="card_right_title">综合媒体评分</span>
                                 <div class="hyoka_rank" style="position: relative">
+                                  <?php
+                                  include "../conn.php";
+                                  $sql="select *from animate where animate_id=$id";
+                                  $result = mysqli_query($conn, $sql) or die("数据库查询评论失败".$sql);
+                                  if(mysqli_num_rows($result)<=0)
+                                  {
+                                      echo "<script>alert('番剧信息不存在');</script>";
+                                  }
 
-                                    <span class="compre_scorenum">7.9</span>
+                                  $row=mysqli_fetch_assoc($result);
+                                  $score2=$row['media_rating'];//综合媒体评分
+                                  $score2=round($score2,1);
+                                  $score =$row['user_rating'];//综合用户评分
+                                  if($score==null){
+                                      $score=0;
+                                  }
+                                  else{
+                                      $score=round($score,1);
+                                  }
+                                  $score3=$score2*14.5;
+                                  if(0<$score2&&$score2<=2)
+                                  {}
+                                  else if(2<$score2&&$score2<=4)
+                                  { $score3=$score3+16.3;}
+                                  else if(4<$score2&&$score2<=6)
+                                  { $score3=$score3+32.6;}
+                                  else if(6<$score2&&$score2<=8)
+                                  { $score3=$score3+48.9;}
+                                  else if(8<$score2&&$score2<=10)
+                                  { $score3=$score3+65;}
+
+
+                                  ?>
+                                    <span class="compre_scorenum"><?php echo $row['media_rating'] ?></span>
                                     <div class="compre_score_empty">
                                         <i class='icon-star-empty'> <i></i> </i>
                                         <i class='icon-star-empty'> <i></i> </i>
@@ -172,7 +213,7 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                         <i class='icon-star-full'> <i></i> </i>
                                     </div>
                                     <span class="compre_ping">总评</span>
-                                    <span class="compre_ping_num">第23名</span>
+                                    <span class="compre_ping_num">第<?php echo $row['media_rank'] ?>名</span>
 
 
                                 </div>
@@ -184,28 +225,13 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                         <div class="rank_first">
                                             <div class="rank_first_line">
                                                 <img src="img/555.webp" class="rank_first_img">
-                                                <span class="rank_first_name">第一个网站</span>
+                                                <span class="rank_first_name">mal</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_score">9.9</span>
+                                                <span class="rank_first_score"><?php echo $row['mal_rating'] ?></span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第222名</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 .col-xs-12 .col-sm-12">
-                                        <div class="rank_first">
-                                            <div class="rank_first_line">
-                                                <img src="img/555.webp" class="rank_first_img">
-                                                <span class="rank_first_name">第一个网站</span>
-                                            </div>
-                                            <div class="rank_first_line">
-                                                <span class="rank_first_score">9.9</span>
-                                            </div>
-                                            <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第222名</span>
+                                                <span class="rank_first_rank">#第<?php echo $row['mal_rank'] ?>名</span>
                                             </div>
 
                                         </div>
@@ -214,13 +240,28 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                         <div class="rank_first">
                                             <div class="rank_first_line">
                                                 <img src="img/555.webp" class="rank_first_img">
-                                                <span class="rank_first_name">第一个网站</span>
+                                                <span class="rank_first_name">anidb</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_score">9.9</span>
+                                                <span class="rank_first_score"><?php echo $row['anidb_rating'] ?></span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第222名</span>
+                                                <span class="rank_first_rank">#第<?php echo $row['anidb_rank'] ?>名</span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 .col-xs-12 .col-sm-12">
+                                        <div class="rank_first">
+                                            <div class="rank_first_line">
+                                                <img src="img/555.webp" class="rank_first_img">
+                                                <span class="rank_first_name">ann</span>
+                                            </div>
+                                            <div class="rank_first_line">
+                                                <span class="rank_first_score"><?php echo $row['ann_rating'] ?></span>
+                                            </div>
+                                            <div class="rank_first_line">
+                                                <span class="rank_first_rank">#第<?php echo $row['ann_rank'] ?>名</span>
                                             </div>
 
                                         </div>
@@ -235,28 +276,13 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                         <div class="rank_first">
                                             <div class="rank_first_line">
                                                 <img src="img/555.webp" class="rank_first_img">
-                                                <span class="rank_first_name">第一个网站</span>
+                                                <span class="rank_first_name">anikore</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_score">9.9</span>
+                                                <span class="rank_first_score"><?php echo $row['ann_rating'] ?></span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第222名</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-3 .col-xs-12 .col-sm-12">
-                                        <div class="rank_first">
-                                            <div class="rank_first_line">
-                                                <img src="img/555.webp" class="rank_first_img">
-                                                <span class="rank_first_name">第一个网站</span>
-                                            </div>
-                                            <div class="rank_first_line">
-                                                <span class="rank_first_score">9.9</span>
-                                            </div>
-                                            <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第222名</span>
+                                                <span class="rank_first_rank">#第<?php echo $row['anikore_rank'] ?>名</span>
                                             </div>
 
                                         </div>
@@ -265,13 +291,13 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                         <div class="rank_first">
                                             <div class="rank_first_line">
                                                 <img src="img/555.webp" class="rank_first_img">
-                                                <span class="rank_first_name">第一个网站</span>
+                                                <span class="rank_first_name">bangumi</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_score">9.9</span>
+                                                <span class="rank_first_score"><?php echo $row['bangumi_rating'] ?></span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第222名</span>
+                                                <span class="rank_first_rank">#第<?php echo $row['bangumi_rank'] ?>名</span>
                                             </div>
 
                                         </div>
@@ -280,13 +306,28 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                         <div class="rank_first">
                                             <div class="rank_first_line">
                                                 <img src="img/555.webp" class="rank_first_img">
-                                                <span class="rank_first_name">第一个网站</span>
+                                                <span class="rank_first_name">imdb</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_score">9.9</span>
+                                                <span class="rank_first_score"><?php echo $row['imdb_rating'] ?></span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第222名</span>
+                                                <span class="rank_first_rank">#第<?php echo $row['imdb_rank'] ?>名</span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 .col-xs-12 .col-sm-12">
+                                        <div class="rank_first">
+                                            <div class="rank_first_line">
+                                                <img src="img/555.webp" class="rank_first_img">
+                                                <span class="rank_first_name">douban</span>
+                                            </div>
+                                            <div class="rank_first_line">
+                                                <span class="rank_first_score"><?php echo $row['douban_rating'] ?></span>
+                                            </div>
+                                            <div class="rank_first_line">
+                                                <span class="rank_first_rank">#第<?php echo $row['douban_rank'] ?>名</span>
                                             </div>
 
                                         </div>
@@ -294,6 +335,30 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                                 </div>
 
                             </div>
+                            <div></div>
+                            <div class="card_right_div_fifth" style="border-top: 1px solid #e5e9ef;padding-top: 30px;">
+                                <div class="details_card_right_cv" style="padding-left: 10px;">
+                                    <div class="card_left_title" style="text-align: center">CV表</div>
+
+                                        <?php
+                                        $cv=explode("\n",$row['cv']);
+                                        foreach($cv as $cvname)
+                                        {
+                                            $c=explode(":",$cvname);
+                                            if($c[0]=="")
+                                            {break;}
+                                        echo "<div class='col-lg-4 col-md-4 .col-xs-12 .col-sm-12'><div class='cv_border'><p>";
+                                        echo  "角色："."$c[0]"."<br>";
+                                        echo  "声优："."$c[1]"."<br>";
+                                        echo "</div></p></div>";
+
+                                        }
+
+                                         ?>
+
+                                </div>
+                            </div>
+
 
 
                         </div>
@@ -301,539 +366,204 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                     <!--    第一部分，评分概述-右-->
                     <div class=" col-lg-3 col-md-3 hidden-sm hidden-xs">
                         <div class="details_card_right" style="padding-left: 10px;">
-                            <div class="card_left_title">详情</div>
+                            <div class="card_left_title">信息</div>
                             <div class="card_left_text">
-                                <p>详情一:详情内容</p><br>
-                                <p>详情一:详情内容</p><br>
-                                <p>详情一:详情内容</p><br>
-                                <p>详情一:详情内容</p><br>
-                                <p>详情一:详情内容</p><br>
+                            <?php
+                                      echo nl2br($row['info']);
+                            ?>
+<!--                                <p>详情一:详情内容</p><br>-->
+<!--                                <p>详情一:详情内容</p><br>-->
+<!--                                <p>详情一:详情内容</p><br>-->
+<!--                                <p>详情一:详情内容</p><br>-->
+<!--                                <p>详情一:详情内容</p><br>-->
                             </div>
                         </div>
                     </div>
-                    <div class=" col-lg-3 col-md-3 hidden-sm hidden-xs" style="margin-top: 20px;">
-                        <div class="details_card_right" style="padding-left: 10px;">
-                            <div class="card_left_title">详情</div>
-                            <div class="card_left_text">
-                                <p>详情一:详情内容</p><br>
-                                <p>详情一:详情内容</p><br>
-                                <p>详情一:详情内容</p><br>
-                                <p>详情一:详情内容</p><br>
-                                <p>详情一:详情内容</p><br>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
             <!-- 分集页-->
             <div class="diversity">
-                <div class="col-lg-9 col-md-9 hidden-12 hidden-12">
-                <div class="episode_card_right">
-                    <div class="episode_card_right_content">
-                        <!--                        <div class="episode_card_right_title">-->
-                        <!--                            正片-->
-                        <!--                        </div>-->
-                        <!--                        <div class="sl_list">-->
-                        <!--                            <ul>-->
-                        <!--                                <li title="第1话：「无能力」" class="misl_ep_item">-->
-                        <!--                                    <div class="misl_ep_img">-->
-                        <!--                                        <div class="common_lazy_img">-->
-                        <!--                                            <img src="http://i0.hdslb.com/bfs/bangumi/image/0212baa8898d0c819c7fb84015e95b8fca621435.png"-->
-                        <!--                                                 alt="第1话">-->
-                        <!--                                            <div class="common_lazy_img_text">第<span-->
-                        <!--                                                        class="common_lazy_img_num">1</span>话-->
-                        <!--                                            </div>-->
-                        <!--                                        </div>-->
-                        <!--                                    </div>-->
-                        <!--                                    <div class="misl_ep_title">-->
-                        <!--                                        <div class="misl_ep_title_name">「无能力」</div>-->
-                        <!---->
-                        <!--                                    </div>-->
-                        <!--                                    <div class="misl_ep_text">-->
-                        <!--                                        <div class="misl_ep_info">时长:24分钟</div>-->
-                        <!--                                        <div class="misl_ep_info">评论:+20</div>-->
-                        <!--                                    </div>-->
-                        <!--                                </li>-->
-                        <!---->
-                        <!--                            </ul>-->
-                        <!--                        </div>-->
-                        <div class="episode_comment_title">
-                            <div class="common_content_title_text">
-                                本话的讨论
+
+                <div class="diversity_review">
+                    <div class="diversity_review_bg">
+                        <div class="diversity_review_close"></div>
+                        <div class="diversity_review_header">
+                            <div style="width: 100%;">
+                                <img src="//i0.hdslb.com/bfs/bangumi/image/0cc63d7bd7f82722137b6d5b27f13866c865e671.png@100w_133h.png"
+                                     alt="" style="float: left;">
+                                <div class="diversity_review_info">
+                                    <h4><strong>第1话</strong></h4>
+                                    <p style="font-size: 14px;margin-top: 20px;margin-bottom: 25px;">请与他人友善讨论本话</p>
+                                </div>
                             </div>
-                            <div class="common_content_re">
-
-                            </div>
-
                         </div>
-                        <div class="episode_comment_content">
-                            <ul>
-                                <!--                                每一项-->
-                                <li class="episode_comment_item ll">
-                                    <!--                                    头像-->
-                                    <div class="common_icon">
-                                        <div class="common_icon_face">
-                                            <div class="common_icon_img">
-                                                <img alt="Yrqiiii"
-                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
-                                                     lazy="loaded">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="common_content">
-                                        <div class="common_content_info">
-                                            <div class="common_username">
-                                                gaibian
-                                            </div>
-
-                                            <div class="common_time">
-                                                12月22号 9:33
-                                            </div>
-                                        </div>
-
-                                        <div class="common_text">
-                                            这集确实不错
-                                        </div>
-
-                                    </div>
-                                </li>
-                                <li class="episode_comment_item rr">
-                                    <!--                                    头像-->
-                                    <div class="common_icon">
-                                        <div class="common_icon_face">
-                                            <div class="common_icon_img">
-                                                <img alt="Yrqiiii"
-                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
-                                                     lazy="loaded">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="common_content">
-                                        <div class="common_content_info">
-                                            <div class="common_username">
-                                                gaibian
-                                            </div>
-
-                                            <div class="common_time">
-                                                12月22号 9:33
-                                            </div>
-                                        </div>
-
-                                        <div class="common_text">
-                                            这集确实不错
-                                        </div>
-
-                                    </div>
-                                </li>
-                                <li class="episode_comment_item ll">
-                                    <!--                                    头像-->
-                                    <div class="common_icon">
-                                        <div class="common_icon_face">
-                                            <div class="common_icon_img">
-                                                <img alt="Yrqiiii"
-                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
-                                                     lazy="loaded">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="common_content">
-                                        <div class="common_content_info">
-                                            <div class="common_username">
-                                                gaibian
-                                            </div>
-
-                                            <div class="common_time">
-                                                12月22号 9:33
-                                            </div>
-                                        </div>
-
-                                        <div class="common_text">
-                                            这集确实不错
-                                        </div>
-
-                                    </div>
-                                </li>
-                                <li class="episode_comment_item rr">
-                                    <!--                                    头像-->
-                                    <div class="common_icon">
-                                        <div class="common_icon_face">
-                                            <div class="common_icon_img">
-                                                <img alt="Yrqiiii"
-                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
-                                                     lazy="loaded">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="common_content">
-                                        <div class="common_content_info">
-                                            <div class="common_username">
-                                                gaibian
-                                            </div>
-
-                                            <div class="common_time">
-                                                12月22号 9:33
-                                            </div>
-                                        </div>
-
-                                        <div class="common_text">
-                                            这集确实不错
-                                        </div>
-
-                                    </div>
-                                </li>
-                                <li class="episode_comment_item ll">
-                                    <!--                                    头像-->
-                                    <div class="common_icon">
-                                        <div class="common_icon_face">
-                                            <div class="common_icon_img">
-                                                <img alt="Yrqiiii"
-                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
-                                                     lazy="loaded">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="common_content">
-                                        <div class="common_content_info">
-                                            <div class="common_username">
-                                                gaibian
-                                            </div>
-
-                                            <div class="common_time">
-                                                12月22号 9:33
-                                            </div>
-                                        </div>
-
-                                        <div class="common_text">
-                                            这集确实不错
-                                        </div>
-
-                                    </div>
-                                </li>
-                                <li class="episode_comment_item rr">
-                                    <!--                                    头像-->
-                                    <div class="common_icon">
-                                        <div class="common_icon_face">
-                                            <div class="common_icon_img">
-                                                <img alt="Yrqiiii"
-                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
-                                                     lazy="loaded">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="common_content">
-                                        <div class="common_content_info">
-                                            <div class="common_username">
-                                                gaibian
-                                            </div>
-
-                                            <div class="common_time">
-                                                12月22号 9:33
-                                            </div>
-                                        </div>
-
-                                        <div class="common_text">
-                                            这集确实不错
-                                        </div>
-
-                                    </div>
-                                </li>
-                                <li class="episode_comment_item ll">
-                                    <!--                                    头像-->
-                                    <div class="common_icon">
-                                        <div class="common_icon_face">
-                                            <div class="common_icon_img">
-                                                <img alt="Yrqiiii"
-                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
-                                                     lazy="loaded">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="common_content">
-                                        <div class="common_content_info">
-                                            <div class="common_username">
-                                                gaibian
-                                            </div>
-
-                                            <div class="common_time">
-                                                12月22号 9:33
-                                            </div>
-                                        </div>
-
-                                        <div class="common_text">
-                                            这集确实不错
-                                        </div>
-
-                                    </div>
-                                </li>
-                                <li class="episode_comment_item rr">
-                                    <!--                                    头像-->
-                                    <div class="common_icon">
-                                        <div class="common_icon_face">
-                                            <div class="common_icon_img">
-                                                <img alt="Yrqiiii"
-                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
-                                                     lazy="loaded">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="common_content">
-                                        <div class="common_content_info">
-                                            <div class="common_username">
-                                                gaibian
-                                            </div>
-
-                                            <div class="common_time">
-                                                12月22号 9:33
-                                            </div>
-                                        </div>
-
-                                        <div class="common_text">
-                                            这集确实不错
-                                        </div>
-
-                                    </div>
-                                </li>
-                                <li class="episode_comment_item ll">
-                                    <!--                                    头像-->
-                                    <div class="common_icon">
-                                        <div class="common_icon_face">
-                                            <div class="common_icon_img">
-                                                <img alt="Yrqiiii"
-                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
-                                                     lazy="loaded">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="common_content">
-                                        <div class="common_content_info">
-                                            <div class="common_username">
-                                                gaibian
-                                            </div>
-
-                                            <div class="common_time">
-                                                12月22号 9:33
-                                            </div>
-                                        </div>
-
-                                        <div class="common_text">
-                                            这集确实不错
-                                        </div>
-
-                                    </div>
-                                </li>
-                                <li class="episode_comment_item rr">
-                                    <!--                                    头像-->
-                                    <div class="common_icon">
-                                        <div class="common_icon_face">
-                                            <div class="common_icon_img">
-                                                <img alt="Yrqiiii"
-                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
-                                                     lazy="loaded">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="common_content">
-                                        <div class="common_content_info">
-                                            <div class="common_username">
-                                                gaibian
-                                            </div>
-
-                                            <div class="common_time">
-                                                12月22号 9:33
-                                            </div>
-                                        </div>
-
-                                        <div class="common_text">
-                                            这集确实不错
-                                        </div>
-
-                                    </div>
-                                </li>
-                                <li class="episode_comment_item ll">
-                                    <!--                                    头像-->
-                                    <div class="common_icon">
-                                        <div class="common_icon_face">
-                                            <div class="common_icon_img">
-                                                <img alt="Yrqiiii"
-                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
-                                                     lazy="loaded">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="common_content">
-                                        <div class="common_content_info">
-                                            <div class="common_username">
-                                                gaibian
-                                            </div>
-
-                                            <div class="common_time">
-                                                12月22号 9:33
-                                            </div>
-                                        </div>
-
-                                        <div class="common_text">
-                                            这集确实不错
-                                        </div>
-
-                                    </div>
-                                </li>
-                                <li class="episode_comment_item rr">
-                                    <!--                                    头像-->
-                                    <div class="common_icon">
-                                        <div class="common_icon_face">
-                                            <div class="common_icon_img">
-                                                <img alt="Yrqiiii"
-                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
-                                                     lazy="loaded">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="common_content">
-                                        <div class="common_content_info">
-                                            <div class="common_username">
-                                                gaibian
-                                            </div>
-
-                                            <div class="common_time">
-                                                12月22号 9:33
-                                            </div>
-                                        </div>
-
-                                        <div class="common_text">
-                                            这集确实不错
-                                        </div>
-
-                                    </div>
-                                </li>
-                                <li class="episode_comment_item ll">
-                                    <!--                                    头像-->
-                                    <div class="common_icon">
-                                        <div class="common_icon_face">
-                                            <div class="common_icon_img">
-                                                <img alt="Yrqiiii"
-                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
-                                                     lazy="loaded">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="common_content">
-                                        <div class="common_content_info">
-                                            <div class="common_username">
-                                                gaibian
-                                            </div>
-
-                                            <div class="common_time">
-                                                12月22号 9:33
-                                            </div>
-                                        </div>
-
-                                        <div class="common_text">
-                                            这集确实不错
-                                        </div>
-
-                                    </div>
-                                </li>
-                                <li class="episode_comment_item rr">
-                                    <!--                                    头像-->
-                                    <div class="common_icon">
-                                        <div class="common_icon_face">
-                                            <div class="common_icon_img">
-                                                <img alt="Yrqiiii"
-                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
-                                                     lazy="loaded">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="common_content">
-                                        <div class="common_content_info">
-                                            <div class="common_username">
-                                                gaibian
-                                            </div>
-
-                                            <div class="common_time">
-                                                12月22号 9:33
-                                            </div>
-                                        </div>
-
-                                        <div class="common_text">
-                                            这集确实不错
-                                        </div>
-
-                                    </div>
-                                </li>
-                                <li class="episode_comment_item ll">
-                                    <!--                                    头像-->
-                                    <div class="common_icon">
-                                        <div class="common_icon_face">
-                                            <div class="common_icon_img">
-                                                <img alt="Yrqiiii"
-                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
-                                                     lazy="loaded">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="common_content">
-                                        <div class="common_content_info">
-                                            <div class="common_username">
-                                                gaibian
-                                            </div>
-
-                                            <div class="common_time">
-                                                12月22号 9:33
-                                            </div>
-                                        </div>
-                                        <div class="common_text">
-                                            这集确实不错
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="episode_comment_item rr">
-                                    <!--                                    头像-->
-                                    <div class="common_icon">
-                                        <div class="common_icon_face">
-                                            <div class="common_icon_img">
-                                                <img alt="Yrqiiii"
-                                                     src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
-                                                     lazy="loaded">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="common_content">
-                                        <div class="common_content_info">
-                                            <div class="common_username">
-                                                gaibian
-                                            </div>
-
-                                            <div class="common_time">
-                                                12月22号 9:33
-                                            </div>
-                                        </div>
-
-                                        <div class="common_text">
-                                            这集确实不错
-                                        </div>
-
-                                    </div>
-                                </li>
-
-
-                            </ul>
+                        <div class="diversity_review_middle">
+                            <textarea></textarea>
+                            <span>0/100</span>
+                            <button class="diversity_review_button">发布</button>
                         </div>
-
-
                     </div>
-
                 </div>
+
+                <div class="col-lg-9 col-md-9 hidden-12 hidden-12">
+                    <div class="episode_card_right">
+                        <div class="episode_card_right_content">
+                            <div class="episode_lists">
+                                <div class="episode_card_right_title">
+                                    正片
+                                </div>
+                                <div class="sl_list">
+                                    <ul class="episode_list_php">
+<!--                                        <li title="第1话：「无能力」" class="misl_ep_item">-->
+<!--                                            <div class="misl_ep_img">-->
+<!--                                                <div class="common_lazy_img">-->
+<!--                                                    <img src="http://i0.hdslb.com/bfs/bangumi/image/0212baa8898d0c819c7fb84015e95b8fca621435.png"-->
+<!--                                                         alt="第1话">-->
+<!--                                                    <div class="common_lazy_img_text">第<span-->
+<!--                                                                class="common_lazy_img_num">1</span>话-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <div class="misl_ep_title">-->
+<!--                                                <div class="misl_ep_title_name">「无能力」</div>-->
+<!---->
+<!--                                            </div>-->
+<!--                                            <div class="misl_ep_text">-->
+<!--                                                <div class="misl_ep_info">时长:24分钟</div>-->
+<!--                                                <div class="misl_ep_info">评论:+20</div>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="episode_comment_lists">
+                                <div class="episode_comment_title">
+                                    <div class="common_content_title_text">
+                                        本话的讨论
+                                    </div>
+                                    <div class="common_content_re">
+                                        加入讨论
+                                    </div>
+
+                                </div>
+                                <div class="episode_comment_content">
+                                    <ul class="episode_comment_items_php">
+
+<!--                                        <li class="episode_comment_item ll">-->
+<!---->
+<!--                                            <div class="common_icon">-->
+<!--                                                <div class="common_icon_face">-->
+<!--                                                    <div class="common_icon_img">-->
+<!--                                                        <img alt="Yrqiiii"-->
+<!--                                                             src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"-->
+<!--                                                             lazy="loaded">-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <div class="common_content">-->
+<!--                                                <div class="common_content_info">-->
+<!--                                                    <div class="common_username">-->
+<!--                                                        gaibian-->
+<!--                                                    </div>-->
+<!---->
+<!--                                                    <div class="common_time">-->
+<!--                                                        12月22号 9:33-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!---->
+<!--                                                <div class="common_text">-->
+<!--                                                    这集确实不错-->
+<!--                                                </div>-->
+<!---->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                        <li class="episode_comment_item rr">-->
+<!---->
+<!--                                            <div class="common_icon">-->
+<!--                                                <div class="common_icon_face">-->
+<!--                                                    <div class="common_icon_img">-->
+<!--                                                        <img alt="Yrqiiii"-->
+<!--                                                             src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"-->
+<!--                                                             lazy="loaded">-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <div class="common_content">-->
+<!--                                                <div class="common_content_info">-->
+<!--                                                    <div class="common_username">-->
+<!--                                                        gaibian-->
+<!--                                                    </div>-->
+<!---->
+<!--                                                    <div class="common_time">-->
+<!--                                                        12月22号 9:33-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="common_text">-->
+<!--                                                    这集确实不错-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class=" col-lg-3 col-md-3 hidden-sm hidden-xs">
-                <div class="episode_card_left">
-                    <div class="card_left_title">详情</div>
-                    <div class="card_left_text">
-                        <p>详情一:详情内容</p><br>
-                        <p>详情一:详情内容</p><br>
-                        <p>详情一:详情内容</p><br>
+
+                    <div class="episode_card_left">
+
+                        <div class="episode_detail">
+                            <div class="card_left_title">详情</div>
+                            <div class="card_left_text">
+                                <p>详情一:详情内容</p><br>
+                                <p>详情一:详情内容</p><br>
+                                <p>详情一:详情内容</p><br>
+                            </div>
+                        </div>
+                        <div class="episode_directory">
+                            <div class="episode_directory_title">
+                                目录
+                            </div>
+
+                            <div class="episode_directory_content">
+                                <ul class="episode_directory_php">
+<!--                                    <li>-->
+<!--                                        <div class="episode_directory_item">-->
+<!--                                            第1话：「无能力」-->
+<!--                                        </div>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <div class="episode_directory_item chosendd">-->
+<!--                                            第1话：「无能力」-->
+<!--                                        </div>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <div class="episode_directory_item">-->
+<!--                                            第1话：「无能力」-->
+<!--                                        </div>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <div class="episode_directory_item">-->
+<!--                                            第1话：「无能力」-->
+<!--                                        </div>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <div class="episode_directory_item">-->
+<!--                                            第1话：「无能力」-->
+<!--                                        </div>-->
+<!--                                    </li>-->
+                                </ul>
+                            </div>
+                            <div class="episode_directory_back">
+                                返回剧集页面
+                            </div>
+                        </div>
                     </div>
-                </div>
+
                 </div>
             </div>
             <!--长评-->
@@ -933,8 +663,7 @@ $uid = empty($_SESSION['uid'])?1:$_SESSION['uid'];
                             "wangyesheji", "e7BLUzfQv69wXybN",
                             "miraihyoka") or die("数据库连接失败");
                         mysqli_query($conn, 'set names utf8');
-                        $animate_id=100001;
-                        $sql = "select * from evaluation,user where evaluation.user_id=user.user_id and animate_id=$animate_id and is_long=0 limit 0,5";
+                        $sql = "select * from evaluation,user where evaluation.user_id=user.user_id and animate_id=$id and is_long=0 limit 0,5";
                         $result = mysqli_query($conn, $sql) or die("数据库查询评论失败".$sql);
 
                         //                        $pic_url = "//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp";
@@ -1040,7 +769,7 @@ include "../footer.php";
             }
             temp2++;
         }, 30);
-        var comprenum =<?php echo 148; ?>;
+        var comprenum =<?php echo $score3; ?>;
         var comprescore = "rect(0px," + comprenum + "px,50px,0px)";
         $('.compre_score').css("clip", comprescore);
         //var temp3 = 0;
@@ -1317,9 +1046,9 @@ include "../footer.php";
                 var scrollTop = $(this).scrollTop();
                 var scrollHeight = $(document).height();
                 var windowHeight = $(this).height();
-                if ((scrollHeight - (scrollTop + windowHeight)) <= 0.4) {
+                if ((scrollHeight - (scrollTop + windowHeight)) <= 1) {
                     $.post("short_review_load.php",
-                        {objective: "reviewload", "postnum": postnum},
+                        {objective: "reviewload", "postnum": postnum,"id":<?php echo $id ?>},
                         function (data) {
                             postnum = postnum + 5;
                             data = eval('(' + data + ')');
@@ -1328,9 +1057,10 @@ include "../footer.php";
                                 var time = data.time[i];
                                 var review = data.review[i];
                                 var score = data.score[i];
+                                var photo = data.photo[i];
 
                                 var revtext1 = " <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
-                                    + " <img alt='a' src='" + "../image/headerpic.jpg" + "' lazy='loaded'>"
+                                    + " <img alt='a' src='" + photo + "' lazy='loaded'>"
                                     + "  </div> </div> <div class='short_review_name'>" + name
                                     + " </div> <div class='short_review_star'> <span class='review_star'>";
                                 for ($j = 0; $j < 5; $j++) {
@@ -1372,7 +1102,7 @@ include "../footer.php";
                 }
             }
             $.post("short_review_load.php",
-                {objective: "reviewinsert", score: index, shortreview: text, userid: 1},
+                {objective: "reviewinsert", score: index, shortreview: text, userid: <?php echo $uid ?>,id:<?php echo $id ?>},
                 function (data) {
                     data = eval('(' + data + ')');
                     var name = data.name[0];
@@ -1385,17 +1115,26 @@ include "../footer.php";
                         setTimeout(function () {
                             $('.insert_success').css("display", "none");
                         }, 500);
-                        $(".short_review_middle .short_review_write_ul").prepend(" <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
+                        var revtext1 = " <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
                             + " <img alt='a' src='" + photo + "' lazy='loaded'>"
                             + "  </div> </div> <div class='short_review_name'>" + name
-                            + " </div> <div class='short_review_star'> <span class='review_star'>"
-                            + " <i class='icon-star-full'> <i></i> </i> <i class='icon-star-full'> <i></i> </i> <i class='icon-star-full'>"
-                            + "<i></i> </i> <i class='icon-star-full'> <i></i> </i> <i class='icon-star-empty'> <i></i> </i> </span>"
+                            + " </div> <div class='short_review_star'> <span class='review_star'>";
+                        for ($j = 0; $j < 5; $j++) {
+
+                            if (index > 0) {
+                                 revtext1 = revtext1 + " <i class='icon-star-full'> <i></i> </i>";
+                                index = index - 2;
+                            } else {
+                                 revtext1 = revtext1 + " <i class='icon-star-empty'> <i></i> </i>";
+                            }
+
+                        }
+                        var revtext3 = revtext1 + "</span>"
                             + "</div> <div class='short_review_time'>" + time
                             + "</div> </div> <div class='li_second_review'> <div class='second_review'>" + review
-                            + "</div> </div> <div class='li_third_icon'> <div> <i class='icon-praise' style='font-size: 14px;margin-right: 6px;'></i><span></span></div>"
-                            + "<div> <i class='icon-criticism' style='font-size: 14px;margin-right: 6px;'></i><span></span></div> </div> </li>");
-
+                            + "</div> </div> <div class='li_third_icon'> <div> <i class='icon-praise' style='font-size: 14px;margin-right: 6px;' onclick='praise(this)'></i><span></span></div>"
+                            + "<div> <i class='icon-criticism' style='font-size: 14px;margin-right: 6px;'></i><span></span></div> </div> </li>";
+                        $(".short_review_middle .short_review_write_ul").prepend(revtext3);
                     }
                 });
         });
@@ -1406,14 +1145,125 @@ include "../footer.php";
 
 <!--集数评论-->
 <script>
+
+
     $(document).ready(function () {
-        $('.misl_ep_item').click(function (e) {
-            const episode_id = $(this).find(".common_lazy_img_num").text()
-            $.get("episode_comment.php?episode_id=" + episode_id, function (data, status) {
-                alert(data + status);
+        //弹窗的加载
+        $(".common_content_re").click(function () {
+            $(".diversity_review").css("display", "block");
+            // $.post("short_review_load.php",
+            //     {objective: "reviewcheck", userid: "11111"},
+            //     function (data) {
+            //         data = eval('(' + data + ')');
+            //         if (data.makesure == 1) {
+            //             //发表评论
+            //         } else {
+            //             //修改评论
+            //         }
+            //     });
+        });
+        //弹窗的关闭
+        $(".diversity_review_close").click(function () {
+            $(".diversity_review").css("display", "none");
+        });
+
+        // $.ajaxSettings.async = true;
+        //得到剧集列表
+        $.get("episode_list.php?animate_id=" + 100001, function (data, status) {
+            $(".episode_list_php").html(data);
+            // 返回列表
+            $('.episode_directory_back').click(function (e) {
+                $(".episode_comment_lists").css("display", "none");
+                $(".episode_directory").css("display", "none");
+                $(".episode_lists").css("display", "block");
+                $(".episode_detail").css("display", "block");
+                $(window).off("scroll");
+                $('.clearfix>li').off("click");
+                $('.episode_card_left').css('marginTop', 0);
+                backep_top();
+            });
+
+            // 进入单独的剧集讨论
+            $('.misl_ep_item').click(function (e) {
+                $(".episode_comment_lists").show();
+                $(".episode_directory").show();
+                $(".episode_lists").css("display", "none");
+                $(".episode_detail").css("display", "none");
+                // 浮动侧栏
+                $(window).scroll(setmargintop);
+                $('.clearfix>li').click(setmargintop);
+
+                const no = $(this).find(".common_lazy_img_num").text()
+                $('.chosendd').removeClass("chosendd");
+                $(".episode_directory_php li:eq("+(no-1)+") div").addClass("chosendd");
+                // console.log($(".episode_directory_php li:eq("+(no-1)+")" ).html())
+                $.get("episode_comment.php?no=" + no+"&animate_id=" + 100001, function (data, status) {
+                    $(".episode_comment_items_php").html(data);
+                });
             });
         });
-    })
+
+
+        $.get("get_episode.php?animate_id=" + 100001, function (data, status) {
+            $(".episode_directory_php").html(data);
+            // 侧栏点击
+            $('.episode_directory_item').click(function (e) {
+                $('.chosendd').removeClass("chosendd");
+                $(this).addClass("chosendd");
+                const index=$(".episode_directory_php li").index($(this).parent());
+
+                $.get("episode_comment.php?no=" + (index+1)+"&animate_id=" + 100001, function (data, status) {
+                    $(".episode_comment_items_php").html(data);
+                });
+
+            });
+
+        });
+
+
+        //返回列表后返回顶部
+         function backep_top(){
+
+             //每30ms执行一次  scrollTop+iSpeed
+             timer = setInterval(function(){
+                 var scrollTop=document.documentElement.scrollTop || document.body.scrollTop;
+                 //算速度     除以的数值越大，速度越慢
+                 var iSpeed=Math.floor(0-scrollTop/5);
+                 if(scrollTop == 0){
+                     //不关闭定时器，会导致第一次回到顶部之后，导致不能在响应用户的滚动，不定的触发回到顶部
+                     clearInterval(timer);
+                 }
+                 //当按钮启动页面滚动，设置为true
+                 bSys=true;
+                 document.documentElement.scrollTop=document.body.scrollTop=scrollTop+iSpeed;
+             }, 30);
+
+         }
+
+
+
+
+
+
+
+
+
+
+        function setmargintop() {
+            // 计算用户向下滚动页面的百分比
+            var scrollPercent = 100 * $(window).scrollTop() / ($(document).height() - $(window).height());
+
+            // 获取粘性元素的高度
+            var stickyHeight = $('.episode_directory').height() - 250;
+            // console.log(stickyHeight);
+            // 计算粘性元素的边距顶部
+            var marginTop = (($(window).height() - stickyHeight) / 100) * scrollPercent;
+
+            // 设置粘性元素的上边距
+            $('.episode_card_left').css('marginTop', marginTop);
+        }
+    });
+
 
 </script>
 
