@@ -38,7 +38,7 @@
             display: inline-block;
             background: url("../image/user_background.jpg") ;
             background-size: cover;
-            box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+            box-shadow: 5px 5px 20px 5px rgba(52, 56, 66, 0.8);;
             border-radius: 15px;
             border-bottom-right-radius: 0;
             border-top-right-radius: 0;
@@ -149,7 +149,7 @@
     </div>
     <div class="right">
         <div class="total">
-        <p>welcome</p>
+        <p>MiraiHyoka</p>
         <form id="form" name="login" method="post" onsubmit="return veryfy()" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]);?>">
             <input type="text" id="username"  name="username" value="" placeholder="用户名">
             <input type="password" id="password"  name="password" value="" placeholder="密码">
