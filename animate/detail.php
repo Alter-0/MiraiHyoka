@@ -126,10 +126,28 @@ $uid = empty($_SESSION['uid']) ? 1 : $_SESSION['uid'];
                         echo "<span>连载中</span>";
                     }
                     ?>
+                <?php function substr_max($str)
+                    {$start=0;
+                     $strlen=200;
+                        $tmpstr="";
+                        for($i = $start; $i < $strlen;) {
+                         if (ord ( substr ( $str, $i, 1 ) ) > 0xa0) { // 如果字符串中首个字节的ASCII序数
+                         $tmpstr .= substr ( $str, $i, 3 ); // 每次取出三位字符赋给变量$tmpstr，即等
+
+                         $i=$i+3; // 变量自加3
+                         } else{
+                         $tmpstr .= substr ( $str, $i, 1 ); // 如果不是汉字，则每次取出一位字符赋给
+                         $i++;
+                         }
+                         }
+                         return $tmpstr; // 返回字符串
+ }
+
+                    ?>
 
                 </div>
                 <div class="intro">
-                    <span class="intro_text"><?php echo substr($animate_info, 0, 201); ?>......</span>
+                    <span class="intro_text"><?php echo substr_max($animate_info); ?>......</span>
                 </div>
                 <div onclick="changelike()" id="like_btn" class="btns">
                     <?php
@@ -206,7 +224,9 @@ $uid = empty($_SESSION['uid']) ? 1 : $_SESSION['uid'];
                                     }
                                     if (mysqli_num_rows($result_user) > 0) {
                                         $row_user = mysqli_fetch_row($result_user);
-                                        $score = $row_user[1] / $row_user[0];
+                                        if($row_user[1]!=0&&$row_user[0]!=0)
+                                        {$score = $row_user[1] / $row_user[0];}
+                                        else{$score = 0;}
                                         $score = round($score, 1);
                                     }
 
@@ -255,10 +275,10 @@ $uid = empty($_SESSION['uid']) ? 1 : $_SESSION['uid'];
                                                 <span class="rank_first_name">mal</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_score"><?php echo $row['mal_rating'] ?></span>
+                                                <span class="rank_first_score"><?php echo empty($row['mal_rating'])?'暂无':$row['mal_rating']; ?></span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第<?php echo $row['mal_rank'] ?>名</span>
+                                                <span class="rank_first_rank">#第<?php echo empty($row['mal_rank'])?0:$row['mal_rank']; ?>名</span>
                                             </div>
 
                                         </div>
@@ -270,10 +290,10 @@ $uid = empty($_SESSION['uid']) ? 1 : $_SESSION['uid'];
                                                 <span class="rank_first_name">anidb</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_score"><?php echo $row['anidb_rating'] ?></span>
+                                                <span class="rank_first_score"><?php echo empty($row['anidb_rating'])?'暂无':$row['anidb_rating']; ?></span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第<?php echo $row['anidb_rank'] ?>名</span>
+                                                <span class="rank_first_rank">#第<?php echo empty($row['anidb_rank'])?0:$row['anidb_rank']; ?>名</span>
                                             </div>
 
                                         </div>
@@ -285,10 +305,10 @@ $uid = empty($_SESSION['uid']) ? 1 : $_SESSION['uid'];
                                                 <span class="rank_first_name">ann</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_score"><?php echo $row['ann_rating'] ?></span>
+                                                <span class="rank_first_score"><?php echo empty($row['ann_rating'])?'暂无':$row['ann_rating']; ?></span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第<?php echo $row['ann_rank'] ?>名</span>
+                                                <span class="rank_first_rank">#第<?php echo empty($row['ann_rank'])?0:$row['ann_rank']; ?>名</span>
                                             </div>
 
                                         </div>
@@ -306,10 +326,10 @@ $uid = empty($_SESSION['uid']) ? 1 : $_SESSION['uid'];
                                                 <span class="rank_first_name">anikore</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_score"><?php echo $row['ann_rating'] ?></span>
+                                                <span class="rank_first_score"><?php echo empty($row['anikore_rating'])?'暂无':$row['anikore_rating']; ?></span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第<?php echo $row['anikore_rank'] ?>名</span>
+                                                <span class="rank_first_rank">#第<?php echo empty($row['anikore_rank'])?0:$row['anikore_rank']; ?>名</span>
                                             </div>
 
                                         </div>
@@ -321,10 +341,10 @@ $uid = empty($_SESSION['uid']) ? 1 : $_SESSION['uid'];
                                                 <span class="rank_first_name">bangumi</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_score"><?php echo $row['bangumi_rating'] ?></span>
+                                                <span class="rank_first_score"><?php echo empty($row['bangumi_rating'])?'暂无':$row['bangumi_rating']; ?></span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第<?php echo $row['bangumi_rank'] ?>名</span>
+                                                <span class="rank_first_rank">#第<?php echo empty($row['bangumi_rank'])?0:$row['bangumi_rank']; ?>名</span>
                                             </div>
 
                                         </div>
@@ -336,10 +356,10 @@ $uid = empty($_SESSION['uid']) ? 1 : $_SESSION['uid'];
                                                 <span class="rank_first_name">imdb</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_score"><?php echo $row['imdb_rating'] ?></span>
+                                                <span class="rank_first_score"><?php echo empty($row['imdb_rating'])?'暂无':$row['imdb_rating']; ?></span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第<?php echo $row['imdb_rank'] ?>名</span>
+                                                <span class="rank_first_rank">#第<?php echo empty($row['imdb_rank'])?0:$row['imdb_rank']; ?>名</span>
                                             </div>
 
                                         </div>
@@ -351,10 +371,10 @@ $uid = empty($_SESSION['uid']) ? 1 : $_SESSION['uid'];
                                                 <span class="rank_first_name">douban</span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_score"><?php echo $row['douban_rating'] ?></span>
+                                                <span class="rank_first_score"><?php echo empty($row['douban_rating'])?'暂无':$row['douban_rating']; ?></span>
                                             </div>
                                             <div class="rank_first_line">
-                                                <span class="rank_first_rank">#第<?php echo $row['douban_rank'] ?>名</span>
+                                                <span class="rank_first_rank">#第<?php echo empty($row['douban_rank'])?0:$row['douban_rank']; ?>名</span>
                                             </div>
 
                                         </div>
