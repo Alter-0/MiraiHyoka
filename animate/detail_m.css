@@ -408,6 +408,7 @@
     border-radius: 15px;
     border: 1px solid #e8e8e8;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    min-width: 370px;
 }
 .compre_background_second{
     width: 60%;
@@ -418,6 +419,7 @@
     border-radius: 15px;
     border: 1px solid #e8e8e8;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    min-width: 370px;
 }
 .card_right_title {
     font-family: 幼圆, serif;
