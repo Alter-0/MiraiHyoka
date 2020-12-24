@@ -180,10 +180,11 @@
 <div class="content">
     <div class="left"></div>
     <div class="right">
-        <div class="mylogo">
-            <img src="../image/logo.png" alt="">
-        </div>
+
         <div class="total">
+            <div class="mylogo">
+                <img src="../image/logo.png" alt="">
+            </div>
 
         <form name="reg" class="form"  method="post" onsubmit="return veryfy()" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <input type="text" id="username" name="username" value="" placeholder="用户名">
