@@ -1,7 +1,7 @@
 <?php
 session_start();
-$id = empty($_GET['id']) ? 100001 : $_GET['id'];
-$uid = empty($_SESSION['uid']) ? 1 : $_SESSION['uid'];
+$id = empty($_GET['animate_id']) ? 100001 : $_GET['animate_id'];
+$uid = empty($_SESSION['user_id']) ? 1 : $_SESSION['user_id'];
 ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -251,7 +251,7 @@ $uid = empty($_SESSION['uid']) ? 1 : $_SESSION['uid'];
                                     <div class="col-lg-4 col-md-4 .col-xs-12 .col-sm-12">
                                         <div class="rank_first">
                                             <div class="rank_first_line">
-                                                <img src="img/555.webp" class="rank_first_img">
+                                                <img src="img/mal.png" class="rank_first_img">
                                                 <span class="rank_first_name">mal</span>
                                             </div>
                                             <div class="rank_first_line">
@@ -266,7 +266,7 @@ $uid = empty($_SESSION['uid']) ? 1 : $_SESSION['uid'];
                                     <div class="col-lg-4 col-md-4 .col-xs-12 .col-sm-12">
                                         <div class="rank_first">
                                             <div class="rank_first_line">
-                                                <img src="img/555.webp" class="rank_first_img">
+                                                <img src="img/anidb.png" class="rank_first_img">
                                                 <span class="rank_first_name">anidb</span>
                                             </div>
                                             <div class="rank_first_line">
@@ -281,7 +281,7 @@ $uid = empty($_SESSION['uid']) ? 1 : $_SESSION['uid'];
                                     <div class="col-lg-4 col-md-4 .col-xs-12 .col-sm-12">
                                         <div class="rank_first">
                                             <div class="rank_first_line">
-                                                <img src="img/555.webp" class="rank_first_img">
+                                                <img src="img/ann.png" class="rank_first_img">
                                                 <span class="rank_first_name">ann</span>
                                             </div>
                                             <div class="rank_first_line">
@@ -302,7 +302,7 @@ $uid = empty($_SESSION['uid']) ? 1 : $_SESSION['uid'];
                                     <div class="col-lg-3 col-md-3 .col-xs-12 .col-sm-12">
                                         <div class="rank_first">
                                             <div class="rank_first_line">
-                                                <img src="img/555.webp" class="rank_first_img">
+                                                <img src="img/anikore.ico" class="rank_first_img">
                                                 <span class="rank_first_name">anikore</span>
                                             </div>
                                             <div class="rank_first_line">
@@ -317,7 +317,7 @@ $uid = empty($_SESSION['uid']) ? 1 : $_SESSION['uid'];
                                     <div class="col-lg-3 col-md-3 .col-xs-12 .col-sm-12">
                                         <div class="rank_first">
                                             <div class="rank_first_line">
-                                                <img src="img/555.webp" class="rank_first_img">
+                                                <img src="img/bangumi.png" class="rank_first_img">
                                                 <span class="rank_first_name">bangumi</span>
                                             </div>
                                             <div class="rank_first_line">
@@ -332,7 +332,7 @@ $uid = empty($_SESSION['uid']) ? 1 : $_SESSION['uid'];
                                     <div class="col-lg-3 col-md-3 .col-xs-12 .col-sm-12">
                                         <div class="rank_first">
                                             <div class="rank_first_line">
-                                                <img src="img/555.webp" class="rank_first_img">
+                                                <img src="img/imdb.png" class="rank_first_img">
                                                 <span class="rank_first_name">imdb</span>
                                             </div>
                                             <div class="rank_first_line">
@@ -347,7 +347,7 @@ $uid = empty($_SESSION['uid']) ? 1 : $_SESSION['uid'];
                                     <div class="col-lg-3 col-md-3 .col-xs-12 .col-sm-12">
                                         <div class="rank_first">
                                             <div class="rank_first_line">
-                                                <img src="img/555.webp" class="rank_first_img">
+                                                <img src="img/douban.png" class="rank_first_img">
                                                 <span class="rank_first_name">douban</span>
                                             </div>
                                             <div class="rank_first_line">
@@ -543,11 +543,11 @@ $uid = empty($_SESSION['uid']) ? 1 : $_SESSION['uid'];
                     <div class="episode_card_left">
 
                         <div class="episode_detail">
-                            <div class="card_left_title">详情</div>
-                            <div class="card_left_text">
-                                <p>详情一:详情内容</p><br>
-                                <p>详情一:详情内容</p><br>
-                                <p>详情一:详情内容</p><br>
+                            <div class="episode_detail_left_title">信息</div>
+                            <div class="episode_detail_left_text">
+                                <?php
+                                echo nl2br($row['info']);
+                                ?>
                             </div>
                         </div>
                         <div class="episode_directory">
@@ -1231,6 +1231,8 @@ include "../footer.php";
 
     const animate_id = 100001;
     $(document).ready(function () {
+
+
         //弹窗的加载
         $(".common_content_re").click(function () {
             $(".diversity_review").css("display", "block");
@@ -1255,12 +1257,12 @@ include "../footer.php";
             var textlength = $(this).val().length;
             $('.diversity_review_middle span').text(textlength + "/100");
 
-            if(textlength === 0){
+            if (textlength === 0) {
                 $('.diversity_review_button').css("cursor", "not-allowed");
                 $('.diversity_review_button').css("background", "");
                 $('.diversity_review_button').css("color", "");
 
-            }else {
+            } else {
                 if ($('.diversity_review_button').css("cursor") == "not-allowed") {
                     $('.diversity_review_button').css("cursor", "pointer");
                     $('.diversity_review_button').css("background", "#0cc7ef");
@@ -1284,7 +1286,7 @@ include "../footer.php";
         $('.diversity_review_button').click(function () {
             var text = $('.diversity_review_middle textarea').val();
             var textlength = text.length;
-            if (textlength > 100 || textlength===0) {
+            if (textlength > 100 || textlength === 0) {
                 return;
             }
             let noin = $(".episode_directory_php li").index($(".chosendd").parent());
@@ -1296,100 +1298,114 @@ include "../footer.php";
                     $(".episode_comment_items_php").html(data);
                 });
         });
-
-    // $.ajaxSettings.async = true;
-    //得到剧集列表
-    $.get("episode_list.php?animate_id=" + animate_id, function (data, status) {
-        $(".episode_list_php").html(data);
-        // 返回列表
-        $('.episode_directory_back').click(function (e) {
-            $(".episode_comment_lists").css("display", "none");
-            $(".episode_directory").css("display", "none");
-            $(".episode_lists").css("display", "block");
-            $(".episode_detail").css("display", "block");
-            $(window).off("scroll");
-            $('.clearfix>li').off("click");
-            $('.episode_card_left').css('marginTop', 0);
-            backep_top();
-        });
-
-        // 进入单独的剧集讨论
-        $('.misl_ep_item').click(function (e) {
-            $(".episode_comment_lists").show();
-            $(".episode_directory").show();
-            $(".episode_lists").css("display", "none");
-            $(".episode_detail").css("display", "none");
-            // 浮动侧栏
-            $(window).scroll(setmargintop);
-            $('.clearfix>li').click(setmargintop);
-
-            const no = $(this).find(".common_lazy_img_num").text()
-            $('.chosendd').removeClass("chosendd");
-            $(".episode_directory_php li:eq(" + (no - 1) + ") div").addClass("chosendd");
-            // console.log($(".episode_directory_php li:eq("+(no-1)+")" ).html())
-            $.get("episode_comment.php?no=" + no + "&animate_id=" + animate_id, function (data, status) {
-                $(".episode_comment_items_php").html(data);
-            });
-        });
-    });
-
-
-    $.get("get_episode.php?animate_id=" + animate_id, function (data, status) {
-        $(".episode_directory_php").html(data);
-        // 侧栏点击
-        $('.episode_directory_item').click(function (e) {
-            $('.chosendd').removeClass("chosendd");
-            $(this).addClass("chosendd");
-            const index = $(".episode_directory_php li").index($(this).parent());
-
-            $.get("episode_comment.php?no=" + (index + 1) + "&animate_id=" + animate_id, function (data, status) {
-                $(".episode_comment_items_php").html(data);
-            });
-
-        });
-
-    });
-
-
-    //返回列表后返回顶部
-    function backep_top() {
-
-        //每30ms执行一次  scrollTop+iSpeed
-        timer = setInterval(function () {
-            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            //算速度     除以的数值越大，速度越慢
-            var iSpeed = Math.floor(0 - scrollTop / 5);
-            if (scrollTop == 0) {
-                //不关闭定时器，会导致第一次回到顶部之后，导致不能在响应用户的滚动，不定的触发回到顶部
-                clearInterval(timer);
-            }
-            //当按钮启动页面滚动，设置为true
-            bSys = true;
-            document.documentElement.scrollTop = document.body.scrollTop = scrollTop + iSpeed;
-        }, 30);
-
-    }
-
-
-    function setmargintop() {
-
-        var scrtop=$(window).scrollTop()-360;
-        if (scrtop<0){
-            return
+        changeheight();
+        window.onresize = function () {
+            changeheight();
         }
-        console.log(scrtop);
-        // 计算用户向下滚动页面的百分比
-        var scrollPercent = 100 * scrtop / ($(document).height() - $(window).height());
 
-        // 获取粘性元素的高度
-        var stickyHeight =350;
-        // console.log(stickyHeight);
-        // 计算粘性元素的边距顶部
-        var marginTop = (($(".episode_card_right_content").height() - stickyHeight) / 100) * scrollPercent;
+        function changeheight(){
+            var tureheight1 = $(".details_card_right").height()+50;
+            // console.log(tureheight);
+            $(".details_card_left").css("min-height", tureheight1);
 
-        // 设置粘性元素的上边距
-        $('.episode_card_left').css('marginTop', marginTop);
-    }
+            var tureheight2 = $(".episode_detail").height()+55;
+            $(".episode_card_right_content").css("min-height", tureheight2);
+        }
+
+
+        // $.ajaxSettings.async = true;
+        //得到剧集列表
+        $.get("episode_list.php?animate_id=" + animate_id, function (data, status) {
+            $(".episode_list_php").html(data);
+            // 返回列表
+            $('.episode_directory_back').click(function (e) {
+                $(".episode_comment_lists").css("display", "none");
+                $(".episode_directory").css("display", "none");
+                $(".episode_lists").css("display", "block");
+                $(".episode_detail").css("display", "block");
+                $(window).off("scroll");
+                $('.clearfix>li').off("click");
+                $('.episode_card_left').css('marginTop', 0);
+                backep_top();
+            });
+
+            // 进入单独的剧集讨论
+            $('.misl_ep_item').click(function (e) {
+                $(".episode_comment_lists").show();
+                $(".episode_directory").show();
+                $(".episode_lists").css("display", "none");
+                $(".episode_detail").css("display", "none");
+                // 浮动侧栏
+                $(window).scroll(setmargintop);
+                $('.clearfix>li').click(setmargintop);
+
+                const no = $(this).find(".common_lazy_img_num").text()
+                $('.chosendd').removeClass("chosendd");
+                $(".episode_directory_php li:eq(" + (no - 1) + ") div").addClass("chosendd");
+                // console.log($(".episode_directory_php li:eq("+(no-1)+")" ).html())
+                $.get("episode_comment.php?no=" + no + "&animate_id=" + animate_id, function (data, status) {
+                    $(".episode_comment_items_php").html(data);
+                });
+            });
+        });
+
+
+        $.get("get_episode.php?animate_id=" + animate_id, function (data, status) {
+            $(".episode_directory_php").html(data);
+            // 侧栏点击
+            $('.episode_directory_item').click(function (e) {
+                $('.chosendd').removeClass("chosendd");
+                $(this).addClass("chosendd");
+                const index = $(".episode_directory_php li").index($(this).parent());
+
+                $.get("episode_comment.php?no=" + (index + 1) + "&animate_id=" + animate_id, function (data, status) {
+                    $(".episode_comment_items_php").html(data);
+                });
+
+            });
+
+        });
+
+
+        //返回列表后返回顶部
+        function backep_top() {
+
+            //每30ms执行一次  scrollTop+iSpeed
+            timer = setInterval(function () {
+                var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                //算速度     除以的数值越大，速度越慢
+                var iSpeed = Math.floor(0 - scrollTop / 5);
+                if (scrollTop == 0) {
+                    //不关闭定时器，会导致第一次回到顶部之后，导致不能在响应用户的滚动，不定的触发回到顶部
+                    clearInterval(timer);
+                }
+                //当按钮启动页面滚动，设置为true
+                bSys = true;
+                document.documentElement.scrollTop = document.body.scrollTop = scrollTop + iSpeed;
+            }, 30);
+
+        }
+
+
+        function setmargintop() {
+
+            var scrtop = $(window).scrollTop() - 360;
+            if (scrtop < 0) {
+                return
+            }
+            console.log(scrtop);
+            // 计算用户向下滚动页面的百分比
+            var scrollPercent = 100 * scrtop / ($(document).height() - $(window).height());
+
+            // 获取粘性元素的高度
+            var stickyHeight = 350;
+            // console.log(stickyHeight);
+            // 计算粘性元素的边距顶部
+            var marginTop = (($(".episode_card_right_content").height() - stickyHeight) / 100) * scrollPercent;
+
+            // 设置粘性元素的上边距
+            $('.episode_card_left').css('marginTop', marginTop);
+        }
     });
 
 

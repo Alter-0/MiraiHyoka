@@ -1536,6 +1536,7 @@
 }
 .episode_detail{
     display: block;
+
 }
 
 
@@ -1549,9 +1550,25 @@
 /*控制集数讨论跳转----结束*/
 
 
+/*分集右侧开始*/
 
 
+.episode_detail{
+    padding:20px;
+}
+.episode_detail_left_title{
+    margin-top: 10px;
+    margin-left: 10px;
+    border-bottom:1px solid #e5e9ef ;
+    padding-bottom: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 幼圆, serif;
+}
 
+.episode_detail_left_text{
+    margin-top: 20px;
+}
 
 
 
