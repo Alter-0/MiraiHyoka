@@ -408,6 +408,7 @@
     border-radius: 15px;
     border: 1px solid #e8e8e8;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    min-width: 370px;
 }
 .compre_background_second{
     width: 60%;
@@ -418,6 +419,7 @@
     border-radius: 15px;
     border: 1px solid #e8e8e8;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    min-width: 370px;
 }
 .card_right_title {
     font-family: 幼圆, serif;
@@ -1605,9 +1607,33 @@
 
 
 
+/*long-comment*/
+.l-main{
+    height: 100px;
+    width: 100%;
+    /*background-color: #5bc0de;*/
+}
+.l-main:hover .l-main-title{
+    -webkit-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    color: #5bc0de;
+}
+.l-main-title{
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    font-weight: 700;
+    font-size: 16px;
+    color: #212121;
+    padding: 0 0 10px;
+}
 
-
-
-
+.l-main p{
+    line-height: 25px;
+    /*font-size: ;*/
+    overflow: hidden;
+    height: 50px;
+    font-size: 14px;
+    color: #6d757a;
+}
 
 

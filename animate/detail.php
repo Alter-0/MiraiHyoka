@@ -619,78 +619,141 @@ $uid = empty($_SESSION['user_id']) ? 1 : $_SESSION['user_id'];
             <!--长评-->
             <div class="long_review">
                 <div class="short_review_middle">
+                    <!--长评啊啊啊啊的头部-->
                     <div class="card_left_title" style="display: inline-block">短评</div>
                     <div class="short_review_drop">
                         <div>默认<i></i></div>
                         <ul>
-                            <li>
-                                <!--短评具体内容-头像那一行-->
-                                <div class="li_first_div">
-                                    <div class="short_review_face">
-                                        <div class="short_review_img">
-                                            <img alt="Yrqiiii"
-                                                 src="//i2.hdslb.com/bfs/face/65d914e518ff8b1d14d8fd26720366984f291e05.jpg@35w_35h.webp"
-                                                 lazy="loaded">
-                                        </div>
-                                    </div>
-                                    <div class="short_review_name">
-                                        bfbdntf
-                                    </div>
-                                    <div class="short_review_star">
-                                        <span class="review_star">
-                                            <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-full">
-                                                <i></i>
-                                            </i>
-                                             <i class="icon-star-empty">
-                                                <i></i>
-                                            </i>
-                                        </span>
-                                    </div>
-                                    <div class="short_review_time">22小时前</div>
-                                </div>
-                                <!--短评具体内容-评论内一行-->
-                                <div class="li_second_review">
-                                    <div class="second_review">
-                                        剧情紧凑不拖沓 打击感强 人物性格也很鲜明 纯恶与善的对决
-                                    </div>
-
-                                </div>
-                                <!--点赞-->
-                                <div class="li_third_icon">
-                                    <div>
-                                        <i class="icon-praise"
-                                           style="font-size: 14px;margin-right: 6px;"></i><span>5</span>
-                                    </div>
-                                    <div>
-                                        <i class="icon-criticism"
-                                           style="font-size: 14px;margin-right: 6px;"></i><span>1</span>
-                                    </div>
-                                </div>
-                            </li>
+                            <li>默认</li>
+                            <li>最新</li>
                         </ul>
                     </div>
-                    <div class="short_review_write">去写短评</div>
-                    <ul class="short_review_write_ul">
-                        <li><a href="long-comment-out.php">hello</a></li>
-                        <li><a href="long-comment-out.php">hello</a></li>
-                        <li><a href="long-comment-out.php">hello</a></li>
-                        <li><a href="long-comment-out.php">hello</a></li>
-                        <li><a href="long-comment-out.php">hello</a></li>
-                        <li><a href="long-comment-out.php">hello</a></li>
-                        <li><a href="long-comment-out.php">hello</a></li>
-                        <li><a href="long-comment-out.php">hello</a></li>
-                        <li><a href="long-comment-out.php">hello</a></li>
-                        <li><a href="long-comment-out.php">hello</a></li>
-                    </ul>
+                    <a href="edit.php?id=22"><div class="short_review_write">去写长评</div></a>
+                    <!--长评具体内容-->
+                    <ul class="short_review_write_ulll">
+                        <li>
+                            <div class="li_first_div">
+                                <div class="short_review_face">
+                                    <div class="short_review_img">
+                                        <img alt="无" src="../image/upload/headerpic.jpg">
+                                    </div>
+                                </div>
+                                <div class="short_review_name">
+                                    我是萌新
+                                </div>
+                                <div class="short_review_star">
+                                    <span class="review_star">
+                                        <i class="icon-star-full">
+                                            <i></i> </i>
+                                        <i class="icon-star-full"> <i></i> </i>
+                                        <i class="icon-star-full"> <i></i> </i>
+                                        <i class="icon-star-full"> <i></i>
+                                        </i><i class="icon-star-empty">
+                                            <i></i> </i></span>
+                                </div>
+                                <div class="short_review_time">2020-12-24 12:10</div>
+                            </div>
+                            <a href="#">
+                                <div class="l-main">
+                                    <div class="l-main-title">
+                                        <span>某科学的超电磁炮</span>
+                                    </div>
+                                    <p class="l-content">
+                                        重新看妹妹篇的时候，弹幕看得我好气啊，所以就把原来的稿子加了些方厨的内容关于炮厨“只喜欢超炮，只想看炮姐”其实这种话在魔禁视频里少说，不然某系列粉丝（魔禁粉和超炮粉）又会撕起来，毕竟这是魔禁的视频，喜欢就说出来，不喜欢就藏在心里，最近一直在和魔禁粉
+                                        重新看妹妹篇的时候，弹幕看得我好气啊，所以就把原来的稿子加了些方厨的内容关于炮厨“只喜欢超炮，只想看炮姐”其实这种话在魔禁视频里少说，不然某系列粉丝（魔禁粉和超炮粉）又会撕起来，毕竟这是魔禁的视频，喜欢就说出来，不喜欢就藏在心里，最近一直在和魔禁粉
+                                    </p>
+                                </div>
+                            </a>
+                            <div class="li_third_icon">
+                                <div>
+                                    <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i><span></span></div><div> <i class="icon-criticism" style="font-size: 14px;margin-right: 6px;"></i>
+                                    <span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="li_first_div">
+                                <div class="short_review_face">
+                                    <div class="short_review_img">
+                                        <img alt="无" src="../image/upload/headerpic.jpg">
+                                    </div>
+                                </div>
+                                <div class="short_review_name">
+                                    我是萌新
+                                </div>
+                                <div class="short_review_star">
+                                    <span class="review_star">
+                                        <i class="icon-star-full">
+                                            <i></i> </i>
+                                        <i class="icon-star-full"> <i></i> </i>
+                                        <i class="icon-star-full"> <i></i> </i>
+                                        <i class="icon-star-full"> <i></i>
+                                        </i><i class="icon-star-empty">
+                                            <i></i> </i></span>
+                                </div>
+                                <div class="short_review_time">2020-12-24 12:10</div>
+                            </div>
+                            <a href="#">
+                                <div class="l-main">
+                                    <div class="l-main-title">
+                                        <span>某科学的超电磁炮</span>
+                                    </div>
+                                    <p class="l-content">
+                                        重新看妹妹篇的时候，弹幕看得我好气啊，所以就把原来的稿子加了些方厨的内容关于炮厨“只喜欢超炮，只想看炮姐”其实这种话在魔禁视频里少说，不然某系列粉丝（魔禁粉和超炮粉）又会撕起来，毕竟这是魔禁的视频，喜欢就说出来，不喜欢就藏在心里，最近一直在和魔禁粉
+                                        重新看妹妹篇的时候，弹幕看得我好气啊，所以就把原来的稿子加了些方厨的内容关于炮厨“只喜欢超炮，只想看炮姐”其实这种话在魔禁视频里少说，不然某系列粉丝（魔禁粉和超炮粉）又会撕起来，毕竟这是魔禁的视频，喜欢就说出来，不喜欢就藏在心里，最近一直在和魔禁粉
+                                    </p>
+                                </div>
+                            </a>
+                            <div class="li_third_icon">
+                                <div>
+                                    <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i><span></span></div><div> <i class="icon-criticism" style="font-size: 14px;margin-right: 6px;"></i>
+                                    <span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="li_first_div">
+                                <div class="short_review_face">
+                                    <div class="short_review_img">
+                                        <img alt="无" src="../image/upload/headerpic.jpg">
+                                    </div>
+                                </div>
+                                <div class="short_review_name">
+                                    我是萌新
+                                </div>
+                                <div class="short_review_star">
+                                    <span class="review_star">
+                                        <i class="icon-star-full">
+                                            <i></i> </i>
+                                        <i class="icon-star-full"> <i></i> </i>
+                                        <i class="icon-star-full"> <i></i> </i>
+                                        <i class="icon-star-full"> <i></i>
+                                        </i><i class="icon-star-empty">
+                                            <i></i> </i></span>
+                                </div>
+                                <div class="short_review_time">2020-12-24 12:10</div>
+                            </div>
+                            <a href="#">
+                                <div class="l-main">
+                                    <div class="l-main-title">
+                                        <span>某科学的超电磁炮</span>
+                                    </div>
+                                    <p class="l-content">
+                                        重新看妹妹篇的时候，弹幕看得我好气啊，所以就把原来的稿子加了些方厨的内容关于炮厨“只喜欢超炮，只想看炮姐”其实这种话在魔禁视频里少说，不然某系列粉丝（魔禁粉和超炮粉）又会撕起来，毕竟这是魔禁的视频，喜欢就说出来，不喜欢就藏在心里，最近一直在和魔禁粉
+                                        重新看妹妹篇的时候，弹幕看得我好气啊，所以就把原来的稿子加了些方厨的内容关于炮厨“只喜欢超炮，只想看炮姐”其实这种话在魔禁视频里少说，不然某系列粉丝（魔禁粉和超炮粉）又会撕起来，毕竟这是魔禁的视频，喜欢就说出来，不喜欢就藏在心里，最近一直在和魔禁粉
+                                    </p>
+                                </div>
+                            </a>
+                            <div class="li_third_icon">
+                                <div>
+                                    <i class="icon-praise" style="font-size: 14px;margin-right: 6px;"></i><span></span></div><div> <i class="icon-criticism" style="font-size: 14px;margin-right: 6px;"></i>
+                                    <span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
                 </div>
             </div>
             <!--短评-->

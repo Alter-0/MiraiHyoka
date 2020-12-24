@@ -284,7 +284,7 @@ echo $_SESSION['account'];
                    foreach ($res as $item){
                        $id = $item['animate_id'];
                        $name = $item['name_cn'];
-                       $rates = floor($item['anikore_rating']*100)/100;
+                       $rates = floor($item['anikore_rating']*100)/1000;
                        echo "<li><a href=\"animate/detail.php?id=".$id."\">".$name."</a><span class=\"sorce\">".$rates."分</span></li>";
                    }
                    ?>
