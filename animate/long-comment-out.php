@@ -14,7 +14,16 @@
     <script src="../js/jquery.js"></script>
 </head>
 <body>
-<?php  include "../header.php";?>
+<?php
+        include "../header.php";
+        include "../conn.php";
+        include "../static/dao.php";
+        $commentid = empty($_GET['id'])?100021:$_GET['id'];
+        $sql = "select animate_id,title,time,content,username,avatar,score from evaluation  join user on evaluation.user_id = user.user_id where evaluation_id = $commentid;";
+        $res =  queryOneRecord($conn,$sql);
+
+?>
+
 <div  class="container">
     <div style="height: 30px">
     </div>
@@ -35,7 +44,7 @@
                    <div class="litle-cover">
                         <img src="img/misakaka.webp" alt="">
                         <div class="litle-cover-info">
-                            <h6>某科学的超电磁炮T</h6>
+                            <h6><?php echo $res['title'];?></h6>
                             <p><span style="margin-right: 5px">番剧</span> |<span style="margin-left: 5px">日本</span>  </p>
                             <span id="star">hello</span>
                         </div>
@@ -54,29 +63,7 @@
                            </span>
                         </div>
                         <div id="comment-content">
-                          <p> 从超炮第一季开始,白井黑子便有了一个大致的形
-
-                              象。</p>
-                                                            <p>
-
-                                                 她是个会偷拍舍友（琴）的变态。
-                                                </p>
-
-                           <p>她是个非常关心身边人的少女。</p>
-
-                           <p>她是个非常尊重他人的人。</p>
-
-                         <p>  她是个对待工作认真负责的工作狂。</p>
-
-                           <p>她是个即使受伤也不会有任何怨言的笨蛋。</p>
-
-                           <p>她是个只会对名为御坂美琴的少女专一的白痴。</p>
-
-                           <p>她是个不会把私情带入工作处理,哪怕对方是自己最</p>
-
-                                <p> 爱的姐姐大人,也不会有任何退后的少女。</p>
-
-                          <p> 食蜂操祈曾夸耀过白井黑子。</p>
+                          <p> <?php echo $res['content'];?></p>
                        </div>
                    </div>
 <!--                    长评的评论部分-->
