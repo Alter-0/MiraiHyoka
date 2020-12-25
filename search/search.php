@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>search</title>
+    <title>Mirai-搜索-<?php echo $_GET['content']?></title>
 <!--    <script src="../js/main.js"></script>-->
 <!--    本页面的css样式-->
     <link rel="stylesheet" href="search.css" type="text/css">
@@ -107,8 +107,8 @@
                     for($i=0;$i<5;$i++){
                         $this_rate=sprintf("%.1f",$rating[$i]);
                         echo "<li>";
-                        echo    "<div class='s_c_left'><a href='../animate/detail.php?id=$animate_id[$i]' alt=''><img src='$cover[$i]' alt=''></a></div>";
-                        echo    "<div class='s_c_right'><div><a href='../animate/detail.php?id=$animate_id[$i]' alt=''>$name[$i]</a></div><div><a href='../animate/detail.php?id=$animate_id[$i]' alt=''>$start_time[$i]</a></div><div><a href='../animate/detail.php?id=$animate_id[$i]' alt=''>综合评分:$this_rate&nbsp排名:$rank[$i]</a></div></div>";
+                        echo    "<div class='s_c_left'><a href='../animate/detail.php?animate_id=$animate_id[$i]' alt=''><img src='$cover[$i]' alt=''></a></div>";
+                        echo    "<div class='s_c_right'><div><a href='../animate/detail.php?animate_id=$animate_id[$i]' alt=''>$name[$i]</a></div><div><a href='../animate/detail.php?animate_id=$animate_id[$i]' alt=''>$start_time[$i]</a></div><div><a href='../animate/detail.php?animate_id=$animate_id[$i]' alt=''>综合评分:$this_rate&nbsp排名:$rank[$i]</a></div></div>";
                         echo "</li>";
                     }
                 }else{
@@ -117,8 +117,8 @@
                         for($i=0;$i<$last_num;$i++){
                             $this_rate=sprintf("%.1f",$rating[$i]);
                             echo "<li>";
-                            echo    "<div class='s_c_left'><a href='../animate/detail.php?id=$animate_id[$i]' alt=''><img src='$cover[$i]' alt=''></a></div>";
-                            echo    "<div class='s_c_right'><div><a href='../animate/detail.php?id=$animate_id[$i]' alt=''>$name[$i]</a></div><div><a href='../animate/detail.php?id=$animate_id[$i]' alt=''>$start_time[$i]</a></div><div><a href='../animate/detail.php?id=$animate_id[$i]' alt=''>综合评分:$this_rate&nbsp排名:$rank[$i]</a></div></div>";
+                            echo    "<div class='s_c_left'><a href='../animate/detail.php?animate_id=$animate_id[$i]' alt=''><img src='$cover[$i]' alt=''></a></div>";
+                            echo    "<div class='s_c_right'><div><a href='../animate/detail.php?animate_id=$animate_id[$i]' alt=''>$name[$i]</a></div><div><a href='../animate/detail.php?animate_id=$animate_id[$i]' alt=''>$start_time[$i]</a></div><div><a href='../animate/detail.php?animate_id=$animate_id[$i]' alt=''>综合评分:$this_rate&nbsp排名:$rank[$i]</a></div></div>";
                             echo "</li>";
                         }
                     }else{
