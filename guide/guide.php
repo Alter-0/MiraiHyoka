@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="utf-8" name="referrer" content="never">
-    <title>Guide</title>
+    <title>Mirai-番剧索引</title>
     <script src="../js/main.js"></script>
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
@@ -196,8 +196,8 @@
                     for($i=0;$i<16;$i++){
                         $this_rate=sprintf("%.1f",$rating[$i]);
                         echo  "<li>";
-                        echo  "<div class='fengmian'><a href='../animate/detail.php?id=$animate_id[$i]' target='_blank'><img src='$cover[$i]' alt=''/></a><div> $this_rate</div></div>";
-                        echo  "<p><a href='../animate/detail.php?id=$animate_id[$i]' target='_blank'>$name[$i]</a></p>";
+                        echo  "<div class='fengmian'><a href='../animate/detail.php?animate_id=$animate_id[$i]' target='_blank'><img src='$cover[$i]' alt=''/></a><div> $this_rate</div></div>";
+                        echo  "<p><a href='../animate/detail.php?animate_id=$animate_id[$i]' target='_blank'>$name[$i]</a></p>";
                         echo  "</li>";
                      }
                 }else{
@@ -206,8 +206,8 @@
                         for($i=0;$i<$last_num;$i++){
                             $this_rate=sprintf("%.1f",$rating[$i]);
                             echo  "<li>";
-                            echo  "<div class='fengmian'><a href='../animate/detail.php?id=$animate_id[$i]' target='_blank'><img src='$cover[$i]' alt=''/></a><div> $this_rate</div></div>";
-                            echo  "<p><a href='../animate/detail.php?id=$animate_id[$i]' target='_blank'>$name[$i]</a></p>";
+                            echo  "<div class='fengmian'><a href='../animate/detail.php?animate_id=$animate_id[$i]' target='_blank'><img src='$cover[$i]' alt=''/></a><div> $this_rate</div></div>";
+                            echo  "<p><a href='../animate/detail.php?animate_id=$animate_id[$i]' target='_blank'>$name[$i]</a></p>";
                             echo  "</li>";
                         }
                     }else{
