@@ -58,8 +58,8 @@ if(isset( $_SESSION['user_id'])){
                         <input id="search_text" name="content" class="textfield sec" type="text">
                         <input type="submit" name="submit"  class="sec" id="search_btn" value="">
                     </div>
-                    <span id="btn-sear"  style="top: -21px;left: 28px;z-index: 0" class="glyphicon glyphicon-search">
-                         </span>
+<!--                    <span id="btn-sear"  style="top: -21px;left: 28px;z-index: 0" class="glyphicon glyphicon-search">-->
+<!--                         </span>-->
                 </form>
             </div>
             <?php

@@ -632,71 +632,74 @@ $uid = empty($_SSSION['user_id']) ? 1 : $_SESSION['user_id'];
                     <!--长评具体内容-->
                     <ul class="short_review_write_ulll">
                         <?php
-                        include "../static/dao.php";
-//                        $sql = "select evaluation_id,title,time,content,username,avatar,score
-//                        from evaluation
-//                        join user on evaluation.user_id = user.user_id
-//                         where animate_id = 100001
-//                          and is_long =1
-//                          and user.user_id =1;";
-//                        $res  = queryList($conn,$sql);
 
-//                        foreach ($res as $item){
-//
-//                            $title11 = $item['title'];
-//                            $time11 = $item['time'];
-//                            $time11 = substr($time11,0,20);
-//                            $content11 = $item['content'];
-////                            $content11 = substr_max($content11,550);
-//                            $username11 = $item['username'];
-//                            $avatar11 = $item['avatar'];
-//                            $score11  = $item['score'];
-//                            $evaluation_id11 = $item['evaluation_id'];
-//                            echo "<li>
-//                            <div class=\"li_first_div\">
-//                                <div class=\"short_review_face\">
-//                                    <div class=\"short_review_img\">
-//                                        <img alt=\"无\" src=\"$avatar11\">
-//                                    </div>
-//                                </div>
-//                                <div class=\"short_review_name\">
-//                                    $username11
-//                                </div>
-//                                <div class=\"short_review_star\">
-//                                    <span class=\"review_star\">
-//                                        <i class=\"icon-star-full\">
-//                                            <i></i> </i>
-//                                        <i class=\"icon-star-full\"> <i></i> </i>
-//                                        <i class=\"icon-star-full\"> <i></i> </i>
-//                                        <i class=\"icon-star-full\"> <i></i>
-//                                        </i><i class=\"icon-star-empty\">
-//                                            <i></i> </i></span>
-//                                </div>
-//                                <div class=\"short_review_time\">$time11</div>
-//                            </div>
-//                            <a href=\"long-comment-out.php?id=$evaluation_id11\">
-//                                <div class=\"l-main\">
-//                                    <div class=\"l-main-title\">
-//                                        <span>$title11</span>
-//                                    </div>
-//                                    <p class=\"l-content\">
-//                                       $content11;
-//                                       <span>......</span>
-//                                     </p>
-//                                </div>
-//                            </a>
-//                            <div class=\"li_third_icon\">
-//                                <div>
-//                                    <i class=\"icon-praise\" style=\"font-size: 14px;margin-right: 6px;\">
-//                                    </i><span></span></div><div>
-//                                    <i class=\"icon-criticism\" style=\"font-size: 14px;margin-right: 6px;\"></i>
-//                                    <span>
-//                                    </span>
-//                                </div>
-//                            </div>
-//                        </li>";
-//                        }
+                        $sql = "select evaluation_id,title,time,content,username,avatar,score,is_long from evaluation
+                        join user on evaluation.user_id = user.user_id where is_long =1 and animate_id =100001;";
+                        $rec = mysqli_query($conn,$sql);
+                        $res = mysqli_query($conn,$sql);
+                        $i = 0;
+                        $output=[];
+                        while ($row = mysqli_fetch_assoc($res)) {
+                            $output[$i] = $row;
+                            $i++;
+                        }
+                        foreach ($output as $item){
+
+                            $title11 = $item['title'];
+                            $time11 = $item['time'];
+                            $time11 = substr($time11,0,20);
+                            $content11 = $item['content'];
+//                            $content11 = substr_max($content11,550);
+                            $username11 = $item['username'];
+                            $avatar11 = $item['avatar'];
+                            $score11  = $item['score'];
+                            $evaluation_id11 = $item['evaluation_id'];
+                            echo "<li>
+                            <div class=\"li_first_div\">
+                                <div class=\"short_review_face\">
+                                    <div class=\"short_review_img\">
+                                        <img alt=\"无\" src=\"$avatar11\">
+                                    </div>
+                                </div>
+                                <div class=\"short_review_name\">
+                                    $username11
+                                </div>
+                                <div class=\"short_review_star\">
+                                    <span class=\"review_star\">
+                                        <i class=\"icon-star-full\">
+                                            <i></i> </i>
+                                        <i class=\"icon-star-full\"> <i></i> </i>
+                                        <i class=\"icon-star-full\"> <i></i> </i>
+                                        <i class=\"icon-star-full\"> <i></i>
+                                        </i><i class=\"icon-star-empty\">
+                                            <i></i> </i></span>
+                                </div>
+                                <div class=\"short_review_time\">$time11</div>
+                            </div>
+                            <a href=\"long-comment-out.php?id=$evaluation_id11\">
+                                <div class=\"l-main\">
+                                    <div class=\"l-main-title\">
+                                        <span>$title11</span>
+                                    </div>
+                                    <p class=\"l-content\">
+                                       $content11;
+                                       <span>......</span>
+                                     </p>
+                                </div>
+                            </a>
+                            <div class=\"li_third_icon\">
+                                <div>
+                                    <i class=\"icon-praise\" style=\"font-size: 14px;margin-right: 6px;\">
+                                    </i><span></span></div><div>
+                                    <i class=\"icon-criticism\" style=\"font-size: 14px;margin-right: 6px;\"></i>
+                                    <span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>";
+                        }
                         ?>
+                    </ul>
                 </div>
             </div>
             <!--短评-->
