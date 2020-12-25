@@ -8,7 +8,8 @@
 
     <link rel="stylesheet" href="static/css/normalize.min.css">
     <link href="static/css/0168b790eb2044f4abc9c1c90ebc1989.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="static/css/jquery.ajaxsuggest.css" />    <link rel="stylesheet" type="text/css" href="static/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/jquery.ajaxsuggest.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/common.css" />
     <script type="text/javascript" src="static/js/jquery.min.js"></script>
     <script type="text/javascript" src="static/js/jquery.lazyload.min.js"></script>
     <link rel="stylesheet" type="text/css" href="static/css/home.css" />
@@ -26,7 +27,8 @@
 <section class="m-topSlider">
     <p class="m-topSlider_loading">Now Loading...</p>
     <ul class="m-topSlider_inner">
-        <li class="m-topSlider_unit"><a target="_parent" href="http://lain.bgm.tv/pic/cover/l/1e/e2/183878_Fef1o.jpg">
+        <li class="m-topSlider_unit">
+            <a target="_parent" href="http://lain.bgm.tv/pic/cover/l/1e/e2/183878_Fef1o.jpg">
                 <div class="m-topSlider_unit_image">
                     <img data-original="static/picture/12788.jpg" width="600" height="600" class="lazyload">
                 </div>
@@ -138,14 +140,14 @@
 
 <script type="text/javascript" src="static/js/jquery.ajaxsuggest.1.4.js"></script>    <script type="text/javascript" src="static/js/js.cookie.js"></script>    <script type="text/javascript" src="static/js/anikore.core.js"></script>    <script type="text/javascript" src="static/js/common.js"></script>
 <script type="text/javascript" src="static/js/home.js"></script>
-
-<script async src="static/js/adsbygoogle.js"></script>
-<script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-4626144340722272",
-        enable_page_level_ads: true
-    });
-</script>
+<!---->
+<!--<script async src="static/js/adsbygoogle.js"></script>-->
+<!--<script>-->
+<!--    (adsbygoogle = window.adsbygoogle || []).push({-->
+<!--        google_ad_client: "ca-pub-4626144340722272",-->
+<!--        enable_page_level_ads: true-->
+<!--    });-->
+<!--</script>-->
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

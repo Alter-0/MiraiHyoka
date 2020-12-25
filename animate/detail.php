@@ -44,6 +44,7 @@ $uid = empty($_SESSION['user_id']) ? 1 : $_SESSION['user_id'];
         $row = mysqli_fetch_row($result);
         $animate_favnum = $row[0];
     }
+
     ?>
     <title>
         <?php
@@ -631,7 +632,6 @@ $uid = empty($_SESSION['user_id']) ? 1 : $_SESSION['user_id'];
                     </div>
                     <a href="edit.php?id=<?php echo $id?>"><div class="short_review_write">去写长评</div></a>
                     <!--长评具体内容-->
-
                     <ul class="short_review_write_ulll">
                         <?php
                         include "../static/dao.php";
@@ -646,7 +646,9 @@ $uid = empty($_SESSION['user_id']) ? 1 : $_SESSION['user_id'];
 
                             $title11 = $item['title'];
                             $time11 = $item['time'];
+                            $time11 = substr($time11,0,20);
                             $content11 = $item['content'];
+                            $content11 = StringToText($content11,550);
                             $username11 = $item['username'];
                             $avatar11 = $item['avatar'];
                             $score11  = $item['score'];
@@ -680,6 +682,7 @@ $uid = empty($_SESSION['user_id']) ? 1 : $_SESSION['user_id'];
                                     </div>
                                     <p class=\"l-content\">
                                        $content11;
+                                       <span>......</span>
                                      </p>
                                 </div>
                             </a>
