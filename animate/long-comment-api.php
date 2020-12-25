@@ -4,12 +4,15 @@ include "../conn.php";
 include "../static/dao.php";
 if (!empty($_POST['action'])){
     $action = $_POST['action'];
+    $uid = $_POST['uid'];
+    $cid = $_POST['cid'];
+    $aid = $_POST['aid'];
     switch ($action){
         case 'save':
             saveComment($conn);
             break;
         case 'querybyid':
-            queryById($conn);
+            queryById($conn,$id);
             break;
         case 'update':
             update($conn);
