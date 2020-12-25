@@ -649,7 +649,8 @@ $uid =$_SESSION['user_id'];
                             $time11 = $item['time'];
                             $time11 = substr($time11,0,20);
                             $content11 = $item['content'];
-//                            $content11 = substr_max($content11,550);
+                            $allstr = StringToText111($content11);
+                            $content11 = substr_max11($allstr,400);
                             $username11 = $item['username'];
                             $avatar11 = $item['avatar'];
                             $score11  = $item['score'];
@@ -698,6 +699,39 @@ $uid =$_SESSION['user_id'];
                             </div>
                         </li>";
                         }
+
+                        function substr_max11($str,$num)
+                        {
+                            $start=0;
+                            $strlen=$num;
+                            $tmpstr="";
+                            for($i = $start; $i < $strlen;) {
+                                if (ord ( substr ( $str, $i, 1 ) ) > 0xa0) { // 如果字符串中首个字节的ASCII序数
+                                    $tmpstr .= substr ( $str, $i, 3 ); // 每次取出三位字符赋给变量$tmpstr，即等
+
+                                    $i=$i+3; // 变量自加3
+                                } else{
+                                    $tmpstr .= substr ( $str, $i, 1 ); // 如果不是汉字，则每次取出一位字符赋给
+                                    $i++;
+                                }
+                            }
+                            return $tmpstr; // 返回字符串
+                        }
+
+                        function StringToText111($string){
+                            if($string){
+                                //把一些预定义的 HTML 实体转换为字符
+                                $html_string = htmlspecialchars_decode($string);
+                                //将空格替换成空
+                                $content = str_replace(" ", "", $html_string);
+                                //函数剥去字符串中的 HTML、XML 以及 PHP 的标签,获取纯文本内容
+                                $contents = strip_tags($content);
+                                //返回字符串中的前$num字符串长度的字符
+                                return $contents;
+                            }else{
+                                return $string;
+                            }
+                        }
                         ?>
                     </ul>
                 </div>
@@ -735,13 +769,8 @@ $uid =$_SESSION['user_id'];
                             //$row['time']= strtotime($row['time']);
                             $user_name=empty($row['username'])?$row['account']:$row['username'];
                             $row['time'] = substr($row['time'], 0, 16);
-                            $avatar=$row['avatar'];
-                            if(empty($row['avatar']))
-                            {
-                                $avatar="../image/upload/akari.jpg";
-                            }
                             echo " <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
-                                . " <img alt='无' src='" . $avatar . "'>"
+                                . " <img alt='无' src='" . $row['avatar'] . "'>"
                                 . "  </div> </div> <div class='short_review_name'>" . $user_name
                                 . " </div> <div class='short_review_star'> <span class='review_star'>";
                             for ($j = 0; $j < 5; $j++) {
@@ -1070,7 +1099,7 @@ include "../footer.php";
         $(".short_review_write").click(function () {
             $(".write_review").css("display", "block");
             $.post("short_review_load.php",
-                {objective: "reviewcheck", userid: <?php echo $uid ?>,animateid:<?php echo $id;?>},
+                {objective: "reviewcheck", userid: <?php echo $uid ?>},
                 function (data) {
                     data = eval('(' + data + ')');
                     if (data.makesure == 1) {
@@ -1411,7 +1440,7 @@ include "../footer.php";
                 $(window).off("scroll");
                 $('.clearfix>li').off("click");
                 $('.episode_card_left').css('marginTop', 0);
-                $(".episode_card_left").css("background","#FFFFFF")
+                $(".episode_card_left").css("background","rgba(255,255,255,0.8)")
                 backep_top();
             });
 
