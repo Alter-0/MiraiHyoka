@@ -10,7 +10,6 @@ for($i=0;$i<4;$i++){
     $arr[$i] = rand(0,9);
     $code .= (string)$arr[$i];
 }
-
 $_SESSION["validcode"] = $code;
 $width = 100;
 $height = 25;
@@ -25,6 +24,5 @@ for($i=0;$i<4;$i++){
 }
 
 imagepng($img);
-
 imagedestroy($img);
 ?>

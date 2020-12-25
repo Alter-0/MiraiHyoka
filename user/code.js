@@ -1,8 +1,8 @@
 (function(window) {
     const l = 42, // 滑块边长
         r = 10, // 滑块半径
-        w = 310, // canvas宽度
-        h = 155, // canvas高度
+        w = 310, // 宽度
+        h = 155, // 高度
         PI = Math.PI
     const L = l + r * 2 // 滑块实际边长
     function getRandomNumberByRange(start, end) {
@@ -36,6 +36,7 @@
     function getRandomImg() {
         return 'image/'+getRandomNumberByRange(1, 6)+'.png';
     }
+
     function draw(ctx, operation, x, y) {
         ctx.beginPath()
         ctx.moveTo(x, y)
