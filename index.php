@@ -251,6 +251,10 @@ echo $_SESSION['user_id'];
       </div>
      <div class="maybe-main">
          <div class="row show-all-comment" id="show1">
+             <?php
+
+
+             ?>
              <div class="pic col-lg-6 col-md-6 col-sm-12 col-xs-12">
                  <img src="image/user_background.jpg" alt="hello">
              </div>

@@ -5,6 +5,4 @@ $conn = mysqli_connect("47.115.15.18",
 mysqli_query($conn,'set names utf8');
 
 
-
-
 ?>
