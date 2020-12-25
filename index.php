@@ -8,6 +8,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>MiraiHyoka</title>
+    <link rel="shortcut icon" href="image/favicon.ico">
     <link rel="stylesheet" href="css/default.css">
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/header.css">
@@ -25,14 +26,18 @@
 
 <!--
 <?php
-$isLogin = 0;
 session_start();
-if(isset( $_SESSION['account'])){
+$isLogin = 0;
+if(isset( $_SESSION['user_id'])){
     $isLogin =1;
-    echo 1;
 }
 echo $_SESSION['account'];
 ?>-->
+<h1><?php
+    $id = $_SESSION['account'];
+
+    echo $id;?>
+</h1>
  <header>
     <div style="padding: 0" class="container">
         <div class="dis">
@@ -165,7 +170,7 @@ echo $_SESSION['account'];
              </div>";
             }else{
                 echo " <div id=\"login-btn\" class=\"login\">
-                <a  href=\"user/立刻登录.php\">
+                <a  href=\"user/login.php\">
                     <span id=\"login\" class=\"reg11\" style=\"padding: 0 5px 0 15px\">登录</span>
                 </a>
                 <a href=\"user/reg.php\">
@@ -249,10 +254,9 @@ echo $_SESSION['account'];
                           $id = $item['animate_id'];
                           $name = $item['name_cn'];
                           $rates = floor($item['media_rating']*100)/100;
-                          echo "<li><a href=\"animate/detail.php?id=".$id."\">".$name."</a><span class=\"sorce\">".$rates."分</span></li>";
+                          echo "<li><a href=\"animate/detail.php?animate_id=".$id."\">".$name."</a><span class=\"sorce\">".$rates."分</span></li>";
                       }
                    ?>
-
 <!--                   <li><a href="#">不见星空经典系列20部合集</a><span class="sorce">9.9分</span></li>-->
                </ul>
            </div>
@@ -268,7 +272,7 @@ echo $_SESSION['account'];
                        $id = $item['animate_id'];
                        $name = $item['name_cn'];
                        $rates = floor($item['media_rating']*100)/100;
-                       echo "<li><a href=\"animate/detail.php?id=".$id."\">".$name."</a><span class=\"sorce\">".$rates."分</span></li>";
+                       echo "<li><a href=\"animate/detail.php?animate_id=".$id."\">".$name."</a><span class=\"sorce\">".$rates."分</span></li>";
                    }
                    ?>
                </ul>
@@ -285,7 +289,7 @@ echo $_SESSION['account'];
                        $id = $item['animate_id'];
                        $name = $item['name_cn'];
                        $rates = floor($item['anikore_rating']*100)/1000;
-                       echo "<li><a href=\"animate/detail.php?id=".$id."\">".$name."</a><span class=\"sorce\">".$rates."分</span></li>";
+                       echo "<li><a href=\"animate/detail.php?animate_id=".$id."\">".$name."</a><span class=\"sorce\">".$rates."分</span></li>";
                    }
                    ?>
                </ul>

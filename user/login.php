@@ -26,6 +26,7 @@
             background-size: cover;
         }
         .content{
+
             height: 500px;
             width: auto;
             position: relative;
@@ -59,7 +60,6 @@
             border-bottom-left-radius: 0;
             border-top-left-radius: 0;
             background-color:rgba(255,255,255,0.8);
-
         }
         .total{
             margin-left: 10%;
@@ -81,6 +81,9 @@
             height: 100%;
             width: auto;
         }
+
+        
+
         #username{
             border: 1px solid #d9d9d9;
             box-sizing: border-box;
@@ -118,6 +121,9 @@
             display:inline-block;
             background-color: rgba(100, 149, 237, 0.7);
         }
+
+
+
         #reg{
             border: 1px solid #d9d9d9;
             box-sizing: border-box;
@@ -158,10 +164,12 @@
 </head>
 
 <body>
-<?php include "../header.php"?>
 
+<?php
+
+include "../header.php"?>
 <div class="content">
-    <img class="left">
+    <img class="left" src="image/background.jpg">
     <div class="right">
         <div class="total">
         <div class="mylogo">
@@ -216,6 +224,7 @@
 
 if($_SERVER["REQUEST_METHOD"]=="POST") {
         include "../conn.php";
+
         $username = $_POST["username"];
         $password = $_POST["password"];
         $sql = "Select * from user where account='$username'";
@@ -223,7 +232,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
             if (password_verify($password, $row['password'])) {
-                $_SESSION["user_id "] =$row['user_id'];
+                $_SESSION["user_id"] =$row['user_id'];
                 $_SESSION["account"]=$username;
                 echo "<script language='javascript' type='text/javascript'>";
 

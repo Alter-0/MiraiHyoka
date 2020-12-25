@@ -6,6 +6,7 @@
     margin-left: -155px;
     background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
 }
+
 #msg {
     width: 100%;
     line-height: 40px;
@@ -94,9 +95,11 @@
 .slider:hover {
     background: #1991FA;
 }
+
 .slider:hover .sliderIcon {
     background-position: 0 -13px;
 }
+
 .sliderIcon {
     position: absolute;
     top: 15px;
