@@ -134,7 +134,7 @@
                        var prevall =  $(this).prevAll('span');
                        var nextall = $(this).nextAll('span');
                         $(this).css('color','#2aabd2');
-                       nextall.css('color','#000000');
+                        nextall.css('color','#000000');
                         prevall.css('color','#2aabd2');
                         var index = $(this).index();
                         index++;
