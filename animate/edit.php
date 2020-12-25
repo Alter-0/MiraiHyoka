@@ -110,7 +110,7 @@
 <?php
   include "../header.php";
 ?>
-<div style="width: 100%;background-color:#fafafa;">
+<div style="width: 100%;background-color:rgba(255,255,255,.3);">
     <div class="container">
         <div class="editor ">
             <div class="e-title">
