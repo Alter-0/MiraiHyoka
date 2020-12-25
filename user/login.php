@@ -59,7 +59,7 @@
             height: 100%;
             float: left;
             margin-right: 10%;
-            overflow: hidden
+            overflow: hidden;
             box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
             border-radius: 15px;
             border-bottom-left-radius: 0;
@@ -235,10 +235,7 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     include "../conn.php";
-
-
     $username = $_POST["username"];
     $password = $_POST["password"];
     $sql = "Select * from user where account='$username'";
@@ -253,7 +250,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             echo "alert('登陆成功');";
 
-            echo "location.href='../user-center/usercenter.php';";
+            echo "location.href='../index.php';";
 
             echo "</script>";
 

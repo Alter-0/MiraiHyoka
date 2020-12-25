@@ -75,12 +75,14 @@
     form{
         margin-left: 10%;
         margin-right: 10%;
+        display: block;
     }
     .mylogo{
         height: 50px;
         width: 50%;
         margin-right: 25%;
         margin-left: 25%;
+
 
     }
     .mylogo img{
