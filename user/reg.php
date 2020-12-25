@@ -60,6 +60,7 @@
         height: 100%;
         display: inline-block;
         position: relative;
+        overflow: hidden;
         box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
         border-radius: 15px;
         border-bottom-left-radius: 0;
@@ -240,7 +241,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<script language='javascript' type='text/javascript'>";
             echo "alert('密码为空');";
             echo "</script>";
-
         } elseif (empty($repassword)) {
             echo "<script language='javascript' type='text/javascript'>";
             echo "alert('请确认密码');";
@@ -249,7 +249,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<script language='javascript' type='text/javascript'>";
             echo "alert('邮箱为空');";
             echo "</script>";
-        } else {
+        } elseif(!empty($email)){
+            if(!(preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/", $email))){
+                echo "<script language='javascript' type='text/javascript'>";
+                echo "alert('邮箱不规范');";
+                echo "</script>";
+            }
+
+        }
+        else {
             $sql = "select * from user where account='$username'";
             $result = mysqli_query($conn, $sql) or die("查询失败，请检查SQL语法" . $sql);
             if (mysqli_num_rows($result) > 0) {
