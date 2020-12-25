@@ -1,0 +1,18 @@
+body{
+    background-color: #e7e6e6!important;
+}
+
+.editor {
+    background-color: #FFFFFF!important;
+
+}
+.e-title{
+    border-bottom: #5bc0de solid 2px;
+    padding: 20px 10px;
+
+
+}
+
+#title{
+    color: #5bc0de!important;
+}

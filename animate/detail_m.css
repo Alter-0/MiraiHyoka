@@ -1626,7 +1626,11 @@
     color: #212121;
     padding: 0 0 10px;
 }
-
+.l-content{
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+}
 .l-main p{
     line-height: 25px;
     /*font-size: ;*/

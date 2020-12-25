@@ -1,9 +1,8 @@
 <header>
-
 <!--  <?php
 
 $isLogin = 0;
-if(isset( $_SESSION['account'])){
+if(isset( $_SESSION['user_id'])){
     $isLogin =1;
 }
 ?>   -->
@@ -137,7 +136,7 @@ if(isset( $_SESSION['account'])){
              </div>";
             }else{
                 echo " <div id=\"login-btn\" class=\"login\">
-                <a  href=\"../user/立刻登录.php\">
+                <a  href=\"../user/login.php\">
                     <span id=\"login\" class=\"reg11\" style=\"padding: 0 5px 0 15px\">登录</span>
                 </a>
                 <a href=\"../user/reg.php\">

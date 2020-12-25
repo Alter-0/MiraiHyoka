@@ -16,13 +16,20 @@
     <link rel="shortcut icon" href="https://www.anikore.jp/fav.ico" />
     <link rel="apple-touch-icon-precomposed" href="https://www.anikore.jp/img/common/fav.gif">
     <script src="static/js/5638090428.js"></script>
+    <style>
+        .m-topSlider_unit img{
+
+        }
+    </style>
 </head>
 <body id="page-top">
 <section class="m-topSlider">
     <p class="m-topSlider_loading">Now Loading...</p>
     <ul class="m-topSlider_inner">
         <li class="m-topSlider_unit"><a target="_parent" href="http://lain.bgm.tv/pic/cover/l/1e/e2/183878_Fef1o.jpg">
-                <div class="m-topSlider_unit_image"><img data-original="static/picture/12788.jpg" width="600" height="600" class="lazyload"></div>
+                <div class="m-topSlider_unit_image">
+                    <img data-original="static/picture/12788.jpg" width="600" height="600" class="lazyload">
+                </div>
                 <p class="m-topSlider_unit_title">トニカクカワイイ　レビュー</p>
                 <p class="m-topSlider_unit_nickname">Progress</p>
             </a></li>
