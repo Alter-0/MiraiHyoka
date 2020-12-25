@@ -21,6 +21,7 @@
         .m-topSlider_unit img{
 
         }
+
     </style>
 </head>
 <body id="page-top">
@@ -30,7 +31,7 @@
         <li class="m-topSlider_unit">
             <a target="_parent" href="http://lain.bgm.tv/pic/cover/l/1e/e2/183878_Fef1o.jpg">
                 <div class="m-topSlider_unit_image">
-                    <img data-original="static/picture/12788.jpg" width="600" height="600" class="lazyload">
+                    <img data-original="http://lain.bgm.tv/pic/cover/l/1e/e2/183878_Fef1o.jpg" width="600" height="600" class="lazyload">
                 </div>
                 <p class="m-topSlider_unit_title">トニカクカワイイ　レビュー</p>
                 <p class="m-topSlider_unit_nickname">Progress</p>

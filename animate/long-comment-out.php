@@ -12,6 +12,15 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="css/long-comment-out.css">
     <script src="../js/jquery.js"></script>
+    <style>
+        body {
+            background: #ffffff!important;
+            /*background-size: cover;*/
+            /*display: flex;*/
+            /*flex-direction: column;*/
+        }
+
+    </style>
 </head>
 <body>
 <?php
@@ -23,7 +32,6 @@
         $res =  queryOneRecord($conn,$sql);
 
 ?>
-
 <div  class="container">
     <div style="height: 30px">
     </div>
@@ -113,7 +121,6 @@
                    </div>
                    <div id="l-in-comment">
                        <ul>
-                            <!--    一级回复-->
                            <li>
                                <div id="user-header" class="l-icon">
                                    <img src="../image/headerpic.jpg" alt="ghello">
@@ -127,6 +134,8 @@
                                    </div>
                                </div>
                            </li>
+
+                           <!--    一级回复-->
                            <li>
                                <div class="l-icon">
                                    <img src="../image/headerpic.jpg" alt="ghello">
@@ -151,11 +160,11 @@
                                            回复
                                        </button>
                                    </div>
+                                   <!--        二级回复-->
                                    <div class="l-replay">
                                        <div class="l-r-icon">
                                            <img src="../image/headerpic.jpg" alt="ghello">
                                        </div>
-                                <!--        二级回复-->
                                        <div class="l-r-main">
                                            <span class="l-r-replay-time">2020-12-18 16:44:12</span>
                                            <h6>你妈的</h6>

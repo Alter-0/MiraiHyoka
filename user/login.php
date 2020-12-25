@@ -248,6 +248,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $row['password'])) {
             $_SESSION["user_id"] = $row['user_id'];
             $_SESSION["account"] = $username;
+
             echo "<script language='javascript' type='text/javascript'>";
 
             echo "alert('登陆成功');";

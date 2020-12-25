@@ -42,17 +42,22 @@ function changeRecord($conn,$sql){
     return true;
 }
 
-function StringToText($string,$num){
-    if($string){
-        //把一些预定义的 HTML 实体转换为字符
-        $html_string = htmlspecialchars_decode($string);
-        //将空格替换成空
-        $content = str_replace(" ", "", $html_string);
-        //函数剥去字符串中的 HTML、XML 以及 PHP 的标签,获取纯文本内容
-        $contents = strip_tags($content);
-        //返回字符串中的前$num字符串长度的字符
-        return   substr($contents,0,$num);
-    }else{
-        return $string;
+function substr_max($str,$num)
+{
+    $start=0;
+    $strlen=$num;
+    $tmpstr="";
+    for($i = $start; $i < $strlen;) {
+        if (ord ( substr ( $str, $i, 1 ) ) > 0xa0) { // 如果字符串中首个字节的ASCII序数
+            $tmpstr .= substr ( $str, $i, 3 ); // 每次取出三位字符赋给变量$tmpstr，即等
+
+            $i=$i+3; // 变量自加3
+        } else{
+            $tmpstr .= substr ( $str, $i, 1 ); // 如果不是汉字，则每次取出一位字符赋给
+            $i++;
+        }
     }
+    return $tmpstr; // 返回字符串
 }
+
+                    ?>

@@ -31,13 +31,8 @@ $isLogin = 0;
 if(isset( $_SESSION['user_id'])){
     $isLogin =1;
 }
-echo $_SESSION['account'];
+echo $_SESSION['user_id'];
 ?>-->
-<h1><?php
-    $id = $_SESSION['account'];
-
-    echo $id;?>
-</h1>
  <header>
     <div style="padding: 0" class="container">
         <div class="dis">
@@ -50,93 +45,39 @@ echo $_SESSION['account'];
                             <span id="span6" class="ul-span">菜单</span></a></li>
                 </ul>
                 <ul class="hidden-sm hidden-xs">
-                    <li class="out-li"><a href="#"><span id="span1" class="ul-span">动画</span></a>
+                    <li class="out-li"><a href="guide/guide.php"><span id="span1" class="ul-span">番剧</span></a>
                         <ul>
-                            <li><a href="#">hello</a></li>
-                            <li><a href="#">hello</a></li>
-                            <li><a href="#">hello</a></li>
-                            <li><a href="#">hello</a></li>
+                            <li><a href="animate/detail.php">短评</a></li>
+                            <li><a href="animate/detail.php">长评</a></li>
                         </ul>
                     </li>
                     <li class="out-li">
-                        <a href="#">
-                            <span class="ul-span">书籍</span>
+                        <a href="guide/guide.php">
+                            <span class="ul-span">指引</span>
                         </a>
                            <ul>
-                               <li><a href="#">hello world</a></li>
-                               <li><a href="#">hello world</a></li>
-                               <li><a href="#">hello world</a></li>
-                               <li><a href="#">hello world</a></li>
+                               <li><a href="guide/guide.php">分类</a></li>
+                               <li><a href="guide/guide.php">标签</a></li>
                            </ul>
                     </li>
-                    <li class="out-li">
-                        <a href="#">
-                            <span class="ul-span">音乐</span>
-                        </a>
-                        <ul>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                        </ul>
-                    </li>
-                    <li class="out-li"><a href="#"><span class="ul-span">游戏</span></a>
-                        <ul>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                        </ul>
-                    </li>
                     <li class="out-li"
-                    <a href="#"><span id="span5" class="ul-span">三次元</span></a>
+                    <a href="search/search.php"><span id="span5" class="ul-span">探索</span></a>
                         <ul>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
+                            <li><a href="search/search.php?content=紫罗兰">紫罗兰</a></li>
+                            <li><a href="search/search.php?content=青春">青春系列</a></li>
+                            <li><a href="search/search.php?content=少女">少女系列</a></li>
+                            <li><a href="#">我不喜欢的</a></li>
                         </ul>
                     </li>
-                    <li class="out-li"><a href="#"></a></li>
-                    <li class="out-li"><a href="#"><span id="span7" class="ul-span2">人物</span></a>
-                        <ul>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                        </ul>
-                    </li>
-                    <li class="out-li"><a href="#"><span class="ul-span2">小组</span></a>
-                        <ul>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                        </ul>
-                    </li>
-                    <li class="out-li"><a href="#"><span class="ul-span2">展开</span></a>
-                        <ul>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                        </ul>
-                    </li>
-                    <li class="out-li"><a href="#"><span class="ul-span2">探索</span></a>
-                        <ul>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                            <li><a href="#">hello world</a></li>
-                        </ul>
-                    </li>
-                    <li class="hidden-md"><a href="#"><span id="span-img" class="ul-span2"><img src="image/logo_doujin.png" alt="照片"></span></a></li>
+                    <li class="hidden-md"><a href="animate/detail.php">
+                            <span id="span-img" class="ul-span2"><img src="image/logo_doujin.png" alt="照片">
+                            </span></a></li>
                 </ul>
             </div>
         </div>
         <div id="user-login" class="dis">
             <div class="search hidden-sm hidden-xs">
-                <form action="#" method="post">
+                <form action="search/search.php" method="get">
                     <div class="inner">
                         <select name="cat" id="siteSearchSelect">
                             <option value="all">全部</option>
@@ -147,9 +88,9 @@ echo $_SESSION['account'];
                             <option value="6">三次元</option>
                             <option value="person">人物</option>
                         </select>
-                        <input id="search_text" name="search_text" class="textfield sec" type="text">
-                        <input type="submit" name="submit"  class="sec" id="search_btn" value="">
-                    </div>
+                            <input id="search_text" name="content" class="textfield sec" type="text">
+                            <input type="submit" name="submit"  class="sec" id="search_btn" value="">
+                        </div>
                 </form>
             </div>
             <?php
@@ -510,16 +451,34 @@ echo $_SESSION['account'];
     <div class="show-video">
         <h2># 猜你想看</h2>
          <div class="row">
+             <?php
+
+               $sql = "select * from animate order by douban_rating limit 4;";
+                $res = queryList($conn,$sql);
+               function msubstr($str, $start, $len) {
+                 $tmpstr = "";
+                 $strlen = $start + $len;
+                 for($i = 0; $i < $strlen; $i++) {
+                     if(ord(substr($str, $i, 1)) > 0xa0) {
+                         $tmpstr .= substr($str, $i, 2);
+                         $i++;
+                     } else
+                         $tmpstr .= substr($str, $i, 1);
+                 }
+                 return $tmpstr;
+             }
+             ?>
              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                  <div class="maybe-video">
                      <div class="img">
-                       <img src="image/huiye.jpeg" alt="">
+                       <img src="<?php echo $res[0]['cover']; ?>" alt="">
                      </div>
                      <div class="word">
-                         <h3 class="video-h3">辉夜大小姐想让我告白，天才的恋爱头脑战</h3>
+                         <h3 class="video-h3"><?php echo $res[0]['name_cn']; ?></h3>
                          <p>
-                             因为喜欢着她的你的背影，实在太过耀眼；
-                             因为喜欢着他的你的侧脸，美得无法形容。
+                             <?php $in =  $res[0]['introduction'];
+                             echo substr_max($in,200)."......";
+                             ?>
                          </p>
                      </div>
                  </div> 
@@ -527,13 +486,14 @@ echo $_SESSION['account'];
              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                  <div class="maybe-video">
                      <div class="img right-img" >
-                         <img src="image/huiye.jpeg" alt="">
+                         <img src="<?php echo $res[1]['cover']; ?>" alt="">
                      </div>
                      <div class="word" style="left: 0">
-                         <h3 class="video-h3">辉夜大小姐想让我告白，天才的恋爱头脑战</h3>
+                         <h3 class="video-h3"><?php echo $res[1]['name_cn']; ?></h3>
                          <p>
-                             因为喜欢着她的你的背影，实在太过耀眼；
-                             因为喜欢着他的你的侧脸，美得无法形容。
+                             <?php $in =  $res[1]['introduction'];
+                             echo substr_max($in,200)."......";
+                             ?>
                          </p>
                      </div>
                  </div>
@@ -541,30 +501,30 @@ echo $_SESSION['account'];
              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                  <div class="maybe-video">
                      <div class="img">
-                         <img src="image/huiye.jpeg" alt="">
+                         <img src="<?php echo $res[2]['cover']; ?>" alt="">
                      </div>
                      <div class="word">
-                         <h3 class="video-h3">辉夜大小姐想让我告白，天才的恋爱头脑战</h3>
+                         <h3 class="video-h3"><?php echo $res[2]['name_cn']; ?></h3>
                          <p>
-                             因为喜欢着她的你的背影，实在太过耀眼；
-                             因为喜欢着他的你的侧脸，美得无法形容。
+                             <?php $in =  $res[2]['introduction'];
+                             echo substr_max($in,200)."......";
+                             ?>
                          </p>
                      </div>
                  </div>
              </div>
              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
                  <div class="maybe-video">
                      <div class="img right-img">
-                         <img src="image/huiye.jpeg" alt="">
+                         <img src="<?php echo $res[3]['cover']; ?>" alt="">
                      </div>
                      <div class="word" style="left: 0">
-                         <h3 class="video-h3">辉夜大小姐想让我告白，天才的恋爱头脑战</h3>
+                         <h3 class="video-h3"> <?php echo $res[3]['name_cn']; ?></h3>
                          <p>
-                             因为喜欢着她的你的背影，实在太过耀眼；
-
-                         </p>
-                         <p>
-                             因为喜欢着他的你的侧脸，美得无法形容。
+                             <?php $in =  $res[3]['introduction'];
+                                echo substr_max($in,200)."......";
+                             ?>
                          </p>
                      </div>
                  </div>

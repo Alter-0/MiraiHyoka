@@ -13,7 +13,6 @@
     <title><?php
         echo "我的名字"
         ?>的个人中心-Mirai</title>
-
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
 
