@@ -223,16 +223,20 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
             if (password_verify($password, $row['password'])) {
-                $_SESSION["user_id "] =$row['user_id'];
-                $_SESSION["account"]=$username;
+
                 echo "<script language='javascript' type='text/javascript'>";
+                echo "alert('".$row['user_id']."');";
+                $_SESSION['user_id'] =$row['user_id'];
+
+//                $_SESSION["account"]=$username;
+
 
                 echo "alert('登陆成功');";
 
-                echo "location.href='../user-center/usercenter.php';";
+
 
                 echo "</script>";
-
+                header("location:../user-center/usercenter.php");
             } else {
                 echo "<script language='javascript' type='text/javascript'>";
 
