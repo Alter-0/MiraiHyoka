@@ -1,7 +1,7 @@
 <?php
 session_start();
 $id = empty($_GET['animate_id']) ? 100001 : $_GET['animate_id'];
-$uid = empty($_SSSION['user_id']) ? 1 : $_SESSION['user_id'];
+$uid = empty($_SESSION['user_id']) ? 1 : $_SESSION['user_id'];
 ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
