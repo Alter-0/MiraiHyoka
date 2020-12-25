@@ -23,16 +23,13 @@
     </style>
 </head>
 <body>
-
-<!--
-<?php
-session_start();
-$isLogin = 0;
-if(isset( $_SESSION['user_id'])){
-    $isLogin =1;
-}
-echo $_SESSION['user_id'];
-?>-->
+    <?php
+    session_start();
+    $isLogin = 0;
+    if(isset( $_SESSION['user_id'])){
+        $isLogin = $_SESSION['user_id'];
+    }
+    ?>
  <header>
     <div style="padding: 0" class="container">
         <div class="dis">
@@ -95,9 +92,26 @@ echo $_SESSION['user_id'];
             </div>
             <?php
 
-            if ($isLogin==1){
-                 echo " <div   id=\"headerpic\">
-                 <img src=\"image/headerpic.jpg\" alt=\"oih\">
+            if ($isLogin==0){
+                echo " <div id=\"login-btn\" class=\"login\">
+                <a  href=\"user/login.php\">
+                    <span id=\"login\" class=\"reg11\" style=\"padding: 0 5px 0 15px\">登录</span>
+                </a>
+                <a href=\"user/reg.php\">
+                    <span id=\"reg11\" class=\"reg11\" style=\"padding:0 15px 0 5px\">注册</span>
+                </a>
+            </div>";
+            }else{
+                include "conn.php";
+                $sql = " select avatar from user where user_id = $isLogin;";
+                $avatar =  mysqli_query($conn,$sql);
+                $row = mysqli_fetch_assoc($avatar);
+                $pic = $row['avatar'];
+                if (empty($pic)){
+                    $pic = "image/akari.jpg";
+                }
+                echo " <div   id=\"headerpic\">
+                 <img src=\"$pic\" alt=\"oih\">
                  <ul>
                      <li><a href=\"user-center/usercenter.php\">个人中心</a></li>
                  <li><a href=\"user-center/usercenter.php\">我的评分</a></li>
@@ -109,15 +123,6 @@ echo $_SESSION['user_id'];
                      </li>
                  </ul>
              </div>";
-            }else{
-                echo " <div id=\"login-btn\" class=\"login\">
-                <a  href=\"user/login.php\">
-                    <span id=\"login\" class=\"reg11\" style=\"padding: 0 5px 0 15px\">登录</span>
-                </a>
-                <a href=\"user/reg.php\">
-                    <span id=\"reg11\" class=\"reg11\" style=\"padding:0 15px 0 5px\">注册</span>
-                </a>
-            </div>";
             }
             ?>
 <!--            <script>-->
