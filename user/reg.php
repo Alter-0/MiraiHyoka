@@ -29,56 +29,63 @@
         background-size: cover;
     }
 
-    .content {
-        width: 100%;
-        height: auto;
-        margin-bottom: 100px;
+    .content{
+        height: 500px;
+        width: auto;
+        position: relative;
+        white-space: nowrap;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        margin-left: 10%;
+        margin-right: 10%;
+        box-sizing: border-box;
     }
 
     .left{
-        width: 40%;
-        height: 500px;
+        height: 100%;
+        width: 50%;
         float: left;
         display: inline-block;
-        background: url("../image/user_background.jpg") ;
-        background-size: cover;
+        background: url("../image/user_background.jpg") center center;
         box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+        background-size: cover;
         border-radius: 15px;
         border-bottom-right-radius: 0;
         border-top-right-radius: 0;
         margin-left: 10%;
-        margin-top: 20px;
-        margin-bottom: 20px;
-
+        overflow: hidden;
     }
     .right{
-        width: 40%;
-        height: 500px;
+        width: 30%;
+        height: 100%;
         display: inline-block;
-        margin-top: 20px;
         position: relative;
-        box-shadow: 7px 7px 17px rgba(52, 56, 66, 0.8);
+        box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
         border-radius: 15px;
         border-bottom-left-radius: 0;
         border-top-left-radius: 0;
         margin-right: 10%;
+        background-color:rgba(255,255,255,0.8);
 
     }
     .total{
-        margin-left: 20%;
+        margin-left: 10%;
+        margin-right: 10%;
     }
-
-    form {
-        margin-left: 30px;
+    form{
+        margin-left: 10%;
+        margin-right: 10%;
     }
+    .mylogo{
+        height: 50px;
+        width: 50%;
+        margin-right: 25%;
+        margin-left: 25%;
 
-    p {
-        font-size: 40px;
-        color: #00cdff;
-        font-family: Arial;
-        margin-bottom: 20px;
-        margin-left: 40px;
-        margin-top: 0;
+    }
+    .mylogo img{
+        height: 100%;
+        width: auto;
     }
 
     #username{
@@ -88,12 +95,12 @@
         transition: all .3s;
         line-height: 2;
         padding-left: 30px;
-        width: 50%;
+        width: 100%;
         height: 40px;
-        margin-bottom: 24px;
+        margin-bottom: 25px;
         display: block;
         background: url("image/head.png") 3px 3px no-repeat;
-        color: (0,0,0,.65);
+        margin-top:100px;
     }
     #password{
         border: 1px solid #d9d9d9;
@@ -101,66 +108,69 @@
         border-radius: 4px;
         transition: all .3s;
         line-height: 2;
-        width: 50%;
+        width: 100%;
         height: 40px;
-        margin-bottom: 24px;
+        margin-bottom: 25px;
         display: block;
         padding-left: 30px;
         background: url("image/password.png") 3px 3px no-repeat;
     }
-
-    #repassword {
+    #repassword{
         border: 1px solid #d9d9d9;
         box-sizing: border-box;
         border-radius: 4px;
         transition: all .3s;
         line-height: 2;
-        width: 50%;
+        width: 100%;
         height: 40px;
-        margin-bottom: 24px;
+        margin-bottom: 25px;
         display: block;
         padding-left: 30px;
         background: url("image/password.png") 3px 3px no-repeat;
     }
-
-    #email {
+    #email{
         border: 1px solid #d9d9d9;
         box-sizing: border-box;
         border-radius: 4px;
         transition: all .3s;
         line-height: 2;
-        width: 50%;
+        width: 100%;
         height: 40px;
-        margin-bottom: 24px;
+        margin-bottom: 25px;
         display: block;
         padding-left: 30px;
         background: url("image/email.png") 3px 3px no-repeat;
     }
-
     #check{
         border: 1px solid #d9d9d9;
         box-sizing: border-box;
         border-radius: 4px;
         transition: all .3s;
         line-height: 2;
-        background-color: rgba(100, 149, 237, 0.7);
+        width: 40%;
         height: 40px;
-        width: 50%;
-        display: block;
-        margin-top: 20px;
+        display: inline-block;
+        background-color: rgba(100, 149, 237, 0.7);
     }
-
-    #submit {
+    #submit{
         border: 1px solid #d9d9d9;
         box-sizing: border-box;
         border-radius: 4px;
         transition: all .3s;
         line-height: 2;
-        background-color: rgba(100, 149, 237, 0.7);
+        width: 40%;
         height: 40px;
-        width: 50%;
-        display: block;
-        margin-top: 20px;
+        display: inline-block;
+        background-color: rgba(100, 149, 237, 0.7);
+        margin-left: 20%;
+
+    }
+
+    #submit:hover{
+        background-color: #F4A6D7;
+    }
+    #check:hover{
+        background-color: #F4A6D7;
     }
 
 </style>
@@ -170,9 +180,13 @@
 <div class="content">
     <div class="left"></div>
     <div class="right">
+
         <div class="total">
-        <p>MiraiHyoka</p>
-        <form name="reg" method="post" onsubmit="return veryfy()" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <div class="mylogo">
+                <img src="../image/logo.png" alt="">
+            </div>
+
+        <form name="reg" class="form"  method="post" onsubmit="return veryfy()" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <input type="text" id="username" name="username" value="" placeholder="用户名">
             <input type="password" id="password" name="password" value="" placeholder="密码">
             <input type="password" id="repassword" name="repassword" value="" placeholder="确认密码">

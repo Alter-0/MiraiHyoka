@@ -177,12 +177,12 @@ function favorite()
 
         echo "<div class='animate'>
                         <div class='animate_img'>
-                            <a href='#'>
+                            <a href='../animate/detail.php?animate_id=$animate_id'>
                                 <img src='$animate_cover' alt=''>
                             </a>
                         </div>
                         <div class='animate_text'>
-                            <a href='#'>
+                            <a href='../animate/detail.php?animate_id=$animate_id'>
                                 '$animate_name'
                             </a>
                         </div>
