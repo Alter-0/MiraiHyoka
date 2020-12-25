@@ -1361,7 +1361,7 @@
 /*每集下面讨论-右边--开始*/
 
 .episode_card_left{
-    background: #ffffff;
+    background: rgba(255,255,255,0.8);
 }
 
 

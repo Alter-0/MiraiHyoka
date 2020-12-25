@@ -1406,7 +1406,7 @@ include "../footer.php";
                 $(window).off("scroll");
                 $('.clearfix>li').off("click");
                 $('.episode_card_left').css('marginTop', 0);
-                $(".episode_card_left").css("background","#FFFFFF")
+                $(".episode_card_left").css("background","rgba(255,255,255,0.8)")
                 backep_top();
             });
 

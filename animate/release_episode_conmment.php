@@ -1,6 +1,7 @@
 <?php
 include '../conn.php';
 date_default_timezone_set('Asia/Shanghai');
+
 $text=$_POST['diversity_review'];
 $user_id=$_POST['userid'];
 $no = $_POST["no"];
@@ -11,7 +12,7 @@ $result = mysqli_query($conn, $sql) or die("失败" . $sql);
 $ep_id = mysqli_fetch_array($result);
 $ep_id = $ep_id[0];
 
-$data=date('y-m-d h:i:s',time());
+$data=date('y-m-d H:i:s',time());
 
 $sql="insert into reply(user_id,episode_id,time,content) value ('".$user_id."','".$ep_id."','".$data."','".$text."')";
 $result = mysqli_query($conn, $sql) or die("失败" . $sql);
