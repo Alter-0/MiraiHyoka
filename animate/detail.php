@@ -1,7 +1,8 @@
 <?php
 session_start();
 $id = empty($_GET['animate_id']) ? 100001 : $_GET['animate_id'];
-$uid =$_SESSION['user_id'];
+$uid =empty($_SESSION['user_id'])?999:$_SESSION['user_id'];
+
 ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -769,8 +770,13 @@ $uid =$_SESSION['user_id'];
                             //$row['time']= strtotime($row['time']);
                             $user_name=empty($row['username'])?$row['account']:$row['username'];
                             $row['time'] = substr($row['time'], 0, 16);
+                            $avatar=$row['avatar'];
+                            if(empty($row['avatar']))
+                            {
+                                $avatar="../image/upload/akari.jpg";
+                            }
                             echo " <li> <div class='li_first_div'> <div class='short_review_face'> <div class='short_review_img'>"
-                                . " <img alt='无' src='" . $row['avatar'] . "'>"
+                                . " <img alt='无' src='" . $avatar. "'>"
                                 . "  </div> </div> <div class='short_review_name'>" . $user_name
                                 . " </div> <div class='short_review_star'> <span class='review_star'>";
                             for ($j = 0; $j < 5; $j++) {
@@ -1097,9 +1103,15 @@ include "../footer.php";
         var shortreview = 0;//是否发表过短评
         //弹窗的加载
         $(".short_review_write").click(function () {
+            if(<?php echo $uid;?>==999)
+            {
+                alert("请先登录再评论");
+                location.href="../user/login.php"
+                return;
+            }
             $(".write_review").css("display", "block");
             $.post("short_review_load.php",
-                {objective: "reviewcheck", userid: <?php echo $uid ?>},
+                {objective: "reviewcheck", userid: <?php echo $uid ?>,animateid:<?php echo $id ?>},
                 function (data) {
                     data = eval('(' + data + ')');
                     if (data.makesure == 1) {

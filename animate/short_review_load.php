@@ -45,7 +45,7 @@ echo json_encode($review);
 else if($objective=="reviewcheck")
 {   $id=$_POST["animateid"];
     $user_id=$_POST["userid"];
-    $sql="select * from evaluation where user_id=$user_id and animate_id=$id";
+    $sql="select * from evaluation where user_id=$user_id and animate_id = $id";
     $result= mysqli_query($conn,$sql) or die("评论查询失败".$sql);
     if(mysqli_num_rows($result)<=0) {
         $review = array(
