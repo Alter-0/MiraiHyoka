@@ -10,7 +10,7 @@
     <script src="../js/main.js"></script>
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
-
+    <?php session_start();?>
 <!--    本页面的css样式-->
     <link rel="stylesheet" href="guide.css" type="text/css">
 </head>

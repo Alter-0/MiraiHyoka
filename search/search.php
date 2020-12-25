@@ -9,7 +9,7 @@
 <!--    <script src="../js/main.js"></script>-->
 <!--    本页面的css样式-->
     <link rel="stylesheet" href="search.css" type="text/css">
-
+    <?php session_start();?>
 </head>
 <body>
 <!--top begin-->
