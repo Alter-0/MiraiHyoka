@@ -31,6 +31,10 @@ if($objective=="reviewload")
         $review["review"][$i]=$row['content'];
         $review["score"][$i]=$row['score'];
         $review["photo"][$i]=$row['avatar'];
+        if(empty($row['avatar']))
+        {
+            $review["photo"][$i]="../image/upload/akari.jpg";
+        }
         $i++;
     }
 
@@ -39,8 +43,9 @@ if($objective=="reviewload")
 echo json_encode($review);
 }
 else if($objective=="reviewcheck")
-{   $user_id=$_POST["userid"];
-    $sql="select * from evaluation where user_id=$user_id";
+{   $id=$_POST["animateid"];
+    $user_id=$_POST["userid"];
+    $sql="select * from evaluation where user_id=$user_id and animate_id=$id";
     $result= mysqli_query($conn,$sql) or die("评论查询失败".$sql);
     if(mysqli_num_rows($result)<=0) {
         $review = array(
@@ -66,7 +71,7 @@ else if($objective=="reviewinsert")
     $flag=$_POST["flag"];
     if($flag=="发表评论") {
         date_default_timezone_set("PRC");
-        $time = date('Y-m-d h:i:s', time());
+        $time = date('Y-m-d H:i:s', time());
         $sql = "insert into evaluation(animate_id,is_long,content,user_id,score,time) value($id,0,'$content',$user_id,$score,'$time')";
         $result = mysqli_query($conn, $sql) or die("评论失败" . $sql);
         $sql = "select * from user where user_id=$user_id";
@@ -78,6 +83,10 @@ else if($objective=="reviewinsert")
             if($row['username']=="")
             {$username = $row['account'];}
             $photo = $row['avatar'];
+            if(empty($row['avatar']))
+            {
+                $photo="../image/upload/akari.jpg";
+            }
             $review = array(
                 "name" => array(),
                 "makesure" => "1",
@@ -89,7 +98,7 @@ else if($objective=="reviewinsert")
     }
     if($flag=="修改评论") {
         date_default_timezone_set("PRC");
-        $time = date('Y-m-d h:i:s', time());
+        $time = date('Y-m-d H:i:s', time());
         $sql = "update evaluation set content='$content',score=$score,time='$time' where user_id=$user_id and animate_id=$id";
         $result = mysqli_query($conn, $sql) or die("修改失败" . $sql);
         $sql = "select * from user where user_id=$user_id";
@@ -101,6 +110,10 @@ else if($objective=="reviewinsert")
             if($row['username']=="")
             {$username = $row['account'];}
             $photo = $row['avatar'];
+            if(empty($row['avatar']))
+            {
+                $photo="../image/upload/akari.jpg";
+            }
             $review = array(
                 "name" => array(),
                 "makesure" => "1",
@@ -117,7 +130,7 @@ else if($objective=="islike")
 {   $user_id=$_POST["userid"];
     $animate_id=$_POST["animateid"];
     date_default_timezone_set("PRC");
-    $time= date('Y-m-d h:i:s', time());
+    $time= date('Y-m-d H:i:s', time());
     $sql="select * from favorites where user_id=$user_id and animate_id=$animate_id";
     $result= mysqli_query($conn,$sql);
     $review=array(
