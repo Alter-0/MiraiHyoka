@@ -178,7 +178,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Password = 'mmlqxnjqkfibebde'; // 如果是qq就是客户端授权密码,如果是服务器就是mail邮箱的登录密码
         $mail->SMTPSecure = 'ssl'; // 使用ssl协议方式
         $mail->Port = 465; // 端口号
-        $mail->setFrom('2483232294@qq.com', "小可爱");//设置发件人信息，或者下一个；
+        $mail->setFrom($email, "小可爱");//设置发件人信息，或者下一个；
         //$mail->AddCC('2424275819@qq.com', "小可爱");//设置发件人信息，有时候下载的phpmailer不一样，里面函数名不同
 
         $mail->addAddress($email, '.'); // 设置收件人信息
