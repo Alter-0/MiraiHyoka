@@ -1,8 +1,6 @@
 <?php
-
 $isLogin = 0;
 if(isset( $_SESSION['user_id'])){
-
     $isLogin = $_SESSION['user_id'];
 }
 ?>
@@ -77,12 +75,15 @@ if(isset( $_SESSION['user_id'])){
                 <a href=\"../user/reg.php\">
                     <span id=\"reg11\" class=\"reg11\" style=\"padding:0 15px 0 5px\">注册</span>
                 </a>
-            </div>";
+                 </div>";
             }else{
-                include "../conn.php";
+                $conn = mysqli_connect("47.115.15.18",
+                    "wangyesheji", "e7BLUzfQv69wXybN",
+                    "miraihyoka") or die("数据库连接失败");
+
                 $sql = "select avatar from user where user_id = $isLogin;";
-                $avatar =  mysqli_query($conn,$sql);
-                $row = mysqli_fetch_assoc($avatar);
+                $res =  mysqli_query($conn,$sql);
+                $row = mysqli_fetch_assoc($res);
                 $pic = $row['avatar'];
                 if (empty($pic)){
                     $pic = "../image/akari.jpg";
