@@ -4,7 +4,7 @@
  */
 .m-topSlider {
   position: relative;
-  background: #efefef;
+  background: rgba(255,255,255,.3)!important;
   width: 100%;
   min-width: 1120px;
   height: 35rem;
