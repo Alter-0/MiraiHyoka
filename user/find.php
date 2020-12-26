@@ -174,16 +174,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->isSMTP(); // 使用SMTP服务
         $mail->Host = 'smtp.qq.com'; // 发送方的SMTP服务器地址
         $mail->SMTPAuth = true; //是否使用身份验证
-        $mail->Username = $email; // 发送方的邮箱账户
+        $mail->Username = '2483232294@qq.com'; // 发送方的邮箱账户
         $mail->Password = 'mmlqxnjqkfibebde'; // 如果是qq就是客户端授权密码,如果是服务器就是mail邮箱的登录密码
         $mail->SMTPSecure = 'ssl'; // 使用ssl协议方式
         $mail->Port = 465; // 端口号
-        $mail->setFrom($email, "小可爱");//设置发件人信息，或者下一个；
+        $mail->setFrom('2483232294@qq.com', "小可爱");//设置发件人信息，或者下一个；
         //$mail->AddCC('2424275819@qq.com', "小可爱");//设置发件人信息，有时候下载的phpmailer不一样，里面函数名不同
 
         $mail->addAddress($email, '.'); // 设置收件人信息
         $mail->addReplyTo($email, 'php');//设置回复人信息,即收件人收到邮件后，如果要回复，回复邮件将发送到的邮箱地址
-
         $code = rand(100000, 999999);//生成随机验证码
         $mail->isHTML(true); // 邮件内容是html吗
         $mail->Subject = '找回密码';   //邮件标题
