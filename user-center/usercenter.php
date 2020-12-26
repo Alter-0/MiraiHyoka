@@ -10,9 +10,7 @@
     <!-- 引用部分@blueberry -->
     <!--    <link href="font/style.css" rel="stylesheet"/>-->
     <meta charset="UTF-8" name="referrer" content="never">
-    <title><?php
-        echo "我的名字"
-        ?>的个人中心-Mirai</title>
+    <title>Mirai-个人中心</title>
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
 
@@ -723,7 +721,6 @@ include "../header.php"
         f = document.getElementById('input_avatar').files[0];
         reads.readAsDataURL(f);
         reads.onload = function (e) {
-            // console.log(document.getElementById('avatar'))
             document.getElementById('img_avatar').src = this.result;
         }
     }
