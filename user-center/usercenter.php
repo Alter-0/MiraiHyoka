@@ -17,12 +17,12 @@
     <link href="css/usercenter.css" rel="stylesheet"/>
 
     <style>
-        body {
-            background: url("../image/background.jpg") no-repeat center center fixed;
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-        }
+        /*body {*/
+        /*    background: url("../image/background.jpg") no-repeat center center fixed;*/
+        /*    background-size: cover;*/
+        /*    display: flex;*/
+        /*    flex-direction: column;*/
+        /*}*/
     </style>
 
 </head>
