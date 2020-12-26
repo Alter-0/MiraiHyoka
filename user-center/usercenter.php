@@ -3,14 +3,13 @@
 <head>
     <?php session_start() ?>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Mirai-个人中心</title>
     <script src="../js/jquery.js"></script>
     <!-- 引用部分@blueberry -->
     <script src="../js/main.js"></script>
     <!-- 引用部分@blueberry -->
     <!--    <link href="font/style.css" rel="stylesheet"/>-->
     <meta charset="UTF-8" name="referrer" content="never">
-    <title>Mirai-个人中心</title>
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
 
