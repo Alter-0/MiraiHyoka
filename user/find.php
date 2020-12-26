@@ -174,7 +174,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->isSMTP(); // 使用SMTP服务
         $mail->Host = 'smtp.qq.com'; // 发送方的SMTP服务器地址
         $mail->SMTPAuth = true; //是否使用身份验证
-        $mail->Username = '2483232294@qq.com'; // 发送方的邮箱账户
+        $mail->Username = $email; // 发送方的邮箱账户
         $mail->Password = 'mmlqxnjqkfibebde'; // 如果是qq就是客户端授权密码,如果是服务器就是mail邮箱的登录密码
         $mail->SMTPSecure = 'ssl'; // 使用ssl协议方式
         $mail->Port = 465; // 端口号
