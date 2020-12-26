@@ -166,7 +166,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $res = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($res);
     if (mysqli_num_rows($res) > 0 && $row['email'] == $email) {
-        //引入邮件发送类
         require 'class.phpmailer.php';
         require 'class.smtp.php';
         $mail = new PHPMailer;
@@ -174,37 +173,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->isSMTP(); // 使用SMTP服务
         $mail->Host = 'smtp.qq.com'; // 发送方的SMTP服务器地址
         $mail->SMTPAuth = true; //是否使用身份验证
-        $mail->Username = $email; // 发送方的邮箱账户
+        $mail->Username = '2483232294@qq.com'; // 发送方的邮箱账户
         $mail->Password = 'mmlqxnjqkfibebde'; // 如果是qq就是客户端授权密码,如果是服务器就是mail邮箱的登录密码
         $mail->SMTPSecure = 'ssl'; // 使用ssl协议方式
         $mail->Port = 465; // 端口号
-        $mail->setFrom($email, "小可爱");//设置发件人信息，或者下一个；
+        $mail->setFrom('2483232294@qq.com', "小可爱");//设置发件人信息，或者下一个；
         //$mail->AddCC('2424275819@qq.com', "小可爱");//设置发件人信息，有时候下载的phpmailer不一样，里面函数名不同
-
         $mail->addAddress($email, '.'); // 设置收件人信息
         $mail->addReplyTo($email, 'php');//设置回复人信息,即收件人收到邮件后，如果要回复，回复邮件将发送到的邮箱地址
-
         $code = rand(100000, 999999);//生成随机验证码
         $mail->isHTML(true); // 邮件内容是html吗
         $mail->Subject = '找回密码';   //邮件标题
-        $mail->Body = "这里是www.givemmoc.com网站；<b>您的验证码是：</b>" . $code; //邮件内容；
+        $mail->Body = "这里是验证中心；<b>您的验证码是：</b>" . $code; //邮件内容；
         if (!$mail->Send()) {
-            //输出错误信息
             echo 'Mailer Error: ' . $mail->ErrorInfo;   //发送失败的原因；
             return false;
         } else {       //如若发送成功，将产生的随机验证码保存到数据库，到时候做对比；
             $sql2 = "update user set code='$code'  where account='$username'";
             mysqli_query($conn, $sql2);
             echo "<script language='javascript' type='text/javascript'>";
-
             echo "alert('发送成功');";
-
             echo "location.href='update.php';";
-
             echo "</script>";
         }
-
-
+    }
+    else{
+        echo "<script language='javascript' type='text/javascript'>";
+        echo "alert('没有此用户');";
+        echo "</script>";
     }
 }
 ?>
