@@ -45,7 +45,7 @@ echo json_encode($review);
 else if($objective=="reviewcheck")
 {   $id=$_POST["animateid"];
     $user_id=$_POST["userid"];
-    $sql="select * from evaluation where user_id=$user_id and animate_id = $id";
+    $sql="select * from evaluation where user_id=$user_id and animate_id = $id and is_long=0";
     $result= mysqli_query($conn,$sql) or die("评论查询失败".$sql);
     if(mysqli_num_rows($result)<=0) {
         $review = array(
@@ -99,7 +99,7 @@ else if($objective=="reviewinsert")
     if($flag=="修改评论") {
         date_default_timezone_set("PRC");
         $time = date('Y-m-d H:i:s', time());
-        $sql = "update evaluation set content='$content',score=$score,time='$time' where user_id=$user_id and animate_id=$id";
+        $sql = "update evaluation set content='$content',score=$score,time='$time' where user_id=$user_id and animate_id=$id and is_long=0";
         $result = mysqli_query($conn, $sql) or die("修改失败" . $sql);
         $sql = "select * from user where user_id=$user_id";
         $result = mysqli_query($conn, $sql) or die("查询失败");
