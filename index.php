@@ -109,9 +109,13 @@
                 $pic = $row['avatar'];
                 if (empty($pic)){
                     $pic = "image/akari.jpg";
+                }else{
+                   $pic1  = substr($pic,6);
+
                 }
                 echo " <div   id=\"headerpic\">
-                 <img src=\"$pic\" alt=\"oih\">
+                      
+                 <img src=\"$pic1\" alt=\"oih\">
                  <ul>
                      <li><a href=\"user-center/usercenter.php\">个人中心</a></li>
                  <li><a href=\"user-center/usercenter.php\">我的评分</a></li>

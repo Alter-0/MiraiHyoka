@@ -80,7 +80,6 @@ if(isset( $_SESSION['user_id'])){
                 $conn = mysqli_connect("47.115.15.18",
                     "wangyesheji", "e7BLUzfQv69wXybN",
                     "miraihyoka") or die("数据库连接失败");
-
                 $sql = "select avatar from user where user_id = $isLogin;";
                 $res =  mysqli_query($conn,$sql);
                 $row = mysqli_fetch_assoc($res);
