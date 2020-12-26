@@ -1,3 +1,7 @@
+<?php
+
+session_start();
+?>
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -110,7 +114,7 @@
 <?php
   include "../header.php";
 ?>
-<div style="width: 100%;background-color:#fafafa;">
+<div style="width: 100%;background-color:rgba(255,255,255,.3);">
     <div class="container">
         <div class="editor ">
             <div class="e-title">
@@ -162,48 +166,13 @@
         <input id="id" type="hidden" name="id" value="<?php $id = empty($_GET['id'])?100001:$_GET['id']; echo $id?>">
         <script type="text/javascript" src="//unpkg.com/wangeditor/dist/wangEditor.min.js"></script>
         <script type="text/javascript">
+
             const E = window.wangEditor
             const editor = new E('#long-comment-editor')
             // 或者 const editor = new E( document.getElementById('div1') )
+            editor.config.uploadImgShowBase64 = true
             editor.config.height = 500;
-            editor.config.uploadImgServer = 'upload-api.php'
-            editor.config.uploadImgHooks = {
-                // 上传图片之前
-                before: function(xhr) {
-                    // console.log(xhr)
-                    //
-                    // // 可阻止图片上传
-                    // return {
-                    //     prevent: true,
-                    //     msg: '需要提示给用户的错误信息'
-                    // }
-                },
-                // 图片上传并返回了结果，图片插入已成功
-                success: function(xhr) {
-                    console.log('success', xhr)
-                },
-                // 图片上传并返回了结果，但图片插入时出错了
-                fail: function(xhr, editor, resData) {
-                    console.log('fail', resData)
-                },
-                // 上传图片出错，一般为 http 请求的错误
-                error: function(xhr, editor, resData) {
-                    console.log('error', xhr, resData)
-                },
-                // 上传图片超时
-                timeout: function(xhr) {
-                    console.log('timeout')
-                },
-                // 图片上传并返回了结果，想要自己把图片插入到编辑器中
-                // 例如服务器端返回的不是 { errno: 0, data: [...] } 这种格式，可使用 customInsert
-                customInsert: function(insertImgFn, result) {
-                    // result 即服务端返回的接口
-                    console.log('customInsert', result)
 
-                    // insertImgFn 可把图片插入到编辑器，传入图片 src ，执行函数即可
-                    insertImgFn(result.data[0])
-                }
-            }
             editor.create()
             // editor.txt.html('<p>用 JS 设置的内容</p>');
             $('#btn-save').click(function () {

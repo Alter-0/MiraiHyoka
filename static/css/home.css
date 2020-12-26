@@ -4,7 +4,7 @@
  */
 .m-topSlider {
   position: relative;
-  background: #efefef;
+  background: rgba(255,255,255,.3)!important;
   width: 100%;
   min-width: 1120px;
   height: 35rem;
@@ -74,16 +74,12 @@
   color: #222;
 }
 .m-topSlider_unit_image {
-  width: 100%;
-  overflow: hidden;
   position: absolute;
   top: -12.5rem;
   left: -12.5rem;
+  width: 100%;
+  object-fit: cover;
   z-index: 1;
-}
-.m-topSlider_unit_image img{
-   width: 100%;
-   overflow: hidden;
 }
 a .m-topSlider_unit_title {
   display: flex;
@@ -427,7 +423,7 @@ a .m-topSlider_unit_nickname {
 }
 .l-topTagRanking ul > li {
   display: block;
-  margin: 0;
+  margin:0;
   border-bottom: .125rem solid #dbdbdb;
   font-size: 1.75rem;
 }

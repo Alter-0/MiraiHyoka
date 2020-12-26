@@ -39,11 +39,9 @@
         <div class="l-comment-left col-lg-8 col-md-8 col-sm-12 col-xs-12">
            <div class="row">
                <div class="l-left col-lg-2 col-md-2 hidden-xs hidden-sm">
-                   <a href=""><span class="l-bar">hello world</span></a>
-                   <a href=""><span class="l-bar">hello world</span></a>
-                   <a href=""><span class="l-bar">hello world</span></a>
-                   <a href=""><span class="l-bar">hello world</span></a>
-                   <a href=""><span class="l-bar">hello world</span></a>
+                   <a href="../animate/detail.php?animate_id=100001"><span class="l-bar"><span style="top: 2px;left: -10px" class="glyphicon glyphicon-film"></span>返回番剧</span></a>
+                   <a href="../index.php"><span class="l-bar"><span style="top: 2px;left: -10px" class="glyphicon glyphicon-flag"></span>返回首页</span></a>
+                   <a href="../index.php"><span class="l-bar"><span style="top: 2px;left: -10px" class="glyphicon glyphicon-search"></span>返回索引</span></a>
                </div>
                <div class="l-right col-lg-10 col-md-10 col-sm-12 col-xs-12">
                    <div class="l-cover">
@@ -240,6 +238,7 @@
         <div class="l-comment-right col-lg-3 col-md-3 hidden-sm hidden-xs">
                <div id="l-combar" class="comment-bar">
                 <div class="bar-person">
+                    <img src="../image/headerpic.jpg" alt="">
 
                 </div>
                </div>

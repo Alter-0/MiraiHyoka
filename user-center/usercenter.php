@@ -236,17 +236,15 @@ function message($choice)
     }
     return $answer;
 }
-
 ?>
-
 <body>
-
 <?php
 /**
  * 登录后取消登录注册按钮，显示用户头像以及相关操作
  */
+include "../header.php"
 
-include "../header.php" ?>
+?>
 <!--<div style="height: 50px"></div>-->
 <div class="all">
     <div class="top">
