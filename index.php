@@ -110,7 +110,7 @@
                 if (empty($pic)){
                     $pic = "image/akari.jpg";
                 }else{
-                   $pic  = substr($pic,6);
+                   $pic  = substr($pic,3);
 
                 }
                 echo " <div   id=\"headerpic\">

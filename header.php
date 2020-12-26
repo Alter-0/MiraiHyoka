@@ -7,7 +7,7 @@ if(isset( $_SESSION['user_id'])){
 <header>
     <div style="padding: 0" class="container">
         <div class="dis">
-            <div class="logo"><img src="../image/logo.png" alt=""></div>
+            <a href="../index.php"><div class="logo"><img src="../image/logo.png" alt=""></div></a>
         </div>
         <div class="dis">
             <div class="navli">
