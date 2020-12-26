@@ -62,7 +62,7 @@ function timeline($choice)
 
     $user_id = $_SESSION['user_id'];
     if ($choice == 1) {
-        $sql = "select time from evaluation where user_id='$user_id' group by date(time)";
+        $sql = "select time from evaluation where user_id='$user_id' group by date(time) order by time desc";
         $result = mysqli_query($conn, $sql) or die("数据查询失败" . $sql);
         $num_rows = mysqli_num_rows($result);
 //        echo $num_rows;
@@ -101,7 +101,7 @@ function timeline($choice)
             }
         }
     } elseif ($choice == 2) {
-        $sql = "select time from favorites where user_id='$user_id' group by date(time)";
+        $sql = "select time from favorites where user_id='$user_id' group by date(time) order by time desc ";
         $result = mysqli_query($conn, $sql) or die("数据查询失败" . $sql);
 
         $num_rows = mysqli_num_rows($result);
@@ -182,7 +182,7 @@ function favorite()
                         </div>
                         <div class='animate_text'>
                             <a href='../animate/detail.php?animate_id=$animate_id'>
-                                '$animate_name'
+                                $animate_name
                             </a>
                         </div>
               </div>";
