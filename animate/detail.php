@@ -457,7 +457,7 @@ $uid =empty($_SESSION['user_id'])?999:$_SESSION['user_id'];
                     </div>
                 </div>
 
-                <div class="col-lg-9 col-md-9 hidden-12 hidden-12">
+                <div class="col-lg-9 col-md-9 hidden-12 hidden-12" style="padding-left: 0;">
                     <div class="episode_card_right">
                         <div class="episode_card_right_content">
                             <div class="episode_lists">
@@ -562,7 +562,7 @@ $uid =empty($_SESSION['user_id'])?999:$_SESSION['user_id'];
                         </div>
                     </div>
                 </div>
-                <div class=" col-lg-3 col-md-3 hidden-sm hidden-xs">
+                <div class=" col-lg-3 col-md-3 hidden-sm hidden-xs" style="padding-right: 0;">
 
                     <div class="episode_card_left">
 
