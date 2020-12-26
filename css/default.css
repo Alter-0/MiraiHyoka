@@ -15,9 +15,9 @@ a{
 }
 body {
     background: url("../image/background.jpg") no-repeat center center fixed;
-    /*background-size: cover;*/
-    /*display: flex;*/
-    /*flex-direction: column;*/
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
 }
 
 /* 设置滚动条的样式 */

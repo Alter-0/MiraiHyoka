@@ -3,28 +3,25 @@
 <head>
     <?php session_start() ?>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Mirai-个人中心</title>
     <script src="../js/jquery.js"></script>
     <!-- 引用部分@blueberry -->
     <script src="../js/main.js"></script>
     <!-- 引用部分@blueberry -->
     <!--    <link href="font/style.css" rel="stylesheet"/>-->
     <meta charset="UTF-8" name="referrer" content="never">
-    <title><?php
-        echo "我的名字"
-        ?>的个人中心-Mirai</title>
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
 
     <link href="css/usercenter.css" rel="stylesheet"/>
 
     <style>
-        body {
-            background: url("../image/background.jpg") no-repeat center center fixed;
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-        }
+        /*body {*/
+        /*    background: url("../image/background.jpg") no-repeat center center fixed;*/
+        /*    background-size: cover;*/
+        /*    display: flex;*/
+        /*    flex-direction: column;*/
+        /*}*/
     </style>
 
 </head>
@@ -62,7 +59,7 @@ function timeline($choice)
 
     $user_id = $_SESSION['user_id'];
     if ($choice == 1) {
-        $sql = "select time from evaluation where user_id='$user_id' group by date(time)";
+        $sql = "select time from evaluation where user_id='$user_id' group by date(time) order by time desc";
         $result = mysqli_query($conn, $sql) or die("数据查询失败" . $sql);
         $num_rows = mysqli_num_rows($result);
 //        echo $num_rows;
@@ -101,7 +98,7 @@ function timeline($choice)
             }
         }
     } elseif ($choice == 2) {
-        $sql = "select time from favorites where user_id='$user_id' group by date(time)";
+        $sql = "select time from favorites where user_id='$user_id' group by date(time) order by time desc ";
         $result = mysqli_query($conn, $sql) or die("数据查询失败" . $sql);
 
         $num_rows = mysqli_num_rows($result);
@@ -182,7 +179,7 @@ function favorite()
                         </div>
                         <div class='animate_text'>
                             <a href='../animate/detail.php?animate_id=$animate_id'>
-                                '$animate_name'
+                                $animate_name
                             </a>
                         </div>
               </div>";
@@ -723,7 +720,6 @@ include "../header.php"
         f = document.getElementById('input_avatar').files[0];
         reads.readAsDataURL(f);
         reads.onload = function (e) {
-            // console.log(document.getElementById('avatar'))
             document.getElementById('img_avatar').src = this.result;
         }
     }

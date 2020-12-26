@@ -77,6 +77,7 @@
         form {
             margin-left: 10%;
             margin-right: 10%;
+            margin-top: 50px;
         }
 
         .mylogo {
@@ -119,33 +120,34 @@
             padding-left: 30px;
             background: url("image/password.png") 3px 3px no-repeat;
         }
-
-        #submit {
-            border: 1px solid #d9d9d9;
-            box-sizing: border-box;
-            border-radius: 4px;
-            height: 40px;
-            width: 40%;
-            transition: all .3s;
-            display: inline-block;
-            background-color: rgba(100, 149, 237, 0.7);
-        }
-
-        #reg {
+        #repassword{
             border: 1px solid #d9d9d9;
             box-sizing: border-box;
             border-radius: 4px;
             transition: all .3s;
             line-height: 2;
-            background-color: rgba(100, 149, 237, 0.7);
+            width: 100%;
             height: 40px;
-            width: 40%;
-            display: inline-block;
-            margin-left: 20%;
-            margin-bottom: 50px;
+            margin-bottom: 25px;
+            display: block;
+            padding-left: 30px;
+            background: url("image/password.png") 3px 3px no-repeat;
+        }
+        #check{
+            border: 1px solid #d9d9d9;
+            box-sizing: border-box;
+            border-radius: 4px;
+            transition: all .3s;
+            line-height: 2;
+            width: 100%;
+            height: 40px;
+            margin-bottom: 25px;
+            display: block;
+            padding-left: 30px;
+            background: url("image/password.png") 3px 3px no-repeat;
         }
 
-        #check {
+        #submit {
             border: 1px solid #d9d9d9;
             box-sizing: border-box;
             border-radius: 4px;
@@ -156,23 +158,9 @@
             width: 100%;
             display: block;
             margin-top: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
-       .right .total a{
-           color:#00cdff;
-       }
-        .right .total a:hover{
-            color: #ff4012;
-        }
-        #reg:hover {
-            background-color: #F4A6D7;
-        }
-
         #submit:hover {
-            background-color: #F4A6D7;
-        }
-
-        #check:hover {
             background-color: #F4A6D7;
         }
 
@@ -190,93 +178,66 @@
             <div class="mylogo">
                 <img src="../image/logo.png">
             </div>
-            <form id="form" name="login" method="post" onsubmit="return veryfy()"
-                  action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <form id="form" name="login" method="post" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <input type="text" id="username" name="username" value="" placeholder="用户名">
                 <input type="password" id="password" name="password" value="" placeholder="密码">
-                <button type="button" id="check">验证</button>
-                <input type="submit" id="submit" name="submit" value="登录">
-                <button type="button" id="reg">注册</button>
+                <input type="password" id="repassword" name="repassword" value="" placeholder="确认密码">
+                <input type="text" id="check" name="check" value="" placeholder="请输入验证码">
+                <input type="submit" id="submit" name="submit" value="提交">
             </form>
-            <a href="find.php">忘记密码</a>
         </div>
-
-        <div id="valid-code" style="display: none" class="container-code">
-            <div id="captcha" style="position: relative"></div>
-        </div>
-        <script src="code.js"></script>
-        <script>
-            var i = 0;
-            $('#check').click(function () {
-                if (i == 0) {
-                    $('#valid-code').css('display', 'block');
-                    i++;
-                } else {
-                    $('#valid-code').css('display', 'none');
-                    i--;
-                }
-            })
-
-            function veryfy() {
-                if (j == 1) {
-                    return true;
-                }
-                if (j == 0) {
-                    alert("请先验证!");
-                    return false;
-                }
-            }
-        </script>
     </div>
-
 </div>
-
-<script>
-    $(document).ready(function () {
-        $("#reg").click(function () {
-            window.location.href = "reg.php";
-        })
-    })
-</script>
-
 <?php
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include "../conn.php";
+    include("../conn.php");
     $username = $_POST["username"];
     $password = $_POST["password"];
-    $sql = "Select * from user where account='$username'";
-    $result = mysqli_query($conn, $sql) or die("查询失败，请检查SQL语法");
-    if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        if (password_verify($password, $row['password'])) {
-            $_SESSION["user_id"] = $row['user_id'];
-            $_SESSION["account"] = $username;
-
-            echo "<script language='javascript' type='text/javascript'>";
-
-            echo "alert('登陆成功');";
-
-            echo "location.href='../index.php';";
-
-            echo "</script>";
-
-        } else {
-            echo "<script language='javascript' type='text/javascript'>";
-
-            echo "alert('密码不正确');";
-
-            echo "location.href='login.php';";
-
-            echo "</script>";
-        }
-    } else {
+    $repassword = $_POST["repassword"];
+    $check=$_POST["check"];
+    if (empty($username)) {
         echo "<script language='javascript' type='text/javascript'>";
-
-        echo "alert('用户名不正确');";
-
+        echo "alert('用户名为空');";
         echo "</script>";
+    } elseif (empty($password)) {
+        echo "<script language='javascript' type='text/javascript'>";
+        echo "alert('密码为空');";
+        echo "</script>";
+    } elseif(empty($repassword)) {
+        echo "<script language='javascript' type='text/javascript'>";
+        echo "alert('请确认密码');";
+        echo "</script>";
+    }elseif(empty($check)) {
+        echo "<script language='javascript' type='text/javascript'>";
+        echo "alert('请输入验证码');";
+        echo "</script>";
+    }elseif ($password!=$repassword){
+        echo "<script language='javascript' type='text/javascript'>";
+        echo "alert('密码不一致');";
+        echo "</script>";
+    }
+    else {
+        $sql = "select * from user where account='$username'";
+        $result = mysqli_query($conn, $sql) or die("查询失败，请检查SQL语法" . $sql);
+        $row=mysqli_fetch_assoc($result);
+        if (mysqli_num_rows($result) > 0) {
+           if($row['code']==$check){
+               $pass_hash = password_hash($password, PASSWORD_DEFAULT);
+               $sql2="update user set password='$pass_hash' where account='$username'";
+               mysqli_query($conn, $sql2);
+               echo "<script language='javascript' type='text/javascript'>";
+               echo "alert('修改成功');";
+               echo "location.href='login.php'";
+               echo "</script>";
+           }
+           else{
+               echo "<script language='javascript' type='text/javascript'>";
+               echo "alert('验证码错误');";
+               echo "</script>";
+           }
+        }
 
     }
 }
 ?>
+

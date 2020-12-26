@@ -228,6 +228,7 @@
 </div>
 <?php
 include "../conn.php";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
@@ -255,32 +256,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "alert('邮箱不规范');";
                 echo "</script>";
             }
-
-        }
-        else {
-            $sql = "select * from user where account='$username'";
-            $result = mysqli_query($conn, $sql) or die("查询失败，请检查SQL语法" . $sql);
-            if (mysqli_num_rows($result) > 0) {
-                echo "<script language='javascript' type='text/javascript'>";
-                echo "alert('用户已经注册，请设置其他用户名');";
-                echo "</script>";
-            } elseif ($password != $repassword) {
-                echo "<script language='javascript' type='text/javascript'>";
-                echo "alert('两次密码不一致');";
-                echo "</script>";
-            } else {
-                $pass_hash = password_hash($password, PASSWORD_DEFAULT);
-                $sql = "insert into user(account,password,email) values('$username','$pass_hash','$email')";
+            else{
+                $sql = "select * from user where account='$username'";
                 $result = mysqli_query($conn, $sql) or die("查询失败，请检查SQL语法" . $sql);
-                $time=date("Y-m-d");
-                $sqltime="update user set reg_time='$time' where account='$username'";
-                $result=mysqli_query($conn,$sqltime)or die("查询失败，请检查SQL语法".$sqltime);
-                echo "<script language='javascript' type='text/javascript'>";
-                echo "alert('注册成功');";
-                echo "location.href='login.php';";
-                echo "</script>";
+                if (mysqli_num_rows($result) > 0) {
+                    echo "<script language='javascript' type='text/javascript'>";
+                    echo "alert('用户已经注册，请设置其他用户名');";
+                    echo "</script>";
+                } elseif ($password != $repassword) {
+                    echo "<script language='javascript' type='text/javascript'>";
+                    echo "alert('两次密码不一致');";
+                    echo "</script>";
+                } else {
+                    $pass_hash = password_hash($password, PASSWORD_DEFAULT);
+                    $sql = "insert into user(account,password,email) values('$username','$pass_hash','$email')";
+                    $result = mysqli_query($conn, $sql) or die("查询失败，请检查SQL语法" . $sql);
+                    $time=date("Y-m-d");
+                    $sqltime="update user set reg_time='$time' where account='$username'";
+                    $result=mysqli_query($conn,$sqltime)or die("查询失败，请检查SQL语法".$sqltime);
+                    echo "<script language='javascript' type='text/javascript'>";
+                    echo "alert('注册成功');";
+                    echo "location.href='login.php';";
+                    echo "</script>";
+                }
             }
         }
+
+
 }
 
 ?>

@@ -235,8 +235,8 @@ h3 {
 .all .tab_de .favorite .left .favorite_middle {
     display: grid;
     gap: 20px;
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .all .tab_de .favorite .left .favorite_middle .animate .animate_img a img {

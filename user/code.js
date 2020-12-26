@@ -1,10 +1,10 @@
 (function(window) {
-    const l = 42, // 滑块边长
-        r = 10, // 滑块半径
-        w = 310, // 宽度
-        h = 155, // 高度
+    const l = 42,
+        r = 10,
+        w = 310,
+        h = 155,
         PI = Math.PI
-    const L = l + r * 2 // 滑块实际边长
+    const L = l + r * 2;
     function getRandomNumberByRange(start, end) {
         return Math.round(Math.random() * (end - start) + start)
     }
