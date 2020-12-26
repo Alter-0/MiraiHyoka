@@ -1,3 +1,7 @@
+<?php
+
+session_start();
+?>
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -162,12 +166,22 @@
         <input id="id" type="hidden" name="id" value="<?php $id = empty($_GET['id'])?100001:$_GET['id']; echo $id?>">
         <script type="text/javascript" src="//unpkg.com/wangeditor/dist/wangEditor.min.js"></script>
         <script type="text/javascript">
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
             const E = window.wangEditor
             const editor = new E('#long-comment-editor')
             // 或者 const editor = new E( document.getElementById('div1') )
+            editor.config.uploadImgShowBase64 = true
             editor.config.height = 500;
-            editor.config.uploadImgServer = 'upload-api.php'
+            editor.config.uploadImgServer = 'upload-api.php';
+            editor.config.uploadImgHeaders = {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            };
             editor.config.uploadImgHooks = {
+
                 // 上传图片之前
                 before: function(xhr) {
                     // console.log(xhr)
@@ -199,7 +213,6 @@
                 customInsert: function(insertImgFn, result) {
                     // result 即服务端返回的接口
                     console.log('customInsert', result)
-
                     // insertImgFn 可把图片插入到编辑器，传入图片 src ，执行函数即可
                     insertImgFn(result.data[0])
                 }

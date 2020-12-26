@@ -77,6 +77,8 @@
   position: absolute;
   top: -12.5rem;
   left: -12.5rem;
+  width: 100%;
+  object-fit: cover;
   z-index: 1;
 }
 a .m-topSlider_unit_title {

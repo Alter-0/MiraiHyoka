@@ -256,43 +256,46 @@
       </div>
      <div class="maybe-main">
          <div class="row show-all-comment" id="show1">
-             <?php
 
-
-             ?>
              <div class="pic col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                 <img src="image/user_background.jpg" alt="hello">
+                 <img src="image/rabbitgirl.jpg" alt="hello">
              </div>
              <div class="show-comment col-lg-6 col-md-6 col-sm-12 col-xs-12">
                  <div class="comment-list">
-                     <ul>
-                         <li> <span>#</span> 这个是第1个</li>
-                         <li> <span>#</span> hello world</li>
-                         <li> <span>#</span> hello world</li>
-                         <li> <span>#</span> hello world</li>
-                         <li> <span>#</span> hello world</li>
-                         <li> <span>#</span> hello world</li>
-                         <li> <span>#</span> hello world</li>
-                         <li> <span>#</span> hello world</li>
+                     <ul id="frist-ul">
+                         <?php
+                         include "conn.php";
+
+                            $sql  = "select  evaluation.animate_id,name_cn,content,time from evaluation join animate on evaluation.animate_id = animate.animate_id where is_long=0 order by time  limit 8;
+";
+                              $res = mysqli_query($conn,$sql);
+                              $i = 0;
+                              $output=[];
+                              while ($row = mysqli_fetch_assoc($res)) {
+                                  $output[$i] = $row;
+                                  $i++;
+                                  $content111= $row['content'];
+                                  $id111= $row['animate_id'];
+                                  $name_cn111 = $row['name_cn'];
+                                  echo "<li><a href=\"animate/detail.php?animate_id=$id111\"> <span style='top:3px' class='glyphicon glyphicon-star-empty'></span><span class='ul-name-1'>$name_cn111</span>$content111 </a></li>";
+                              }
+                         ?>
+
                      </ul>
                  </div>
              </div>
          </div>
          <div class="row show-all-comment" id="show2">
              <div class="pic col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                 <img src="image/user_background.jpg" alt="hello">
+                 <img src="image/weilian-004.jpg" alt="hello">
              </div>
              <div class="show-comment col-lg-6 col-md-6 col-sm-12 col-xs-12">
                  <div class="comment-list">
-                     <ul>
-                         <li> <span>#</span> 这个是第二个</li>
-                         <li> <span>#</span> hello world</li>
-                         <li> <span>#</span> hello world</li>
-                         <li> <span>#</span> hello world</li>
-                         <li> <span>#</span> hello world</li>
-                         <li> <span>#</span> hello world</li>
-                         <li> <span>#</span> hello world</li>
-                         <li> <span>#</span> hello world</li>
+                     <ul id="second-ul">
+                         <li><div class="long-com"><h4>某科学的超电磁炮</h4><p>哔哩哔哩点击</p></div></li>
+                         <li><div class="long-com"><h4>某科学的超电磁炮</h4><p>哔哩哔哩点击</p></div></li>
+                         <li><div class="long-com"><h4>某科学的超电磁炮</h4><p>哔哩哔哩点击</p></div></li>
+                         <li><div class="long-com"><h4>某科学的超电磁炮</h4><p>哔哩哔哩点击</p></div></li>
                      </ul>
                  </div>
              </div>
@@ -303,34 +306,42 @@
              </div>
              <div class="show-comment col-lg-6 col-md-6 col-sm-12 col-xs-12">
                  <div class="comment-list">
-                     <ul>
-                         <li> <span>#</span> 第三个</li>
-                         <li> <span>#</span> hello world</li>
-                         <li> <span>#</span> hello world</li>
-                         <li> <span>#</span> hello world</li>
-                         <li> <span>#</span> hello world</li>
-                         <li> <span>#</span> hello world</li>
-                         <li> <span>#</span> hello world</li>
-                         <li> <span>#</span> hello world</li>
+                     <ul id="thrid-ul">
+                         <?php
+                         include "conn.php";
+
+                         $sql  = "select  evaluation.animate_id,name_cn,content,time from evaluation join animate on evaluation.animate_id = animate.animate_id where is_long=0 order by time  limit 8;
+";
+                         $res = mysqli_query($conn,$sql);
+                         $i = 0;
+                         $output=[];
+                         while ($row = mysqli_fetch_assoc($res)) {
+                             $output[$i] = $row;
+                             $i++;
+                             $content111= $row['content'];
+                             $id111= $row['animate_id'];
+                             $name_cn111 = $row['name_cn'];
+                             echo "<li><a href=\"animate/detail.php?animate_id=$id111\"> <span style='top:3px' class='glyphicon glyphicon-star-empty'></span><span class='ul-name-1'>$name_cn111</span>$content111 </a></li>";
+                         }
+                         ?>
+
                      </ul>
                  </div>
              </div>
          </div>
          <div class="row show-all-comment" id="show4">
              <div class="pic col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                 <img src="image/user_background.jpg" alt="hello">
+                 <img src="image/violet.jpg" alt="hello">
              </div>
              <div class="show-comment col-lg-6 col-md-6 col-sm-12 col-xs-12">
                  <div class="comment-list">
                      <ul>
-                         <li> <span>#</span> 这个是4</li>
-                         <li> <span>#</span> hello world</li>
-                         <li> <span>#</span> hello world</li>
-                         <li> <span>#</span> hello world</li>
-                         <li> <span>#</span> hello world</li>
-                         <li> <span>#</span> hello world</li>
-                         <li> <span>#</span> hello world</li>
-                         <li> <span>#</span> hello world</li>
+                         <ul id="second-ul">
+                             <li><div class="long-com"><h4>某科学的超电磁炮</h4><p>哔哩哔哩点击</p></div></li>
+                             <li><div class="long-com"><h4>某科学的超电磁炮</h4><p>哔哩哔哩点击</p></div></li>
+                             <li><div class="long-com"><h4>某科学的超电磁炮</h4><p>哔哩哔哩点击</p></div></li>
+                             <li><div class="long-com"><h4>某科学的超电磁炮</h4><p>哔哩哔哩点击</p></div></li>
+                         </ul>
                      </ul>
                  </div>
              </div>

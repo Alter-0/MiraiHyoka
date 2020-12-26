@@ -90,11 +90,11 @@ if(isset( $_SESSION['user_id'])){
                 echo " <div   id=\"headerpic\">
                  <img src=\"$pic\" alt=\"oih\">
                  <ul>
-                     <li><a href=\"user-center/usercenter.php\">个人中心</a></li>
-                 <li><a href=\"user-center/usercenter.php\">我的评分</a></li>
-                     <li><a href=\"user-center/usercenter.php\">我的收藏</a></li>
+                     <li><a href=\"../user-center/usercenter.php\">个人中心</a></li>
+                 <li><a href=\"../user-center/usercenter.php\">我的评分</a></li>
+                     <li><a href=\"../user-center/usercenter.php\">我的收藏</a></li>
                      <li id=\"headerpic-last-li\">
-                         <a href=\"user/exitlogin.php\">
+                         <a href=\"../user/exitlogin.php\">
                     退出登录
                          </a>
                      </li>
