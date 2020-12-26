@@ -3,28 +3,25 @@
 <head>
     <?php session_start() ?>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Mirai-个人中心</title>
     <script src="../js/jquery.js"></script>
     <!-- 引用部分@blueberry -->
     <script src="../js/main.js"></script>
     <!-- 引用部分@blueberry -->
     <!--    <link href="font/style.css" rel="stylesheet"/>-->
     <meta charset="UTF-8" name="referrer" content="never">
-    <title><?php
-        echo "我的名字"
-        ?>的个人中心-Mirai</title>
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
 
     <link href="css/usercenter.css" rel="stylesheet"/>
 
     <style>
-        body {
-            background: url("../image/background.jpg") no-repeat center center fixed;
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-        }
+        /*body {*/
+        /*    background: url("../image/background.jpg") no-repeat center center fixed;*/
+        /*    background-size: cover;*/
+        /*    display: flex;*/
+        /*    flex-direction: column;*/
+        /*}*/
     </style>
 
 </head>
@@ -723,7 +720,6 @@ include "../header.php"
         f = document.getElementById('input_avatar').files[0];
         reads.readAsDataURL(f);
         reads.onload = function (e) {
-            // console.log(document.getElementById('avatar'))
             document.getElementById('img_avatar').src = this.result;
         }
     }
