@@ -316,7 +316,8 @@ button:focus{
     height: 300px;
     width: 100%;
     margin-left: 20px;
-    background-color: rgba(255,255,111,.3);
+    border-radius: 30px;
+    background-color: rgba(255,255,255,.3);
 }
 .bar-person{
 
@@ -354,6 +355,7 @@ button:focus{
 }
 
 .l-r-main{
+    width: 100%;
     position: relative;
     display: inline-block;
     padding-left: 35px;
@@ -439,15 +441,35 @@ textarea{
     outline: none;
 }
 .louzhonglouhuifu{
+    position: relative;
+    margin: 5px 0 5px 10px;
     z-index: 999;
-    margin-top:-20px;
-    width: 100px;
+    width: 280px;
     height: 60px;
+
 }
-.louzhonglouhuifu input{
-    background-color: #f09199;
-    outline: none;
+.quxiao{
+    position: absolute;
+    background-color: #f09199!important;
+    right: -123px!important;
+}
+.quxiao:hover{
+    color: #0187c5!important;
+}
+.louzhonglouhuifu button{
     height: 60px;
+    width: 60px;
+    position: absolute;
+    top: 0;
+    right: -62px;
+    background-color: #0187c5;
+    color: #FFFFFF;
+    display: inline-block;
+}
+.wodehuifu{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
 }
 .louzhonglouhuifu input:focus{
     outline: none;

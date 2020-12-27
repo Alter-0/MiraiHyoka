@@ -1,7 +1,7 @@
 <footer>
     <div class="container" style="border-bottom: 1px solid #cbcbcb;">
         <div class="left col-lg-8 col-md-8 col-sm-12 col-xs-12">
-            <h1>MiraiHypka</h1>
+            <h1>MiraiHyoka</h1>
             <p>致力于为二次元世界提供最权威最完整评分体系！</p>
             <p>建立初衷仅作为团队学习项目，并不包含任何商业信息，请勿上当受骗</p>
             <p >本站不提供任何视听上传服务，所有内容均来自视频站点分享，如有侵权请与我们联系删除</p>
