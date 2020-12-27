@@ -751,10 +751,7 @@ $uid =empty($_SESSION['user_id'])?999:$_SESSION['user_id'];
                     <!--短评具体内容-->
                     <ul class="short_review_write_ul">
                         <?php
-                        $conn = mysqli_connect("47.115.15.18",
-                            "wangyesheji", "e7BLUzfQv69wXybN",
-                            "miraihyoka") or die("数据库连接失败");
-                        mysqli_query($conn, 'set names utf8');
+                        include "../conn.php";
                         $sql = "select * from evaluation,user where evaluation.user_id=user.user_id and animate_id=$id and is_long=0 limit 0,5";
                         $result = mysqli_query($conn, $sql) or die("数据库查询评论失败" . $sql);
 
