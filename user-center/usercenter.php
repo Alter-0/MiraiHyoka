@@ -90,7 +90,7 @@ function timeline($choice)
 
                     echo "
                     <div class='timeline_content'>
-                        <p id='main'>我对[$animate_name]进行了评分</p>
+                        <p id='main'>我对[<a href='../animate/detail.php?animate_id=$animate_id'>$animate_name</a>]进行了评分</p>
                         <p id='other'>$time</p>
                     </div>";
                 }
@@ -129,7 +129,7 @@ function timeline($choice)
 
                     echo "
                     <div class='timeline_content'>
-                        <p id='main'>我收藏了[$animate_name]</p>
+                        <p id='main'>我收藏了[<a href='../animate/detail.php?animate_id=$animate_id'>$animate_name</a>]</p>
                         <p id='other'>$time</p>
                     </div>";
                 }
@@ -190,8 +190,8 @@ function favorite()
 function message($choice)
 {
     include "../conn.php";
-//    $user_id = $_SESSION['user_id'];
-
+    $user_id = $_SESSION['user_id'];
+    $answer='';
     if ($choice == 0) {
         $sql = "select * from reply order by time desc ";
         $result = mysqli_query($conn, $sql) or die("数据查询失败" . $sql);
@@ -200,7 +200,7 @@ function message($choice)
             $re_reply_id = $row['re_reply_id'];
             $reply_id=$row['reply_id'];
             $content=$row['content'];
-            $sql_re = "select * from reply where reply_id='$re_reply_id'";
+            $sql_re = "select * from reply where reply_id='$re_reply_id' and user_id='$user_id'";
             $result_re = mysqli_query($conn, $sql_re) or die("数据查询失败" . $sql);
 
             $num_rows = mysqli_num_rows($result_re);
@@ -208,11 +208,12 @@ function message($choice)
                 $row_re = mysqli_fetch_assoc($result_re);
                 $time = date("Y-m-d", strtotime($row['time']));
                 $re_content = $row_re['content'];
+                $evaluation_id=$row['evaluation_id'];
 
                 $is_read=$row['is_read'];
                 if ($is_read==0){
                     echo "<div class='message_content'>
-                     <p id='main'>回复：'$content'</p>
+                     <p id='main'>回复：<a href='../animate/long-comment-out.php?id=$evaluation_id'>'$content'</a></p>
                      <p id='main'>$re_content</p>
                      <p id='other'><a href='javascript:' id='refresh'><span id='$reply_id' class='reply'>未读</span></a></p>
                      <p id='other'>$time</p>
@@ -220,7 +221,7 @@ function message($choice)
                     $answer=$reply_id;
                 }else{
                     echo "<div class='message_content'>
-                     <p id='main'>回复：'$content'</p>
+                     <p id='main'>回复：<a href='../animate/long-comment-out.php?id=$evaluation_id'>'$content'</a></p>
                      <p id='main'>$re_content</p>
                      <p id='other'>已读</p>
                      <p id='other'>$time</p>
@@ -510,7 +511,7 @@ include "../header.php"
                             <div class="settings_right">
                                 <label>
                                     <label>
-                                        <input type="radio" name="sex" value="1">男
+                                        <input type="radio" name="sex" value="1" checked>男
                                     </label>
                                     <label>
                                         <input type="radio" name="sex" value="0">女
@@ -582,7 +583,7 @@ include "../header.php"
                                         是
                                     </label>
                                     <label>
-                                        <input type="radio" name="is_timeline" value="0">
+                                        <input type="radio" name="is_timeline" value="0" checked>
                                         否
                                     </label>
                                 </label>
@@ -599,7 +600,7 @@ include "../header.php"
                                         是
                                     </label>
                                     <label>
-                                        <input type="radio" name="is_favorite" value="0">
+                                        <input type="radio" name="is_favorite" value="0" checked>
                                         否
                                     </label>
                                 </label>

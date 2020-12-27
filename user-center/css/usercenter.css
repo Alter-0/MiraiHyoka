@@ -372,6 +372,18 @@ img{
     text-align: center;
 }
 
+.animate_img{
+    width: 100%;
+    height: 80%;
+    /*padding-bottom: 120%;*/
+    overflow: hidden;
+}
+
+.animate_img img{
+    width: 100%;
+    height: 100%;
+}
+
 .all .tab_de .setting .form .settings{
     display: grid;
     gap: 40px;
