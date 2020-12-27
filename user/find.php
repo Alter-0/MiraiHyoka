@@ -120,7 +120,7 @@
             background: url("image/password.png") 3px 3px no-repeat;
         }
 
-        #submit {
+        #submit ,#return {
             border: 1px solid #d9d9d9;
             box-sizing: border-box;
             border-radius: 4px;
@@ -134,6 +134,9 @@
             margin-bottom: 20px;
         }
         #submit:hover {
+            background-color: #F4A6D7;
+        }
+        #return:hover{
             background-color: #F4A6D7;
         }
     </style>
@@ -152,10 +155,21 @@
                 <input type="text" id="username" name="username" value="" placeholder="用户名">
                 <input type="email" id="email" name="email" value="" placeholder="邮箱">
                 <input type="submit" id="submit" name="submit" value="提交">
+                <input type="button" id="return" name="return" value="返回">
             </form>
         </div>
     </div>
 </div>
+<script src="../js/jquery.js"></script>
+
+    <script>
+        $(document).ready(function () {
+        $("#return").click(function () {
+            window.location.href = "login.php";
+        })
+    })
+</script>
+
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -173,22 +187,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->isSMTP(); // 使用SMTP服务
         $mail->Host = 'smtp.qq.com'; // 发送方的SMTP服务器地址
         $mail->SMTPAuth = true; //是否使用身份验证
-        $mail->Username = '2483232294@qq.com'; // 发送方的邮箱账户
-        $mail->Password = 'mmlqxnjqkfibebde'; // 如果是qq就是客户端授权密码,如果是服务器就是mail邮箱的登录密码
+        $mail->Username = '2483232294@qq.com';
+        $mail->Password = 'mmlqxnjqkfibebde';
         $mail->SMTPSecure = 'ssl'; // 使用ssl协议方式
         $mail->Port = 465; // 端口号
-        $mail->setFrom('2483232294@qq.com', "小可爱");//设置发件人信息，或者下一个；
+        $mail->setFrom('2483232294@qq.com', "小可爱");
         //$mail->AddCC('2424275819@qq.com', "小可爱");//设置发件人信息，有时候下载的phpmailer不一样，里面函数名不同
-        $mail->addAddress($email, '.'); // 设置收件人信息
-        $mail->addReplyTo($email, 'php');//设置回复人信息,即收件人收到邮件后，如果要回复，回复邮件将发送到的邮箱地址
-        $code = rand(100000, 999999);//生成随机验证码
-        $mail->isHTML(true); // 邮件内容是html吗
-        $mail->Subject = '找回密码';   //邮件标题
-        $mail->Body = "这里是验证中心；<b>您的验证码是：</b>" . $code; //邮件内容；
+
+        $mail->addAddress($email, '.');
+        $mail->addReplyTo($email, 'php');
+        $code = rand(100000, 999999);
+        $mail->isHTML(true);
+        $mail->Subject = '找回密码';
+        $mail->Body = "这里是验证中心；<b>您的验证码是：</b>" . $code;
         if (!$mail->Send()) {
-            echo 'Mailer Error: ' . $mail->ErrorInfo;   //发送失败的原因；
+            echo 'Mailer Error: ' . $mail->ErrorInfo;
             return false;
-        } else {       //如若发送成功，将产生的随机验证码保存到数据库，到时候做对比；
+        } else {
             $sql2 = "update user set code='$code'  where account='$username'";
             mysqli_query($conn, $sql2);
             echo "<script language='javascript' type='text/javascript'>";
@@ -199,7 +214,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     else{
         echo "<script language='javascript' type='text/javascript'>";
-        echo "alert('没有此用户');";
+        echo "alert('用户邮箱不匹配或未填写');";
         echo "</script>";
     }
 }
