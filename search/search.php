@@ -26,7 +26,7 @@
         <script type="text/javascript">
             var img = document.createElement("img");
             img.setAttribute("class", "img_no");
-            img.setAttribute("src","img/bg1.png");
+            img.setAttribute("src","../image/background.jpg");
             img.setAttribute("height",window.innerHeight);
             document.body.appendChild(img);
             window.onresize = function(){
@@ -40,6 +40,7 @@
             no.style.transform="translate(-50%,-50%)";
         </script>
         <form method="get" action="" class="no">
+            <a class="back_no" href="../index.php"><img src="img/logo.png" alt="" class="back_no_i"></a>
             <input type="text" name="content" class="search_box_n" autocomplete="off" placeholder="请输入查询内容"/>
             <input type="submit" value="搜索" class="btn_n"/>
         </form>
