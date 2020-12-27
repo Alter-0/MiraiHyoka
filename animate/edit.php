@@ -147,8 +147,10 @@ if (empty($_SESSION['user_id'])){
                     $isfrist = $res['evaluation_id'];
                     $content = $res['content'];
                 }
+                $name = $res['name_cn'];
+                echo "<div id=\"small-title\">".$name."的长评"."</div>";
                 ?>
-                <div id="small-title">的长评</div>
+
                 <p>请发表你对这部作品的评分</p>
                 <div class="score-star">
                     <span class="glyphicon glyphicon-star btn-star" ></span>
