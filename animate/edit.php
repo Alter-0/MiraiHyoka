@@ -148,6 +148,9 @@ if (empty($_SESSION['user_id'])){
                     $content = $res['content'];
                 }
                 $name = $res['name_cn'];
+                if (empty($name)){
+                    $name ="番剧";
+                }
                 echo "<div id=\"small-title\">".$name."的长评"."</div>";
                 ?>
 

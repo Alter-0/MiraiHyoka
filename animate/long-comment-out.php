@@ -287,7 +287,7 @@ where re_reply_id = 0 and evaluation_id = $evaluation_id order by time desc;";
                                            </div>
                                            <div class="l-r-main">
                                                <span class="l-r-replay-time">2020-12-18 16:44:12</span>
-                                               <h6>你妈的</h6>
+                                               <h6>燕山大学</h6>
                                                <p class="l-r-text">我是动画入的坑，</p>
                                                <div class="l-info">
                                                    <button  class="btn btn-xs">
@@ -309,7 +309,7 @@ where re_reply_id = 0 and evaluation_id = $evaluation_id order by time desc;";
                                                <img src="../image/headerpic.jpg" alt="ghello">
                                            </div>
                                            <div class="l-r-main">
-                                               <h6>你妈的</h6>
+                                               <h6>燕山大学</h6>
                                                <p class="l-r-text">
                                                    还不错吧
                                                </p>
@@ -353,7 +353,8 @@ where re_reply_id = 0 and evaluation_id = $evaluation_id order by time desc;";
                            </ul>
                            <script>
                                var i = 0;
-                               $('.low-in-low').click(function () {
+                               $(document).on("click", ".low-in-low", function () {
+
                                   $('.louzhonglouhuifu').remove();
                                    var lowbtn =  $(this);
                                    var text = lowbtn.parent();
