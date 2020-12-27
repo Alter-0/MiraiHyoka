@@ -1,9 +1,9 @@
 <?php
-session_start();
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     include "../conn.php";
     $username = $_POST["username"];
     $password = $_POST["password"];
+
     $sql = "Select * from user where account='$username'";
     $result = mysqli_query($conn, $sql) or die("查询失败，请检查SQL语法");
     if (mysqli_num_rows($result) > 0) {
@@ -11,16 +11,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $row['password'])) {
             $_SESSION["user_id"] = $row['user_id'];
             $_SESSION["account"] = $username;
+            echo "<script language='javascript' type='text/javascript'>";
+            echo "alert('登陆成功');";
+            echo "location.href='../index.php';";
+            echo "</script>";
 
-            if(!empty($_SESSION['LOGIN_REQUEST_URI'])){
-                header('location:'.$_SESSION['LOGIN_REQUEST_URI']);
-            }else{
-                header('location:../index.php');
-//                echo "<script language='javascript' type='text/javascript'>";
-//                echo "alert('登陆成功');";
-//                echo "location.href='../index.php';";
-//                echo "</script>";
-            }
         } else {
             echo "<script language='javascript' type='text/javascript'>";
 
@@ -37,6 +32,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         echo "</script>";
     }
-
-}
 ?>

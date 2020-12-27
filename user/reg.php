@@ -227,12 +227,25 @@
     </div>
 </div>
 <?php
-include "../conn.php";
+function filterInput($data) {
 
+    $data = trim($data);//不必要的字符 (如：空格，tab，换行)。
+
+    $data = stripslashes($data);//去除反斜杠 (\)
+
+    $data = htmlspecialchars($data);//把一些预定义的字符转换为 HTML 实体
+
+    return $data;
+}
+include "../conn.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
     $repassword = $_POST["repassword"];
+
+    $username=filterInput($username);
+    $password=filterInput($password);
+    $repassword=filterInput($repassword);
     $email = $_POST["email"];
         if (empty($username)) {
             echo "<script language='javascript' type='text/javascript'>";
@@ -281,8 +294,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
             }
         }
-
-
 }
 
 ?>
