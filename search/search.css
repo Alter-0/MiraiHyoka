@@ -13,6 +13,14 @@ a:hover{
     color: #00a6ff;
     transition: all 0.3s ease;
 }
+
+img:hover{
+    filter: brightness(80%);
+    transition: all 0.3s ease;
+}
+img{
+    transition: all 0.3s ease;
+}
 /*top*/
 /*.top{*/
 /*    width: 100%;*/
@@ -60,9 +68,13 @@ a:hover{
     position: absolute;
     top: 0;
     left: 0;
-    /*transform: translate(-50%,-50%);*/
-    filter: blur(20px) brightness(50%);
+    /*!*transform: translate(-50%,-50%);*!*/
+    /*filter: blur(20px) brightness(50%);*/
+    filter: none;
     z-index: -100;
+}
+.img_no:hover{
+    filter: none;
 }
 .search .no{
     height: 400px;
@@ -70,10 +82,27 @@ a:hover{
     border: 1px solid #b8b6b6;
     border-radius: 15px ;
     box-sizing: border-box;
-    box-shadow: 5px 5px 20px 5px #b8b6b6;
-    background: url("img/bg1.png")  center no-repeat;
+    box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.3);
+    background: url("img/bg1.jpg")  center no-repeat;
     background-size:cover;
+    position: relative;
     /*opacity: 0.8;*/
+}
+.search .no .back_no{
+    position: absolute;
+    height: 80px;
+    width: 20%;
+    top: 80px;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+.search .no .back_no_i{
+    max-height: 80%;
+    max-width: 100%;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 .search_box_n{
     width: 40%;
@@ -276,13 +305,13 @@ a:hover{
     color: white;
 }
 /*search end*/
-img:hover{
-    filter: brightness(80%);
-    transition: all 0.3s ease;
-}
-img{
-    transition: all 0.3s ease;
-}
+/*img:hover{*/
+/*    filter: brightness(80%);*/
+/*    transition: all 0.3s ease;*/
+/*}*/
+/*img{*/
+/*    transition: all 0.3s ease;*/
+/*}*/
 
 
 /*.bottom{*/
