@@ -132,16 +132,16 @@ $uid =empty($_SESSION['user_id'])?999:$_SESSION['user_id'];
                      $strlen=200;
                         $tmpstr="";
                         for($i = $start; $i < $strlen;) {
-                         if (ord ( substr ( $str, $i, 1 ) ) > 0xa0) { // 如果字符串中首个字节的ASCII序数
-                         $tmpstr .= substr ( $str, $i, 3 ); // 每次取出三位字符赋给变量$tmpstr，即等
+                         if (ord ( substr ( $str, $i, 1 ) ) > 0xa0) { // ASCII
+                         $tmpstr .= substr ( $str, $i, 3 );
 
-                         $i=$i+3; // 变量自加3
+                         $i=$i+3;
                          } else{
-                         $tmpstr .= substr ( $str, $i, 1 ); // 如果不是汉字，则每次取出一位字符赋给
+                         $tmpstr .= substr ( $str, $i, 1 );
                          $i++;
                          }
                          }
-                         return $tmpstr; // 返回字符串
+                         return $tmpstr;
  }
 
                     ?>
@@ -751,10 +751,7 @@ $uid =empty($_SESSION['user_id'])?999:$_SESSION['user_id'];
                     <!--短评具体内容-->
                     <ul class="short_review_write_ul">
                         <?php
-                        $conn = mysqli_connect("47.115.15.18",
-                            "wangyesheji", "e7BLUzfQv69wXybN",
-                            "miraihyoka") or die("数据库连接失败");
-                        mysqli_query($conn, 'set names utf8');
+                        include "../conn.php";
                         $sql = "select * from evaluation,user where evaluation.user_id=user.user_id and animate_id=$id and is_long=0 limit 0,5";
                         $result = mysqli_query($conn, $sql) or die("数据库查询评论失败" . $sql);
 
