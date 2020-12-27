@@ -132,16 +132,16 @@ $uid =empty($_SESSION['user_id'])?999:$_SESSION['user_id'];
                      $strlen=200;
                         $tmpstr="";
                         for($i = $start; $i < $strlen;) {
-                         if (ord ( substr ( $str, $i, 1 ) ) > 0xa0) { // 如果字符串中首个字节的ASCII序数
-                         $tmpstr .= substr ( $str, $i, 3 ); // 每次取出三位字符赋给变量$tmpstr，即等
+                         if (ord ( substr ( $str, $i, 1 ) ) > 0xa0) { // ASCII
+                         $tmpstr .= substr ( $str, $i, 3 );
 
-                         $i=$i+3; // 变量自加3
+                         $i=$i+3;
                          } else{
-                         $tmpstr .= substr ( $str, $i, 1 ); // 如果不是汉字，则每次取出一位字符赋给
+                         $tmpstr .= substr ( $str, $i, 1 );
                          $i++;
                          }
                          }
-                         return $tmpstr; // 返回字符串
+                         return $tmpstr;
  }
 
                     ?>
