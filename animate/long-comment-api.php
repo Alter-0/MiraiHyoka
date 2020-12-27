@@ -25,38 +25,35 @@ if (!empty($_POST['action'])){
     }
 }
 
-function saveComment($conn){
-   $content =  $_POST['content'];
-   $uid =  $_POST['uid'];
-   $id =  $_POST['id'];
-   $score =  $_POST['score'];
-   $title =  $_POST['title'];
-   $time  = date("Y-m-d H:m:s");
-   $sql = "select * from evaluation
-where is_long =1
-and  user_id = $uid
-and animate_id = $id;";
-   $res = queryOneRecord($conn,$sql);
-   if (empty($res)){
-       $sql  = "INSERT INTO evaluation(animate_id, is_long, title, content, user_id, score, time) 
+function saveComment($conn)
+{
+    $content = $_POST['content'];
+    $uid = $_POST['uid'];
+    $id = $_POST['id'];
+    $score = $_POST['score'];
+    $title = $_POST['title'];
+    $time = date("Y-m-d H:m:s");
+    $isfirst = $_POST['isfirst'];
+    if ($isfirst == 0) {
+        $sql = "INSERT INTO evaluation(animate_id, is_long, title, content, user_id, score, time) 
 VALUES ('$id','1','$title','$content','$uid',8.88,'$time');";
-       if (changeRecord($conn,$sql)){
-           echo "保存成功";
-       }else{
-           echo "保存失败，请重试";
-       }
-   }else{
-       $sql  = "update evaluation  
+        if (changeRecord($conn, $sql)) {
+            echo "保存成功";
+        } else {
+            echo "保存失败，请重试";
+        }
+    } else {
+        $sql = "update evaluation  
                 set  content ='$content' ,score='$score',title='$title',time='$time' 
                 where is_long =1
-                and  user_id = $uid
-                and animate_id = $id;";
-       if (changeRecord($conn,$sql)){
-           echo "保存成功";
-       }else{
-           echo "保存失败，请重试";
-       }
-   }
+                and evaluation_id = $isfirst;";
+        if (changeRecord($conn, $sql)) {
+            echo "保存成功";
+        } else {
+            echo "保存失败，请重试";
+        }
+}
+
 
 
 

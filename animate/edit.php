@@ -1,6 +1,16 @@
 <?php
 
 session_start();
+if (empty($_SESSION['user_id'])){
+    /**
+     * put the url into session,if exist
+     */
+    if(!empty($_SERVER['REQUEST_URI']))
+        $_SESSION['LOGIN_REQUEST_URI']= $_SERVER['REQUEST_URI'];
+    header('location:../user/login.php');
+}else{
+    $uid = $_SESSION['user_id'];
+}
 ?>
 <!doctype html>
 <html lang="zh-CN">
@@ -19,7 +29,6 @@ session_start();
         body{
 
         }
-
         .editor {
             border: 1px silver solid;
             padding: 0 30px;
@@ -123,7 +132,23 @@ session_start();
                 </span>
             </div>
             <div class="comment-score">
-                <div id="small-title">谋学的超电磁炮的长评</div>
+                <?php
+                $animate_id = empty($_GET['id'])?100001:$_GET['id'];
+
+                $sql = "select animate.animate_id,evaluation_id,title,name_cn,content from evaluation join animate on animate.animate_id = evaluation.animate_id
+           where evaluation.animate_id =$animate_id and user_id =$uid and is_long = 1;";
+                include "../conn.php";
+                include "../static/dao.php";
+                $res = queryOneRecord($conn,$sql);
+                if (empty($res)){
+                    $isfrist = 0;
+                    $content = "第一次评论";
+                }else{
+                    $isfrist = $res['evaluation_id'];
+                    $content = $res['content'];
+                }
+                ?>
+                <div id="small-title">的长评</div>
                 <p>请发表你对这部作品的评分</p>
                 <div class="score-star">
                     <span class="glyphicon glyphicon-star btn-star" ></span>
@@ -166,14 +191,13 @@ session_start();
         <input id="id" type="hidden" name="id" value="<?php $id = empty($_GET['id'])?100001:$_GET['id']; echo $id?>">
         <script type="text/javascript" src="//unpkg.com/wangeditor/dist/wangEditor.min.js"></script>
         <script type="text/javascript">
-
             const E = window.wangEditor
             const editor = new E('#long-comment-editor')
             // 或者 const editor = new E( document.getElementById('div1') )
             editor.config.uploadImgShowBase64 = true
             editor.config.height = 500;
-
             editor.create()
+            editor.txt.html('<?php echo $content;?>');
             // editor.txt.html('<p>用 JS 设置的内容</p>');
             $('#btn-save').click(function () {
                 var content = editor.txt.html();
@@ -185,7 +209,7 @@ session_start();
                 $.ajax({
                     url:"long-comment-api.php",
                     type:"POST",
-                    data:{action:"save",content:content,title:$('#input-title').val(),id:$('#id').val(),uid:$('#uid').val(),score:score},
+                    data:{action:"save",content:content,title:$('#input-title').val(),id:$('#id').val(),uid:$('#uid').val(),score:score,isfirst:<?php echo $isfrist;?>},
                     dataType:"text",
                     success:function (data) {
                       alert(data);

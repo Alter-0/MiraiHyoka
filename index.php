@@ -111,7 +111,6 @@
                     $pic = "image/akari.jpg";
                 }else{
                    $pic  = substr($pic,3);
-
                 }
                 echo " <div   id=\"headerpic\">
                       

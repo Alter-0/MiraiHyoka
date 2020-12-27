@@ -633,9 +633,8 @@ $uid =empty($_SESSION['user_id'])?999:$_SESSION['user_id'];
                     <!--长评具体内容-->
                     <ul class="short_review_write_ulll">
                         <?php
-
                         $sql = "select evaluation_id,title,time,content,username,avatar,score,is_long from evaluation
-                        join user on evaluation.user_id = user.user_id where is_long =1 and animate_id =100001;";
+                        join user on evaluation.user_id = user.user_id where is_long =1 and animate_id =$id;";
                         $rec = mysqli_query($conn,$sql);
                         $res = mysqli_query($conn,$sql);
                         $i = 0;
@@ -645,7 +644,6 @@ $uid =empty($_SESSION['user_id'])?999:$_SESSION['user_id'];
                             $i++;
                         }
                         foreach ($output as $item){
-
                             $title11 = $item['title'];
                             $time11 = $item['time'];
                             $time11 = substr($time11,0,20);
@@ -678,7 +676,7 @@ $uid =empty($_SESSION['user_id'])?999:$_SESSION['user_id'];
                                 </div>
                                 <div class=\"short_review_time\">$time11</div>
                             </div>
-                            <a href=\"long-comment-out.php?id=$evaluation_id11\">
+                            <a href=\"long-comment-out.php?id=$evaluation_id11&animate_id=$id\">
                                 <div class=\"l-main\">
                                     <div class=\"l-main-title\">
                                         <span>$title11</span>
